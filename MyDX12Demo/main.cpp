@@ -24,6 +24,7 @@
 #include <wrl.h>
 using namespace Microsoft::WRL;
 
+
 // DirectX 12 specific headers.
 #include <d3d12.h>
 #include <dxgi1_6.h>
