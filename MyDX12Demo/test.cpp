@@ -7,7 +7,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	// ´´½¨´°¿Ú
+	// åˆ›å»ºçª—å£
 	HWND hwnd;
 	WNDCLASSEX wc = {};
 	wc.cbSize = sizeof(WNDCLASSEX);
@@ -23,7 +23,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	hwnd = CreateWindowEx(0, "DirectX12Sample", "DirectX 12 Sample", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
 		windowRect.right - windowRect.left, windowRect.bottom - windowRect.top, NULL, NULL, hInstance, NULL);
 
-	// ³õÊ¼»¯ DirectX 12
+	// åˆå§‹åŒ– DirectX 12
 	ID3D12Device* pDevice;
 	ID3D12CommandQueue* pCommandQueue;
 	//HRESULT WINAPI D3D12CreateDevice(
@@ -37,10 +37,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	queueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
 	pDevice->CreateCommandQueue(&queueDesc, IID_PPV_ARGS(&pCommandQueue));
 
-	// ÏÔÊ¾´°¿Ú
+	// æ˜¾ç¤ºçª—å£
 	ShowWindow(hwnd, nCmdShow);
 
-	// Ö÷ÏûÏ¢Ñ­»·
+	// ä¸»æ¶ˆæ¯å¾ªç¯
 	MSG msg = {};
 	while (true)
 	{
@@ -53,18 +53,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				break;
 		}
 
-		// äÖÈ¾Âß¼­
+		// æ¸²æŸ“é€»è¾‘
 
-		// ÔÚ´Ë´¦Ö´ĞĞ»æÖÆÃüÁî
+		// åœ¨æ­¤å¤„æ‰§è¡Œç»˜åˆ¶å‘½ä»¤
 
-		// ½»»»Ç°ºó»º³åÇø
+		// äº¤æ¢å‰åç¼“å†²åŒº
 		// pCommandQueue->Present();
 
-		// ÔÚÕâÀïÌí¼ÓÖ¡Í¬²½Âß¼­£¬È·±£Ö¡ËÙÂÊ
+		// åœ¨è¿™é‡Œæ·»åŠ å¸§åŒæ­¥é€»è¾‘ï¼Œç¡®ä¿å¸§é€Ÿç‡
 	}
 
-	// ÇåÀí×ÊÔ´
-	// ÊÍ·Å DirectX 12 ¶ÔÏó
+	// æ¸…ç†èµ„æº
+	// é‡Šæ”¾ DirectX 12 å¯¹è±¡
 
 	return static_cast<int>(msg.wParam);
 }

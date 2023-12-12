@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>F:\DX12Projects\MyDX12Demo\inc;$(IncludePath)</IncludePath>
+    <IncludePath>F:\DX12Projects\MyDX12Demo\inc;D:\zyxxx\inc;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,11 +132,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="CommandQueue.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HighResolutionClock.cpp" />
+    <ClCompile Include="Tutorial2.cpp" />
+    <ClCompile Include="PixelShader.hlsl" />
+    <ClCompile Include="VertexShader.hlsl" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Helpers.h" />
+    <ClInclude Include="..\inc\d3dx12.h" />
+    <ClInclude Include="..\inc\DX12LibPCH.h" />
+    <ClInclude Include="..\inc\Events.h" />
+    <ClInclude Include="..\inc\Helpers.h" />
+    <ClInclude Include="..\inc\KeyCodes.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="CommandQueue.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="HighResolutionClock.h" />
+    <ClInclude Include="Tutorial2.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
