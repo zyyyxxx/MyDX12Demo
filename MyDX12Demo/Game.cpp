@@ -1,8 +1,8 @@
 #include <DX12LibPCH.h>
 
-#include "Application.h"
-#include "Game.h"
-#include "Window.h"
+#include <Application.h>
+#include <Game.h>
+#include <Window.h>
 
 bool Game::Initialize()
 {

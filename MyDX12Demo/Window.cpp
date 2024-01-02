@@ -1,8 +1,8 @@
-#include "Window.h"
+#include <Window.h>
 #include <DX12LibPCH.h>
-#include "Application.h"
-#include "CommandQueue.h"
-#include "Game.h"
+#include <Application.h>
+#include <CommandQueue.h>
+#include <Game.h>
 
 Window::Window(HWND hWnd, const std::wstring& windowName, int clientWidth, int clientHeight, bool vSync )
     : m_hWnd(hWnd)
