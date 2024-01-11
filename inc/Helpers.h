@@ -6,7 +6,7 @@
 
 // From DXSampleHelper.h 
 // Source: https://github.com/Microsoft/DirectX-Graphics-Samples
-// ¿ÉÓÃÓÚ¼ì²é DirectX API º¯ÊıµÄ·µ»ØÖµµÄº¯Êı¡£Èç¹ûº¯Êı·µ»ØÊ§°Ü´úÂë£¬Ôò»áÒı·¢Òì³£¡£
+// å¯ç”¨äºæ£€æŸ¥ DirectX API å‡½æ•°çš„è¿”å›å€¼çš„å‡½æ•°ã€‚å¦‚æœå‡½æ•°è¿”å›å¤±è´¥ä»£ç ï¼Œåˆ™ä¼šå¼•å‘å¼‚å¸¸ã€‚
 inline void ThrowIfFailed(HRESULT hr)
 {
 	if (FAILED(hr))

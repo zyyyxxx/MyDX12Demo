@@ -5,25 +5,26 @@
  
 #include <DirectXMath.h>
 
-class Tutorial2 : public Game
+class Demo1 : public Game
 {
 public:
     using super = Game;
  
-    Tutorial2(const std::wstring& name, int width, int height, bool vSync = false);
+    Demo1(const std::wstring& name, int width, int height, bool vSync = false);
+    
     /**
-     *  Load content required for the demo.
+     *  加载内容
      */
     virtual bool LoadContent() override;
  
     /**
-     *  Unload demo specific content that was loaded in LoadContent.
+     *  传已经加载的内容
      */
     virtual void UnloadContent() override;
 
 protected:
     /**
-     *  Update the game logic.
+     *  更新游戏逻辑
      */
     virtual void OnUpdate(UpdateEventArgs& e) override;
     
@@ -46,27 +47,27 @@ protected:
     
     virtual void OnResize(ResizeEventArgs& e) override;
 private:
-     // Helper functions
-     // Transition a resource
+     // 辅助函数
+     // 转换资源
      void TransitionResource(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> commandList,
          Microsoft::WRL::ComPtr<ID3D12Resource> resource,
          D3D12_RESOURCE_STATES beforeState, D3D12_RESOURCE_STATES afterState);
 
-     // Clear a render target view.
+     // 清除RTV
     void ClearRTV(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> commandList,
         D3D12_CPU_DESCRIPTOR_HANDLE rtv, FLOAT* clearColor);
 
-     // Clear the depth of a depth-stencil view.
+     // 清除DSV
     void ClearDepth(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> commandList,
         D3D12_CPU_DESCRIPTOR_HANDLE dsv, FLOAT depth = 1.0f );
 
-     // Create a GPU buffer.
+     // 创建GPU缓冲区
     void UpdateBufferResource(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> commandList,
         ID3D12Resource** pDestinationResource, ID3D12Resource** pIntermediateResource,
         size_t numElements, size_t elementSize, const void* bufferData, 
         D3D12_RESOURCE_FLAGS flags = D3D12_RESOURCE_FLAG_NONE );
 
-    // Resize the depth buffer to match the size of the client area.
+    // 调整深度缓冲区的大小。
     void ResizeDepthBuffer(int width, int height);
 
     uint64_t m_FenceValues[Window::BufferCount] = {};
@@ -84,10 +85,10 @@ private:
     Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_DSVHeap;
 
  
-    // Root signature
+    // 根签名
     Microsoft::WRL::ComPtr<ID3D12RootSignature> m_RootSignature;
     
-    // Pipeline state object.
+    // PSO
     Microsoft::WRL::ComPtr<ID3D12PipelineState> m_PipelineState;
     
     D3D12_VIEWPORT m_Viewport;

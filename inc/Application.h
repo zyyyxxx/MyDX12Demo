@@ -19,43 +19,42 @@ class Application
 public:
 
     /**
-    * Create the application singleton with the application instance handle.
+    *创建应用单例，使用应用程序实例句柄。
     */
     static void Create(HINSTANCE hInst);
 
     /**
-    * Destroy the application instance and all windows created by this application instance.
+    *销毁应用程序实例和由此应用程序实例创建的所有窗口。
     */
     static void Destroy();
     /**
-    * Get the application singleton.
+    * 获取单例。
     */
     static Application& Get();
 
     /**
-     * Check to see if VSync-off is supported.
+     * 检查是否支持VSync-off。
      */
     bool IsTearingSupported() const;
 
     /**
-    * Create a new DirectX11 render window instance.
-    * @param windowName The name of the window. This name will appear in the title bar of the window. This name should be unique.
-    * @param clientWidth The width (in pixels) of the window's client area.
-    * @param clientHeight The height (in pixels) of the window's client area.
-    * @param vSync Should the rendering be synchronized with the vertical refresh rate of the screen.
+    * 创建新窗口实例。
+    * @param windowName 窗口名称。 此名称将出现在窗口标题栏中。 此名称应唯一。
+    * @param clientWidth 宽度（以像素为单位） 
+    * @param clientHeight 高度（以像素为单位）
+    * @param vSync  是否使用VSync
     * @param windowed If true, the window will be created in windowed mode. If false, the window will be created full-screen.
     * @returns The created window instance. If an error occurred while creating the window an invalid
-    * window instance is returned. If a window with the given name already exists, that window will be
-    * returned.
+    * window instance is returned. If a window with the given name already exists, that window will be returned.
     */
     std::shared_ptr<Window> CreateRenderWindow(const std::wstring& windowName, int clientWidth, int clientHeight, bool vSync = true );
 
     /**
-    * Destroy a window given the window name.
+    * 根据窗口名字销毁窗口
     */
     void DestroyWindow(const std::wstring& windowName);
     /**
-    * Destroy a window given the window reference.
+    * 根据窗口引用销毁窗口
     */
     void DestroyWindow(std::shared_ptr<Window> window);
 
@@ -77,11 +76,12 @@ public:
     void Quit(int exitCode = 0);
 
     /**
-     * Get the Direct3D 12 device
+     * 获取 D3DX12 设备
      */
     Microsoft::WRL::ComPtr<ID3D12Device2> GetDevice() const;
+    
     /**
-     * Get a command queue. Valid types are:
+     * 获取命令队列. Valid types are:
      * - D3D12_COMMAND_LIST_TYPE_DIRECT : Can be used for draw, dispatch, or copy commands.
      * - D3D12_COMMAND_LIST_TYPE_COMPUTE: Can be used for dispatch or copy commands.
      * - D3D12_COMMAND_LIST_TYPE_COPY   : Can be used for copy commands.

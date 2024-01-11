@@ -15,10 +15,10 @@ public:
       CommandQueue(Microsoft::WRL::ComPtr<ID3D12Device2> device, D3D12_COMMAND_LIST_TYPE type);
       virtual ~CommandQueue();
       
-      // Get an available command list from the command queue.
+      // 获取命令队列中的可用命令列表
       Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> GetCommandList();
       
-      // Execute a command list.
+      // 执行命令队列
       // Returns the fence value to wait for for this command list.
       uint64_t ExecuteCommandList(Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> commandList);
       

@@ -15,13 +15,13 @@
 #include <memory>
 #include <string>
 
-// Forward-declare the DirectXTemplate class.
+// 前向声明
 class Game;
 
 class Window
 {
 public:
-    // Number of swapchain back buffers.
+    // swapchain back buffers 数量
     static const UINT BufferCount = 3;
 
     /**
@@ -72,13 +72,13 @@ public:
     UINT GetCurrentBackBufferIndex() const;
 
     /**
-     * Present the swapchain's back buffer to the screen.
-     * Returns the current back buffer index after the present.
+     * 显示交换链的当前back buffer到屏幕。
+     * 返回back buffer的索引。
      */
     UINT Present();
 
     /**
-     * Get the render target view for the current back buffer.
+     * 获取当前back buffer的RTV
      */
     D3D12_CPU_DESCRIPTOR_HANDLE GetCurrentRenderTargetView() const;
 
@@ -101,8 +101,8 @@ protected:
     Window(HWND hWnd, const std::wstring& windowName, int clientWidth, int clientHeight, bool vSync );
     virtual ~Window();
 
-    // Register a Game with this window. This allows
-    // the window to callback functions in the Game class.
+    // 注册Game类实例 
+    // This allows the window to callback functions in the Game class.
     void RegisterCallbacks( std::shared_ptr<Game> pGame );
 
     // Update and Draw can only be called by the application.
@@ -126,7 +126,7 @@ protected:
     // The window was resized.
     virtual void OnResize(ResizeEventArgs& e);
 
-    // Create the swapchian.
+    // 创建交换链
     Microsoft::WRL::ComPtr<IDXGISwapChain4> CreateSwapChain();
 
     // Update the render target views for the swapchain back buffers.

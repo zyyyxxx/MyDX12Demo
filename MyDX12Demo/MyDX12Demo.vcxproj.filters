@@ -18,13 +18,62 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="Application.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandQueue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HighResolutionClock.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Helpers.h">
+    <ClInclude Include="..\inc\Application.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\CommandQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\d3dx12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\DX12LibPCH.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Events.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Helpers.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\HighResolutionClock.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\KeyCodes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Tutorial2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Window.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\shaders\VertexShader.hlsl" />
+    <FxCompile Include="..\shaders\PixelShader.hlsl" />
   </ItemGroup>
 </Project>

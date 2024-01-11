@@ -50,11 +50,11 @@ Application::Application(HINSTANCE hInst)
     wndClass.lpfnWndProc = &WndProc;
     wndClass.hInstance = m_hInstance;
     wndClass.hCursor = LoadCursor(nullptr, IDC_ARROW);
-    wndClass.hIcon = LoadIcon(m_hInstance, MAKEINTRESOURCE(APP_ICON));
+    wndClass.hIcon = LoadIcon(m_hInstance, nullptr);
     wndClass.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
     wndClass.lpszMenuName = nullptr;
     wndClass.lpszClassName = WINDOW_CLASS_NAME;
-    wndClass.hIconSm = LoadIcon(m_hInstance, MAKEINTRESOURCE(APP_ICON));
+    wndClass.hIconSm = LoadIcon(m_hInstance, nullptr);
 
     if (!RegisterClassExW(&wndClass))
     {
@@ -283,7 +283,7 @@ std::shared_ptr<Window> Application::GetWindowByName(const std::wstring& windowN
 
 int Application::Run(std::shared_ptr<Game> pGame)
 {
-    if (!pGame->Initialize()) return 1;
+    if (!pGame->Initialize()) return 1; 
     if (!pGame->LoadContent()) return 2;
 
     MSG msg = { 0 };

@@ -22,20 +22,8 @@ CommandQueue::CommandQueue(Microsoft::WRL::ComPtr<ID3D12Device2> device, D3D12_C
     assert(m_FenceEvent && "Failed to create fence event handle.");
 }
 
-Microsoft::WRL::ComPtr<ID3D12CommandAllocator> CommandQueue::CreateCommandAllocator()
+CommandQueue::~CommandQueue()
 {
-    Microsoft::WRL::ComPtr<ID3D12CommandAllocator> commandAllocator;
-    ThrowIfFailed(m_d3d12Device->CreateCommandAllocator(m_CommandListType, IID_PPV_ARGS(&commandAllocator)));
- 
-    return commandAllocator;
-}
-
-Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> CommandQueue::CreateCommandList(Microsoft::WRL::ComPtr<ID3D12CommandAllocator> allocator)
-{
-    Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> commandList;
-    ThrowIfFailed(m_d3d12Device->CreateCommandList(0, m_CommandListType, allocator.Get(), nullptr, IID_PPV_ARGS(&commandList)));
- 
-    return commandList;
 }
 
 Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> CommandQueue::GetCommandList()
@@ -56,6 +44,21 @@ Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> CommandQueue::GetCommandList(
     {
         commandAllocator = CreateCommandAllocator();
     }
+    
+    if (!m_CommandListQueue.empty())
+    {
+        commandList = m_CommandListQueue.front();
+        m_CommandListQueue.pop();
+
+        ThrowIfFailed(commandList->Reset(commandAllocator.Get(), nullptr));
+    }
+    else
+    {
+        commandList = CreateCommandList(commandAllocator);
+    }
+
+
+    
     // Associate the command allocator with the command list so that it can be
     // retrieved when the command list is executed.
     //在将命令列表返回给调用函数之前，命令分配器需要通过将指向命令分配器的指针分配给命令列表的私有数据来与命令列表相关联
@@ -89,4 +92,51 @@ uint64_t CommandQueue::ExecuteCommandList(Microsoft::WRL::ComPtr<ID3D12GraphicsC
     commandAllocator->Release();
  
     return fenceValue;
+}
+
+uint64_t CommandQueue::Signal()
+{
+    uint64_t fenceValue = ++m_FenceValue;
+    m_d3d12CommandQueue->Signal(m_d3d12Fence.Get(), fenceValue);
+    return fenceValue;
+}
+
+bool CommandQueue::IsFenceComplete(uint64_t fenceValue)
+{
+    return m_d3d12Fence->GetCompletedValue() >= fenceValue;
+}
+
+void CommandQueue::WaitForFenceValue(uint64_t fenceValue)
+{
+    if (!IsFenceComplete(fenceValue))
+    {
+        m_d3d12Fence->SetEventOnCompletion(fenceValue, m_FenceEvent);
+        ::WaitForSingleObject(m_FenceEvent, DWORD_MAX);
+    }
+}
+
+void CommandQueue::Flush()
+{
+    WaitForFenceValue(Signal());
+}
+
+Microsoft::WRL::ComPtr<ID3D12CommandQueue> CommandQueue::GetD3D12CommandQueue() const
+{
+    return m_d3d12CommandQueue;
+}
+
+Microsoft::WRL::ComPtr<ID3D12CommandAllocator> CommandQueue::CreateCommandAllocator()
+{
+    Microsoft::WRL::ComPtr<ID3D12CommandAllocator> commandAllocator;
+    ThrowIfFailed(m_d3d12Device->CreateCommandAllocator(m_CommandListType, IID_PPV_ARGS(&commandAllocator)));
+ 
+    return commandAllocator;
+}
+
+Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> CommandQueue::CreateCommandList(Microsoft::WRL::ComPtr<ID3D12CommandAllocator> allocator)
+{
+    Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList2> commandList;
+    ThrowIfFailed(m_d3d12Device->CreateCommandList(0, m_CommandListType, allocator.Get(), nullptr, IID_PPV_ARGS(&commandList)));
+ 
+    return commandList;
 }

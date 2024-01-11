@@ -10,11 +10,12 @@
 
 class Window;
 
+// 游戏基类
 class Game : public std::enable_shared_from_this<Game>
 {
 public:
     /**
-        * Create the DirectX demo using the specified window dimensions.
+    * 创建一个使用指定窗口的Demo
     */
     Game(const std::wstring& name, int width, int height, bool vSync);
     virtual ~Game();
