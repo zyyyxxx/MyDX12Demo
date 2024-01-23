@@ -4,7 +4,7 @@
 #pragma comment(lib , "Shlwapi.lib")
 
 #include <Application.h>
-#include <..\inc\Demo1.h>
+#include "Demo2.h"
 
 #include <dxgidebug.h>
 #pragma comment(lib , "dxguid.lib")
@@ -22,18 +22,27 @@ int CALLBACK wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR lpCmdL
 {
     int retCode = 0;
 
-    // Set the working directory to the path of the executable.
     WCHAR path[MAX_PATH];
-    HMODULE hModule = GetModuleHandleW(NULL);
-    if ( GetModuleFileNameW(hModule, path, MAX_PATH) > 0 )
+
+    int argc = 0;
+    LPWSTR* argv = CommandLineToArgvW(lpCmdLine, &argc);
+    if (argv)
     {
-        PathRemoveFileSpecW(path);
-        SetCurrentDirectoryW(path);
+        for (int i = 0; i < argc; ++i)
+        {
+            // -wd Specify the Working Directory.
+            if (wcscmp(argv[i], L"-wd") == 0)
+            {
+                wcscpy_s(path, argv[++i]);
+                SetCurrentDirectoryW(path);
+            }
+        }
+        LocalFree(argv);
     }
 
     Application::Create(hInstance);
     {
-        std::shared_ptr<Demo1> demo = std::make_shared<Demo1>(L"Learning DirectX 12", 1280, 720);
+        std::shared_ptr<Demo2> demo = std::make_shared<Demo2>(L"Demo2", 1280, 720);
         retCode = Application::Get().Run(demo);
     }
     Application::Destroy();

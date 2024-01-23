@@ -31,22 +31,22 @@ public:
     }
  
     /**
-     *  Initialize the DirectX Runtime.
+     *  初始化 DirectX Runtime。
      */
     virtual bool Initialize();
 
     /**
-     *  Load content required for the demo.
+     *  加载Demo所需的内容。
      */
     virtual bool LoadContent() = 0;
 
     /**
-     *  Unload demo specific content that was loaded in LoadContent.
+     *  卸载在 LoadContent 中加载 Demo 内容。
      */
     virtual void UnloadContent() = 0;
 
     /**
-     * Destroy any resource that are used by the game.
+     * 销毁使用的任何资源。
      */
     virtual void Destroy();
 
@@ -54,53 +54,31 @@ protected:
     friend class Window;
 
     /**
-     *  Update the game logic.
+     *  更新游戏逻辑。
      */
     virtual void OnUpdate(UpdateEventArgs& e);
 
     /**
-     *  Render stuff.
+     *  渲染
      */
     virtual void OnRender(RenderEventArgs& e);
 
-    /**
-     * Invoked by the registered window when a key is pressed
-     * while the window has focus.
-     */
     virtual void OnKeyPressed(KeyEventArgs& e);
-
-    /**
-     * Invoked when a key on the keyboard is released.
-     */
+ 
     virtual void OnKeyReleased(KeyEventArgs& e);
-
-    /**
-     * Invoked when the mouse is moved over the registered window.
-     */
+ 
     virtual void OnMouseMoved(MouseMotionEventArgs& e);
-
-    /**
-     * Invoked when a mouse button is pressed over the registered window.
-     */
+ 
     virtual void OnMouseButtonPressed(MouseButtonEventArgs& e);
-
-    /**
-     * Invoked when a mouse button is released over the registered window.
-     */
+ 
     virtual void OnMouseButtonReleased(MouseButtonEventArgs& e);
-
-    /**
-     * Invoked when the mouse wheel is scrolled while the registered window has focus.
-     */
+ 
     virtual void OnMouseWheel(MouseWheelEventArgs& e);
-
-    /**
-     * Invoked when the attached window is resized.
-     */
+ 
     virtual void OnResize(ResizeEventArgs& e);
 
     /**
-     * Invoked when the registered window instance is destroyed.
+     * 在销毁已注册的窗口实例时调用
      */
     virtual void OnWindowDestroy();
     std::shared_ptr<Window> m_pWindow;

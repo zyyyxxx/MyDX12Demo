@@ -1,6 +1,4 @@
-/**
-* @brief A window for our application.
-*/
+
 #pragma once
 
 #define WIN32_LEAN_AND_MEAN
@@ -12,26 +10,36 @@
 
 #include <Events.h>
 #include <HighResolutionClock.h>
+#include <RenderTarget.h>
+#include <Texture.h>
+
 #include <memory>
-#include <string>
 
-// 前向声明
 class Game;
+class Texture;
 
-class Window
+/**
+* @brief 应用程序的窗口。
+*/
+class Window : public std::enable_shared_from_this<Window>
 {
 public:
     // swapchain back buffers 数量
     static const UINT BufferCount = 3;
 
     /**
-    * Get a handle to this window's instance.
-    * @returns The handle to the window instance or nullptr if this is not a valid window.
+    * 获取此窗口实例的句柄
+    * @returns 窗口实例的句柄，如果这不是有效的窗口，则为 nullptr
     */
     HWND GetWindowHandle() const;
 
     /**
-    * Destroy this window.
+      * 初始化窗口
+      */
+    void Initialize();
+
+    /**
+    * 销毁此窗口。
     */
     void Destroy();
 
@@ -41,30 +49,36 @@ public:
     int GetClientHeight() const;
 
     /**
-    * Should this window be rendered with vertical refresh synchronization.
+    * 此窗口是否应使用VSync。
     */
     bool IsVSync() const;
     void SetVSync(bool vSync);
     void ToggleVSync();
 
     /**
-    * Is this a windowed window or full-screen?
+    * 窗口/全屏？
     */
     bool IsFullScreen() const;
 
-    // Set the fullscreen state of the window.
+    // 设置窗口的全屏状态
     void SetFullscreen(bool fullscreen);
     void ToggleFullscreen();
 
     /**
-     * Show this window.
+     * 显示此窗口
      */
     void Show();
 
     /**
-     * Hide the window.
-     */
+      * 隐藏窗口
+      */
     void Hide();
+
+    /**
+    * 获取窗口的RT。
+    * 此方法应在每帧调用一次，因为颜色连接点会根据窗口的当前后台缓冲区而变化.
+    */
+    const RenderTarget& GetRenderTarget() const;
 
     /**
      * Return the current back buffer index.
@@ -72,29 +86,21 @@ public:
     UINT GetCurrentBackBufferIndex() const;
 
     /**
-     * 显示交换链的当前back buffer到屏幕。
-     * 返回back buffer的索引。
-     */
-    UINT Present();
-
-    /**
-     * 获取当前back buffer的RTV
-     */
-    D3D12_CPU_DESCRIPTOR_HANDLE GetCurrentRenderTargetView() const;
-
-    /**
-     * Get the back buffer resource for the current back buffer.
-     */
-    Microsoft::WRL::ComPtr<ID3D12Resource> GetCurrentBackBuffer() const;
+      * 显示交换链的当前back buffer到屏幕。
+      * 返回back buffer的索引。
+      * @param texture 在渲染之前要复制到交换链的后台缓冲区的纹理。
+      * 默认情况下，这是一个空纹理。在这种情况下，不会执行任何复制。使用 Window::GetRenderTarget 方法获取窗口颜色缓冲区的RT. 
+      */
+    UINT Present(const Texture& texture = Texture());
 
 
 protected:
-    // The Window procedure needs to call protected methods of this class.
+    // Window 过程需要调用此类的protected方法。
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-    // Only the application can create a window.
+    // 只有应用程序可以创建窗口。
     friend class Application;
-    // The DirectXTemplate class needs to register itself with a window.
+    // Game 类需要将自身注册到窗口。
     friend class Game;
 
     Window() = delete;
@@ -102,38 +108,32 @@ protected:
     virtual ~Window();
 
     // 注册Game类实例 
-    // This allows the window to callback functions in the Game class.
+    // 这允许窗口回调 Game 类中的函数。
     void RegisterCallbacks( std::shared_ptr<Game> pGame );
 
-    // Update and Draw can only be called by the application.
+    // Update 和 Draw 只能由应用程序调用。
     virtual void OnUpdate(UpdateEventArgs& e);
     virtual void OnRender(RenderEventArgs& e);
-
-    // A keyboard key was pressed
+    
     virtual void OnKeyPressed(KeyEventArgs& e);
-    // A keyboard key was released
     virtual void OnKeyReleased(KeyEventArgs& e);
 
-    // The mouse was moved
-    virtual void OnMouseMoved(MouseMotionEventArgs& e);
-    // A button on the mouse was pressed
-    virtual void OnMouseButtonPressed(MouseButtonEventArgs& e);
-    // A button on the mouse was released
-    virtual void OnMouseButtonReleased(MouseButtonEventArgs& e);
-    // The mouse wheel was moved.
-    virtual void OnMouseWheel(MouseWheelEventArgs& e);
 
-    // The window was resized.
+    virtual void OnMouseMoved(MouseMotionEventArgs& e);
+    virtual void OnMouseButtonPressed(MouseButtonEventArgs& e);
+    virtual void OnMouseButtonReleased(MouseButtonEventArgs& e);
+    virtual void OnMouseWheel(MouseWheelEventArgs& e);
+    
     virtual void OnResize(ResizeEventArgs& e);
 
     // 创建交换链
     Microsoft::WRL::ComPtr<IDXGISwapChain4> CreateSwapChain();
 
-    // Update the render target views for the swapchain back buffers.
+    // 更新交换链后台缓冲区的RTV。
     void UpdateRenderTargetViews();
 
 private:
-    // Windows should not be copied.
+    // 不应复制 Window
     Window(const Window& copy) = delete;
     Window& operator=(const Window& other) = delete;
 
@@ -148,18 +148,25 @@ private:
 
     HighResolutionClock m_UpdateClock;
     HighResolutionClock m_RenderClock;
-    uint64_t m_FrameCounter;
+
+    UINT64 m_FenceValues[BufferCount];
+    uint64_t m_FrameValues[BufferCount];
 
     std::weak_ptr<Game> m_pGame;
 
     Microsoft::WRL::ComPtr<IDXGISwapChain4> m_dxgiSwapChain;
-    Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_d3d12RTVDescriptorHeap;
-    Microsoft::WRL::ComPtr<ID3D12Resource> m_d3d12BackBuffers[BufferCount];
+    Texture m_BackBufferTextures[BufferCount];
+    
+    // 标记为mutable以允许在 const 函数中进行修改。
+    mutable RenderTarget m_RenderTarget;
 
-    UINT m_RTVDescriptorSize;
     UINT m_CurrentBackBufferIndex;
 
     RECT m_WindowRect;
     bool m_IsTearingSupported;
+
+    int m_PreviousMouseX;
+    int m_PreviousMouseY;
+
 
 };

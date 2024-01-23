@@ -1,4 +1,4 @@
-#include <Demo1.h>
+#include "Demo1.h"
  
 #include <Application.h>
 #include <CommandQueue.h>
@@ -218,7 +218,7 @@ bool Demo1::LoadContent()
     pipelineStateStream.VS = CD3DX12_SHADER_BYTECODE(vertexShaderBlob.Get());
     pipelineStateStream.PS = CD3DX12_SHADER_BYTECODE(pixelShaderBlob.Get());
     pipelineStateStream.DSVFormat = DXGI_FORMAT_D32_FLOAT;
-    pipelineStateStream.RTVFormats = rtvFormats;
+    pipelineStateStream.RTVFormats = rtvFormats;    
     //创建实际的 PSO
     D3D12_PIPELINE_STATE_STREAM_DESC pipelineStateStreamDesc = {
         sizeof(PipelineStateStream), &pipelineStateStream
