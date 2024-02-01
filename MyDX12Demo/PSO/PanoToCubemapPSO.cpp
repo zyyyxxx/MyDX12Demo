@@ -55,7 +55,7 @@ PanoToCubemapPSO::PanoToCubemapPSO()
 
     ThrowIfFailed(device->CreatePipelineState(&pipelineStateStreamDesc, IID_PPV_ARGS(&m_PipelineState)));
 
-    // Create some default texture UAV's to pad any unused UAV's during mip map generation.
+    // 创建默认纹理 UAV，以在 mip 贴图生成期间填充任何未使用的 UAV。
     m_DefaultUAV = Application::Get().AllocateDescriptors(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, 5);
     UINT descriptorHandleIncrementSize = Application::Get().GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 

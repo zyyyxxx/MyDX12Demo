@@ -1,24 +1,19 @@
+static const float PI = 3.14159265359;
+
 struct PixelShaderInput
 {
-    float4 PositionVS : POSITION;
-    float3 NormalVS   : NORMAL;
+    float4 PositionWorld : POSITION;
+    float3 Normal   : NORMAL;
     float2 TexCoord   : TEXCOORD;
 };
 
 struct Material
 {
-    float4 Emissive;
-    //----------------------------------- (16 byte boundary)
-    float4 Ambient;
-    //----------------------------------- (16 byte boundary)
-    float4 Diffuse;
-    //----------------------------------- (16 byte boundary)
-    float4 Specular;
-    //----------------------------------- (16 byte boundary)
-    float  SpecularPower;
-    float3 Padding;
-    //----------------------------------- (16 byte boundary)
-    // Total:                              16 * 5 = 80 bytes
+    float3 Albedo;
+    float Metallic;
+    float Roughness;
+    float AO;
+    float2 Padding;
 };
 
 struct PointLight
@@ -59,128 +54,129 @@ struct SpotLight
 struct LightProperties
 {
     uint NumPointLights;
-    uint NumSpotLights;
 };
 
-struct LightResult
+struct CameraData
 {
-    float4 Diffuse;
-    float4 Specular;
+    float3 Position;
 };
 
 ConstantBuffer<Material> MaterialCB : register( b0, space1 );
 ConstantBuffer<LightProperties> LightPropertiesCB : register( b1 );
+ConstantBuffer<CameraData> CameraDataCB : register(b2);
 
 StructuredBuffer<PointLight> PointLights : register( t0 );
 StructuredBuffer<SpotLight> SpotLights : register( t1 );
 Texture2D DiffuseTexture            : register( t2 );
+TextureCube IrradianceConvolution : register(t3);
 
 SamplerState LinearRepeatSampler    : register(s0);
 
-float3 LinearToSRGB( float3 x )
+float3 Fresnel_Schlick( float cosTheta, float3 F0 )
 {
-    // This is exactly the sRGB curve
-    //return x < 0.0031308 ? 12.92 * x : 1.055 * pow(abs(x), 1.0 / 2.4) - 0.055;
-
-    // This is cheaper but nearly equivalent
-    return x < 0.0031308 ? 12.92 * x : 1.13005 * sqrt( abs( x - 0.00228 ) ) - 0.13448 * x + 0.005719;
+    return F0 + ( 1.0 - F0 ) * pow( 1.0 - cosTheta, 5.0 );
 }
 
-float DoDiffuse( float3 N, float3 L )
+float Distribution_GGX( float3 N, float3 H, float fRoughness )
 {
-    return max( 0, dot( N, L ) );
+    float a = fRoughness * fRoughness;
+    float a2 = a * a;
+    float NdotH = max( dot( N, H ), 0.0 );
+    float NdotH2 = NdotH * NdotH;
+
+    float num = a2;
+    float denom = ( NdotH2 * ( a2 - 1.0 ) + 1.0 );
+    denom = PI * denom * denom;
+
+    return num / denom;
 }
 
-float DoSpecular( float3 V, float3 N, float3 L )
+float Geometry_Schlick_GGX( float NdotV, float fRoughness )
 {
-    float3 R = normalize( reflect( -L, N ) );
-    float RdotV = max( 0, dot( R, V ) );
+    // Dircet Light: k = (fRoughness + 1)^2 / 8;
+    // IBL: k = （fRoughness^2)/2;
+    float r = ( fRoughness + 1.0 );
+    float k = ( r * r ) / 8.0;
 
-    return pow( RdotV, MaterialCB.SpecularPower );
+    float num = NdotV;
+    float denom = NdotV * ( 1.0 - k ) + k;
+
+    return num / denom;
 }
 
-float DoAttenuation( float attenuation, float distance )
+float Geometry_Smith( float3 N, float3 V, float3 L, float fRoughness )
 {
-    return 1.0f / ( 1.0f + attenuation * distance * distance );
+    float NdotV = max( dot( N, V ), 0.0 );
+    float NdotL = max( dot( N, L ), 0.0 );
+    float ggx2 = Geometry_Schlick_GGX( NdotV, fRoughness );
+    float ggx1 = Geometry_Schlick_GGX( NdotL, fRoughness );
+
+    return ggx1 * ggx2;
 }
 
-float DoSpotCone( float3 spotDir, float3 L, float spotAngle )
-{
-    float minCos = cos( spotAngle );
-    float maxCos = ( minCos + 1.0f ) / 2.0f;
-    float cosAngle = dot( spotDir, -L );
-    return smoothstep( minCos, maxCos, cosAngle );
-}
-
-LightResult DoPointLight( PointLight light, float3 V, float3 P, float3 N )
-{
-    LightResult result;
-    float3 L = ( light.PositionVS.xyz - P );
-    float d = length( L );
-    L = L / d;
-
-    float attenuation = DoAttenuation( light.Attenuation, d );
-
-    result.Diffuse = DoDiffuse( N, L ) * attenuation * light.Color * light.Intensity;
-    result.Specular = DoSpecular( V, N, L ) * attenuation * light.Color * light.Intensity;
-
-    return result;
-}
-
-LightResult DoSpotLight( SpotLight light, float3 V, float3 P, float3 N )
-{
-    LightResult result;
-    float3 L = ( light.PositionVS.xyz - P );
-    float d = length( L );
-    L = L / d;
-
-    float attenuation = DoAttenuation( light.Attenuation, d );
-
-    float spotIntensity = DoSpotCone( light.DirectionVS.xyz, L, light.SpotAngle );
-
-    result.Diffuse = DoDiffuse( N, L ) * attenuation * spotIntensity * light.Color * light.Intensity;
-    result.Specular = DoSpecular( V, N, L ) * attenuation * spotIntensity * light.Color * light.Intensity;
-
-    return result;
-}
-
-LightResult DoLighting( float3 P, float3 N )
-{
-    uint i;
-
-    // Lighting is performed in view space.
-    float3 V = normalize( -P );
-
-    LightResult totalResult = (LightResult)0;
-
-    for ( i = 0; i < LightPropertiesCB.NumPointLights; ++i )
-    {
-        LightResult result = DoPointLight( PointLights[i], V, P, N );
-
-        totalResult.Diffuse += result.Diffuse;
-        totalResult.Specular += result.Specular;
-    }
-
-    for ( i = 0; i < LightPropertiesCB.NumSpotLights; ++i )
-    {
-        LightResult result = DoSpotLight( SpotLights[i], V, P, N );
-
-        totalResult.Diffuse += result.Diffuse;
-        totalResult.Specular += result.Specular;
-    }
-
-    return totalResult;
-}
 
 float4 main( PixelShaderInput IN ) : SV_Target
 {
-    LightResult lit = DoLighting( IN.PositionVS.xyz, normalize( IN.NormalVS ) );
+    float3 N = normalize( IN.Normal.xyz );
+    // View Vector
+    float3 V = normalize( CameraDataCB.Position.xyz - IN.PositionWorld.xyz );
 
-    float4 emissive = MaterialCB.Emissive;
-    float4 ambient = MaterialCB.Ambient;
-    float4 diffuse = MaterialCB.Diffuse * lit.Diffuse;
-    float4 specular = MaterialCB.Specular * lit.Specular;
-    float4 texColor = DiffuseTexture.Sample( LinearRepeatSampler, IN.TexCoord );
+    float3 F0 = float3( 0.04f, 0.04f, 0.04f );
+    
+    // Gamma Correction
+    float3 Albedo = pow( MaterialCB.Albedo, 2.2f );
+    
+    F0 = lerp( F0, Albedo, MaterialCB.Metallic );
+    
+    // Out Radiance
+    float3 Lo = float3( 0.0f, 0.0f, 0.0f );
 
-    return ( emissive + ambient + diffuse + specular ) * texColor;
+    // Roughness
+    float Roughness = MaterialCB.Roughness;
+    
+    for ( int i = 0; i < LightPropertiesCB.NumPointLights; ++i )
+    {// Each Light
+        // Point Light
+        PointLight Light = PointLights[i];
+        
+        // In
+        float3 L = normalize( Light.PositionWS.xyz - IN.PositionWorld.xyz );
+        // Intermediate vector (bisector of the angle of incident light to normal)
+        float3 H = normalize( V + L );
+        float distance = length( Light.PositionWS.xyz - IN.PositionWorld.xyz );
+
+        //float attenuation = 1.0 / ( distance * distance );
+        // If Gamma has been corrected, there is no need for a second inverse attenuation, and a single attenuation is fine
+        float attenuation = 1.0 / distance ;
+        
+        float3 radiance = Light.Color.xyz * attenuation;
+
+        // Cook-Torrance BRDF
+        float NDF = Distribution_GGX( N, H, Roughness );
+        float G = Geometry_Smith( N, V, L, Roughness );
+        float3 F = Fresnel_Schlick( max( dot( H, V ), 0.0 ), F0 );
+
+        float3 kS = F;
+        float3 kD = float3( 1.0f,1.0f,1.0f ) - kS;
+        kD *= 1.0 - MaterialCB.Metallic;
+
+        float3 numerator = NDF * G * F;
+        float denominator = 4.0 * max( dot( N, V ), 0.0 ) * max( dot( N, L ), 0.0 );
+        float3 specular = numerator / max( denominator, 0.001 );
+
+        // add to outgoing radiance Lo
+        float NdotL = max( dot( N, L ), 0.0 );
+        Lo += ( kD * Albedo / PI + specular ) * radiance * NdotL;
+    }
+
+    float fAO = MaterialCB.AO;
+    // Ambient Light
+    float3 ambient = float3( 0.03f, 0.03f, 0.03f ) * Albedo * fAO;
+    float3 color = ambient + Lo;
+    // HDR tonemapping
+    color = color / ( color + float3( 1.0f,1.0f,1.0f ) );
+    // Gamma 
+    color = pow( color, 1.0f / 2.2f );
+    return float4( color, 1.0 );
+    
 }

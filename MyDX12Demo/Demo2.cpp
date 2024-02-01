@@ -462,8 +462,8 @@ void Demo2::OnUpdate(UpdateEventArgs& e)
         frameCount = 0;
         totalTime = 0.0;
     }
+    #pragma region OnUpdate: Camera and Lights
 
-#pragma region Update Camera and Lights
     // 更新相机
     float speedMultipler = (m_Shift ? 16.0f : 4.0f);
 
@@ -541,8 +541,7 @@ void Demo2::OnUpdate(UpdateEventArgs& e)
         l.SpotAngle = XMConvertToRadians(45.0f);
         l.Attenuation = 0.0f;
     }
-#pragma endregion
-    
+    #pragma endregion
 }
 
 #pragma region Tonemapping Functions

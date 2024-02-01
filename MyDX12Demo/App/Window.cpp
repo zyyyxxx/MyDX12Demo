@@ -229,24 +229,24 @@ void Window::RegisterCallbacks(std::shared_ptr<Game> pGame)
     return;
 }
 
-void Window::OnUpdate(UpdateEventArgs&)
+void Window::OnUpdate(UpdateEventArgs& e)
 {
     m_UpdateClock.Tick();
 
     if (auto pGame = m_pGame.lock())
     {
-        UpdateEventArgs updateEventArgs(m_UpdateClock.GetDeltaSeconds(), m_UpdateClock.GetTotalSeconds());
+        UpdateEventArgs updateEventArgs(m_UpdateClock.GetDeltaSeconds(), m_UpdateClock.GetTotalSeconds(), e.FrameNumber);
         pGame->OnUpdate(updateEventArgs);
     }
 }
 
-void Window::OnRender(RenderEventArgs&)
+void Window::OnRender(RenderEventArgs& e)
 {
     m_RenderClock.Tick();
 
     if (auto pGame = m_pGame.lock())
     {
-        RenderEventArgs renderEventArgs(m_RenderClock.GetDeltaSeconds(), m_RenderClock.GetTotalSeconds());
+        RenderEventArgs renderEventArgs(m_RenderClock.GetDeltaSeconds(), m_RenderClock.GetTotalSeconds(), e.FrameNumber);
         pGame->OnRender(renderEventArgs);
     }
 }
@@ -270,6 +270,12 @@ void Window::OnKeyReleased(KeyEventArgs& e)
 // The mouse was moved
 void Window::OnMouseMoved(MouseMotionEventArgs& e)
 {
+    e.RelX = e.X - m_PreviousMouseX;
+    e.RelY = e.Y - m_PreviousMouseY;
+
+    m_PreviousMouseX = e.X;
+    m_PreviousMouseY = e.Y;
+    
     if (auto pGame = m_pGame.lock())
     {
         pGame->OnMouseMoved(e);
@@ -279,6 +285,9 @@ void Window::OnMouseMoved(MouseMotionEventArgs& e)
 // A button on the mouse was pressed
 void Window::OnMouseButtonPressed(MouseButtonEventArgs& e)
 {
+    m_PreviousMouseX = e.X;
+    m_PreviousMouseY = e.Y;
+
     if (auto pGame = m_pGame.lock())
     {
         pGame->OnMouseButtonPressed(e);

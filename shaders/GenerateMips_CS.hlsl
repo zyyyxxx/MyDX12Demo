@@ -47,6 +47,7 @@ RWTexture2D<float4> OutMip4 : register( u3 );
 // Linear clamp sampler.
 SamplerState LinearClampSampler : register( s0 );
 
+// Directly set the Root Signature
 #define GenerateMips_RootSignature \
     "RootFlags(0), " \
     "RootConstants(b0, num32BitConstants = 6), " \

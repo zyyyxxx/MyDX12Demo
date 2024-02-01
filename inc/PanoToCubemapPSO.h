@@ -34,7 +34,9 @@ public:
     const RootSignature& GetRootSignature() const
     {
         return m_RootSignature;
-    }    Microsoft::WRL::ComPtr<ID3D12PipelineState> GetPipelineState() const
+    }
+
+    Microsoft::WRL::ComPtr<ID3D12PipelineState> GetPipelineState() const
     {
         return m_PipelineState;
     }

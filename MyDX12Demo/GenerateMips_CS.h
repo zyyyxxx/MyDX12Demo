@@ -71,286 +71,286 @@ target triple = "dxil-ms-dx"
 @dx.nothing.a = internal constant [1 x i32] zeroinitializer
 
 define void @main() {
-  %OutMip4_UAV_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 3, i32 3, i32 0, i8 1 }, i32 3, i1 false), !dbg !113 ; line:125 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
-  %OutMip3_UAV_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 2, i32 2, i32 0, i8 1 }, i32 2, i1 false), !dbg !113 ; line:125 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
-  %OutMip2_UAV_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 1, i32 1, i32 0, i8 1 }, i32 1, i1 false), !dbg !113 ; line:125 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
-  %OutMip1_UAV_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 0, i32 0, i32 0, i8 1 }, i32 0, i1 false), !dbg !113 ; line:125 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
-  %SrcMip_texture_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind zeroinitializer, i32 0, i1 false), !dbg !113 ; line:125 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
-  %LinearClampSampler_sampler = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 0, i32 0, i32 0, i8 3 }, i32 0, i1 false), !dbg !113 ; line:125 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
-  %GenerateMipsCB_cbuffer = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 0, i32 0, i32 0, i8 2 }, i32 0, i1 false), !dbg !113 ; line:125 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
-  %1 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %GenerateMipsCB_cbuffer, %dx.types.ResourceProperties { i32 13, i32 24 }), !dbg !116 ; line:102 col:31  ; AnnotateHandle(res,props)  resource: CBuffer
-  %2 = call i32 @dx.op.threadId.i32(i32 93, i32 0), !dbg !116 ; line:102 col:31  ; ThreadId(component)
-  %3 = call i32 @dx.op.threadId.i32(i32 93, i32 1), !dbg !116 ; line:102 col:31  ; ThreadId(component)
-  %4 = call i32 @dx.op.flattenedThreadIdInGroup.i32(i32 96), !dbg !116 ; line:102 col:31  ; FlattenedThreadIdInGroup()
+  %OutMip4_UAV_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 3, i32 3, i32 0, i8 1 }, i32 3, i1 false), !dbg !113 ; line:126 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
+  %OutMip3_UAV_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 2, i32 2, i32 0, i8 1 }, i32 2, i1 false), !dbg !113 ; line:126 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
+  %OutMip2_UAV_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 1, i32 1, i32 0, i8 1 }, i32 1, i1 false), !dbg !113 ; line:126 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
+  %OutMip1_UAV_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 0, i32 0, i32 0, i8 1 }, i32 0, i1 false), !dbg !113 ; line:126 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
+  %SrcMip_texture_2d = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind zeroinitializer, i32 0, i1 false), !dbg !113 ; line:126 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
+  %LinearClampSampler_sampler = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 0, i32 0, i32 0, i8 3 }, i32 0, i1 false), !dbg !113 ; line:126 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
+  %GenerateMipsCB_cbuffer = call %dx.types.Handle @dx.op.createHandleFromBinding(i32 217, %dx.types.ResBind { i32 0, i32 0, i32 0, i8 2 }, i32 0, i1 false), !dbg !113 ; line:126 col:20  ; CreateHandleFromBinding(bind,index,nonUniformIndex)
+  %1 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %GenerateMipsCB_cbuffer, %dx.types.ResourceProperties { i32 13, i32 24 }), !dbg !116 ; line:103 col:31  ; AnnotateHandle(res,props)  resource: CBuffer
+  %2 = call i32 @dx.op.threadId.i32(i32 93, i32 0), !dbg !116 ; line:103 col:31  ; ThreadId(component)
+  %3 = call i32 @dx.op.threadId.i32(i32 93, i32 1), !dbg !116 ; line:103 col:31  ; ThreadId(component)
+  %4 = call i32 @dx.op.flattenedThreadIdInGroup.i32(i32 96), !dbg !116 ; line:103 col:31  ; FlattenedThreadIdInGroup()
   call void @llvm.dbg.value(metadata i32 %4, i64 0, metadata !117, metadata !118), !dbg !116 ; var:"IN" !DIExpression(DW_OP_bit_piece, 288, 32) func:"main"
   call void @llvm.dbg.value(metadata i32 %2, i64 0, metadata !117, metadata !119), !dbg !116 ; var:"IN" !DIExpression(DW_OP_bit_piece, 192, 32) func:"main"
   call void @llvm.dbg.value(metadata i32 %3, i64 0, metadata !117, metadata !120), !dbg !116 ; var:"IN" !DIExpression(DW_OP_bit_piece, 224, 32) func:"main"
-  %5 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !121 ; line:104 col:12
+  %5 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !121 ; line:105 col:12
   call void @llvm.dbg.value(metadata <4 x float> zeroinitializer, i64 0, metadata !122, metadata !123), !dbg !121 ; var:"Src1" !DIExpression() func:"main"
-  %6 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !124 ; line:119 col:14  ; CBufferLoadLegacy(handle,regIndex)
-  %7 = extractvalue %dx.types.CBufRet.i32 %6, 2, !dbg !124 ; line:119 col:14
+  %6 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !124 ; line:120 col:14  ; CBufferLoadLegacy(handle,regIndex)
+  %7 = extractvalue %dx.types.CBufRet.i32 %6, 2, !dbg !124 ; line:120 col:14
   switch i32 %7, label %136 [
     i32 0, label %8
     i32 1, label %24
     i32 2, label %53
     i32 3, label %82
-  ], !dbg !125 ; line:119 col:5
+  ], !dbg !125 ; line:120 col:5
 
 ; <label>:8                                       ; preds = %0
-  %9 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !126 ; line:123 col:25  ; CBufferLoadLegacy(handle,regIndex)
-  %10 = extractvalue %dx.types.CBufRet.f32 %9, 0, !dbg !126 ; line:123 col:25
-  %11 = extractvalue %dx.types.CBufRet.f32 %9, 1, !dbg !126 ; line:123 col:25
-  %.i0 = uitofp i32 %2 to float, !dbg !127 ; line:123 col:39
-  %.i1 = uitofp i32 %3 to float, !dbg !127 ; line:123 col:39
-  %.i02 = fadd fast float %.i0, 5.000000e-01, !dbg !128 ; line:123 col:62
-  %.i14 = fadd fast float %.i1, 5.000000e-01, !dbg !128 ; line:123 col:62
-  %.i05 = fmul fast float %10, %.i02, !dbg !129 ; line:123 col:35
-  %.i16 = fmul fast float %11, %.i14, !dbg !129 ; line:123 col:35
-  %12 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !130 ; line:123 col:20
+  %9 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !126 ; line:124 col:25  ; CBufferLoadLegacy(handle,regIndex)
+  %10 = extractvalue %dx.types.CBufRet.f32 %9, 0, !dbg !126 ; line:124 col:25
+  %11 = extractvalue %dx.types.CBufRet.f32 %9, 1, !dbg !126 ; line:124 col:25
+  %.i0 = uitofp i32 %2 to float, !dbg !127 ; line:124 col:39
+  %.i1 = uitofp i32 %3 to float, !dbg !127 ; line:124 col:39
+  %.i02 = fadd fast float %.i0, 5.000000e-01, !dbg !128 ; line:124 col:62
+  %.i14 = fadd fast float %.i1, 5.000000e-01, !dbg !128 ; line:124 col:62
+  %.i05 = fmul fast float %10, %.i02, !dbg !129 ; line:124 col:35
+  %.i16 = fmul fast float %11, %.i14, !dbg !129 ; line:124 col:35
+  %12 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !130 ; line:124 col:20
   call void @llvm.dbg.value(metadata float %.i05, i64 0, metadata !131, metadata !132), !dbg !130 ; var:"UV" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i16, i64 0, metadata !131, metadata !133), !dbg !130 ; var:"UV" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i05, i64 0, metadata !131, metadata !132), !dbg !130 ; var:"UV" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i16, i64 0, metadata !131, metadata !133), !dbg !130 ; var:"UV" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
-  %13 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !134 ; line:125 col:64  ; CBufferLoadLegacy(handle,regIndex)
-  %14 = extractvalue %dx.types.CBufRet.i32 %13, 0, !dbg !134 ; line:125 col:64
-  %15 = uitofp i32 %14 to float, !dbg !134 ; line:125 col:64
-  %16 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !113 ; line:125 col:20  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %17 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !113 ; line:125 col:20  ; AnnotateHandle(res,props)  resource: SamplerState
-  %18 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %16, %dx.types.Handle %17, float %.i05, float %.i16, float undef, float undef, i32 0, i32 0, i32 undef, float %15), !dbg !113 ; line:125 col:20  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %13 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !134 ; line:126 col:64  ; CBufferLoadLegacy(handle,regIndex)
+  %14 = extractvalue %dx.types.CBufRet.i32 %13, 0, !dbg !134 ; line:126 col:64
+  %15 = uitofp i32 %14 to float, !dbg !134 ; line:126 col:64
+  %16 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !113 ; line:126 col:20  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %17 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !113 ; line:126 col:20  ; AnnotateHandle(res,props)  resource: SamplerState
+  %18 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %16, %dx.types.Handle %17, float %.i05, float %.i16, float undef, float undef, i32 0, i32 0, i32 undef, float %15), !dbg !113 ; line:126 col:20  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
   call void @llvm.dbg.value(metadata %dx.types.ResRet.f32 %18, i64 0, metadata !122, metadata !123), !dbg !121 ; var:"Src1" !DIExpression() func:"main"
-  %19 = extractvalue %dx.types.ResRet.f32 %18, 0, !dbg !113 ; line:125 col:20
-  %20 = extractvalue %dx.types.ResRet.f32 %18, 1, !dbg !113 ; line:125 col:20
-  %21 = extractvalue %dx.types.ResRet.f32 %18, 2, !dbg !113 ; line:125 col:20
-  %22 = extractvalue %dx.types.ResRet.f32 %18, 3, !dbg !113 ; line:125 col:20
-  %23 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !135 ; line:125 col:18
-  br label %136, !dbg !136 ; line:127 col:9
+  %19 = extractvalue %dx.types.ResRet.f32 %18, 0, !dbg !113 ; line:126 col:20
+  %20 = extractvalue %dx.types.ResRet.f32 %18, 1, !dbg !113 ; line:126 col:20
+  %21 = extractvalue %dx.types.ResRet.f32 %18, 2, !dbg !113 ; line:126 col:20
+  %22 = extractvalue %dx.types.ResRet.f32 %18, 3, !dbg !113 ; line:126 col:20
+  %23 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !135 ; line:126 col:18
+  br label %136, !dbg !136 ; line:128 col:9
 
 ; <label>:24                                      ; preds = %0
-  %25 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !137 ; line:133 col:26  ; CBufferLoadLegacy(handle,regIndex)
-  %26 = extractvalue %dx.types.CBufRet.f32 %25, 0, !dbg !137 ; line:133 col:26
-  %27 = extractvalue %dx.types.CBufRet.f32 %25, 1, !dbg !137 ; line:133 col:26
-  %.i07 = uitofp i32 %2 to float, !dbg !139 ; line:133 col:40
-  %.i18 = uitofp i32 %3 to float, !dbg !139 ; line:133 col:40
-  %.i010 = fadd fast float %.i07, 2.500000e-01, !dbg !140 ; line:133 col:63
-  %.i112 = fadd fast float %.i18, 5.000000e-01, !dbg !140 ; line:133 col:63
-  %.i013 = fmul fast float %26, %.i010, !dbg !141 ; line:133 col:36
-  %.i114 = fmul fast float %27, %.i112, !dbg !141 ; line:133 col:36
-  %28 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !142 ; line:133 col:20
+  %25 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !137 ; line:134 col:26  ; CBufferLoadLegacy(handle,regIndex)
+  %26 = extractvalue %dx.types.CBufRet.f32 %25, 0, !dbg !137 ; line:134 col:26
+  %27 = extractvalue %dx.types.CBufRet.f32 %25, 1, !dbg !137 ; line:134 col:26
+  %.i07 = uitofp i32 %2 to float, !dbg !139 ; line:134 col:40
+  %.i18 = uitofp i32 %3 to float, !dbg !139 ; line:134 col:40
+  %.i010 = fadd fast float %.i07, 2.500000e-01, !dbg !140 ; line:134 col:63
+  %.i112 = fadd fast float %.i18, 5.000000e-01, !dbg !140 ; line:134 col:63
+  %.i013 = fmul fast float %26, %.i010, !dbg !141 ; line:134 col:36
+  %.i114 = fmul fast float %27, %.i112, !dbg !141 ; line:134 col:36
+  %28 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !142 ; line:134 col:20
   call void @llvm.dbg.value(metadata float %.i013, i64 0, metadata !143, metadata !132), !dbg !142 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i114, i64 0, metadata !143, metadata !133), !dbg !142 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i013, i64 0, metadata !143, metadata !132), !dbg !142 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i114, i64 0, metadata !143, metadata !133), !dbg !142 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
-  %29 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !144 ; line:134 col:26  ; CBufferLoadLegacy(handle,regIndex)
-  %30 = extractvalue %dx.types.CBufRet.f32 %29, 0, !dbg !144 ; line:134 col:26
-  %.i016 = fmul fast float %30, 5.000000e-01, !dbg !145 ; line:134 col:36
-  %31 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !146 ; line:134 col:20
+  %29 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !144 ; line:135 col:26  ; CBufferLoadLegacy(handle,regIndex)
+  %30 = extractvalue %dx.types.CBufRet.f32 %29, 0, !dbg !144 ; line:135 col:26
+  %.i016 = fmul fast float %30, 5.000000e-01, !dbg !145 ; line:135 col:36
+  %31 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !146 ; line:135 col:20
   call void @llvm.dbg.value(metadata float %.i016, i64 0, metadata !147, metadata !132), !dbg !146 ; var:"Off" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float 0.000000e+00, i64 0, metadata !147, metadata !133), !dbg !146 ; var:"Off" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
-  %32 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !148 ; line:136 col:73  ; CBufferLoadLegacy(handle,regIndex)
-  %33 = extractvalue %dx.types.CBufRet.i32 %32, 0, !dbg !148 ; line:136 col:73
-  %34 = uitofp i32 %33 to float, !dbg !148 ; line:136 col:73
-  %35 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !149 ; line:136 col:28  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %36 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !149 ; line:136 col:28  ; AnnotateHandle(res,props)  resource: SamplerState
-  %37 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %35, %dx.types.Handle %36, float %.i013, float %.i114, float undef, float undef, i32 0, i32 0, i32 undef, float %34), !dbg !149 ; line:136 col:28  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
-  %38 = extractvalue %dx.types.ResRet.f32 %37, 0, !dbg !149 ; line:136 col:28
-  %39 = extractvalue %dx.types.ResRet.f32 %37, 1, !dbg !149 ; line:136 col:28
-  %40 = extractvalue %dx.types.ResRet.f32 %37, 2, !dbg !149 ; line:136 col:28
-  %41 = extractvalue %dx.types.ResRet.f32 %37, 3, !dbg !149 ; line:136 col:28
-  %42 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !150 ; line:137 col:79  ; CBufferLoadLegacy(handle,regIndex)
-  %43 = extractvalue %dx.types.CBufRet.i32 %42, 0, !dbg !150 ; line:137 col:79
-  %44 = uitofp i32 %43 to float, !dbg !150 ; line:137 col:79
-  %.i019 = fadd fast float %.i013, %.i016, !dbg !151 ; line:137 col:72
-  %.i120 = fadd fast float %.i114, 0.000000e+00, !dbg !151 ; line:137 col:72
-  %45 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !152 ; line:137 col:28  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %46 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !152 ; line:137 col:28  ; AnnotateHandle(res,props)  resource: SamplerState
-  %47 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %45, %dx.types.Handle %46, float %.i019, float %.i120, float undef, float undef, i32 0, i32 0, i32 undef, float %44), !dbg !152 ; line:137 col:28  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
-  %48 = extractvalue %dx.types.ResRet.f32 %47, 0, !dbg !152 ; line:137 col:28
-  %49 = extractvalue %dx.types.ResRet.f32 %47, 1, !dbg !152 ; line:137 col:28
-  %50 = extractvalue %dx.types.ResRet.f32 %47, 2, !dbg !152 ; line:137 col:28
-  %51 = extractvalue %dx.types.ResRet.f32 %47, 3, !dbg !152 ; line:137 col:28
-  %.i021 = fadd fast float %38, %48, !dbg !153 ; line:136 col:87
-  %.i122 = fadd fast float %39, %49, !dbg !153 ; line:136 col:87
-  %.i2 = fadd fast float %40, %50, !dbg !153 ; line:136 col:87
-  %.i3 = fadd fast float %41, %51, !dbg !153 ; line:136 col:87
-  %.i024 = fmul fast float 5.000000e-01, %.i021, !dbg !154 ; line:136 col:24
-  %.i126 = fmul fast float 5.000000e-01, %.i122, !dbg !154 ; line:136 col:24
-  %.i228 = fmul fast float 5.000000e-01, %.i2, !dbg !154 ; line:136 col:24
-  %.i330 = fmul fast float 5.000000e-01, %.i3, !dbg !154 ; line:136 col:24
-  %52 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !155 ; line:136 col:18
+  %32 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !148 ; line:137 col:73  ; CBufferLoadLegacy(handle,regIndex)
+  %33 = extractvalue %dx.types.CBufRet.i32 %32, 0, !dbg !148 ; line:137 col:73
+  %34 = uitofp i32 %33 to float, !dbg !148 ; line:137 col:73
+  %35 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !149 ; line:137 col:28  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %36 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !149 ; line:137 col:28  ; AnnotateHandle(res,props)  resource: SamplerState
+  %37 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %35, %dx.types.Handle %36, float %.i013, float %.i114, float undef, float undef, i32 0, i32 0, i32 undef, float %34), !dbg !149 ; line:137 col:28  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %38 = extractvalue %dx.types.ResRet.f32 %37, 0, !dbg !149 ; line:137 col:28
+  %39 = extractvalue %dx.types.ResRet.f32 %37, 1, !dbg !149 ; line:137 col:28
+  %40 = extractvalue %dx.types.ResRet.f32 %37, 2, !dbg !149 ; line:137 col:28
+  %41 = extractvalue %dx.types.ResRet.f32 %37, 3, !dbg !149 ; line:137 col:28
+  %42 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !150 ; line:138 col:79  ; CBufferLoadLegacy(handle,regIndex)
+  %43 = extractvalue %dx.types.CBufRet.i32 %42, 0, !dbg !150 ; line:138 col:79
+  %44 = uitofp i32 %43 to float, !dbg !150 ; line:138 col:79
+  %.i019 = fadd fast float %.i013, %.i016, !dbg !151 ; line:138 col:72
+  %.i120 = fadd fast float %.i114, 0.000000e+00, !dbg !151 ; line:138 col:72
+  %45 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !152 ; line:138 col:28  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %46 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !152 ; line:138 col:28  ; AnnotateHandle(res,props)  resource: SamplerState
+  %47 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %45, %dx.types.Handle %46, float %.i019, float %.i120, float undef, float undef, i32 0, i32 0, i32 undef, float %44), !dbg !152 ; line:138 col:28  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %48 = extractvalue %dx.types.ResRet.f32 %47, 0, !dbg !152 ; line:138 col:28
+  %49 = extractvalue %dx.types.ResRet.f32 %47, 1, !dbg !152 ; line:138 col:28
+  %50 = extractvalue %dx.types.ResRet.f32 %47, 2, !dbg !152 ; line:138 col:28
+  %51 = extractvalue %dx.types.ResRet.f32 %47, 3, !dbg !152 ; line:138 col:28
+  %.i021 = fadd fast float %38, %48, !dbg !153 ; line:137 col:87
+  %.i122 = fadd fast float %39, %49, !dbg !153 ; line:137 col:87
+  %.i2 = fadd fast float %40, %50, !dbg !153 ; line:137 col:87
+  %.i3 = fadd fast float %41, %51, !dbg !153 ; line:137 col:87
+  %.i024 = fmul fast float 5.000000e-01, %.i021, !dbg !154 ; line:137 col:24
+  %.i126 = fmul fast float 5.000000e-01, %.i122, !dbg !154 ; line:137 col:24
+  %.i228 = fmul fast float 5.000000e-01, %.i2, !dbg !154 ; line:137 col:24
+  %.i330 = fmul fast float 5.000000e-01, %.i3, !dbg !154 ; line:137 col:24
+  %52 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !155 ; line:137 col:18
   call void @llvm.dbg.value(metadata float %.i024, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i126, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i228, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i330, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  br label %136, !dbg !158 ; line:139 col:9
+  br label %136, !dbg !158 ; line:140 col:9
 
 ; <label>:53                                      ; preds = %0
-  %54 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !159 ; line:145 col:26  ; CBufferLoadLegacy(handle,regIndex)
-  %55 = extractvalue %dx.types.CBufRet.f32 %54, 0, !dbg !159 ; line:145 col:26
-  %56 = extractvalue %dx.types.CBufRet.f32 %54, 1, !dbg !159 ; line:145 col:26
-  %.i031 = uitofp i32 %2 to float, !dbg !161 ; line:145 col:40
-  %.i132 = uitofp i32 %3 to float, !dbg !161 ; line:145 col:40
-  %.i034 = fadd fast float %.i031, 5.000000e-01, !dbg !162 ; line:145 col:63
-  %.i136 = fadd fast float %.i132, 2.500000e-01, !dbg !162 ; line:145 col:63
-  %.i037 = fmul fast float %55, %.i034, !dbg !163 ; line:145 col:36
-  %.i138 = fmul fast float %56, %.i136, !dbg !163 ; line:145 col:36
-  %57 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !164 ; line:145 col:20
+  %54 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !159 ; line:146 col:26  ; CBufferLoadLegacy(handle,regIndex)
+  %55 = extractvalue %dx.types.CBufRet.f32 %54, 0, !dbg !159 ; line:146 col:26
+  %56 = extractvalue %dx.types.CBufRet.f32 %54, 1, !dbg !159 ; line:146 col:26
+  %.i031 = uitofp i32 %2 to float, !dbg !161 ; line:146 col:40
+  %.i132 = uitofp i32 %3 to float, !dbg !161 ; line:146 col:40
+  %.i034 = fadd fast float %.i031, 5.000000e-01, !dbg !162 ; line:146 col:63
+  %.i136 = fadd fast float %.i132, 2.500000e-01, !dbg !162 ; line:146 col:63
+  %.i037 = fmul fast float %55, %.i034, !dbg !163 ; line:146 col:36
+  %.i138 = fmul fast float %56, %.i136, !dbg !163 ; line:146 col:36
+  %57 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !164 ; line:146 col:20
   call void @llvm.dbg.value(metadata float %.i037, i64 0, metadata !165, metadata !132), !dbg !164 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i138, i64 0, metadata !165, metadata !133), !dbg !164 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i037, i64 0, metadata !165, metadata !132), !dbg !164 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i138, i64 0, metadata !165, metadata !133), !dbg !164 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
-  %58 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !166 ; line:146 col:26  ; CBufferLoadLegacy(handle,regIndex)
-  %59 = extractvalue %dx.types.CBufRet.f32 %58, 1, !dbg !166 ; line:146 col:26
-  %.i142 = fmul fast float %59, 5.000000e-01, !dbg !167 ; line:146 col:36
-  %60 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !168 ; line:146 col:20
+  %58 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !166 ; line:147 col:26  ; CBufferLoadLegacy(handle,regIndex)
+  %59 = extractvalue %dx.types.CBufRet.f32 %58, 1, !dbg !166 ; line:147 col:26
+  %.i142 = fmul fast float %59, 5.000000e-01, !dbg !167 ; line:147 col:36
+  %60 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !168 ; line:147 col:20
   call void @llvm.dbg.value(metadata float 0.000000e+00, i64 0, metadata !169, metadata !132), !dbg !168 ; var:"Off" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i142, i64 0, metadata !169, metadata !133), !dbg !168 ; var:"Off" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
-  %61 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !170 ; line:148 col:73  ; CBufferLoadLegacy(handle,regIndex)
-  %62 = extractvalue %dx.types.CBufRet.i32 %61, 0, !dbg !170 ; line:148 col:73
-  %63 = uitofp i32 %62 to float, !dbg !170 ; line:148 col:73
-  %64 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !171 ; line:148 col:28  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %65 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !171 ; line:148 col:28  ; AnnotateHandle(res,props)  resource: SamplerState
-  %66 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %64, %dx.types.Handle %65, float %.i037, float %.i138, float undef, float undef, i32 0, i32 0, i32 undef, float %63), !dbg !171 ; line:148 col:28  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
-  %67 = extractvalue %dx.types.ResRet.f32 %66, 0, !dbg !171 ; line:148 col:28
-  %68 = extractvalue %dx.types.ResRet.f32 %66, 1, !dbg !171 ; line:148 col:28
-  %69 = extractvalue %dx.types.ResRet.f32 %66, 2, !dbg !171 ; line:148 col:28
-  %70 = extractvalue %dx.types.ResRet.f32 %66, 3, !dbg !171 ; line:148 col:28
-  %71 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !172 ; line:149 col:79  ; CBufferLoadLegacy(handle,regIndex)
-  %72 = extractvalue %dx.types.CBufRet.i32 %71, 0, !dbg !172 ; line:149 col:79
-  %73 = uitofp i32 %72 to float, !dbg !172 ; line:149 col:79
-  %.i043 = fadd fast float %.i037, 0.000000e+00, !dbg !173 ; line:149 col:72
-  %.i144 = fadd fast float %.i138, %.i142, !dbg !173 ; line:149 col:72
-  %74 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !174 ; line:149 col:28  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %75 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !174 ; line:149 col:28  ; AnnotateHandle(res,props)  resource: SamplerState
-  %76 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %74, %dx.types.Handle %75, float %.i043, float %.i144, float undef, float undef, i32 0, i32 0, i32 undef, float %73), !dbg !174 ; line:149 col:28  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
-  %77 = extractvalue %dx.types.ResRet.f32 %76, 0, !dbg !174 ; line:149 col:28
-  %78 = extractvalue %dx.types.ResRet.f32 %76, 1, !dbg !174 ; line:149 col:28
-  %79 = extractvalue %dx.types.ResRet.f32 %76, 2, !dbg !174 ; line:149 col:28
-  %80 = extractvalue %dx.types.ResRet.f32 %76, 3, !dbg !174 ; line:149 col:28
-  %.i045 = fadd fast float %67, %77, !dbg !175 ; line:148 col:87
-  %.i146 = fadd fast float %68, %78, !dbg !175 ; line:148 col:87
-  %.i247 = fadd fast float %69, %79, !dbg !175 ; line:148 col:87
-  %.i348 = fadd fast float %70, %80, !dbg !175 ; line:148 col:87
-  %.i050 = fmul fast float 5.000000e-01, %.i045, !dbg !176 ; line:148 col:24
-  %.i152 = fmul fast float 5.000000e-01, %.i146, !dbg !176 ; line:148 col:24
-  %.i254 = fmul fast float 5.000000e-01, %.i247, !dbg !176 ; line:148 col:24
-  %.i356 = fmul fast float 5.000000e-01, %.i348, !dbg !176 ; line:148 col:24
-  %81 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !177 ; line:148 col:18
+  %61 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !170 ; line:149 col:73  ; CBufferLoadLegacy(handle,regIndex)
+  %62 = extractvalue %dx.types.CBufRet.i32 %61, 0, !dbg !170 ; line:149 col:73
+  %63 = uitofp i32 %62 to float, !dbg !170 ; line:149 col:73
+  %64 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !171 ; line:149 col:28  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %65 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !171 ; line:149 col:28  ; AnnotateHandle(res,props)  resource: SamplerState
+  %66 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %64, %dx.types.Handle %65, float %.i037, float %.i138, float undef, float undef, i32 0, i32 0, i32 undef, float %63), !dbg !171 ; line:149 col:28  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %67 = extractvalue %dx.types.ResRet.f32 %66, 0, !dbg !171 ; line:149 col:28
+  %68 = extractvalue %dx.types.ResRet.f32 %66, 1, !dbg !171 ; line:149 col:28
+  %69 = extractvalue %dx.types.ResRet.f32 %66, 2, !dbg !171 ; line:149 col:28
+  %70 = extractvalue %dx.types.ResRet.f32 %66, 3, !dbg !171 ; line:149 col:28
+  %71 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !172 ; line:150 col:79  ; CBufferLoadLegacy(handle,regIndex)
+  %72 = extractvalue %dx.types.CBufRet.i32 %71, 0, !dbg !172 ; line:150 col:79
+  %73 = uitofp i32 %72 to float, !dbg !172 ; line:150 col:79
+  %.i043 = fadd fast float %.i037, 0.000000e+00, !dbg !173 ; line:150 col:72
+  %.i144 = fadd fast float %.i138, %.i142, !dbg !173 ; line:150 col:72
+  %74 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !174 ; line:150 col:28  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %75 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !174 ; line:150 col:28  ; AnnotateHandle(res,props)  resource: SamplerState
+  %76 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %74, %dx.types.Handle %75, float %.i043, float %.i144, float undef, float undef, i32 0, i32 0, i32 undef, float %73), !dbg !174 ; line:150 col:28  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %77 = extractvalue %dx.types.ResRet.f32 %76, 0, !dbg !174 ; line:150 col:28
+  %78 = extractvalue %dx.types.ResRet.f32 %76, 1, !dbg !174 ; line:150 col:28
+  %79 = extractvalue %dx.types.ResRet.f32 %76, 2, !dbg !174 ; line:150 col:28
+  %80 = extractvalue %dx.types.ResRet.f32 %76, 3, !dbg !174 ; line:150 col:28
+  %.i045 = fadd fast float %67, %77, !dbg !175 ; line:149 col:87
+  %.i146 = fadd fast float %68, %78, !dbg !175 ; line:149 col:87
+  %.i247 = fadd fast float %69, %79, !dbg !175 ; line:149 col:87
+  %.i348 = fadd fast float %70, %80, !dbg !175 ; line:149 col:87
+  %.i050 = fmul fast float 5.000000e-01, %.i045, !dbg !176 ; line:149 col:24
+  %.i152 = fmul fast float 5.000000e-01, %.i146, !dbg !176 ; line:149 col:24
+  %.i254 = fmul fast float 5.000000e-01, %.i247, !dbg !176 ; line:149 col:24
+  %.i356 = fmul fast float 5.000000e-01, %.i348, !dbg !176 ; line:149 col:24
+  %81 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !177 ; line:149 col:18
   call void @llvm.dbg.value(metadata float %.i050, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i152, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i254, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i356, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  br label %136, !dbg !178 ; line:151 col:9
+  br label %136, !dbg !178 ; line:152 col:9
 
 ; <label>:82                                      ; preds = %0
-  %83 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !179 ; line:157 col:26  ; CBufferLoadLegacy(handle,regIndex)
-  %84 = extractvalue %dx.types.CBufRet.f32 %83, 0, !dbg !179 ; line:157 col:26
-  %85 = extractvalue %dx.types.CBufRet.f32 %83, 1, !dbg !179 ; line:157 col:26
-  %.i057 = uitofp i32 %2 to float, !dbg !181 ; line:157 col:40
-  %.i158 = uitofp i32 %3 to float, !dbg !181 ; line:157 col:40
-  %.i060 = fadd fast float %.i057, 2.500000e-01, !dbg !182 ; line:157 col:63
-  %.i162 = fadd fast float %.i158, 2.500000e-01, !dbg !182 ; line:157 col:63
-  %.i063 = fmul fast float %84, %.i060, !dbg !183 ; line:157 col:36
-  %.i164 = fmul fast float %85, %.i162, !dbg !183 ; line:157 col:36
-  %86 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !184 ; line:157 col:20
+  %83 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !179 ; line:158 col:26  ; CBufferLoadLegacy(handle,regIndex)
+  %84 = extractvalue %dx.types.CBufRet.f32 %83, 0, !dbg !179 ; line:158 col:26
+  %85 = extractvalue %dx.types.CBufRet.f32 %83, 1, !dbg !179 ; line:158 col:26
+  %.i057 = uitofp i32 %2 to float, !dbg !181 ; line:158 col:40
+  %.i158 = uitofp i32 %3 to float, !dbg !181 ; line:158 col:40
+  %.i060 = fadd fast float %.i057, 2.500000e-01, !dbg !182 ; line:158 col:63
+  %.i162 = fadd fast float %.i158, 2.500000e-01, !dbg !182 ; line:158 col:63
+  %.i063 = fmul fast float %84, %.i060, !dbg !183 ; line:158 col:36
+  %.i164 = fmul fast float %85, %.i162, !dbg !183 ; line:158 col:36
+  %86 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !184 ; line:158 col:20
   call void @llvm.dbg.value(metadata float %.i063, i64 0, metadata !185, metadata !132), !dbg !184 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i164, i64 0, metadata !185, metadata !133), !dbg !184 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i063, i64 0, metadata !185, metadata !132), !dbg !184 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i164, i64 0, metadata !185, metadata !133), !dbg !184 ; var:"UV1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
-  %87 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !186 ; line:158 col:26  ; CBufferLoadLegacy(handle,regIndex)
-  %88 = extractvalue %dx.types.CBufRet.f32 %87, 0, !dbg !186 ; line:158 col:26
-  %89 = extractvalue %dx.types.CBufRet.f32 %87, 1, !dbg !186 ; line:158 col:26
-  %.i066 = fmul fast float %88, 5.000000e-01, !dbg !187 ; line:158 col:36
-  %.i168 = fmul fast float %89, 5.000000e-01, !dbg !187 ; line:158 col:36
-  %90 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !188 ; line:158 col:20
+  %87 = call %dx.types.CBufRet.f32 @dx.op.cbufferLoadLegacy.f32(i32 59, %dx.types.Handle %1, i32 1), !dbg !186 ; line:159 col:26  ; CBufferLoadLegacy(handle,regIndex)
+  %88 = extractvalue %dx.types.CBufRet.f32 %87, 0, !dbg !186 ; line:159 col:26
+  %89 = extractvalue %dx.types.CBufRet.f32 %87, 1, !dbg !186 ; line:159 col:26
+  %.i066 = fmul fast float %88, 5.000000e-01, !dbg !187 ; line:159 col:36
+  %.i168 = fmul fast float %89, 5.000000e-01, !dbg !187 ; line:159 col:36
+  %90 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !188 ; line:159 col:20
   call void @llvm.dbg.value(metadata float %.i066, i64 0, metadata !189, metadata !132), !dbg !188 ; var:"Off" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i168, i64 0, metadata !189, metadata !133), !dbg !188 ; var:"Off" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i066, i64 0, metadata !189, metadata !132), !dbg !188 ; var:"Off" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i168, i64 0, metadata !189, metadata !133), !dbg !188 ; var:"Off" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
-  %91 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !190 ; line:160 col:65  ; CBufferLoadLegacy(handle,regIndex)
-  %92 = extractvalue %dx.types.CBufRet.i32 %91, 0, !dbg !190 ; line:160 col:65
-  %93 = uitofp i32 %92 to float, !dbg !190 ; line:160 col:65
-  %94 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !191 ; line:160 col:20  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %95 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !191 ; line:160 col:20  ; AnnotateHandle(res,props)  resource: SamplerState
-  %96 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %94, %dx.types.Handle %95, float %.i063, float %.i164, float undef, float undef, i32 0, i32 0, i32 undef, float %93), !dbg !191 ; line:160 col:20  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %91 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !190 ; line:161 col:65  ; CBufferLoadLegacy(handle,regIndex)
+  %92 = extractvalue %dx.types.CBufRet.i32 %91, 0, !dbg !190 ; line:161 col:65
+  %93 = uitofp i32 %92 to float, !dbg !190 ; line:161 col:65
+  %94 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !191 ; line:161 col:20  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %95 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !191 ; line:161 col:20  ; AnnotateHandle(res,props)  resource: SamplerState
+  %96 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %94, %dx.types.Handle %95, float %.i063, float %.i164, float undef, float undef, i32 0, i32 0, i32 undef, float %93), !dbg !191 ; line:161 col:20  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
   call void @llvm.dbg.value(metadata %dx.types.ResRet.f32 %96, i64 0, metadata !122, metadata !123), !dbg !121 ; var:"Src1" !DIExpression() func:"main"
-  %97 = extractvalue %dx.types.ResRet.f32 %96, 0, !dbg !191 ; line:160 col:20
-  %98 = extractvalue %dx.types.ResRet.f32 %96, 1, !dbg !191 ; line:160 col:20
-  %99 = extractvalue %dx.types.ResRet.f32 %96, 2, !dbg !191 ; line:160 col:20
-  %100 = extractvalue %dx.types.ResRet.f32 %96, 3, !dbg !191 ; line:160 col:20
-  %101 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !192 ; line:160 col:18
-  %102 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !193 ; line:161 col:91  ; CBufferLoadLegacy(handle,regIndex)
-  %103 = extractvalue %dx.types.CBufRet.i32 %102, 0, !dbg !193 ; line:161 col:91
-  %104 = uitofp i32 %103 to float, !dbg !193 ; line:161 col:91
-  %.i069 = fadd fast float %.i063, %.i066, !dbg !194 ; line:161 col:65
-  %.i170 = fadd fast float %.i164, 0.000000e+00, !dbg !194 ; line:161 col:65
-  %105 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !195 ; line:161 col:21  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %106 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !195 ; line:161 col:21  ; AnnotateHandle(res,props)  resource: SamplerState
-  %107 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %105, %dx.types.Handle %106, float %.i069, float %.i170, float undef, float undef, i32 0, i32 0, i32 undef, float %104), !dbg !195 ; line:161 col:21  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
-  %108 = extractvalue %dx.types.ResRet.f32 %107, 0, !dbg !195 ; line:161 col:21
-  %109 = extractvalue %dx.types.ResRet.f32 %107, 1, !dbg !195 ; line:161 col:21
-  %110 = extractvalue %dx.types.ResRet.f32 %107, 2, !dbg !195 ; line:161 col:21
-  %111 = extractvalue %dx.types.ResRet.f32 %107, 3, !dbg !195 ; line:161 col:21
-  %.i071 = fadd fast float %97, %108, !dbg !196 ; line:161 col:18
-  %.i172 = fadd fast float %98, %109, !dbg !196 ; line:161 col:18
-  %.i273 = fadd fast float %99, %110, !dbg !196 ; line:161 col:18
-  %.i374 = fadd fast float %100, %111, !dbg !196 ; line:161 col:18
-  %112 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !196 ; line:161 col:18
+  %97 = extractvalue %dx.types.ResRet.f32 %96, 0, !dbg !191 ; line:161 col:20
+  %98 = extractvalue %dx.types.ResRet.f32 %96, 1, !dbg !191 ; line:161 col:20
+  %99 = extractvalue %dx.types.ResRet.f32 %96, 2, !dbg !191 ; line:161 col:20
+  %100 = extractvalue %dx.types.ResRet.f32 %96, 3, !dbg !191 ; line:161 col:20
+  %101 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !192 ; line:161 col:18
+  %102 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !193 ; line:162 col:91  ; CBufferLoadLegacy(handle,regIndex)
+  %103 = extractvalue %dx.types.CBufRet.i32 %102, 0, !dbg !193 ; line:162 col:91
+  %104 = uitofp i32 %103 to float, !dbg !193 ; line:162 col:91
+  %.i069 = fadd fast float %.i063, %.i066, !dbg !194 ; line:162 col:65
+  %.i170 = fadd fast float %.i164, 0.000000e+00, !dbg !194 ; line:162 col:65
+  %105 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !195 ; line:162 col:21  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %106 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !195 ; line:162 col:21  ; AnnotateHandle(res,props)  resource: SamplerState
+  %107 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %105, %dx.types.Handle %106, float %.i069, float %.i170, float undef, float undef, i32 0, i32 0, i32 undef, float %104), !dbg !195 ; line:162 col:21  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %108 = extractvalue %dx.types.ResRet.f32 %107, 0, !dbg !195 ; line:162 col:21
+  %109 = extractvalue %dx.types.ResRet.f32 %107, 1, !dbg !195 ; line:162 col:21
+  %110 = extractvalue %dx.types.ResRet.f32 %107, 2, !dbg !195 ; line:162 col:21
+  %111 = extractvalue %dx.types.ResRet.f32 %107, 3, !dbg !195 ; line:162 col:21
+  %.i071 = fadd fast float %97, %108, !dbg !196 ; line:162 col:18
+  %.i172 = fadd fast float %98, %109, !dbg !196 ; line:162 col:18
+  %.i273 = fadd fast float %99, %110, !dbg !196 ; line:162 col:18
+  %.i374 = fadd fast float %100, %111, !dbg !196 ; line:162 col:18
+  %112 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !196 ; line:162 col:18
   call void @llvm.dbg.value(metadata float %.i071, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i172, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i273, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i374, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %113 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !197 ; line:162 col:91  ; CBufferLoadLegacy(handle,regIndex)
-  %114 = extractvalue %dx.types.CBufRet.i32 %113, 0, !dbg !197 ; line:162 col:91
-  %115 = uitofp i32 %114 to float, !dbg !197 ; line:162 col:91
-  %.i076 = fadd fast float %.i063, 0.000000e+00, !dbg !198 ; line:162 col:65
-  %.i177 = fadd fast float %.i164, %.i168, !dbg !198 ; line:162 col:65
-  %116 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !199 ; line:162 col:21  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %117 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !199 ; line:162 col:21  ; AnnotateHandle(res,props)  resource: SamplerState
-  %118 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %116, %dx.types.Handle %117, float %.i076, float %.i177, float undef, float undef, i32 0, i32 0, i32 undef, float %115), !dbg !199 ; line:162 col:21  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
-  %119 = extractvalue %dx.types.ResRet.f32 %118, 0, !dbg !199 ; line:162 col:21
-  %120 = extractvalue %dx.types.ResRet.f32 %118, 1, !dbg !199 ; line:162 col:21
-  %121 = extractvalue %dx.types.ResRet.f32 %118, 2, !dbg !199 ; line:162 col:21
-  %122 = extractvalue %dx.types.ResRet.f32 %118, 3, !dbg !199 ; line:162 col:21
-  %.i078 = fadd fast float %.i071, %119, !dbg !200 ; line:162 col:18
-  %.i179 = fadd fast float %.i172, %120, !dbg !200 ; line:162 col:18
-  %.i280 = fadd fast float %.i273, %121, !dbg !200 ; line:162 col:18
-  %.i381 = fadd fast float %.i374, %122, !dbg !200 ; line:162 col:18
-  %123 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !200 ; line:162 col:18
+  %113 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !197 ; line:163 col:91  ; CBufferLoadLegacy(handle,regIndex)
+  %114 = extractvalue %dx.types.CBufRet.i32 %113, 0, !dbg !197 ; line:163 col:91
+  %115 = uitofp i32 %114 to float, !dbg !197 ; line:163 col:91
+  %.i076 = fadd fast float %.i063, 0.000000e+00, !dbg !198 ; line:163 col:65
+  %.i177 = fadd fast float %.i164, %.i168, !dbg !198 ; line:163 col:65
+  %116 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !199 ; line:163 col:21  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %117 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !199 ; line:163 col:21  ; AnnotateHandle(res,props)  resource: SamplerState
+  %118 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %116, %dx.types.Handle %117, float %.i076, float %.i177, float undef, float undef, i32 0, i32 0, i32 undef, float %115), !dbg !199 ; line:163 col:21  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %119 = extractvalue %dx.types.ResRet.f32 %118, 0, !dbg !199 ; line:163 col:21
+  %120 = extractvalue %dx.types.ResRet.f32 %118, 1, !dbg !199 ; line:163 col:21
+  %121 = extractvalue %dx.types.ResRet.f32 %118, 2, !dbg !199 ; line:163 col:21
+  %122 = extractvalue %dx.types.ResRet.f32 %118, 3, !dbg !199 ; line:163 col:21
+  %.i078 = fadd fast float %.i071, %119, !dbg !200 ; line:163 col:18
+  %.i179 = fadd fast float %.i172, %120, !dbg !200 ; line:163 col:18
+  %.i280 = fadd fast float %.i273, %121, !dbg !200 ; line:163 col:18
+  %.i381 = fadd fast float %.i374, %122, !dbg !200 ; line:163 col:18
+  %123 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !200 ; line:163 col:18
   call void @llvm.dbg.value(metadata float %.i078, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i179, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i280, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i381, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %124 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !201 ; line:163 col:91  ; CBufferLoadLegacy(handle,regIndex)
-  %125 = extractvalue %dx.types.CBufRet.i32 %124, 0, !dbg !201 ; line:163 col:91
-  %126 = uitofp i32 %125 to float, !dbg !201 ; line:163 col:91
-  %.i082 = fadd fast float %.i063, %.i066, !dbg !202 ; line:163 col:65
-  %.i183 = fadd fast float %.i164, %.i168, !dbg !202 ; line:163 col:65
-  %127 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !203 ; line:163 col:21  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
-  %128 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !203 ; line:163 col:21  ; AnnotateHandle(res,props)  resource: SamplerState
-  %129 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %127, %dx.types.Handle %128, float %.i082, float %.i183, float undef, float undef, i32 0, i32 0, i32 undef, float %126), !dbg !203 ; line:163 col:21  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
-  %130 = extractvalue %dx.types.ResRet.f32 %129, 0, !dbg !203 ; line:163 col:21
-  %131 = extractvalue %dx.types.ResRet.f32 %129, 1, !dbg !203 ; line:163 col:21
-  %132 = extractvalue %dx.types.ResRet.f32 %129, 2, !dbg !203 ; line:163 col:21
-  %133 = extractvalue %dx.types.ResRet.f32 %129, 3, !dbg !203 ; line:163 col:21
-  %.i084 = fadd fast float %.i078, %130, !dbg !204 ; line:163 col:18
-  %.i185 = fadd fast float %.i179, %131, !dbg !204 ; line:163 col:18
-  %.i286 = fadd fast float %.i280, %132, !dbg !204 ; line:163 col:18
-  %.i387 = fadd fast float %.i381, %133, !dbg !204 ; line:163 col:18
-  %134 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !204 ; line:163 col:18
+  %124 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !201 ; line:164 col:91  ; CBufferLoadLegacy(handle,regIndex)
+  %125 = extractvalue %dx.types.CBufRet.i32 %124, 0, !dbg !201 ; line:164 col:91
+  %126 = uitofp i32 %125 to float, !dbg !201 ; line:164 col:91
+  %.i082 = fadd fast float %.i063, %.i066, !dbg !202 ; line:164 col:65
+  %.i183 = fadd fast float %.i164, %.i168, !dbg !202 ; line:164 col:65
+  %127 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %SrcMip_texture_2d, %dx.types.ResourceProperties { i32 2, i32 1033 }), !dbg !203 ; line:164 col:21  ; AnnotateHandle(res,props)  resource: Texture2D<4xF32>
+  %128 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %LinearClampSampler_sampler, %dx.types.ResourceProperties { i32 14, i32 0 }), !dbg !203 ; line:164 col:21  ; AnnotateHandle(res,props)  resource: SamplerState
+  %129 = call %dx.types.ResRet.f32 @dx.op.sampleLevel.f32(i32 62, %dx.types.Handle %127, %dx.types.Handle %128, float %.i082, float %.i183, float undef, float undef, i32 0, i32 0, i32 undef, float %126), !dbg !203 ; line:164 col:21  ; SampleLevel(srv,sampler,coord0,coord1,coord2,coord3,offset0,offset1,offset2,LOD)
+  %130 = extractvalue %dx.types.ResRet.f32 %129, 0, !dbg !203 ; line:164 col:21
+  %131 = extractvalue %dx.types.ResRet.f32 %129, 1, !dbg !203 ; line:164 col:21
+  %132 = extractvalue %dx.types.ResRet.f32 %129, 2, !dbg !203 ; line:164 col:21
+  %133 = extractvalue %dx.types.ResRet.f32 %129, 3, !dbg !203 ; line:164 col:21
+  %.i084 = fadd fast float %.i078, %130, !dbg !204 ; line:164 col:18
+  %.i185 = fadd fast float %.i179, %131, !dbg !204 ; line:164 col:18
+  %.i286 = fadd fast float %.i280, %132, !dbg !204 ; line:164 col:18
+  %.i387 = fadd fast float %.i381, %133, !dbg !204 ; line:164 col:18
+  %134 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !204 ; line:164 col:18
   call void @llvm.dbg.value(metadata float %.i084, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i185, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i286, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i387, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %.i089 = fmul fast float %.i084, 2.500000e-01, !dbg !205 ; line:164 col:18
-  %.i191 = fmul fast float %.i185, 2.500000e-01, !dbg !205 ; line:164 col:18
-  %.i293 = fmul fast float %.i286, 2.500000e-01, !dbg !205 ; line:164 col:18
-  %.i395 = fmul fast float %.i387, 2.500000e-01, !dbg !205 ; line:164 col:18
-  %135 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !205 ; line:164 col:18
+  %.i089 = fmul fast float %.i084, 2.500000e-01, !dbg !205 ; line:165 col:18
+  %.i191 = fmul fast float %.i185, 2.500000e-01, !dbg !205 ; line:165 col:18
+  %.i293 = fmul fast float %.i286, 2.500000e-01, !dbg !205 ; line:165 col:18
+  %.i395 = fmul fast float %.i387, 2.500000e-01, !dbg !205 ; line:165 col:18
+  %135 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !205 ; line:165 col:18
   call void @llvm.dbg.value(metadata float %.i089, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i191, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i293, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i395, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  br label %136, !dbg !206 ; line:166 col:9
+  br label %136, !dbg !206 ; line:167 col:9
 
 ; <label>:136                                     ; preds = %0, %82, %53, %24, %8
   %Src1.0.i0 = phi float [ 0.000000e+00, %0 ], [ %.i089, %82 ], [ %.i050, %53 ], [ %.i024, %24 ], [ %19, %8 ]
@@ -365,7 +365,7 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %Src1.0.i1, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %Src1.0.i2, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %Src1.0.i3, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %137 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !207 ; line:169 col:39
+  %137 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !207 ; line:170 col:39
   call void @llvm.dbg.value(metadata float %Src1.0.i0, i64 0, metadata !208, metadata !132), !dbg !209 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 0, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %Src1.0.i1, i64 0, metadata !208, metadata !133), !dbg !209 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 32, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %Src1.0.i2, i64 0, metadata !208, metadata !156), !dbg !209 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 64, 32) func:"PackColor"
@@ -374,21 +374,21 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %Src1.0.i1, i64 0, metadata !208, metadata !133), !dbg !209 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 32, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %Src1.0.i2, i64 0, metadata !208, metadata !156), !dbg !209 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 64, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %Src1.0.i3, i64 0, metadata !208, metadata !157), !dbg !209 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 96, 32) func:"PackColor"
-  %138 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !211 ; line:96 col:5
-  %139 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %OutMip1_UAV_2d, %dx.types.ResourceProperties { i32 4098, i32 1033 }), !dbg !212 ; line:169 col:5  ; AnnotateHandle(res,props)  resource: RWTexture2D<4xF32>
-  call void @dx.op.textureStore.f32(i32 67, %dx.types.Handle %139, i32 %2, i32 %3, i32 undef, float %Src1.0.i0, float %Src1.0.i1, float %Src1.0.i2, float %Src1.0.i3, i8 15), !dbg !213 ; line:169 col:37  ; TextureStore(srv,coord0,coord1,coord2,value0,value1,value2,value3,mask)
-  %140 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !214 ; line:172 col:10  ; CBufferLoadLegacy(handle,regIndex)
-  %141 = extractvalue %dx.types.CBufRet.i32 %140, 1, !dbg !214 ; line:172 col:10
-  %142 = icmp eq i32 %141, 1, !dbg !216 ; line:172 col:23
-  %143 = icmp ne i1 %142, false, !dbg !216 ; line:172 col:23
-  %144 = icmp ne i1 %143, false, !dbg !216 ; line:172 col:23
-  br i1 %144, label %145, label %146, !dbg !217 ; line:172 col:10
+  %138 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !211 ; line:97 col:5
+  %139 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %OutMip1_UAV_2d, %dx.types.ResourceProperties { i32 4098, i32 1033 }), !dbg !212 ; line:170 col:5  ; AnnotateHandle(res,props)  resource: RWTexture2D<4xF32>
+  call void @dx.op.textureStore.f32(i32 67, %dx.types.Handle %139, i32 %2, i32 %3, i32 undef, float %Src1.0.i0, float %Src1.0.i1, float %Src1.0.i2, float %Src1.0.i3, i8 15), !dbg !213 ; line:170 col:37  ; TextureStore(srv,coord0,coord1,coord2,value0,value1,value2,value3,mask)
+  %140 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !214 ; line:173 col:10  ; CBufferLoadLegacy(handle,regIndex)
+  %141 = extractvalue %dx.types.CBufRet.i32 %140, 1, !dbg !214 ; line:173 col:10
+  %142 = icmp eq i32 %141, 1, !dbg !216 ; line:173 col:23
+  %143 = icmp ne i1 %142, false, !dbg !216 ; line:173 col:23
+  %144 = icmp ne i1 %143, false, !dbg !216 ; line:173 col:23
+  br i1 %144, label %145, label %146, !dbg !217 ; line:173 col:10
 
 ; <label>:145                                     ; preds = %136
-  br label %315, !dbg !218 ; line:173 col:9
+  br label %315, !dbg !218 ; line:174 col:9
 
 ; <label>:146                                     ; preds = %136
-  %147 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !219 ; line:177 col:5
+  %147 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !219 ; line:178 col:5
   call void @llvm.dbg.value(metadata float %Src1.0.i0, i64 0, metadata !220, metadata !132), !dbg !221 ; var:"Color" !DIExpression(DW_OP_bit_piece, 0, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %Src1.0.i1, i64 0, metadata !220, metadata !133), !dbg !221 ; var:"Color" !DIExpression(DW_OP_bit_piece, 32, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %Src1.0.i2, i64 0, metadata !220, metadata !156), !dbg !221 ; var:"Color" !DIExpression(DW_OP_bit_piece, 64, 32) func:"StoreColor"
@@ -398,91 +398,91 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %Src1.0.i2, i64 0, metadata !220, metadata !156), !dbg !221 ; var:"Color" !DIExpression(DW_OP_bit_piece, 64, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %Src1.0.i3, i64 0, metadata !220, metadata !157), !dbg !221 ; var:"Color" !DIExpression(DW_OP_bit_piece, 96, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata i32 %4, i64 0, metadata !223, metadata !123), !dbg !224 ; var:"Index" !DIExpression() func:"StoreColor"
-  %148 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %4, !dbg !225 ; line:71 col:5
-  store float %Src1.0.i0, float addrspace(3)* %148, align 4, !dbg !226 ; line:71 col:17
-  %149 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %4, !dbg !227 ; line:72 col:5
-  store float %Src1.0.i1, float addrspace(3)* %149, align 4, !dbg !228 ; line:72 col:17
-  %150 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %4, !dbg !229 ; line:73 col:5
-  store float %Src1.0.i2, float addrspace(3)* %150, align 4, !dbg !230 ; line:73 col:17
-  %151 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %4, !dbg !231 ; line:74 col:5
-  store float %Src1.0.i3, float addrspace(3)* %151, align 4, !dbg !232 ; line:74 col:17
-  %152 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !233 ; line:75 col:1
-  call void @dx.op.barrier(i32 80, i32 9), !dbg !234 ; line:182 col:5  ; Barrier(barrierMode)
-  %153 = and i32 %4, 9, !dbg !235 ; line:186 col:26
-  %154 = icmp eq i32 %153, 0, !dbg !237 ; line:186 col:34
-  %155 = icmp ne i1 %154, false, !dbg !237 ; line:186 col:34
-  %156 = icmp ne i1 %155, false, !dbg !237 ; line:186 col:34
-  br i1 %156, label %157, label %204, !dbg !238 ; line:186 col:10
+  %148 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %4, !dbg !225 ; line:72 col:5
+  store float %Src1.0.i0, float addrspace(3)* %148, align 4, !dbg !226 ; line:72 col:17
+  %149 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %4, !dbg !227 ; line:73 col:5
+  store float %Src1.0.i1, float addrspace(3)* %149, align 4, !dbg !228 ; line:73 col:17
+  %150 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %4, !dbg !229 ; line:74 col:5
+  store float %Src1.0.i2, float addrspace(3)* %150, align 4, !dbg !230 ; line:74 col:17
+  %151 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %4, !dbg !231 ; line:75 col:5
+  store float %Src1.0.i3, float addrspace(3)* %151, align 4, !dbg !232 ; line:75 col:17
+  %152 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !233 ; line:76 col:1
+  call void @dx.op.barrier(i32 80, i32 9), !dbg !234 ; line:183 col:5  ; Barrier(barrierMode)
+  %153 = and i32 %4, 9, !dbg !235 ; line:187 col:26
+  %154 = icmp eq i32 %153, 0, !dbg !237 ; line:187 col:34
+  %155 = icmp ne i1 %154, false, !dbg !237 ; line:187 col:34
+  %156 = icmp ne i1 %155, false, !dbg !237 ; line:187 col:34
+  br i1 %156, label %157, label %204, !dbg !238 ; line:187 col:10
 
 ; <label>:157                                     ; preds = %146
-  %158 = add i32 %4, 1, !dbg !239 ; line:188 col:48
-  %159 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !241 ; line:188 col:23
+  %158 = add i32 %4, 1, !dbg !239 ; line:189 col:48
+  %159 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !241 ; line:189 col:23
   call void @llvm.dbg.value(metadata i32 %158, i64 0, metadata !242, metadata !123), !dbg !243 ; var:"Index" !DIExpression() func:"LoadColor"
-  %160 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %158, !dbg !245 ; line:79 col:20
-  %161 = load float, float addrspace(3)* %160, align 4, !dbg !245 ; line:79 col:20
-  %162 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %158, !dbg !246 ; line:79 col:33
-  %163 = load float, float addrspace(3)* %162, align 4, !dbg !246 ; line:79 col:33
-  %164 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %158, !dbg !247 ; line:79 col:46
-  %165 = load float, float addrspace(3)* %164, align 4, !dbg !247 ; line:79 col:46
-  %166 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %158, !dbg !248 ; line:79 col:59
-  %167 = load float, float addrspace(3)* %166, align 4, !dbg !248 ; line:79 col:59
-  %168 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !249 ; line:79 col:5
-  %169 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !250 ; line:188 col:16
+  %160 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %158, !dbg !245 ; line:80 col:20
+  %161 = load float, float addrspace(3)* %160, align 4, !dbg !245 ; line:80 col:20
+  %162 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %158, !dbg !246 ; line:80 col:33
+  %163 = load float, float addrspace(3)* %162, align 4, !dbg !246 ; line:80 col:33
+  %164 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %158, !dbg !247 ; line:80 col:46
+  %165 = load float, float addrspace(3)* %164, align 4, !dbg !247 ; line:80 col:46
+  %166 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %158, !dbg !248 ; line:80 col:59
+  %167 = load float, float addrspace(3)* %166, align 4, !dbg !248 ; line:80 col:59
+  %168 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !249 ; line:80 col:5
+  %169 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !250 ; line:189 col:16
   call void @llvm.dbg.value(metadata float %161, i64 0, metadata !251, metadata !132), !dbg !250 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %163, i64 0, metadata !251, metadata !133), !dbg !250 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %165, i64 0, metadata !251, metadata !156), !dbg !250 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %167, i64 0, metadata !251, metadata !157), !dbg !250 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %170 = add i32 %4, 8, !dbg !252 ; line:189 col:48
-  %171 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !253 ; line:189 col:23
+  %170 = add i32 %4, 8, !dbg !252 ; line:190 col:48
+  %171 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !253 ; line:190 col:23
   call void @llvm.dbg.value(metadata i32 %170, i64 0, metadata !242, metadata !123), !dbg !254 ; var:"Index" !DIExpression() func:"LoadColor"
-  %172 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %170, !dbg !256 ; line:79 col:20
-  %173 = load float, float addrspace(3)* %172, align 4, !dbg !256 ; line:79 col:20
-  %174 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %170, !dbg !257 ; line:79 col:33
-  %175 = load float, float addrspace(3)* %174, align 4, !dbg !257 ; line:79 col:33
-  %176 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %170, !dbg !258 ; line:79 col:46
-  %177 = load float, float addrspace(3)* %176, align 4, !dbg !258 ; line:79 col:46
-  %178 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %170, !dbg !259 ; line:79 col:59
-  %179 = load float, float addrspace(3)* %178, align 4, !dbg !259 ; line:79 col:59
-  %180 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !260 ; line:79 col:5
-  %181 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !261 ; line:189 col:16
+  %172 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %170, !dbg !256 ; line:80 col:20
+  %173 = load float, float addrspace(3)* %172, align 4, !dbg !256 ; line:80 col:20
+  %174 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %170, !dbg !257 ; line:80 col:33
+  %175 = load float, float addrspace(3)* %174, align 4, !dbg !257 ; line:80 col:33
+  %176 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %170, !dbg !258 ; line:80 col:46
+  %177 = load float, float addrspace(3)* %176, align 4, !dbg !258 ; line:80 col:46
+  %178 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %170, !dbg !259 ; line:80 col:59
+  %179 = load float, float addrspace(3)* %178, align 4, !dbg !259 ; line:80 col:59
+  %180 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !260 ; line:80 col:5
+  %181 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !261 ; line:190 col:16
   call void @llvm.dbg.value(metadata float %173, i64 0, metadata !262, metadata !132), !dbg !261 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %175, i64 0, metadata !262, metadata !133), !dbg !261 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %177, i64 0, metadata !262, metadata !156), !dbg !261 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %179, i64 0, metadata !262, metadata !157), !dbg !261 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %182 = add i32 %4, 9, !dbg !263 ; line:190 col:48
-  %183 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !264 ; line:190 col:23
+  %182 = add i32 %4, 9, !dbg !263 ; line:191 col:48
+  %183 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !264 ; line:191 col:23
   call void @llvm.dbg.value(metadata i32 %182, i64 0, metadata !242, metadata !123), !dbg !265 ; var:"Index" !DIExpression() func:"LoadColor"
-  %184 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %182, !dbg !267 ; line:79 col:20
-  %185 = load float, float addrspace(3)* %184, align 4, !dbg !267 ; line:79 col:20
-  %186 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %182, !dbg !268 ; line:79 col:33
-  %187 = load float, float addrspace(3)* %186, align 4, !dbg !268 ; line:79 col:33
-  %188 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %182, !dbg !269 ; line:79 col:46
-  %189 = load float, float addrspace(3)* %188, align 4, !dbg !269 ; line:79 col:46
-  %190 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %182, !dbg !270 ; line:79 col:59
-  %191 = load float, float addrspace(3)* %190, align 4, !dbg !270 ; line:79 col:59
-  %192 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !271 ; line:79 col:5
-  %193 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !272 ; line:190 col:16
+  %184 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %182, !dbg !267 ; line:80 col:20
+  %185 = load float, float addrspace(3)* %184, align 4, !dbg !267 ; line:80 col:20
+  %186 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %182, !dbg !268 ; line:80 col:33
+  %187 = load float, float addrspace(3)* %186, align 4, !dbg !268 ; line:80 col:33
+  %188 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %182, !dbg !269 ; line:80 col:46
+  %189 = load float, float addrspace(3)* %188, align 4, !dbg !269 ; line:80 col:46
+  %190 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %182, !dbg !270 ; line:80 col:59
+  %191 = load float, float addrspace(3)* %190, align 4, !dbg !270 ; line:80 col:59
+  %192 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !271 ; line:80 col:5
+  %193 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !272 ; line:191 col:16
   call void @llvm.dbg.value(metadata float %185, i64 0, metadata !273, metadata !132), !dbg !272 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %187, i64 0, metadata !273, metadata !133), !dbg !272 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %189, i64 0, metadata !273, metadata !156), !dbg !272 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %191, i64 0, metadata !273, metadata !157), !dbg !272 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %.i096 = fadd fast float %Src1.0.i0, %161, !dbg !274 ; line:191 col:30
-  %.i197 = fadd fast float %Src1.0.i1, %163, !dbg !274 ; line:191 col:30
-  %.i298 = fadd fast float %Src1.0.i2, %165, !dbg !274 ; line:191 col:30
-  %.i399 = fadd fast float %Src1.0.i3, %167, !dbg !274 ; line:191 col:30
-  %.i0100 = fadd fast float %.i096, %173, !dbg !275 ; line:191 col:37
-  %.i1101 = fadd fast float %.i197, %175, !dbg !275 ; line:191 col:37
-  %.i2102 = fadd fast float %.i298, %177, !dbg !275 ; line:191 col:37
-  %.i3103 = fadd fast float %.i399, %179, !dbg !275 ; line:191 col:37
-  %.i0104 = fadd fast float %.i0100, %185, !dbg !276 ; line:191 col:44
-  %.i1105 = fadd fast float %.i1101, %187, !dbg !276 ; line:191 col:44
-  %.i2106 = fadd fast float %.i2102, %189, !dbg !276 ; line:191 col:44
-  %.i3107 = fadd fast float %.i3103, %191, !dbg !276 ; line:191 col:44
-  %.i0109 = fmul fast float 2.500000e-01, %.i0104, !dbg !277 ; line:191 col:21
-  %.i1111 = fmul fast float 2.500000e-01, %.i1105, !dbg !277 ; line:191 col:21
-  %.i2113 = fmul fast float 2.500000e-01, %.i2106, !dbg !277 ; line:191 col:21
-  %.i3115 = fmul fast float 2.500000e-01, %.i3107, !dbg !277 ; line:191 col:21
-  %194 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !278 ; line:191 col:14
+  %.i096 = fadd fast float %Src1.0.i0, %161, !dbg !274 ; line:192 col:30
+  %.i197 = fadd fast float %Src1.0.i1, %163, !dbg !274 ; line:192 col:30
+  %.i298 = fadd fast float %Src1.0.i2, %165, !dbg !274 ; line:192 col:30
+  %.i399 = fadd fast float %Src1.0.i3, %167, !dbg !274 ; line:192 col:30
+  %.i0100 = fadd fast float %.i096, %173, !dbg !275 ; line:192 col:37
+  %.i1101 = fadd fast float %.i197, %175, !dbg !275 ; line:192 col:37
+  %.i2102 = fadd fast float %.i298, %177, !dbg !275 ; line:192 col:37
+  %.i3103 = fadd fast float %.i399, %179, !dbg !275 ; line:192 col:37
+  %.i0104 = fadd fast float %.i0100, %185, !dbg !276 ; line:192 col:44
+  %.i1105 = fadd fast float %.i1101, %187, !dbg !276 ; line:192 col:44
+  %.i2106 = fadd fast float %.i2102, %189, !dbg !276 ; line:192 col:44
+  %.i3107 = fadd fast float %.i3103, %191, !dbg !276 ; line:192 col:44
+  %.i0109 = fmul fast float 2.500000e-01, %.i0104, !dbg !277 ; line:192 col:21
+  %.i1111 = fmul fast float 2.500000e-01, %.i1105, !dbg !277 ; line:192 col:21
+  %.i2113 = fmul fast float 2.500000e-01, %.i2106, !dbg !277 ; line:192 col:21
+  %.i3115 = fmul fast float 2.500000e-01, %.i3107, !dbg !277 ; line:192 col:21
+  %194 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !278 ; line:192 col:14
   call void @llvm.dbg.value(metadata float %.i0109, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i1111, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i2113, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
@@ -491,7 +491,7 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %.i1111, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i2113, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i3115, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %195 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !279 ; line:193 col:47
+  %195 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !279 ; line:194 col:47
   call void @llvm.dbg.value(metadata float %.i0109, i64 0, metadata !208, metadata !132), !dbg !280 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 0, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i1111, i64 0, metadata !208, metadata !133), !dbg !280 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 32, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i2113, i64 0, metadata !208, metadata !156), !dbg !280 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 64, 32) func:"PackColor"
@@ -500,12 +500,12 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %.i1111, i64 0, metadata !208, metadata !133), !dbg !280 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 32, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i2113, i64 0, metadata !208, metadata !156), !dbg !280 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 64, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i3115, i64 0, metadata !208, metadata !157), !dbg !280 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 96, 32) func:"PackColor"
-  %196 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !282 ; line:96 col:5
-  %.i0117 = udiv i32 %2, 2, !dbg !283 ; line:193 col:40
-  %.i1119 = udiv i32 %3, 2, !dbg !283 ; line:193 col:40
-  %197 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %OutMip2_UAV_2d, %dx.types.ResourceProperties { i32 4098, i32 1033 }), !dbg !284 ; line:193 col:9  ; AnnotateHandle(res,props)  resource: RWTexture2D<4xF32>
-  call void @dx.op.textureStore.f32(i32 67, %dx.types.Handle %197, i32 %.i0117, i32 %.i1119, i32 undef, float %.i0109, float %.i1111, float %.i2113, float %.i3115, i8 15), !dbg !285 ; line:193 col:45  ; TextureStore(srv,coord0,coord1,coord2,value0,value1,value2,value3,mask)
-  %198 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !286 ; line:194 col:9
+  %196 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !282 ; line:97 col:5
+  %.i0117 = udiv i32 %2, 2, !dbg !283 ; line:194 col:40
+  %.i1119 = udiv i32 %3, 2, !dbg !283 ; line:194 col:40
+  %197 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %OutMip2_UAV_2d, %dx.types.ResourceProperties { i32 4098, i32 1033 }), !dbg !284 ; line:194 col:9  ; AnnotateHandle(res,props)  resource: RWTexture2D<4xF32>
+  call void @dx.op.textureStore.f32(i32 67, %dx.types.Handle %197, i32 %.i0117, i32 %.i1119, i32 undef, float %.i0109, float %.i1111, float %.i2113, float %.i3115, i8 15), !dbg !285 ; line:194 col:45  ; TextureStore(srv,coord0,coord1,coord2,value0,value1,value2,value3,mask)
+  %198 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !286 ; line:195 col:9
   call void @llvm.dbg.value(metadata float %.i0109, i64 0, metadata !220, metadata !132), !dbg !287 ; var:"Color" !DIExpression(DW_OP_bit_piece, 0, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %.i1111, i64 0, metadata !220, metadata !133), !dbg !287 ; var:"Color" !DIExpression(DW_OP_bit_piece, 32, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %.i2113, i64 0, metadata !220, metadata !156), !dbg !287 ; var:"Color" !DIExpression(DW_OP_bit_piece, 64, 32) func:"StoreColor"
@@ -515,16 +515,16 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %.i2113, i64 0, metadata !220, metadata !156), !dbg !287 ; var:"Color" !DIExpression(DW_OP_bit_piece, 64, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %.i3115, i64 0, metadata !220, metadata !157), !dbg !287 ; var:"Color" !DIExpression(DW_OP_bit_piece, 96, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata i32 %4, i64 0, metadata !223, metadata !123), !dbg !289 ; var:"Index" !DIExpression() func:"StoreColor"
-  %199 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %4, !dbg !290 ; line:71 col:5
-  store float %.i0109, float addrspace(3)* %199, align 4, !dbg !291 ; line:71 col:17
-  %200 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %4, !dbg !292 ; line:72 col:5
-  store float %.i1111, float addrspace(3)* %200, align 4, !dbg !293 ; line:72 col:17
-  %201 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %4, !dbg !294 ; line:73 col:5
-  store float %.i2113, float addrspace(3)* %201, align 4, !dbg !295 ; line:73 col:17
-  %202 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %4, !dbg !296 ; line:74 col:5
-  store float %.i3115, float addrspace(3)* %202, align 4, !dbg !297 ; line:74 col:17
-  %203 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !298 ; line:75 col:1
-  br label %204, !dbg !299 ; line:195 col:5
+  %199 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %4, !dbg !290 ; line:72 col:5
+  store float %.i0109, float addrspace(3)* %199, align 4, !dbg !291 ; line:72 col:17
+  %200 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %4, !dbg !292 ; line:73 col:5
+  store float %.i1111, float addrspace(3)* %200, align 4, !dbg !293 ; line:73 col:17
+  %201 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %4, !dbg !294 ; line:74 col:5
+  store float %.i2113, float addrspace(3)* %201, align 4, !dbg !295 ; line:74 col:17
+  %202 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %4, !dbg !296 ; line:75 col:5
+  store float %.i3115, float addrspace(3)* %202, align 4, !dbg !297 ; line:75 col:17
+  %203 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !298 ; line:76 col:1
+  br label %204, !dbg !299 ; line:196 col:5
 
 ; <label>:204                                     ; preds = %157, %146
   %Src1.1.i0 = phi float [ %.i0109, %157 ], [ %Src1.0.i0, %146 ]
@@ -535,93 +535,93 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %Src1.1.i1, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %Src1.1.i2, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %Src1.1.i3, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %205 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !300 ; line:197 col:10  ; CBufferLoadLegacy(handle,regIndex)
-  %206 = extractvalue %dx.types.CBufRet.i32 %205, 1, !dbg !300 ; line:197 col:10
-  %207 = icmp eq i32 %206, 2, !dbg !302 ; line:197 col:23
-  %208 = icmp ne i1 %207, false, !dbg !302 ; line:197 col:23
-  %209 = icmp ne i1 %208, false, !dbg !302 ; line:197 col:23
-  br i1 %209, label %210, label %211, !dbg !303 ; line:197 col:10
+  %205 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !300 ; line:198 col:10  ; CBufferLoadLegacy(handle,regIndex)
+  %206 = extractvalue %dx.types.CBufRet.i32 %205, 1, !dbg !300 ; line:198 col:10
+  %207 = icmp eq i32 %206, 2, !dbg !302 ; line:198 col:23
+  %208 = icmp ne i1 %207, false, !dbg !302 ; line:198 col:23
+  %209 = icmp ne i1 %208, false, !dbg !302 ; line:198 col:23
+  br i1 %209, label %210, label %211, !dbg !303 ; line:198 col:10
 
 ; <label>:210                                     ; preds = %204
-  br label %315, !dbg !304 ; line:198 col:9
+  br label %315, !dbg !304 ; line:199 col:9
 
 ; <label>:211                                     ; preds = %204
-  call void @dx.op.barrier(i32 80, i32 9), !dbg !305 ; line:200 col:5  ; Barrier(barrierMode)
-  %212 = and i32 %4, 27, !dbg !306 ; line:203 col:26
-  %213 = icmp eq i32 %212, 0, !dbg !308 ; line:203 col:35
-  %214 = icmp ne i1 %213, false, !dbg !308 ; line:203 col:35
-  %215 = icmp ne i1 %214, false, !dbg !308 ; line:203 col:35
-  br i1 %215, label %216, label %263, !dbg !309 ; line:203 col:10
+  call void @dx.op.barrier(i32 80, i32 9), !dbg !305 ; line:201 col:5  ; Barrier(barrierMode)
+  %212 = and i32 %4, 27, !dbg !306 ; line:204 col:26
+  %213 = icmp eq i32 %212, 0, !dbg !308 ; line:204 col:35
+  %214 = icmp ne i1 %213, false, !dbg !308 ; line:204 col:35
+  %215 = icmp ne i1 %214, false, !dbg !308 ; line:204 col:35
+  br i1 %215, label %216, label %263, !dbg !309 ; line:204 col:10
 
 ; <label>:216                                     ; preds = %211
-  %217 = add i32 %4, 2, !dbg !310 ; line:205 col:48
-  %218 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !312 ; line:205 col:23
+  %217 = add i32 %4, 2, !dbg !310 ; line:206 col:48
+  %218 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !312 ; line:206 col:23
   call void @llvm.dbg.value(metadata i32 %217, i64 0, metadata !242, metadata !123), !dbg !313 ; var:"Index" !DIExpression() func:"LoadColor"
-  %219 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %217, !dbg !315 ; line:79 col:20
-  %220 = load float, float addrspace(3)* %219, align 4, !dbg !315 ; line:79 col:20
-  %221 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %217, !dbg !316 ; line:79 col:33
-  %222 = load float, float addrspace(3)* %221, align 4, !dbg !316 ; line:79 col:33
-  %223 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %217, !dbg !317 ; line:79 col:46
-  %224 = load float, float addrspace(3)* %223, align 4, !dbg !317 ; line:79 col:46
-  %225 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %217, !dbg !318 ; line:79 col:59
-  %226 = load float, float addrspace(3)* %225, align 4, !dbg !318 ; line:79 col:59
-  %227 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !319 ; line:79 col:5
-  %228 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !320 ; line:205 col:16
+  %219 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %217, !dbg !315 ; line:80 col:20
+  %220 = load float, float addrspace(3)* %219, align 4, !dbg !315 ; line:80 col:20
+  %221 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %217, !dbg !316 ; line:80 col:33
+  %222 = load float, float addrspace(3)* %221, align 4, !dbg !316 ; line:80 col:33
+  %223 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %217, !dbg !317 ; line:80 col:46
+  %224 = load float, float addrspace(3)* %223, align 4, !dbg !317 ; line:80 col:46
+  %225 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %217, !dbg !318 ; line:80 col:59
+  %226 = load float, float addrspace(3)* %225, align 4, !dbg !318 ; line:80 col:59
+  %227 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !319 ; line:80 col:5
+  %228 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !320 ; line:206 col:16
   call void @llvm.dbg.value(metadata float %220, i64 0, metadata !321, metadata !132), !dbg !320 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %222, i64 0, metadata !321, metadata !133), !dbg !320 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %224, i64 0, metadata !321, metadata !156), !dbg !320 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %226, i64 0, metadata !321, metadata !157), !dbg !320 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %229 = add i32 %4, 16, !dbg !322 ; line:206 col:48
-  %230 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !323 ; line:206 col:23
+  %229 = add i32 %4, 16, !dbg !322 ; line:207 col:48
+  %230 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !323 ; line:207 col:23
   call void @llvm.dbg.value(metadata i32 %229, i64 0, metadata !242, metadata !123), !dbg !324 ; var:"Index" !DIExpression() func:"LoadColor"
-  %231 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %229, !dbg !326 ; line:79 col:20
-  %232 = load float, float addrspace(3)* %231, align 4, !dbg !326 ; line:79 col:20
-  %233 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %229, !dbg !327 ; line:79 col:33
-  %234 = load float, float addrspace(3)* %233, align 4, !dbg !327 ; line:79 col:33
-  %235 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %229, !dbg !328 ; line:79 col:46
-  %236 = load float, float addrspace(3)* %235, align 4, !dbg !328 ; line:79 col:46
-  %237 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %229, !dbg !329 ; line:79 col:59
-  %238 = load float, float addrspace(3)* %237, align 4, !dbg !329 ; line:79 col:59
-  %239 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !330 ; line:79 col:5
-  %240 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !331 ; line:206 col:16
+  %231 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %229, !dbg !326 ; line:80 col:20
+  %232 = load float, float addrspace(3)* %231, align 4, !dbg !326 ; line:80 col:20
+  %233 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %229, !dbg !327 ; line:80 col:33
+  %234 = load float, float addrspace(3)* %233, align 4, !dbg !327 ; line:80 col:33
+  %235 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %229, !dbg !328 ; line:80 col:46
+  %236 = load float, float addrspace(3)* %235, align 4, !dbg !328 ; line:80 col:46
+  %237 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %229, !dbg !329 ; line:80 col:59
+  %238 = load float, float addrspace(3)* %237, align 4, !dbg !329 ; line:80 col:59
+  %239 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !330 ; line:80 col:5
+  %240 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !331 ; line:207 col:16
   call void @llvm.dbg.value(metadata float %232, i64 0, metadata !332, metadata !132), !dbg !331 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %234, i64 0, metadata !332, metadata !133), !dbg !331 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %236, i64 0, metadata !332, metadata !156), !dbg !331 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %238, i64 0, metadata !332, metadata !157), !dbg !331 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %241 = add i32 %4, 18, !dbg !333 ; line:207 col:48
-  %242 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !334 ; line:207 col:23
+  %241 = add i32 %4, 18, !dbg !333 ; line:208 col:48
+  %242 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !334 ; line:208 col:23
   call void @llvm.dbg.value(metadata i32 %241, i64 0, metadata !242, metadata !123), !dbg !335 ; var:"Index" !DIExpression() func:"LoadColor"
-  %243 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %241, !dbg !337 ; line:79 col:20
-  %244 = load float, float addrspace(3)* %243, align 4, !dbg !337 ; line:79 col:20
-  %245 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %241, !dbg !338 ; line:79 col:33
-  %246 = load float, float addrspace(3)* %245, align 4, !dbg !338 ; line:79 col:33
-  %247 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %241, !dbg !339 ; line:79 col:46
-  %248 = load float, float addrspace(3)* %247, align 4, !dbg !339 ; line:79 col:46
-  %249 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %241, !dbg !340 ; line:79 col:59
-  %250 = load float, float addrspace(3)* %249, align 4, !dbg !340 ; line:79 col:59
-  %251 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !341 ; line:79 col:5
-  %252 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !342 ; line:207 col:16
+  %243 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %241, !dbg !337 ; line:80 col:20
+  %244 = load float, float addrspace(3)* %243, align 4, !dbg !337 ; line:80 col:20
+  %245 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %241, !dbg !338 ; line:80 col:33
+  %246 = load float, float addrspace(3)* %245, align 4, !dbg !338 ; line:80 col:33
+  %247 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %241, !dbg !339 ; line:80 col:46
+  %248 = load float, float addrspace(3)* %247, align 4, !dbg !339 ; line:80 col:46
+  %249 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %241, !dbg !340 ; line:80 col:59
+  %250 = load float, float addrspace(3)* %249, align 4, !dbg !340 ; line:80 col:59
+  %251 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !341 ; line:80 col:5
+  %252 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !342 ; line:208 col:16
   call void @llvm.dbg.value(metadata float %244, i64 0, metadata !343, metadata !132), !dbg !342 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %246, i64 0, metadata !343, metadata !133), !dbg !342 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %248, i64 0, metadata !343, metadata !156), !dbg !342 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %250, i64 0, metadata !343, metadata !157), !dbg !342 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %.i0120 = fadd fast float %Src1.1.i0, %220, !dbg !344 ; line:208 col:30
-  %.i1121 = fadd fast float %Src1.1.i1, %222, !dbg !344 ; line:208 col:30
-  %.i2122 = fadd fast float %Src1.1.i2, %224, !dbg !344 ; line:208 col:30
-  %.i3123 = fadd fast float %Src1.1.i3, %226, !dbg !344 ; line:208 col:30
-  %.i0124 = fadd fast float %.i0120, %232, !dbg !345 ; line:208 col:37
-  %.i1125 = fadd fast float %.i1121, %234, !dbg !345 ; line:208 col:37
-  %.i2126 = fadd fast float %.i2122, %236, !dbg !345 ; line:208 col:37
-  %.i3127 = fadd fast float %.i3123, %238, !dbg !345 ; line:208 col:37
-  %.i0128 = fadd fast float %.i0124, %244, !dbg !346 ; line:208 col:44
-  %.i1129 = fadd fast float %.i1125, %246, !dbg !346 ; line:208 col:44
-  %.i2130 = fadd fast float %.i2126, %248, !dbg !346 ; line:208 col:44
-  %.i3131 = fadd fast float %.i3127, %250, !dbg !346 ; line:208 col:44
-  %.i0133 = fmul fast float 2.500000e-01, %.i0128, !dbg !347 ; line:208 col:21
-  %.i1135 = fmul fast float 2.500000e-01, %.i1129, !dbg !347 ; line:208 col:21
-  %.i2137 = fmul fast float 2.500000e-01, %.i2130, !dbg !347 ; line:208 col:21
-  %.i3139 = fmul fast float 2.500000e-01, %.i3131, !dbg !347 ; line:208 col:21
-  %253 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !348 ; line:208 col:14
+  %.i0120 = fadd fast float %Src1.1.i0, %220, !dbg !344 ; line:209 col:30
+  %.i1121 = fadd fast float %Src1.1.i1, %222, !dbg !344 ; line:209 col:30
+  %.i2122 = fadd fast float %Src1.1.i2, %224, !dbg !344 ; line:209 col:30
+  %.i3123 = fadd fast float %Src1.1.i3, %226, !dbg !344 ; line:209 col:30
+  %.i0124 = fadd fast float %.i0120, %232, !dbg !345 ; line:209 col:37
+  %.i1125 = fadd fast float %.i1121, %234, !dbg !345 ; line:209 col:37
+  %.i2126 = fadd fast float %.i2122, %236, !dbg !345 ; line:209 col:37
+  %.i3127 = fadd fast float %.i3123, %238, !dbg !345 ; line:209 col:37
+  %.i0128 = fadd fast float %.i0124, %244, !dbg !346 ; line:209 col:44
+  %.i1129 = fadd fast float %.i1125, %246, !dbg !346 ; line:209 col:44
+  %.i2130 = fadd fast float %.i2126, %248, !dbg !346 ; line:209 col:44
+  %.i3131 = fadd fast float %.i3127, %250, !dbg !346 ; line:209 col:44
+  %.i0133 = fmul fast float 2.500000e-01, %.i0128, !dbg !347 ; line:209 col:21
+  %.i1135 = fmul fast float 2.500000e-01, %.i1129, !dbg !347 ; line:209 col:21
+  %.i2137 = fmul fast float 2.500000e-01, %.i2130, !dbg !347 ; line:209 col:21
+  %.i3139 = fmul fast float 2.500000e-01, %.i3131, !dbg !347 ; line:209 col:21
+  %253 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !348 ; line:209 col:14
   call void @llvm.dbg.value(metadata float %.i0133, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i1135, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i2137, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
@@ -630,7 +630,7 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %.i1135, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i2137, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i3139, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %254 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !349 ; line:210 col:47
+  %254 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !349 ; line:211 col:47
   call void @llvm.dbg.value(metadata float %.i0133, i64 0, metadata !208, metadata !132), !dbg !350 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 0, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i1135, i64 0, metadata !208, metadata !133), !dbg !350 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 32, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i2137, i64 0, metadata !208, metadata !156), !dbg !350 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 64, 32) func:"PackColor"
@@ -639,12 +639,12 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %.i1135, i64 0, metadata !208, metadata !133), !dbg !350 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 32, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i2137, i64 0, metadata !208, metadata !156), !dbg !350 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 64, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i3139, i64 0, metadata !208, metadata !157), !dbg !350 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 96, 32) func:"PackColor"
-  %255 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !352 ; line:96 col:5
-  %.i0141 = udiv i32 %2, 4, !dbg !353 ; line:210 col:40
-  %.i1143 = udiv i32 %3, 4, !dbg !353 ; line:210 col:40
-  %256 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %OutMip3_UAV_2d, %dx.types.ResourceProperties { i32 4098, i32 1033 }), !dbg !354 ; line:210 col:9  ; AnnotateHandle(res,props)  resource: RWTexture2D<4xF32>
-  call void @dx.op.textureStore.f32(i32 67, %dx.types.Handle %256, i32 %.i0141, i32 %.i1143, i32 undef, float %.i0133, float %.i1135, float %.i2137, float %.i3139, i8 15), !dbg !355 ; line:210 col:45  ; TextureStore(srv,coord0,coord1,coord2,value0,value1,value2,value3,mask)
-  %257 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !356 ; line:211 col:9
+  %255 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !352 ; line:97 col:5
+  %.i0141 = udiv i32 %2, 4, !dbg !353 ; line:211 col:40
+  %.i1143 = udiv i32 %3, 4, !dbg !353 ; line:211 col:40
+  %256 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %OutMip3_UAV_2d, %dx.types.ResourceProperties { i32 4098, i32 1033 }), !dbg !354 ; line:211 col:9  ; AnnotateHandle(res,props)  resource: RWTexture2D<4xF32>
+  call void @dx.op.textureStore.f32(i32 67, %dx.types.Handle %256, i32 %.i0141, i32 %.i1143, i32 undef, float %.i0133, float %.i1135, float %.i2137, float %.i3139, i8 15), !dbg !355 ; line:211 col:45  ; TextureStore(srv,coord0,coord1,coord2,value0,value1,value2,value3,mask)
+  %257 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !356 ; line:212 col:9
   call void @llvm.dbg.value(metadata float %.i0133, i64 0, metadata !220, metadata !132), !dbg !357 ; var:"Color" !DIExpression(DW_OP_bit_piece, 0, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %.i1135, i64 0, metadata !220, metadata !133), !dbg !357 ; var:"Color" !DIExpression(DW_OP_bit_piece, 32, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %.i2137, i64 0, metadata !220, metadata !156), !dbg !357 ; var:"Color" !DIExpression(DW_OP_bit_piece, 64, 32) func:"StoreColor"
@@ -654,16 +654,16 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %.i2137, i64 0, metadata !220, metadata !156), !dbg !357 ; var:"Color" !DIExpression(DW_OP_bit_piece, 64, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata float %.i3139, i64 0, metadata !220, metadata !157), !dbg !357 ; var:"Color" !DIExpression(DW_OP_bit_piece, 96, 32) func:"StoreColor"
   call void @llvm.dbg.value(metadata i32 %4, i64 0, metadata !223, metadata !123), !dbg !359 ; var:"Index" !DIExpression() func:"StoreColor"
-  %258 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %4, !dbg !360 ; line:71 col:5
-  store float %.i0133, float addrspace(3)* %258, align 4, !dbg !361 ; line:71 col:17
-  %259 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %4, !dbg !362 ; line:72 col:5
-  store float %.i1135, float addrspace(3)* %259, align 4, !dbg !363 ; line:72 col:17
-  %260 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %4, !dbg !364 ; line:73 col:5
-  store float %.i2137, float addrspace(3)* %260, align 4, !dbg !365 ; line:73 col:17
-  %261 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %4, !dbg !366 ; line:74 col:5
-  store float %.i3139, float addrspace(3)* %261, align 4, !dbg !367 ; line:74 col:17
-  %262 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !368 ; line:75 col:1
-  br label %263, !dbg !369 ; line:212 col:5
+  %258 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %4, !dbg !360 ; line:72 col:5
+  store float %.i0133, float addrspace(3)* %258, align 4, !dbg !361 ; line:72 col:17
+  %259 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %4, !dbg !362 ; line:73 col:5
+  store float %.i1135, float addrspace(3)* %259, align 4, !dbg !363 ; line:73 col:17
+  %260 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %4, !dbg !364 ; line:74 col:5
+  store float %.i2137, float addrspace(3)* %260, align 4, !dbg !365 ; line:74 col:17
+  %261 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %4, !dbg !366 ; line:75 col:5
+  store float %.i3139, float addrspace(3)* %261, align 4, !dbg !367 ; line:75 col:17
+  %262 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !368 ; line:76 col:1
+  br label %263, !dbg !369 ; line:213 col:5
 
 ; <label>:263                                     ; preds = %216, %211
   %Src1.2.i0 = phi float [ %.i0133, %216 ], [ %Src1.1.i0, %211 ]
@@ -674,92 +674,92 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %Src1.2.i1, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %Src1.2.i2, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %Src1.2.i3, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %264 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !370 ; line:214 col:10  ; CBufferLoadLegacy(handle,regIndex)
-  %265 = extractvalue %dx.types.CBufRet.i32 %264, 1, !dbg !370 ; line:214 col:10
-  %266 = icmp eq i32 %265, 3, !dbg !372 ; line:214 col:23
-  %267 = icmp ne i1 %266, false, !dbg !372 ; line:214 col:23
-  %268 = icmp ne i1 %267, false, !dbg !372 ; line:214 col:23
-  br i1 %268, label %269, label %270, !dbg !373 ; line:214 col:10
+  %264 = call %dx.types.CBufRet.i32 @dx.op.cbufferLoadLegacy.i32(i32 59, %dx.types.Handle %1, i32 0), !dbg !370 ; line:215 col:10  ; CBufferLoadLegacy(handle,regIndex)
+  %265 = extractvalue %dx.types.CBufRet.i32 %264, 1, !dbg !370 ; line:215 col:10
+  %266 = icmp eq i32 %265, 3, !dbg !372 ; line:215 col:23
+  %267 = icmp ne i1 %266, false, !dbg !372 ; line:215 col:23
+  %268 = icmp ne i1 %267, false, !dbg !372 ; line:215 col:23
+  br i1 %268, label %269, label %270, !dbg !373 ; line:215 col:10
 
 ; <label>:269                                     ; preds = %263
-  br label %315, !dbg !374 ; line:215 col:9
+  br label %315, !dbg !374 ; line:216 col:9
 
 ; <label>:270                                     ; preds = %263
-  call void @dx.op.barrier(i32 80, i32 9), !dbg !375 ; line:217 col:5  ; Barrier(barrierMode)
-  %271 = icmp eq i32 %4, 0, !dbg !376 ; line:221 col:24
-  %272 = icmp ne i1 %271, false, !dbg !376 ; line:221 col:24
-  %273 = icmp ne i1 %272, false, !dbg !376 ; line:221 col:24
-  br i1 %273, label %274, label %315, !dbg !378 ; line:221 col:10
+  call void @dx.op.barrier(i32 80, i32 9), !dbg !375 ; line:218 col:5  ; Barrier(barrierMode)
+  %271 = icmp eq i32 %4, 0, !dbg !376 ; line:222 col:24
+  %272 = icmp ne i1 %271, false, !dbg !376 ; line:222 col:24
+  %273 = icmp ne i1 %272, false, !dbg !376 ; line:222 col:24
+  br i1 %273, label %274, label %315, !dbg !378 ; line:222 col:10
 
 ; <label>:274                                     ; preds = %270
-  %275 = add i32 %4, 4, !dbg !379 ; line:223 col:48
-  %276 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !381 ; line:223 col:23
+  %275 = add i32 %4, 4, !dbg !379 ; line:224 col:48
+  %276 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !381 ; line:224 col:23
   call void @llvm.dbg.value(metadata i32 %275, i64 0, metadata !242, metadata !123), !dbg !382 ; var:"Index" !DIExpression() func:"LoadColor"
-  %277 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %275, !dbg !384 ; line:79 col:20
-  %278 = load float, float addrspace(3)* %277, align 4, !dbg !384 ; line:79 col:20
-  %279 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %275, !dbg !385 ; line:79 col:33
-  %280 = load float, float addrspace(3)* %279, align 4, !dbg !385 ; line:79 col:33
-  %281 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %275, !dbg !386 ; line:79 col:46
-  %282 = load float, float addrspace(3)* %281, align 4, !dbg !386 ; line:79 col:46
-  %283 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %275, !dbg !387 ; line:79 col:59
-  %284 = load float, float addrspace(3)* %283, align 4, !dbg !387 ; line:79 col:59
-  %285 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !388 ; line:79 col:5
-  %286 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !389 ; line:223 col:16
+  %277 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %275, !dbg !384 ; line:80 col:20
+  %278 = load float, float addrspace(3)* %277, align 4, !dbg !384 ; line:80 col:20
+  %279 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %275, !dbg !385 ; line:80 col:33
+  %280 = load float, float addrspace(3)* %279, align 4, !dbg !385 ; line:80 col:33
+  %281 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %275, !dbg !386 ; line:80 col:46
+  %282 = load float, float addrspace(3)* %281, align 4, !dbg !386 ; line:80 col:46
+  %283 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %275, !dbg !387 ; line:80 col:59
+  %284 = load float, float addrspace(3)* %283, align 4, !dbg !387 ; line:80 col:59
+  %285 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !388 ; line:80 col:5
+  %286 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !389 ; line:224 col:16
   call void @llvm.dbg.value(metadata float %278, i64 0, metadata !390, metadata !132), !dbg !389 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %280, i64 0, metadata !390, metadata !133), !dbg !389 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %282, i64 0, metadata !390, metadata !156), !dbg !389 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %284, i64 0, metadata !390, metadata !157), !dbg !389 ; var:"Src2" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %287 = add i32 %4, 32, !dbg !391 ; line:224 col:48
-  %288 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !392 ; line:224 col:23
+  %287 = add i32 %4, 32, !dbg !391 ; line:225 col:48
+  %288 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !392 ; line:225 col:23
   call void @llvm.dbg.value(metadata i32 %287, i64 0, metadata !242, metadata !123), !dbg !393 ; var:"Index" !DIExpression() func:"LoadColor"
-  %289 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %287, !dbg !395 ; line:79 col:20
-  %290 = load float, float addrspace(3)* %289, align 4, !dbg !395 ; line:79 col:20
-  %291 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %287, !dbg !396 ; line:79 col:33
-  %292 = load float, float addrspace(3)* %291, align 4, !dbg !396 ; line:79 col:33
-  %293 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %287, !dbg !397 ; line:79 col:46
-  %294 = load float, float addrspace(3)* %293, align 4, !dbg !397 ; line:79 col:46
-  %295 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %287, !dbg !398 ; line:79 col:59
-  %296 = load float, float addrspace(3)* %295, align 4, !dbg !398 ; line:79 col:59
-  %297 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !399 ; line:79 col:5
-  %298 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !400 ; line:224 col:16
+  %289 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %287, !dbg !395 ; line:80 col:20
+  %290 = load float, float addrspace(3)* %289, align 4, !dbg !395 ; line:80 col:20
+  %291 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %287, !dbg !396 ; line:80 col:33
+  %292 = load float, float addrspace(3)* %291, align 4, !dbg !396 ; line:80 col:33
+  %293 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %287, !dbg !397 ; line:80 col:46
+  %294 = load float, float addrspace(3)* %293, align 4, !dbg !397 ; line:80 col:46
+  %295 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %287, !dbg !398 ; line:80 col:59
+  %296 = load float, float addrspace(3)* %295, align 4, !dbg !398 ; line:80 col:59
+  %297 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !399 ; line:80 col:5
+  %298 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !400 ; line:225 col:16
   call void @llvm.dbg.value(metadata float %290, i64 0, metadata !401, metadata !132), !dbg !400 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %292, i64 0, metadata !401, metadata !133), !dbg !400 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %294, i64 0, metadata !401, metadata !156), !dbg !400 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %296, i64 0, metadata !401, metadata !157), !dbg !400 ; var:"Src3" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %299 = add i32 %4, 36, !dbg !402 ; line:225 col:48
-  %300 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !403 ; line:225 col:23
+  %299 = add i32 %4, 36, !dbg !402 ; line:226 col:48
+  %300 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !403 ; line:226 col:23
   call void @llvm.dbg.value(metadata i32 %299, i64 0, metadata !242, metadata !123), !dbg !404 ; var:"Index" !DIExpression() func:"LoadColor"
-  %301 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %299, !dbg !406 ; line:79 col:20
-  %302 = load float, float addrspace(3)* %301, align 4, !dbg !406 ; line:79 col:20
-  %303 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %299, !dbg !407 ; line:79 col:33
-  %304 = load float, float addrspace(3)* %303, align 4, !dbg !407 ; line:79 col:33
-  %305 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %299, !dbg !408 ; line:79 col:46
-  %306 = load float, float addrspace(3)* %305, align 4, !dbg !408 ; line:79 col:46
-  %307 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %299, !dbg !409 ; line:79 col:59
-  %308 = load float, float addrspace(3)* %307, align 4, !dbg !409 ; line:79 col:59
-  %309 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !410 ; line:79 col:5
-  %310 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !411 ; line:225 col:16
+  %301 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA", i32 0, i32 %299, !dbg !406 ; line:80 col:20
+  %302 = load float, float addrspace(3)* %301, align 4, !dbg !406 ; line:80 col:20
+  %303 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA", i32 0, i32 %299, !dbg !407 ; line:80 col:33
+  %304 = load float, float addrspace(3)* %303, align 4, !dbg !407 ; line:80 col:33
+  %305 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA", i32 0, i32 %299, !dbg !408 ; line:80 col:46
+  %306 = load float, float addrspace(3)* %305, align 4, !dbg !408 ; line:80 col:46
+  %307 = getelementptr [64 x float], [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA", i32 0, i32 %299, !dbg !409 ; line:80 col:59
+  %308 = load float, float addrspace(3)* %307, align 4, !dbg !409 ; line:80 col:59
+  %309 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !410 ; line:80 col:5
+  %310 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !411 ; line:226 col:16
   call void @llvm.dbg.value(metadata float %302, i64 0, metadata !412, metadata !132), !dbg !411 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %304, i64 0, metadata !412, metadata !133), !dbg !411 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %306, i64 0, metadata !412, metadata !156), !dbg !411 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %308, i64 0, metadata !412, metadata !157), !dbg !411 ; var:"Src4" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %.i0144 = fadd fast float %Src1.2.i0, %278, !dbg !413 ; line:226 col:30
-  %.i1145 = fadd fast float %Src1.2.i1, %280, !dbg !413 ; line:226 col:30
-  %.i2146 = fadd fast float %Src1.2.i2, %282, !dbg !413 ; line:226 col:30
-  %.i3147 = fadd fast float %Src1.2.i3, %284, !dbg !413 ; line:226 col:30
-  %.i0148 = fadd fast float %.i0144, %290, !dbg !414 ; line:226 col:37
-  %.i1149 = fadd fast float %.i1145, %292, !dbg !414 ; line:226 col:37
-  %.i2150 = fadd fast float %.i2146, %294, !dbg !414 ; line:226 col:37
-  %.i3151 = fadd fast float %.i3147, %296, !dbg !414 ; line:226 col:37
-  %.i0152 = fadd fast float %.i0148, %302, !dbg !415 ; line:226 col:44
-  %.i1153 = fadd fast float %.i1149, %304, !dbg !415 ; line:226 col:44
-  %.i2154 = fadd fast float %.i2150, %306, !dbg !415 ; line:226 col:44
-  %.i3155 = fadd fast float %.i3151, %308, !dbg !415 ; line:226 col:44
-  %.i0157 = fmul fast float 2.500000e-01, %.i0152, !dbg !416 ; line:226 col:21
-  %.i1159 = fmul fast float 2.500000e-01, %.i1153, !dbg !416 ; line:226 col:21
-  %.i2161 = fmul fast float 2.500000e-01, %.i2154, !dbg !416 ; line:226 col:21
-  %.i3163 = fmul fast float 2.500000e-01, %.i3155, !dbg !416 ; line:226 col:21
-  %311 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !417 ; line:226 col:14
+  %.i0144 = fadd fast float %Src1.2.i0, %278, !dbg !413 ; line:227 col:30
+  %.i1145 = fadd fast float %Src1.2.i1, %280, !dbg !413 ; line:227 col:30
+  %.i2146 = fadd fast float %Src1.2.i2, %282, !dbg !413 ; line:227 col:30
+  %.i3147 = fadd fast float %Src1.2.i3, %284, !dbg !413 ; line:227 col:30
+  %.i0148 = fadd fast float %.i0144, %290, !dbg !414 ; line:227 col:37
+  %.i1149 = fadd fast float %.i1145, %292, !dbg !414 ; line:227 col:37
+  %.i2150 = fadd fast float %.i2146, %294, !dbg !414 ; line:227 col:37
+  %.i3151 = fadd fast float %.i3147, %296, !dbg !414 ; line:227 col:37
+  %.i0152 = fadd fast float %.i0148, %302, !dbg !415 ; line:227 col:44
+  %.i1153 = fadd fast float %.i1149, %304, !dbg !415 ; line:227 col:44
+  %.i2154 = fadd fast float %.i2150, %306, !dbg !415 ; line:227 col:44
+  %.i3155 = fadd fast float %.i3151, %308, !dbg !415 ; line:227 col:44
+  %.i0157 = fmul fast float 2.500000e-01, %.i0152, !dbg !416 ; line:227 col:21
+  %.i1159 = fmul fast float 2.500000e-01, %.i1153, !dbg !416 ; line:227 col:21
+  %.i2161 = fmul fast float 2.500000e-01, %.i2154, !dbg !416 ; line:227 col:21
+  %.i3163 = fmul fast float 2.500000e-01, %.i3155, !dbg !416 ; line:227 col:21
+  %311 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !417 ; line:227 col:14
   call void @llvm.dbg.value(metadata float %.i0157, i64 0, metadata !122, metadata !132), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 0, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i1159, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i2161, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
@@ -768,7 +768,7 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %.i1159, i64 0, metadata !122, metadata !133), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 32, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i2161, i64 0, metadata !122, metadata !156), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 64, 32) func:"main"
   call void @llvm.dbg.value(metadata float %.i3163, i64 0, metadata !122, metadata !157), !dbg !121 ; var:"Src1" !DIExpression(DW_OP_bit_piece, 96, 32) func:"main"
-  %312 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !418 ; line:228 col:47
+  %312 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !418 ; line:229 col:47
   call void @llvm.dbg.value(metadata float %.i0157, i64 0, metadata !208, metadata !132), !dbg !419 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 0, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i1159, i64 0, metadata !208, metadata !133), !dbg !419 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 32, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i2161, i64 0, metadata !208, metadata !156), !dbg !419 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 64, 32) func:"PackColor"
@@ -777,16 +777,16 @@ define void @main() {
   call void @llvm.dbg.value(metadata float %.i1159, i64 0, metadata !208, metadata !133), !dbg !419 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 32, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i2161, i64 0, metadata !208, metadata !156), !dbg !419 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 64, 32) func:"PackColor"
   call void @llvm.dbg.value(metadata float %.i3163, i64 0, metadata !208, metadata !157), !dbg !419 ; var:"Linear" !DIExpression(DW_OP_bit_piece, 96, 32) func:"PackColor"
-  %313 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !421 ; line:96 col:5
-  %.i0165 = udiv i32 %2, 8, !dbg !422 ; line:228 col:40
-  %.i1167 = udiv i32 %3, 8, !dbg !422 ; line:228 col:40
-  %314 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %OutMip4_UAV_2d, %dx.types.ResourceProperties { i32 4098, i32 1033 }), !dbg !423 ; line:228 col:9  ; AnnotateHandle(res,props)  resource: RWTexture2D<4xF32>
-  call void @dx.op.textureStore.f32(i32 67, %dx.types.Handle %314, i32 %.i0165, i32 %.i1167, i32 undef, float %.i0157, float %.i1159, float %.i2161, float %.i3163, i8 15), !dbg !424 ; line:228 col:45  ; TextureStore(srv,coord0,coord1,coord2,value0,value1,value2,value3,mask)
-  br label %315, !dbg !425 ; line:229 col:5
+  %313 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !421 ; line:97 col:5
+  %.i0165 = udiv i32 %2, 8, !dbg !422 ; line:229 col:40
+  %.i1167 = udiv i32 %3, 8, !dbg !422 ; line:229 col:40
+  %314 = call %dx.types.Handle @dx.op.annotateHandle(i32 216, %dx.types.Handle %OutMip4_UAV_2d, %dx.types.ResourceProperties { i32 4098, i32 1033 }), !dbg !423 ; line:229 col:9  ; AnnotateHandle(res,props)  resource: RWTexture2D<4xF32>
+  call void @dx.op.textureStore.f32(i32 67, %dx.types.Handle %314, i32 %.i0165, i32 %.i1167, i32 undef, float %.i0157, float %.i1159, float %.i2161, float %.i3163, i8 15), !dbg !424 ; line:229 col:45  ; TextureStore(srv,coord0,coord1,coord2,value0,value1,value2,value3,mask)
+  br label %315, !dbg !425 ; line:230 col:5
 
 ; <label>:315                                     ; preds = %145, %210, %269, %274, %270
-  %316 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !426 ; line:230 col:1
-  ret void, !dbg !426 ; line:230 col:1
+  %316 = load i32, i32* getelementptr inbounds ([1 x i32], [1 x i32]* @dx.nothing.a, i32 0, i32 0), !dbg !426 ; line:231 col:1
+  ret void, !dbg !426 ; line:231 col:1
 }
 
 ; Function Attrs: nounwind readnone
@@ -842,14 +842,14 @@ attributes #3 = { noduplicate nounwind }
 !1 = !DIFile(filename: "..\5Cshaders\5CGenerateMips_CS.hlsl", directory: "")
 !2 = !{}
 !3 = !{!4, !16}
-!4 = !DIDerivedType(tag: DW_TAG_typedef, name: "float4", file: !1, line: 104, baseType: !5)
-!5 = !DICompositeType(tag: DW_TAG_class_type, name: "vector<float, 4>", file: !1, line: 104, size: 128, align: 32, elements: !6, templateParams: !12)
+!4 = !DIDerivedType(tag: DW_TAG_typedef, name: "float4", file: !1, line: 105, baseType: !5)
+!5 = !DICompositeType(tag: DW_TAG_class_type, name: "vector<float, 4>", file: !1, line: 105, size: 128, align: 32, elements: !6, templateParams: !12)
 !6 = !{!7, !9, !10, !11}
-!7 = !DIDerivedType(tag: DW_TAG_member, name: "x", scope: !5, file: !1, line: 104, baseType: !8, size: 32, align: 32, flags: DIFlagPublic)
+!7 = !DIDerivedType(tag: DW_TAG_member, name: "x", scope: !5, file: !1, line: 105, baseType: !8, size: 32, align: 32, flags: DIFlagPublic)
 !8 = !DIBasicType(name: "float", size: 32, align: 32, encoding: DW_ATE_float)
-!9 = !DIDerivedType(tag: DW_TAG_member, name: "y", scope: !5, file: !1, line: 104, baseType: !8, size: 32, align: 32, offset: 32, flags: DIFlagPublic)
-!10 = !DIDerivedType(tag: DW_TAG_member, name: "z", scope: !5, file: !1, line: 104, baseType: !8, size: 32, align: 32, offset: 64, flags: DIFlagPublic)
-!11 = !DIDerivedType(tag: DW_TAG_member, name: "w", scope: !5, file: !1, line: 104, baseType: !8, size: 32, align: 32, offset: 96, flags: DIFlagPublic)
+!9 = !DIDerivedType(tag: DW_TAG_member, name: "y", scope: !5, file: !1, line: 105, baseType: !8, size: 32, align: 32, offset: 32, flags: DIFlagPublic)
+!10 = !DIDerivedType(tag: DW_TAG_member, name: "z", scope: !5, file: !1, line: 105, baseType: !8, size: 32, align: 32, offset: 64, flags: DIFlagPublic)
+!11 = !DIDerivedType(tag: DW_TAG_member, name: "w", scope: !5, file: !1, line: 105, baseType: !8, size: 32, align: 32, offset: 96, flags: DIFlagPublic)
 !12 = !{!13, !14}
 !13 = !DITemplateTypeParameter(name: "element", type: !8)
 !14 = !DITemplateValueParameter(name: "element_count", type: !15, value: i32 4)
@@ -862,19 +862,19 @@ attributes #3 = { noduplicate nounwind }
 !21 = !{!13, !22}
 !22 = !DITemplateValueParameter(name: "element_count", type: !15, value: i32 2)
 !23 = !{!24, !44, !47, !50}
-!24 = !DISubprogram(name: "main", scope: !1, file: !1, line: 102, type: !25, isLocal: false, isDefinition: true, scopeLine: 103, flags: DIFlagPrototyped, isOptimized: false, function: void ()* @main)
+!24 = !DISubprogram(name: "main", scope: !1, file: !1, line: 103, type: !25, isLocal: false, isDefinition: true, scopeLine: 104, flags: DIFlagPrototyped, isOptimized: false, function: void ()* @main)
 !25 = !DISubroutineType(types: !26)
 !26 = !{null, !27}
 !27 = !DICompositeType(tag: DW_TAG_structure_type, name: "ComputeShaderInput", file: !1, line: 21, size: 320, align: 32, elements: !28)
 !28 = !{!29, !40, !41, !42}
 !29 = !DIDerivedType(tag: DW_TAG_member, name: "GroupID", scope: !27, file: !1, line: 23, baseType: !30, size: 96, align: 32)
-!30 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint3", file: !1, line: 67, baseType: !31)
-!31 = !DICompositeType(tag: DW_TAG_class_type, name: "vector<unsigned int, 3>", file: !1, line: 67, size: 96, align: 32, elements: !32, templateParams: !37)
+!30 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint3", file: !1, line: 68, baseType: !31)
+!31 = !DICompositeType(tag: DW_TAG_class_type, name: "vector<unsigned int, 3>", file: !1, line: 68, size: 96, align: 32, elements: !32, templateParams: !37)
 !32 = !{!33, !35, !36}
-!33 = !DIDerivedType(tag: DW_TAG_member, name: "x", scope: !31, file: !1, line: 67, baseType: !34, size: 32, align: 32, flags: DIFlagPublic)
+!33 = !DIDerivedType(tag: DW_TAG_member, name: "x", scope: !31, file: !1, line: 68, baseType: !34, size: 32, align: 32, flags: DIFlagPublic)
 !34 = !DIBasicType(name: "unsigned int", size: 32, align: 32, encoding: DW_ATE_unsigned)
-!35 = !DIDerivedType(tag: DW_TAG_member, name: "y", scope: !31, file: !1, line: 67, baseType: !34, size: 32, align: 32, offset: 32, flags: DIFlagPublic)
-!36 = !DIDerivedType(tag: DW_TAG_member, name: "z", scope: !31, file: !1, line: 67, baseType: !34, size: 32, align: 32, offset: 64, flags: DIFlagPublic)
+!35 = !DIDerivedType(tag: DW_TAG_member, name: "y", scope: !31, file: !1, line: 68, baseType: !34, size: 32, align: 32, offset: 32, flags: DIFlagPublic)
+!36 = !DIDerivedType(tag: DW_TAG_member, name: "z", scope: !31, file: !1, line: 68, baseType: !34, size: 32, align: 32, offset: 64, flags: DIFlagPublic)
 !37 = !{!38, !39}
 !38 = !DITemplateTypeParameter(name: "element", type: !34)
 !39 = !DITemplateValueParameter(name: "element_count", type: !15, value: i32 3)
@@ -882,13 +882,13 @@ attributes #3 = { noduplicate nounwind }
 !41 = !DIDerivedType(tag: DW_TAG_member, name: "DispatchThreadID", scope: !27, file: !1, line: 25, baseType: !30, size: 96, align: 32, offset: 192)
 !42 = !DIDerivedType(tag: DW_TAG_member, name: "GroupIndex", scope: !27, file: !1, line: 26, baseType: !43, size: 32, align: 32, offset: 288)
 !43 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint", file: !1, line: 31, baseType: !34)
-!44 = !DISubprogram(name: "PackColor", linkageName: "\01?PackColor@@YA?AV?$vector@M$03@@V1@@Z", scope: !1, file: !1, line: 91, type: !45, isLocal: false, isDefinition: true, scopeLine: 92, flags: DIFlagPrototyped, isOptimized: false)
+!44 = !DISubprogram(name: "PackColor", linkageName: "\01?PackColor@@YA?AV?$vector@M$03@@V1@@Z", scope: !1, file: !1, line: 92, type: !45, isLocal: false, isDefinition: true, scopeLine: 93, flags: DIFlagPrototyped, isOptimized: false)
 !45 = !DISubroutineType(types: !46)
 !46 = !{!4, !4}
-!47 = !DISubprogram(name: "StoreColor", linkageName: "\01?StoreColor@@YAXIV?$vector@M$03@@@Z", scope: !1, file: !1, line: 69, type: !48, isLocal: false, isDefinition: true, scopeLine: 70, flags: DIFlagPrototyped, isOptimized: false)
+!47 = !DISubprogram(name: "StoreColor", linkageName: "\01?StoreColor@@YAXIV?$vector@M$03@@@Z", scope: !1, file: !1, line: 70, type: !48, isLocal: false, isDefinition: true, scopeLine: 71, flags: DIFlagPrototyped, isOptimized: false)
 !48 = !DISubroutineType(types: !49)
 !49 = !{null, !43, !4}
-!50 = !DISubprogram(name: "LoadColor", linkageName: "\01?LoadColor@@YA?AV?$vector@M$03@@I@Z", scope: !1, file: !1, line: 77, type: !51, isLocal: false, isDefinition: true, scopeLine: 78, flags: DIFlagPrototyped, isOptimized: false)
+!50 = !DISubprogram(name: "LoadColor", linkageName: "\01?LoadColor@@YA?AV?$vector@M$03@@I@Z", scope: !1, file: !1, line: 78, type: !51, isLocal: false, isDefinition: true, scopeLine: 79, flags: DIFlagPrototyped, isOptimized: false)
 !51 = !DISubroutineType(types: !52)
 !52 = !{!4, !43}
 !53 = !{!54, !56, !57, !58, !59, !61, !65, !66, !67, !68, !72, !74, !75, !76, !77}
@@ -899,13 +899,13 @@ attributes #3 = { noduplicate nounwind }
 !58 = !DIGlobalVariable(name: "Padding", linkageName: "\01?Padding@GenerateMipsCB@@3IB", scope: !0, file: !1, line: 34, type: !55, isLocal: false, isDefinition: true)
 !59 = !DIGlobalVariable(name: "TexelSize", linkageName: "\01?TexelSize@GenerateMipsCB@@3V?$vector@M$01@@B", scope: !0, file: !1, line: 35, type: !60, isLocal: false, isDefinition: true)
 !60 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !16)
-!61 = !DIGlobalVariable(name: "gs_R", linkageName: "\01?gs_R@@3PAMA", scope: !0, file: !1, line: 64, type: !62, isLocal: false, isDefinition: true, variable: [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA")
+!61 = !DIGlobalVariable(name: "gs_R", linkageName: "\01?gs_R@@3PAMA", scope: !0, file: !1, line: 65, type: !62, isLocal: false, isDefinition: true, variable: [64 x float] addrspace(3)* @"\01?gs_R@@3PAMA")
 !62 = !DICompositeType(tag: DW_TAG_array_type, baseType: !8, size: 2048, align: 32, elements: !63)
 !63 = !{!64}
 !64 = !DISubrange(count: 64)
-!65 = !DIGlobalVariable(name: "gs_G", linkageName: "\01?gs_G@@3PAMA", scope: !0, file: !1, line: 65, type: !62, isLocal: false, isDefinition: true, variable: [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA")
-!66 = !DIGlobalVariable(name: "gs_B", linkageName: "\01?gs_B@@3PAMA", scope: !0, file: !1, line: 66, type: !62, isLocal: false, isDefinition: true, variable: [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA")
-!67 = !DIGlobalVariable(name: "gs_A", linkageName: "\01?gs_A@@3PAMA", scope: !0, file: !1, line: 67, type: !62, isLocal: false, isDefinition: true, variable: [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA")
+!65 = !DIGlobalVariable(name: "gs_G", linkageName: "\01?gs_G@@3PAMA", scope: !0, file: !1, line: 66, type: !62, isLocal: false, isDefinition: true, variable: [64 x float] addrspace(3)* @"\01?gs_G@@3PAMA")
+!66 = !DIGlobalVariable(name: "gs_B", linkageName: "\01?gs_B@@3PAMA", scope: !0, file: !1, line: 67, type: !62, isLocal: false, isDefinition: true, variable: [64 x float] addrspace(3)* @"\01?gs_B@@3PAMA")
+!67 = !DIGlobalVariable(name: "gs_A", linkageName: "\01?gs_A@@3PAMA", scope: !0, file: !1, line: 68, type: !62, isLocal: false, isDefinition: true, variable: [64 x float] addrspace(3)* @"\01?gs_A@@3PAMA")
 !68 = !DIGlobalVariable(name: "SrcMip", linkageName: "\01?SrcMip@@3V?$Texture2D@V?$vector@M$03@@@@A", scope: !0, file: !1, line: 39, type: !69, isLocal: false, isDefinition: true)
 !69 = !DICompositeType(tag: DW_TAG_class_type, name: "Texture2D<vector<float, 4> >", file: !1, line: 39, size: 160, align: 32, elements: !2, templateParams: !70)
 !70 = !{!71}
@@ -920,7 +920,7 @@ attributes #3 = { noduplicate nounwind }
 !79 = !{i32 2, !"Dwarf Version", i32 4}
 !80 = !{i32 2, !"Debug Info Version", i32 3}
 !81 = !{!"clang version 3.7 (tags/RELEASE_370/final)"}
-!82 = !{!"..\5Cshaders\5CGenerateMips_CS.hlsl", !"/**\0D\0A * Compute shader to generate mipmaps for a given texture.\0D\0A * Source: https://github.com/Microsoft/DirectX-Graphics-Samples/blob/master/MiniEngine/Core/Shaders/GenerateMipsCS.hlsli\0D\0A */\0D\0A\0D\0A#define BLOCK_SIZE 8\0D\0A\0D\0A // When reducing the size of a texture, it could be that downscaling the texture \0D\0A // will result in a less than exactly 50% (1/2) of the original texture size.\0D\0A // This happens if either the width, or the height (or both) dimensions of the texture\0D\0A // are odd. For example, downscaling a 5x3 texture will result in a 2x1 texture which\0D\0A // has a 60% reduction in the texture width and 66% reduction in the height.\0D\0A // When this happens, we need to take more samples from the source texture to \0D\0A // determine the pixel value in the destination texture.\0D\0A\0D\0A#define WIDTH_HEIGHT_EVEN 0     // Both the width and the height of the texture are even.\0D\0A#define WIDTH_ODD_HEIGHT_EVEN 1 // The texture width is odd and the height is even.\0D\0A#define WIDTH_EVEN_HEIGHT_ODD 2 // The texture width is even and teh height is odd.\0D\0A#define WIDTH_HEIGHT_ODD 3      // Both the width and height of the texture are odd.\0D\0A\0D\0Astruct ComputeShaderInput\0D\0A{\0D\0A    uint3 GroupID           : SV_GroupID;           // 3D index of the thread group in the dispatch.\0D\0A    uint3 GroupThreadID     : SV_GroupThreadID;     // 3D index of local thread ID in a thread group.\0D\0A    uint3 DispatchThreadID  : SV_DispatchThreadID;  // 3D index of global thread ID in the dispatch.\0D\0A    uint  GroupIndex        : SV_GroupIndex;        // Flattened local index of the thread within a thread group.\0D\0A};\0D\0A\0D\0Acbuffer GenerateMipsCB : register( b0 )\0D\0A{\0D\0A    uint SrcMipLevel;\09// Texture level of source mip\0D\0A    uint NumMipLevels;\09// Number of OutMips to write: [1-4]\0D\0A    uint SrcDimension;  // Width and height of the source texture are even or odd.\0D\0A    uint Padding;       // Pad to 16 byte alignment.\0D\0A    float2 TexelSize;\09// 1.0 / OutMip1.Dimensions\0D\0A}\0D\0A\0D\0A// Source mip map.\0D\0ATexture2D<float4> SrcMip : register( t0 );\0D\0A\0D\0A// Write up to 4 mip map levels.\0D\0ARWTexture2D<float4> OutMip1 : register( u0 );\0D\0ARWTexture2D<float4> OutMip2 : register( u1 );\0D\0ARWTexture2D<float4> OutMip3 : register( u2 );\0D\0ARWTexture2D<float4> OutMip4 : register( u3 );\0D\0A\0D\0A// Linear clamp sampler.\0D\0ASamplerState LinearClampSampler : register( s0 );\0D\0A\0D\0A#define GenerateMips_RootSignature \5C\0D\0A    \22RootFlags(0), \22 \5C\0D\0A    \22RootConstants(b0, num32BitConstants = 6), \22 \5C\0D\0A    \22DescriptorTable( SRV(t0, numDescriptors = 1) ),\22 \5C\0D\0A    \22DescriptorTable( UAV(u0, numDescriptors = 4) ),\22 \5C\0D\0A    \22StaticSampler(s0,\22 \5C\0D\0A        \22addressU = TEXTURE_ADDRESS_CLAMP,\22 \5C\0D\0A        \22addressV = TEXTURE_ADDRESS_CLAMP,\22 \5C\0D\0A        \22addressW = TEXTURE_ADDRESS_CLAMP,\22 \5C\0D\0A        \22filter = FILTER_MIN_MAG_MIP_LINEAR)\22\0D\0A\0D\0A// The reason for separating channels is to reduce bank conflicts in the\0D\0A// local data memory controller.  A large stride will cause more threads\0D\0A// to collide on the same memory bank.\0D\0Agroupshared float gs_R[64];\0D\0Agroupshared float gs_G[64];\0D\0Agroupshared float gs_B[64];\0D\0Agroupshared float gs_A[64];\0D\0A\0D\0Avoid StoreColor( uint Index, float4 Color )\0D\0A{\0D\0A    gs_R[Index] = Color.r;\0D\0A    gs_G[Index] = Color.g;\0D\0A    gs_B[Index] = Color.b;\0D\0A    gs_A[Index] = Color.a;\0D\0A}\0D\0A\0D\0Afloat4 LoadColor( uint Index )\0D\0A{\0D\0A    return float4( gs_R[Index], gs_G[Index], gs_B[Index], gs_A[Index] );\0D\0A}\0D\0A\0D\0Afloat3 LinearToSRGB( float3 x )\0D\0A{\0D\0A    // This is exactly the sRGB curve\0D\0A    //return x < 0.0031308 ? 12.92 * x : 1.055 * pow(abs(x), 1.0 / 2.4) - 0.055;\0D\0A\0D\0A    // This is cheaper but nearly equivalent\0D\0A    return x < 0.0031308 ? 12.92 * x : 1.13005 * sqrt( abs( x - 0.00228 ) ) - 0.13448 * x + 0.005719;\0D\0A}\0D\0A\0D\0Afloat4 PackColor( float4 Linear )\0D\0A{\0D\0A#if defined(CONVERT_TO_SRGB)\0D\0A    return float4( LinearToSRGB( Linear.rgb ), Linear.a );\0D\0A#else\0D\0A    return Linear;\0D\0A#endif\0D\0A}\0D\0A\0D\0A[RootSignature( GenerateMips_RootSignature )]\0D\0A[numthreads( BLOCK_SIZE, BLOCK_SIZE, 1 )]\0D\0Avoid main( ComputeShaderInput IN )\0D\0A{\0D\0A    float4 Src1 = (float4)0;\0D\0A\0D\0A    // One bilinear sample is insufficient when scaling down by more than 2x.\0D\0A    // You will slightly undersample in the case where the source dimension\0D\0A    // is odd.  This is why it's a really good idea to only generate mips on\0D\0A    // power-of-two sized textures.  Trying to handle the undersampling case\0D\0A    // will force this shader to be slower and more complicated as it will\0D\0A    // have to take more source texture samples.\0D\0A\0D\0A    // Determine the path to use based on the dimension of the \0D\0A    // source texture.\0D\0A    // 0b00(0): Both width and height are even.\0D\0A    // 0b01(1): Width is odd, height is even.\0D\0A    // 0b10(2): Width is even, height is odd.\0D\0A    // 0b11(3): Both width and height are odd.\0D\0A    switch ( SrcDimension )\0D\0A    {\0D\0A        case WIDTH_HEIGHT_EVEN:\0D\0A        {\0D\0A            float2 UV = TexelSize * ( IN.DispatchThreadID.xy + 0.5 );\0D\0A\0D\0A            Src1 = SrcMip.SampleLevel( LinearClampSampler, UV, SrcMipLevel );\0D\0A        }\0D\0A        break;\0D\0A        case WIDTH_ODD_HEIGHT_EVEN:\0D\0A        {\0D\0A            // > 2:1 in X dimension\0D\0A            // Use 2 bilinear samples to guarantee we don't undersample when downsizing by more than 2x\0D\0A            // horizontally.\0D\0A            float2 UV1 = TexelSize * ( IN.DispatchThreadID.xy + float2( 0.25, 0.5 ) );\0D\0A            float2 Off = TexelSize * float2( 0.5, 0.0 );\0D\0A\0D\0A            Src1 = 0.5 * ( SrcMip.SampleLevel( LinearClampSampler, UV1, SrcMipLevel ) +\0D\0A                           SrcMip.SampleLevel( LinearClampSampler, UV1 + Off, SrcMipLevel ) );\0D\0A        }\0D\0A        break;\0D\0A        case WIDTH_EVEN_HEIGHT_ODD:\0D\0A        {\0D\0A            // > 2:1 in Y dimension\0D\0A            // Use 2 bilinear samples to guarantee we don't undersample when downsizing by more than 2x\0D\0A            // vertically.\0D\0A            float2 UV1 = TexelSize * ( IN.DispatchThreadID.xy + float2( 0.5, 0.25 ) );\0D\0A            float2 Off = TexelSize * float2( 0.0, 0.5 );\0D\0A\0D\0A            Src1 = 0.5 * ( SrcMip.SampleLevel( LinearClampSampler, UV1, SrcMipLevel ) +\0D\0A                           SrcMip.SampleLevel( LinearClampSampler, UV1 + Off, SrcMipLevel ) );\0D\0A        }\0D\0A        break;\0D\0A        case WIDTH_HEIGHT_ODD:\0D\0A        {\0D\0A            // > 2:1 in in both dimensions\0D\0A            // Use 4 bilinear samples to guarantee we don't undersample when downsizing by more than 2x\0D\0A            // in both directions.\0D\0A            float2 UV1 = TexelSize * ( IN.DispatchThreadID.xy + float2( 0.25, 0.25 ) );\0D\0A            float2 Off = TexelSize * 0.5;\0D\0A\0D\0A            Src1 = SrcMip.SampleLevel( LinearClampSampler, UV1, SrcMipLevel );\0D\0A            Src1 += SrcMip.SampleLevel( LinearClampSampler, UV1 + float2( Off.x, 0.0   ), SrcMipLevel );\0D\0A            Src1 += SrcMip.SampleLevel( LinearClampSampler, UV1 + float2( 0.0,   Off.y ), SrcMipLevel );\0D\0A            Src1 += SrcMip.SampleLevel( LinearClampSampler, UV1 + float2( Off.x, Off.y ), SrcMipLevel );\0D\0A            Src1 *= 0.25;\0D\0A        }\0D\0A        break;\0D\0A    }\0D\0A\0D\0A    OutMip1[IN.DispatchThreadID.xy] = PackColor( Src1 );\0D\0A\0D\0A    // A scalar (constant) branch can exit all threads coherently.\0D\0A    if ( NumMipLevels == 1 )\0D\0A        return;\0D\0A\0D\0A    // Without lane swizzle operations, the only way to share data with other\0D\0A    // threads is through LDS.\0D\0A    StoreColor( IN.GroupIndex, Src1 );\0D\0A\0D\0A    // This guarantees all LDS writes are complete and that all threads have\0D\0A    // executed all instructions so far (and therefore have issued their LDS\0D\0A    // write instructions.)\0D\0A    GroupMemoryBarrierWithGroupSync();\0D\0A\0D\0A    // With low three bits for X and high three bits for Y, this bit mask\0D\0A    // (binary: 001001) checks that X and Y are even.\0D\0A    if ( ( IN.GroupIndex & 0x9 ) == 0 )\0D\0A    {\0D\0A        float4 Src2 = LoadColor( IN.GroupIndex + 0x01 );\0D\0A        float4 Src3 = LoadColor( IN.GroupIndex + 0x08 );\0D\0A        float4 Src4 = LoadColor( IN.GroupIndex + 0x09 );\0D\0A        Src1 = 0.25 * ( Src1 + Src2 + Src3 + Src4 );\0D\0A\0D\0A        OutMip2[IN.DispatchThreadID.xy / 2] = PackColor( Src1 );\0D\0A        StoreColor( IN.GroupIndex, Src1 );\0D\0A    }\0D\0A\0D\0A    if ( NumMipLevels == 2 )\0D\0A        return;\0D\0A\0D\0A    GroupMemoryBarrierWithGroupSync();\0D\0A\0D\0A    // This bit mask (binary: 011011) checks that X and Y are multiples of four.\0D\0A    if ( ( IN.GroupIndex & 0x1B ) == 0 )\0D\0A    {\0D\0A        float4 Src2 = LoadColor( IN.GroupIndex + 0x02 );\0D\0A        float4 Src3 = LoadColor( IN.GroupIndex + 0x10 );\0D\0A        float4 Src4 = LoadColor( IN.GroupIndex + 0x12 );\0D\0A        Src1 = 0.25 * ( Src1 + Src2 + Src3 + Src4 );\0D\0A\0D\0A        OutMip3[IN.DispatchThreadID.xy / 4] = PackColor( Src1 );\0D\0A        StoreColor( IN.GroupIndex, Src1 );\0D\0A    }\0D\0A\0D\0A    if ( NumMipLevels == 3 )\0D\0A        return;\0D\0A\0D\0A    GroupMemoryBarrierWithGroupSync();\0D\0A\0D\0A    // This bit mask would be 111111 (X & Y multiples of 8), but only one\0D\0A    // thread fits that criteria.\0D\0A    if ( IN.GroupIndex == 0 )\0D\0A    {\0D\0A        float4 Src2 = LoadColor( IN.GroupIndex + 0x04 );\0D\0A        float4 Src3 = LoadColor( IN.GroupIndex + 0x20 );\0D\0A        float4 Src4 = LoadColor( IN.GroupIndex + 0x24 );\0D\0A        Src1 = 0.25 * ( Src1 + Src2 + Src3 + Src4 );\0D\0A\0D\0A        OutMip4[IN.DispatchThreadID.xy / 8] = PackColor( Src1 );\0D\0A    }\0D\0A}\0D\0A\0D\0A"}
+!82 = !{!"..\5Cshaders\5CGenerateMips_CS.hlsl", !"/**\0D\0A * Compute shader to generate mipmaps for a given texture.\0D\0A * Source: https://github.com/Microsoft/DirectX-Graphics-Samples/blob/master/MiniEngine/Core/Shaders/GenerateMipsCS.hlsli\0D\0A */\0D\0A\0D\0A#define BLOCK_SIZE 8\0D\0A\0D\0A // When reducing the size of a texture, it could be that downscaling the texture \0D\0A // will result in a less than exactly 50% (1/2) of the original texture size.\0D\0A // This happens if either the width, or the height (or both) dimensions of the texture\0D\0A // are odd. For example, downscaling a 5x3 texture will result in a 2x1 texture which\0D\0A // has a 60% reduction in the texture width and 66% reduction in the height.\0D\0A // When this happens, we need to take more samples from the source texture to \0D\0A // determine the pixel value in the destination texture.\0D\0A\0D\0A#define WIDTH_HEIGHT_EVEN 0     // Both the width and the height of the texture are even.\0D\0A#define WIDTH_ODD_HEIGHT_EVEN 1 // The texture width is odd and the height is even.\0D\0A#define WIDTH_EVEN_HEIGHT_ODD 2 // The texture width is even and teh height is odd.\0D\0A#define WIDTH_HEIGHT_ODD 3      // Both the width and height of the texture are odd.\0D\0A\0D\0Astruct ComputeShaderInput\0D\0A{\0D\0A    uint3 GroupID           : SV_GroupID;           // 3D index of the thread group in the dispatch.\0D\0A    uint3 GroupThreadID     : SV_GroupThreadID;     // 3D index of local thread ID in a thread group.\0D\0A    uint3 DispatchThreadID  : SV_DispatchThreadID;  // 3D index of global thread ID in the dispatch.\0D\0A    uint  GroupIndex        : SV_GroupIndex;        // Flattened local index of the thread within a thread group.\0D\0A};\0D\0A\0D\0Acbuffer GenerateMipsCB : register( b0 )\0D\0A{\0D\0A    uint SrcMipLevel;\09// Texture level of source mip\0D\0A    uint NumMipLevels;\09// Number of OutMips to write: [1-4]\0D\0A    uint SrcDimension;  // Width and height of the source texture are even or odd.\0D\0A    uint Padding;       // Pad to 16 byte alignment.\0D\0A    float2 TexelSize;\09// 1.0 / OutMip1.Dimensions\0D\0A}\0D\0A\0D\0A// Source mip map.\0D\0ATexture2D<float4> SrcMip : register( t0 );\0D\0A\0D\0A// Write up to 4 mip map levels.\0D\0ARWTexture2D<float4> OutMip1 : register( u0 );\0D\0ARWTexture2D<float4> OutMip2 : register( u1 );\0D\0ARWTexture2D<float4> OutMip3 : register( u2 );\0D\0ARWTexture2D<float4> OutMip4 : register( u3 );\0D\0A\0D\0A// Linear clamp sampler.\0D\0ASamplerState LinearClampSampler : register( s0 );\0D\0A\0D\0A// Directly set the Root Signature\0D\0A#define GenerateMips_RootSignature \5C\0D\0A    \22RootFlags(0), \22 \5C\0D\0A    \22RootConstants(b0, num32BitConstants = 6), \22 \5C\0D\0A    \22DescriptorTable( SRV(t0, numDescriptors = 1) ),\22 \5C\0D\0A    \22DescriptorTable( UAV(u0, numDescriptors = 4) ),\22 \5C\0D\0A    \22StaticSampler(s0,\22 \5C\0D\0A        \22addressU = TEXTURE_ADDRESS_CLAMP,\22 \5C\0D\0A        \22addressV = TEXTURE_ADDRESS_CLAMP,\22 \5C\0D\0A        \22addressW = TEXTURE_ADDRESS_CLAMP,\22 \5C\0D\0A        \22filter = FILTER_MIN_MAG_MIP_LINEAR)\22\0D\0A\0D\0A// The reason for separating channels is to reduce bank conflicts in the\0D\0A// local data memory controller.  A large stride will cause more threads\0D\0A// to collide on the same memory bank.\0D\0Agroupshared float gs_R[64];\0D\0Agroupshared float gs_G[64];\0D\0Agroupshared float gs_B[64];\0D\0Agroupshared float gs_A[64];\0D\0A\0D\0Avoid StoreColor( uint Index, float4 Color )\0D\0A{\0D\0A    gs_R[Index] = Color.r;\0D\0A    gs_G[Index] = Color.g;\0D\0A    gs_B[Index] = Color.b;\0D\0A    gs_A[Index] = Color.a;\0D\0A}\0D\0A\0D\0Afloat4 LoadColor( uint Index )\0D\0A{\0D\0A    return float4( gs_R[Index], gs_G[Index], gs_B[Index], gs_A[Index] );\0D\0A}\0D\0A\0D\0Afloat3 LinearToSRGB( float3 x )\0D\0A{\0D\0A    // This is exactly the sRGB curve\0D\0A    //return x < 0.0031308 ? 12.92 * x : 1.055 * pow(abs(x), 1.0 / 2.4) - 0.055;\0D\0A\0D\0A    // This is cheaper but nearly equivalent\0D\0A    return x < 0.0031308 ? 12.92 * x : 1.13005 * sqrt( abs( x - 0.00228 ) ) - 0.13448 * x + 0.005719;\0D\0A}\0D\0A\0D\0Afloat4 PackColor( float4 Linear )\0D\0A{\0D\0A#if defined(CONVERT_TO_SRGB)\0D\0A    return float4( LinearToSRGB( Linear.rgb ), Linear.a );\0D\0A#else\0D\0A    return Linear;\0D\0A#endif\0D\0A}\0D\0A\0D\0A[RootSignature( GenerateMips_RootSignature )]\0D\0A[numthreads( BLOCK_SIZE, BLOCK_SIZE, 1 )]\0D\0Avoid main( ComputeShaderInput IN )\0D\0A{\0D\0A    float4 Src1 = (float4)0;\0D\0A\0D\0A    // One bilinear sample is insufficient when scaling down by more than 2x.\0D\0A    // You will slightly undersample in the case where the source dimension\0D\0A    // is odd.  This is why it's a really good idea to only generate mips on\0D\0A    // power-of-two sized textures.  Trying to handle the undersampling case\0D\0A    // will force this shader to be slower and more complicated as it will\0D\0A    // have to take more source texture samples.\0D\0A\0D\0A    // Determine the path to use based on the dimension of the \0D\0A    // source texture.\0D\0A    // 0b00(0): Both width and height are even.\0D\0A    // 0b01(1): Width is odd, height is even.\0D\0A    // 0b10(2): Width is even, height is odd.\0D\0A    // 0b11(3): Both width and height are odd.\0D\0A    switch ( SrcDimension )\0D\0A    {\0D\0A        case WIDTH_HEIGHT_EVEN:\0D\0A        {\0D\0A            float2 UV = TexelSize * ( IN.DispatchThreadID.xy + 0.5 );\0D\0A\0D\0A            Src1 = SrcMip.SampleLevel( LinearClampSampler, UV, SrcMipLevel );\0D\0A        }\0D\0A        break;\0D\0A        case WIDTH_ODD_HEIGHT_EVEN:\0D\0A        {\0D\0A            // > 2:1 in X dimension\0D\0A            // Use 2 bilinear samples to guarantee we don't undersample when downsizing by more than 2x\0D\0A            // horizontally.\0D\0A            float2 UV1 = TexelSize * ( IN.DispatchThreadID.xy + float2( 0.25, 0.5 ) );\0D\0A            float2 Off = TexelSize * float2( 0.5, 0.0 );\0D\0A\0D\0A            Src1 = 0.5 * ( SrcMip.SampleLevel( LinearClampSampler, UV1, SrcMipLevel ) +\0D\0A                           SrcMip.SampleLevel( LinearClampSampler, UV1 + Off, SrcMipLevel ) );\0D\0A        }\0D\0A        break;\0D\0A        case WIDTH_EVEN_HEIGHT_ODD:\0D\0A        {\0D\0A            // > 2:1 in Y dimension\0D\0A            // Use 2 bilinear samples to guarantee we don't undersample when downsizing by more than 2x\0D\0A            // vertically.\0D\0A            float2 UV1 = TexelSize * ( IN.DispatchThreadID.xy + float2( 0.5, 0.25 ) );\0D\0A            float2 Off = TexelSize * float2( 0.0, 0.5 );\0D\0A\0D\0A            Src1 = 0.5 * ( SrcMip.SampleLevel( LinearClampSampler, UV1, SrcMipLevel ) +\0D\0A                           SrcMip.SampleLevel( LinearClampSampler, UV1 + Off, SrcMipLevel ) );\0D\0A        }\0D\0A        break;\0D\0A        case WIDTH_HEIGHT_ODD:\0D\0A        {\0D\0A            // > 2:1 in in both dimensions\0D\0A            // Use 4 bilinear samples to guarantee we don't undersample when downsizing by more than 2x\0D\0A            // in both directions.\0D\0A            float2 UV1 = TexelSize * ( IN.DispatchThreadID.xy + float2( 0.25, 0.25 ) );\0D\0A            float2 Off = TexelSize * 0.5;\0D\0A\0D\0A            Src1 = SrcMip.SampleLevel( LinearClampSampler, UV1, SrcMipLevel );\0D\0A            Src1 += SrcMip.SampleLevel( LinearClampSampler, UV1 + float2( Off.x, 0.0   ), SrcMipLevel );\0D\0A            Src1 += SrcMip.SampleLevel( LinearClampSampler, UV1 + float2( 0.0,   Off.y ), SrcMipLevel );\0D\0A            Src1 += SrcMip.SampleLevel( LinearClampSampler, UV1 + float2( Off.x, Off.y ), SrcMipLevel );\0D\0A            Src1 *= 0.25;\0D\0A        }\0D\0A        break;\0D\0A    }\0D\0A\0D\0A    OutMip1[IN.DispatchThreadID.xy] = PackColor( Src1 );\0D\0A\0D\0A    // A scalar (constant) branch can exit all threads coherently.\0D\0A    if ( NumMipLevels == 1 )\0D\0A        return;\0D\0A\0D\0A    // Without lane swizzle operations, the only way to share data with other\0D\0A    // threads is through LDS.\0D\0A    StoreColor( IN.GroupIndex, Src1 );\0D\0A\0D\0A    // This guarantees all LDS writes are complete and that all threads have\0D\0A    // executed all instructions so far (and therefore have issued their LDS\0D\0A    // write instructions.)\0D\0A    GroupMemoryBarrierWithGroupSync();\0D\0A\0D\0A    // With low three bits for X and high three bits for Y, this bit mask\0D\0A    // (binary: 001001) checks that X and Y are even.\0D\0A    if ( ( IN.GroupIndex & 0x9 ) == 0 )\0D\0A    {\0D\0A        float4 Src2 = LoadColor( IN.GroupIndex + 0x01 );\0D\0A        float4 Src3 = LoadColor( IN.GroupIndex + 0x08 );\0D\0A        float4 Src4 = LoadColor( IN.GroupIndex + 0x09 );\0D\0A        Src1 = 0.25 * ( Src1 + Src2 + Src3 + Src4 );\0D\0A\0D\0A        OutMip2[IN.DispatchThreadID.xy / 2] = PackColor( Src1 );\0D\0A        StoreColor( IN.GroupIndex, Src1 );\0D\0A    }\0D\0A\0D\0A    if ( NumMipLevels == 2 )\0D\0A        return;\0D\0A\0D\0A    GroupMemoryBarrierWithGroupSync();\0D\0A\0D\0A    // This bit mask (binary: 011011) checks that X and Y are multiples of four.\0D\0A    if ( ( IN.GroupIndex & 0x1B ) == 0 )\0D\0A    {\0D\0A        float4 Src2 = LoadColor( IN.GroupIndex + 0x02 );\0D\0A        float4 Src3 = LoadColor( IN.GroupIndex + 0x10 );\0D\0A        float4 Src4 = LoadColor( IN.GroupIndex + 0x12 );\0D\0A        Src1 = 0.25 * ( Src1 + Src2 + Src3 + Src4 );\0D\0A\0D\0A        OutMip3[IN.DispatchThreadID.xy / 4] = PackColor( Src1 );\0D\0A        StoreColor( IN.GroupIndex, Src1 );\0D\0A    }\0D\0A\0D\0A    if ( NumMipLevels == 3 )\0D\0A        return;\0D\0A\0D\0A    GroupMemoryBarrierWithGroupSync();\0D\0A\0D\0A    // This bit mask would be 111111 (X & Y multiples of 8), but only one\0D\0A    // thread fits that criteria.\0D\0A    if ( IN.GroupIndex == 0 )\0D\0A    {\0D\0A        float4 Src2 = LoadColor( IN.GroupIndex + 0x04 );\0D\0A        float4 Src3 = LoadColor( IN.GroupIndex + 0x20 );\0D\0A        float4 Src4 = LoadColor( IN.GroupIndex + 0x24 );\0D\0A        Src1 = 0.25 * ( Src1 + Src2 + Src3 + Src4 );\0D\0A\0D\0A        OutMip4[IN.DispatchThreadID.xy / 8] = PackColor( Src1 );\0D\0A    }\0D\0A}\0D\0A\0D\0A"}
 !83 = !{!"..\5Cshaders\5CGenerateMips_CS.hlsl"}
 !84 = !{!"-E", !"main", !"-T", !"cs_6_6", !"/Od", !"/Zi", !"-Qembed_debug"}
 !85 = !{i32 1, i32 6}
@@ -951,330 +951,330 @@ attributes #3 = { noduplicate nounwind }
 !110 = !{void ()* @main, !"main", null, !87, !111}
 !111 = !{i32 0, i64 1, i32 4, !112}
 !112 = !{i32 8, i32 8, i32 1}
-!113 = !DILocation(line: 125, column: 20, scope: !114)
-!114 = distinct !DILexicalBlock(scope: !115, file: !1, line: 122, column: 9)
-!115 = distinct !DILexicalBlock(scope: !24, file: !1, line: 120, column: 5)
-!116 = !DILocation(line: 102, column: 31, scope: !24)
-!117 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "IN", arg: 1, scope: !24, file: !1, line: 102, type: !27)
+!113 = !DILocation(line: 126, column: 20, scope: !114)
+!114 = distinct !DILexicalBlock(scope: !115, file: !1, line: 123, column: 9)
+!115 = distinct !DILexicalBlock(scope: !24, file: !1, line: 121, column: 5)
+!116 = !DILocation(line: 103, column: 31, scope: !24)
+!117 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "IN", arg: 1, scope: !24, file: !1, line: 103, type: !27)
 !118 = !DIExpression(DW_OP_bit_piece, 288, 32)
 !119 = !DIExpression(DW_OP_bit_piece, 192, 32)
 !120 = !DIExpression(DW_OP_bit_piece, 224, 32)
-!121 = !DILocation(line: 104, column: 12, scope: !24)
-!122 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src1", scope: !24, file: !1, line: 104, type: !4)
+!121 = !DILocation(line: 105, column: 12, scope: !24)
+!122 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src1", scope: !24, file: !1, line: 105, type: !4)
 !123 = !DIExpression()
-!124 = !DILocation(line: 119, column: 14, scope: !24)
-!125 = !DILocation(line: 119, column: 5, scope: !24)
-!126 = !DILocation(line: 123, column: 25, scope: !114)
-!127 = !DILocation(line: 123, column: 39, scope: !114)
-!128 = !DILocation(line: 123, column: 62, scope: !114)
-!129 = !DILocation(line: 123, column: 35, scope: !114)
-!130 = !DILocation(line: 123, column: 20, scope: !114)
-!131 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "UV", scope: !114, file: !1, line: 123, type: !16)
+!124 = !DILocation(line: 120, column: 14, scope: !24)
+!125 = !DILocation(line: 120, column: 5, scope: !24)
+!126 = !DILocation(line: 124, column: 25, scope: !114)
+!127 = !DILocation(line: 124, column: 39, scope: !114)
+!128 = !DILocation(line: 124, column: 62, scope: !114)
+!129 = !DILocation(line: 124, column: 35, scope: !114)
+!130 = !DILocation(line: 124, column: 20, scope: !114)
+!131 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "UV", scope: !114, file: !1, line: 124, type: !16)
 !132 = !DIExpression(DW_OP_bit_piece, 0, 32)
 !133 = !DIExpression(DW_OP_bit_piece, 32, 32)
-!134 = !DILocation(line: 125, column: 64, scope: !114)
-!135 = !DILocation(line: 125, column: 18, scope: !114)
-!136 = !DILocation(line: 127, column: 9, scope: !115)
-!137 = !DILocation(line: 133, column: 26, scope: !138)
-!138 = distinct !DILexicalBlock(scope: !115, file: !1, line: 129, column: 9)
-!139 = !DILocation(line: 133, column: 40, scope: !138)
-!140 = !DILocation(line: 133, column: 63, scope: !138)
-!141 = !DILocation(line: 133, column: 36, scope: !138)
-!142 = !DILocation(line: 133, column: 20, scope: !138)
-!143 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "UV1", scope: !138, file: !1, line: 133, type: !16)
-!144 = !DILocation(line: 134, column: 26, scope: !138)
-!145 = !DILocation(line: 134, column: 36, scope: !138)
-!146 = !DILocation(line: 134, column: 20, scope: !138)
-!147 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Off", scope: !138, file: !1, line: 134, type: !16)
-!148 = !DILocation(line: 136, column: 73, scope: !138)
-!149 = !DILocation(line: 136, column: 28, scope: !138)
-!150 = !DILocation(line: 137, column: 79, scope: !138)
-!151 = !DILocation(line: 137, column: 72, scope: !138)
-!152 = !DILocation(line: 137, column: 28, scope: !138)
-!153 = !DILocation(line: 136, column: 87, scope: !138)
-!154 = !DILocation(line: 136, column: 24, scope: !138)
-!155 = !DILocation(line: 136, column: 18, scope: !138)
+!134 = !DILocation(line: 126, column: 64, scope: !114)
+!135 = !DILocation(line: 126, column: 18, scope: !114)
+!136 = !DILocation(line: 128, column: 9, scope: !115)
+!137 = !DILocation(line: 134, column: 26, scope: !138)
+!138 = distinct !DILexicalBlock(scope: !115, file: !1, line: 130, column: 9)
+!139 = !DILocation(line: 134, column: 40, scope: !138)
+!140 = !DILocation(line: 134, column: 63, scope: !138)
+!141 = !DILocation(line: 134, column: 36, scope: !138)
+!142 = !DILocation(line: 134, column: 20, scope: !138)
+!143 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "UV1", scope: !138, file: !1, line: 134, type: !16)
+!144 = !DILocation(line: 135, column: 26, scope: !138)
+!145 = !DILocation(line: 135, column: 36, scope: !138)
+!146 = !DILocation(line: 135, column: 20, scope: !138)
+!147 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Off", scope: !138, file: !1, line: 135, type: !16)
+!148 = !DILocation(line: 137, column: 73, scope: !138)
+!149 = !DILocation(line: 137, column: 28, scope: !138)
+!150 = !DILocation(line: 138, column: 79, scope: !138)
+!151 = !DILocation(line: 138, column: 72, scope: !138)
+!152 = !DILocation(line: 138, column: 28, scope: !138)
+!153 = !DILocation(line: 137, column: 87, scope: !138)
+!154 = !DILocation(line: 137, column: 24, scope: !138)
+!155 = !DILocation(line: 137, column: 18, scope: !138)
 !156 = !DIExpression(DW_OP_bit_piece, 64, 32)
 !157 = !DIExpression(DW_OP_bit_piece, 96, 32)
-!158 = !DILocation(line: 139, column: 9, scope: !115)
-!159 = !DILocation(line: 145, column: 26, scope: !160)
-!160 = distinct !DILexicalBlock(scope: !115, file: !1, line: 141, column: 9)
-!161 = !DILocation(line: 145, column: 40, scope: !160)
-!162 = !DILocation(line: 145, column: 63, scope: !160)
-!163 = !DILocation(line: 145, column: 36, scope: !160)
-!164 = !DILocation(line: 145, column: 20, scope: !160)
-!165 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "UV1", scope: !160, file: !1, line: 145, type: !16)
-!166 = !DILocation(line: 146, column: 26, scope: !160)
-!167 = !DILocation(line: 146, column: 36, scope: !160)
-!168 = !DILocation(line: 146, column: 20, scope: !160)
-!169 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Off", scope: !160, file: !1, line: 146, type: !16)
-!170 = !DILocation(line: 148, column: 73, scope: !160)
-!171 = !DILocation(line: 148, column: 28, scope: !160)
-!172 = !DILocation(line: 149, column: 79, scope: !160)
-!173 = !DILocation(line: 149, column: 72, scope: !160)
-!174 = !DILocation(line: 149, column: 28, scope: !160)
-!175 = !DILocation(line: 148, column: 87, scope: !160)
-!176 = !DILocation(line: 148, column: 24, scope: !160)
-!177 = !DILocation(line: 148, column: 18, scope: !160)
-!178 = !DILocation(line: 151, column: 9, scope: !115)
-!179 = !DILocation(line: 157, column: 26, scope: !180)
-!180 = distinct !DILexicalBlock(scope: !115, file: !1, line: 153, column: 9)
-!181 = !DILocation(line: 157, column: 40, scope: !180)
-!182 = !DILocation(line: 157, column: 63, scope: !180)
-!183 = !DILocation(line: 157, column: 36, scope: !180)
-!184 = !DILocation(line: 157, column: 20, scope: !180)
-!185 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "UV1", scope: !180, file: !1, line: 157, type: !16)
-!186 = !DILocation(line: 158, column: 26, scope: !180)
-!187 = !DILocation(line: 158, column: 36, scope: !180)
-!188 = !DILocation(line: 158, column: 20, scope: !180)
-!189 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Off", scope: !180, file: !1, line: 158, type: !16)
-!190 = !DILocation(line: 160, column: 65, scope: !180)
-!191 = !DILocation(line: 160, column: 20, scope: !180)
-!192 = !DILocation(line: 160, column: 18, scope: !180)
-!193 = !DILocation(line: 161, column: 91, scope: !180)
-!194 = !DILocation(line: 161, column: 65, scope: !180)
-!195 = !DILocation(line: 161, column: 21, scope: !180)
-!196 = !DILocation(line: 161, column: 18, scope: !180)
-!197 = !DILocation(line: 162, column: 91, scope: !180)
-!198 = !DILocation(line: 162, column: 65, scope: !180)
-!199 = !DILocation(line: 162, column: 21, scope: !180)
-!200 = !DILocation(line: 162, column: 18, scope: !180)
-!201 = !DILocation(line: 163, column: 91, scope: !180)
-!202 = !DILocation(line: 163, column: 65, scope: !180)
-!203 = !DILocation(line: 163, column: 21, scope: !180)
-!204 = !DILocation(line: 163, column: 18, scope: !180)
-!205 = !DILocation(line: 164, column: 18, scope: !180)
-!206 = !DILocation(line: 166, column: 9, scope: !115)
-!207 = !DILocation(line: 169, column: 39, scope: !24)
-!208 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "Linear", arg: 1, scope: !44, file: !1, line: 91, type: !4)
-!209 = !DILocation(line: 91, column: 26, scope: !44, inlinedAt: !210)
-!210 = distinct !DILocation(line: 169, column: 39, scope: !24)
-!211 = !DILocation(line: 96, column: 5, scope: !44, inlinedAt: !210)
-!212 = !DILocation(line: 169, column: 5, scope: !24)
-!213 = !DILocation(line: 169, column: 37, scope: !24)
-!214 = !DILocation(line: 172, column: 10, scope: !215)
-!215 = distinct !DILexicalBlock(scope: !24, file: !1, line: 172, column: 10)
-!216 = !DILocation(line: 172, column: 23, scope: !215)
-!217 = !DILocation(line: 172, column: 10, scope: !24)
-!218 = !DILocation(line: 173, column: 9, scope: !215)
-!219 = !DILocation(line: 177, column: 5, scope: !24)
-!220 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "Color", arg: 2, scope: !47, file: !1, line: 69, type: !4)
-!221 = !DILocation(line: 69, column: 37, scope: !47, inlinedAt: !222)
-!222 = distinct !DILocation(line: 177, column: 5, scope: !24)
-!223 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "Index", arg: 1, scope: !47, file: !1, line: 69, type: !43)
-!224 = !DILocation(line: 69, column: 23, scope: !47, inlinedAt: !222)
-!225 = !DILocation(line: 71, column: 5, scope: !47, inlinedAt: !222)
-!226 = !DILocation(line: 71, column: 17, scope: !47, inlinedAt: !222)
-!227 = !DILocation(line: 72, column: 5, scope: !47, inlinedAt: !222)
-!228 = !DILocation(line: 72, column: 17, scope: !47, inlinedAt: !222)
-!229 = !DILocation(line: 73, column: 5, scope: !47, inlinedAt: !222)
-!230 = !DILocation(line: 73, column: 17, scope: !47, inlinedAt: !222)
-!231 = !DILocation(line: 74, column: 5, scope: !47, inlinedAt: !222)
-!232 = !DILocation(line: 74, column: 17, scope: !47, inlinedAt: !222)
-!233 = !DILocation(line: 75, column: 1, scope: !47, inlinedAt: !222)
-!234 = !DILocation(line: 182, column: 5, scope: !24)
-!235 = !DILocation(line: 186, column: 26, scope: !236)
-!236 = distinct !DILexicalBlock(scope: !24, file: !1, line: 186, column: 10)
-!237 = !DILocation(line: 186, column: 34, scope: !236)
-!238 = !DILocation(line: 186, column: 10, scope: !24)
-!239 = !DILocation(line: 188, column: 48, scope: !240)
-!240 = distinct !DILexicalBlock(scope: !236, file: !1, line: 187, column: 5)
-!241 = !DILocation(line: 188, column: 23, scope: !240)
-!242 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "Index", arg: 1, scope: !50, file: !1, line: 77, type: !43)
-!243 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !244)
-!244 = distinct !DILocation(line: 188, column: 23, scope: !240)
-!245 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !244)
-!246 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !244)
-!247 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !244)
-!248 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !244)
-!249 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !244)
-!250 = !DILocation(line: 188, column: 16, scope: !240)
-!251 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src2", scope: !240, file: !1, line: 188, type: !4)
-!252 = !DILocation(line: 189, column: 48, scope: !240)
-!253 = !DILocation(line: 189, column: 23, scope: !240)
-!254 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !255)
-!255 = distinct !DILocation(line: 189, column: 23, scope: !240)
-!256 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !255)
-!257 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !255)
-!258 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !255)
-!259 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !255)
-!260 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !255)
-!261 = !DILocation(line: 189, column: 16, scope: !240)
-!262 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src3", scope: !240, file: !1, line: 189, type: !4)
-!263 = !DILocation(line: 190, column: 48, scope: !240)
-!264 = !DILocation(line: 190, column: 23, scope: !240)
-!265 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !266)
-!266 = distinct !DILocation(line: 190, column: 23, scope: !240)
-!267 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !266)
-!268 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !266)
-!269 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !266)
-!270 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !266)
-!271 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !266)
-!272 = !DILocation(line: 190, column: 16, scope: !240)
-!273 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src4", scope: !240, file: !1, line: 190, type: !4)
-!274 = !DILocation(line: 191, column: 30, scope: !240)
-!275 = !DILocation(line: 191, column: 37, scope: !240)
-!276 = !DILocation(line: 191, column: 44, scope: !240)
-!277 = !DILocation(line: 191, column: 21, scope: !240)
-!278 = !DILocation(line: 191, column: 14, scope: !240)
-!279 = !DILocation(line: 193, column: 47, scope: !240)
-!280 = !DILocation(line: 91, column: 26, scope: !44, inlinedAt: !281)
-!281 = distinct !DILocation(line: 193, column: 47, scope: !240)
-!282 = !DILocation(line: 96, column: 5, scope: !44, inlinedAt: !281)
-!283 = !DILocation(line: 193, column: 40, scope: !240)
-!284 = !DILocation(line: 193, column: 9, scope: !240)
-!285 = !DILocation(line: 193, column: 45, scope: !240)
-!286 = !DILocation(line: 194, column: 9, scope: !240)
-!287 = !DILocation(line: 69, column: 37, scope: !47, inlinedAt: !288)
-!288 = distinct !DILocation(line: 194, column: 9, scope: !240)
-!289 = !DILocation(line: 69, column: 23, scope: !47, inlinedAt: !288)
-!290 = !DILocation(line: 71, column: 5, scope: !47, inlinedAt: !288)
-!291 = !DILocation(line: 71, column: 17, scope: !47, inlinedAt: !288)
-!292 = !DILocation(line: 72, column: 5, scope: !47, inlinedAt: !288)
-!293 = !DILocation(line: 72, column: 17, scope: !47, inlinedAt: !288)
-!294 = !DILocation(line: 73, column: 5, scope: !47, inlinedAt: !288)
-!295 = !DILocation(line: 73, column: 17, scope: !47, inlinedAt: !288)
-!296 = !DILocation(line: 74, column: 5, scope: !47, inlinedAt: !288)
-!297 = !DILocation(line: 74, column: 17, scope: !47, inlinedAt: !288)
-!298 = !DILocation(line: 75, column: 1, scope: !47, inlinedAt: !288)
-!299 = !DILocation(line: 195, column: 5, scope: !240)
-!300 = !DILocation(line: 197, column: 10, scope: !301)
-!301 = distinct !DILexicalBlock(scope: !24, file: !1, line: 197, column: 10)
-!302 = !DILocation(line: 197, column: 23, scope: !301)
-!303 = !DILocation(line: 197, column: 10, scope: !24)
-!304 = !DILocation(line: 198, column: 9, scope: !301)
-!305 = !DILocation(line: 200, column: 5, scope: !24)
-!306 = !DILocation(line: 203, column: 26, scope: !307)
-!307 = distinct !DILexicalBlock(scope: !24, file: !1, line: 203, column: 10)
-!308 = !DILocation(line: 203, column: 35, scope: !307)
-!309 = !DILocation(line: 203, column: 10, scope: !24)
-!310 = !DILocation(line: 205, column: 48, scope: !311)
-!311 = distinct !DILexicalBlock(scope: !307, file: !1, line: 204, column: 5)
-!312 = !DILocation(line: 205, column: 23, scope: !311)
-!313 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !314)
-!314 = distinct !DILocation(line: 205, column: 23, scope: !311)
-!315 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !314)
-!316 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !314)
-!317 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !314)
-!318 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !314)
-!319 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !314)
-!320 = !DILocation(line: 205, column: 16, scope: !311)
-!321 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src2", scope: !311, file: !1, line: 205, type: !4)
-!322 = !DILocation(line: 206, column: 48, scope: !311)
-!323 = !DILocation(line: 206, column: 23, scope: !311)
-!324 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !325)
-!325 = distinct !DILocation(line: 206, column: 23, scope: !311)
-!326 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !325)
-!327 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !325)
-!328 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !325)
-!329 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !325)
-!330 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !325)
-!331 = !DILocation(line: 206, column: 16, scope: !311)
-!332 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src3", scope: !311, file: !1, line: 206, type: !4)
-!333 = !DILocation(line: 207, column: 48, scope: !311)
-!334 = !DILocation(line: 207, column: 23, scope: !311)
-!335 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !336)
-!336 = distinct !DILocation(line: 207, column: 23, scope: !311)
-!337 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !336)
-!338 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !336)
-!339 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !336)
-!340 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !336)
-!341 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !336)
-!342 = !DILocation(line: 207, column: 16, scope: !311)
-!343 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src4", scope: !311, file: !1, line: 207, type: !4)
-!344 = !DILocation(line: 208, column: 30, scope: !311)
-!345 = !DILocation(line: 208, column: 37, scope: !311)
-!346 = !DILocation(line: 208, column: 44, scope: !311)
-!347 = !DILocation(line: 208, column: 21, scope: !311)
-!348 = !DILocation(line: 208, column: 14, scope: !311)
-!349 = !DILocation(line: 210, column: 47, scope: !311)
-!350 = !DILocation(line: 91, column: 26, scope: !44, inlinedAt: !351)
-!351 = distinct !DILocation(line: 210, column: 47, scope: !311)
-!352 = !DILocation(line: 96, column: 5, scope: !44, inlinedAt: !351)
-!353 = !DILocation(line: 210, column: 40, scope: !311)
-!354 = !DILocation(line: 210, column: 9, scope: !311)
-!355 = !DILocation(line: 210, column: 45, scope: !311)
-!356 = !DILocation(line: 211, column: 9, scope: !311)
-!357 = !DILocation(line: 69, column: 37, scope: !47, inlinedAt: !358)
-!358 = distinct !DILocation(line: 211, column: 9, scope: !311)
-!359 = !DILocation(line: 69, column: 23, scope: !47, inlinedAt: !358)
-!360 = !DILocation(line: 71, column: 5, scope: !47, inlinedAt: !358)
-!361 = !DILocation(line: 71, column: 17, scope: !47, inlinedAt: !358)
-!362 = !DILocation(line: 72, column: 5, scope: !47, inlinedAt: !358)
-!363 = !DILocation(line: 72, column: 17, scope: !47, inlinedAt: !358)
-!364 = !DILocation(line: 73, column: 5, scope: !47, inlinedAt: !358)
-!365 = !DILocation(line: 73, column: 17, scope: !47, inlinedAt: !358)
-!366 = !DILocation(line: 74, column: 5, scope: !47, inlinedAt: !358)
-!367 = !DILocation(line: 74, column: 17, scope: !47, inlinedAt: !358)
-!368 = !DILocation(line: 75, column: 1, scope: !47, inlinedAt: !358)
-!369 = !DILocation(line: 212, column: 5, scope: !311)
-!370 = !DILocation(line: 214, column: 10, scope: !371)
-!371 = distinct !DILexicalBlock(scope: !24, file: !1, line: 214, column: 10)
-!372 = !DILocation(line: 214, column: 23, scope: !371)
-!373 = !DILocation(line: 214, column: 10, scope: !24)
-!374 = !DILocation(line: 215, column: 9, scope: !371)
-!375 = !DILocation(line: 217, column: 5, scope: !24)
-!376 = !DILocation(line: 221, column: 24, scope: !377)
-!377 = distinct !DILexicalBlock(scope: !24, file: !1, line: 221, column: 10)
-!378 = !DILocation(line: 221, column: 10, scope: !24)
-!379 = !DILocation(line: 223, column: 48, scope: !380)
-!380 = distinct !DILexicalBlock(scope: !377, file: !1, line: 222, column: 5)
-!381 = !DILocation(line: 223, column: 23, scope: !380)
-!382 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !383)
-!383 = distinct !DILocation(line: 223, column: 23, scope: !380)
-!384 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !383)
-!385 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !383)
-!386 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !383)
-!387 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !383)
-!388 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !383)
-!389 = !DILocation(line: 223, column: 16, scope: !380)
-!390 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src2", scope: !380, file: !1, line: 223, type: !4)
-!391 = !DILocation(line: 224, column: 48, scope: !380)
-!392 = !DILocation(line: 224, column: 23, scope: !380)
-!393 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !394)
-!394 = distinct !DILocation(line: 224, column: 23, scope: !380)
-!395 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !394)
-!396 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !394)
-!397 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !394)
-!398 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !394)
-!399 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !394)
-!400 = !DILocation(line: 224, column: 16, scope: !380)
-!401 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src3", scope: !380, file: !1, line: 224, type: !4)
-!402 = !DILocation(line: 225, column: 48, scope: !380)
-!403 = !DILocation(line: 225, column: 23, scope: !380)
-!404 = !DILocation(line: 77, column: 24, scope: !50, inlinedAt: !405)
-!405 = distinct !DILocation(line: 225, column: 23, scope: !380)
-!406 = !DILocation(line: 79, column: 20, scope: !50, inlinedAt: !405)
-!407 = !DILocation(line: 79, column: 33, scope: !50, inlinedAt: !405)
-!408 = !DILocation(line: 79, column: 46, scope: !50, inlinedAt: !405)
-!409 = !DILocation(line: 79, column: 59, scope: !50, inlinedAt: !405)
-!410 = !DILocation(line: 79, column: 5, scope: !50, inlinedAt: !405)
-!411 = !DILocation(line: 225, column: 16, scope: !380)
-!412 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src4", scope: !380, file: !1, line: 225, type: !4)
-!413 = !DILocation(line: 226, column: 30, scope: !380)
-!414 = !DILocation(line: 226, column: 37, scope: !380)
-!415 = !DILocation(line: 226, column: 44, scope: !380)
-!416 = !DILocation(line: 226, column: 21, scope: !380)
-!417 = !DILocation(line: 226, column: 14, scope: !380)
-!418 = !DILocation(line: 228, column: 47, scope: !380)
-!419 = !DILocation(line: 91, column: 26, scope: !44, inlinedAt: !420)
-!420 = distinct !DILocation(line: 228, column: 47, scope: !380)
-!421 = !DILocation(line: 96, column: 5, scope: !44, inlinedAt: !420)
-!422 = !DILocation(line: 228, column: 40, scope: !380)
-!423 = !DILocation(line: 228, column: 9, scope: !380)
-!424 = !DILocation(line: 228, column: 45, scope: !380)
-!425 = !DILocation(line: 229, column: 5, scope: !380)
-!426 = !DILocation(line: 230, column: 1, scope: !24)
+!158 = !DILocation(line: 140, column: 9, scope: !115)
+!159 = !DILocation(line: 146, column: 26, scope: !160)
+!160 = distinct !DILexicalBlock(scope: !115, file: !1, line: 142, column: 9)
+!161 = !DILocation(line: 146, column: 40, scope: !160)
+!162 = !DILocation(line: 146, column: 63, scope: !160)
+!163 = !DILocation(line: 146, column: 36, scope: !160)
+!164 = !DILocation(line: 146, column: 20, scope: !160)
+!165 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "UV1", scope: !160, file: !1, line: 146, type: !16)
+!166 = !DILocation(line: 147, column: 26, scope: !160)
+!167 = !DILocation(line: 147, column: 36, scope: !160)
+!168 = !DILocation(line: 147, column: 20, scope: !160)
+!169 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Off", scope: !160, file: !1, line: 147, type: !16)
+!170 = !DILocation(line: 149, column: 73, scope: !160)
+!171 = !DILocation(line: 149, column: 28, scope: !160)
+!172 = !DILocation(line: 150, column: 79, scope: !160)
+!173 = !DILocation(line: 150, column: 72, scope: !160)
+!174 = !DILocation(line: 150, column: 28, scope: !160)
+!175 = !DILocation(line: 149, column: 87, scope: !160)
+!176 = !DILocation(line: 149, column: 24, scope: !160)
+!177 = !DILocation(line: 149, column: 18, scope: !160)
+!178 = !DILocation(line: 152, column: 9, scope: !115)
+!179 = !DILocation(line: 158, column: 26, scope: !180)
+!180 = distinct !DILexicalBlock(scope: !115, file: !1, line: 154, column: 9)
+!181 = !DILocation(line: 158, column: 40, scope: !180)
+!182 = !DILocation(line: 158, column: 63, scope: !180)
+!183 = !DILocation(line: 158, column: 36, scope: !180)
+!184 = !DILocation(line: 158, column: 20, scope: !180)
+!185 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "UV1", scope: !180, file: !1, line: 158, type: !16)
+!186 = !DILocation(line: 159, column: 26, scope: !180)
+!187 = !DILocation(line: 159, column: 36, scope: !180)
+!188 = !DILocation(line: 159, column: 20, scope: !180)
+!189 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Off", scope: !180, file: !1, line: 159, type: !16)
+!190 = !DILocation(line: 161, column: 65, scope: !180)
+!191 = !DILocation(line: 161, column: 20, scope: !180)
+!192 = !DILocation(line: 161, column: 18, scope: !180)
+!193 = !DILocation(line: 162, column: 91, scope: !180)
+!194 = !DILocation(line: 162, column: 65, scope: !180)
+!195 = !DILocation(line: 162, column: 21, scope: !180)
+!196 = !DILocation(line: 162, column: 18, scope: !180)
+!197 = !DILocation(line: 163, column: 91, scope: !180)
+!198 = !DILocation(line: 163, column: 65, scope: !180)
+!199 = !DILocation(line: 163, column: 21, scope: !180)
+!200 = !DILocation(line: 163, column: 18, scope: !180)
+!201 = !DILocation(line: 164, column: 91, scope: !180)
+!202 = !DILocation(line: 164, column: 65, scope: !180)
+!203 = !DILocation(line: 164, column: 21, scope: !180)
+!204 = !DILocation(line: 164, column: 18, scope: !180)
+!205 = !DILocation(line: 165, column: 18, scope: !180)
+!206 = !DILocation(line: 167, column: 9, scope: !115)
+!207 = !DILocation(line: 170, column: 39, scope: !24)
+!208 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "Linear", arg: 1, scope: !44, file: !1, line: 92, type: !4)
+!209 = !DILocation(line: 92, column: 26, scope: !44, inlinedAt: !210)
+!210 = distinct !DILocation(line: 170, column: 39, scope: !24)
+!211 = !DILocation(line: 97, column: 5, scope: !44, inlinedAt: !210)
+!212 = !DILocation(line: 170, column: 5, scope: !24)
+!213 = !DILocation(line: 170, column: 37, scope: !24)
+!214 = !DILocation(line: 173, column: 10, scope: !215)
+!215 = distinct !DILexicalBlock(scope: !24, file: !1, line: 173, column: 10)
+!216 = !DILocation(line: 173, column: 23, scope: !215)
+!217 = !DILocation(line: 173, column: 10, scope: !24)
+!218 = !DILocation(line: 174, column: 9, scope: !215)
+!219 = !DILocation(line: 178, column: 5, scope: !24)
+!220 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "Color", arg: 2, scope: !47, file: !1, line: 70, type: !4)
+!221 = !DILocation(line: 70, column: 37, scope: !47, inlinedAt: !222)
+!222 = distinct !DILocation(line: 178, column: 5, scope: !24)
+!223 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "Index", arg: 1, scope: !47, file: !1, line: 70, type: !43)
+!224 = !DILocation(line: 70, column: 23, scope: !47, inlinedAt: !222)
+!225 = !DILocation(line: 72, column: 5, scope: !47, inlinedAt: !222)
+!226 = !DILocation(line: 72, column: 17, scope: !47, inlinedAt: !222)
+!227 = !DILocation(line: 73, column: 5, scope: !47, inlinedAt: !222)
+!228 = !DILocation(line: 73, column: 17, scope: !47, inlinedAt: !222)
+!229 = !DILocation(line: 74, column: 5, scope: !47, inlinedAt: !222)
+!230 = !DILocation(line: 74, column: 17, scope: !47, inlinedAt: !222)
+!231 = !DILocation(line: 75, column: 5, scope: !47, inlinedAt: !222)
+!232 = !DILocation(line: 75, column: 17, scope: !47, inlinedAt: !222)
+!233 = !DILocation(line: 76, column: 1, scope: !47, inlinedAt: !222)
+!234 = !DILocation(line: 183, column: 5, scope: !24)
+!235 = !DILocation(line: 187, column: 26, scope: !236)
+!236 = distinct !DILexicalBlock(scope: !24, file: !1, line: 187, column: 10)
+!237 = !DILocation(line: 187, column: 34, scope: !236)
+!238 = !DILocation(line: 187, column: 10, scope: !24)
+!239 = !DILocation(line: 189, column: 48, scope: !240)
+!240 = distinct !DILexicalBlock(scope: !236, file: !1, line: 188, column: 5)
+!241 = !DILocation(line: 189, column: 23, scope: !240)
+!242 = !DILocalVariable(tag: DW_TAG_arg_variable, name: "Index", arg: 1, scope: !50, file: !1, line: 78, type: !43)
+!243 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !244)
+!244 = distinct !DILocation(line: 189, column: 23, scope: !240)
+!245 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !244)
+!246 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !244)
+!247 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !244)
+!248 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !244)
+!249 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !244)
+!250 = !DILocation(line: 189, column: 16, scope: !240)
+!251 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src2", scope: !240, file: !1, line: 189, type: !4)
+!252 = !DILocation(line: 190, column: 48, scope: !240)
+!253 = !DILocation(line: 190, column: 23, scope: !240)
+!254 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !255)
+!255 = distinct !DILocation(line: 190, column: 23, scope: !240)
+!256 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !255)
+!257 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !255)
+!258 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !255)
+!259 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !255)
+!260 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !255)
+!261 = !DILocation(line: 190, column: 16, scope: !240)
+!262 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src3", scope: !240, file: !1, line: 190, type: !4)
+!263 = !DILocation(line: 191, column: 48, scope: !240)
+!264 = !DILocation(line: 191, column: 23, scope: !240)
+!265 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !266)
+!266 = distinct !DILocation(line: 191, column: 23, scope: !240)
+!267 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !266)
+!268 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !266)
+!269 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !266)
+!270 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !266)
+!271 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !266)
+!272 = !DILocation(line: 191, column: 16, scope: !240)
+!273 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src4", scope: !240, file: !1, line: 191, type: !4)
+!274 = !DILocation(line: 192, column: 30, scope: !240)
+!275 = !DILocation(line: 192, column: 37, scope: !240)
+!276 = !DILocation(line: 192, column: 44, scope: !240)
+!277 = !DILocation(line: 192, column: 21, scope: !240)
+!278 = !DILocation(line: 192, column: 14, scope: !240)
+!279 = !DILocation(line: 194, column: 47, scope: !240)
+!280 = !DILocation(line: 92, column: 26, scope: !44, inlinedAt: !281)
+!281 = distinct !DILocation(line: 194, column: 47, scope: !240)
+!282 = !DILocation(line: 97, column: 5, scope: !44, inlinedAt: !281)
+!283 = !DILocation(line: 194, column: 40, scope: !240)
+!284 = !DILocation(line: 194, column: 9, scope: !240)
+!285 = !DILocation(line: 194, column: 45, scope: !240)
+!286 = !DILocation(line: 195, column: 9, scope: !240)
+!287 = !DILocation(line: 70, column: 37, scope: !47, inlinedAt: !288)
+!288 = distinct !DILocation(line: 195, column: 9, scope: !240)
+!289 = !DILocation(line: 70, column: 23, scope: !47, inlinedAt: !288)
+!290 = !DILocation(line: 72, column: 5, scope: !47, inlinedAt: !288)
+!291 = !DILocation(line: 72, column: 17, scope: !47, inlinedAt: !288)
+!292 = !DILocation(line: 73, column: 5, scope: !47, inlinedAt: !288)
+!293 = !DILocation(line: 73, column: 17, scope: !47, inlinedAt: !288)
+!294 = !DILocation(line: 74, column: 5, scope: !47, inlinedAt: !288)
+!295 = !DILocation(line: 74, column: 17, scope: !47, inlinedAt: !288)
+!296 = !DILocation(line: 75, column: 5, scope: !47, inlinedAt: !288)
+!297 = !DILocation(line: 75, column: 17, scope: !47, inlinedAt: !288)
+!298 = !DILocation(line: 76, column: 1, scope: !47, inlinedAt: !288)
+!299 = !DILocation(line: 196, column: 5, scope: !240)
+!300 = !DILocation(line: 198, column: 10, scope: !301)
+!301 = distinct !DILexicalBlock(scope: !24, file: !1, line: 198, column: 10)
+!302 = !DILocation(line: 198, column: 23, scope: !301)
+!303 = !DILocation(line: 198, column: 10, scope: !24)
+!304 = !DILocation(line: 199, column: 9, scope: !301)
+!305 = !DILocation(line: 201, column: 5, scope: !24)
+!306 = !DILocation(line: 204, column: 26, scope: !307)
+!307 = distinct !DILexicalBlock(scope: !24, file: !1, line: 204, column: 10)
+!308 = !DILocation(line: 204, column: 35, scope: !307)
+!309 = !DILocation(line: 204, column: 10, scope: !24)
+!310 = !DILocation(line: 206, column: 48, scope: !311)
+!311 = distinct !DILexicalBlock(scope: !307, file: !1, line: 205, column: 5)
+!312 = !DILocation(line: 206, column: 23, scope: !311)
+!313 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !314)
+!314 = distinct !DILocation(line: 206, column: 23, scope: !311)
+!315 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !314)
+!316 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !314)
+!317 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !314)
+!318 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !314)
+!319 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !314)
+!320 = !DILocation(line: 206, column: 16, scope: !311)
+!321 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src2", scope: !311, file: !1, line: 206, type: !4)
+!322 = !DILocation(line: 207, column: 48, scope: !311)
+!323 = !DILocation(line: 207, column: 23, scope: !311)
+!324 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !325)
+!325 = distinct !DILocation(line: 207, column: 23, scope: !311)
+!326 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !325)
+!327 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !325)
+!328 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !325)
+!329 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !325)
+!330 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !325)
+!331 = !DILocation(line: 207, column: 16, scope: !311)
+!332 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src3", scope: !311, file: !1, line: 207, type: !4)
+!333 = !DILocation(line: 208, column: 48, scope: !311)
+!334 = !DILocation(line: 208, column: 23, scope: !311)
+!335 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !336)
+!336 = distinct !DILocation(line: 208, column: 23, scope: !311)
+!337 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !336)
+!338 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !336)
+!339 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !336)
+!340 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !336)
+!341 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !336)
+!342 = !DILocation(line: 208, column: 16, scope: !311)
+!343 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src4", scope: !311, file: !1, line: 208, type: !4)
+!344 = !DILocation(line: 209, column: 30, scope: !311)
+!345 = !DILocation(line: 209, column: 37, scope: !311)
+!346 = !DILocation(line: 209, column: 44, scope: !311)
+!347 = !DILocation(line: 209, column: 21, scope: !311)
+!348 = !DILocation(line: 209, column: 14, scope: !311)
+!349 = !DILocation(line: 211, column: 47, scope: !311)
+!350 = !DILocation(line: 92, column: 26, scope: !44, inlinedAt: !351)
+!351 = distinct !DILocation(line: 211, column: 47, scope: !311)
+!352 = !DILocation(line: 97, column: 5, scope: !44, inlinedAt: !351)
+!353 = !DILocation(line: 211, column: 40, scope: !311)
+!354 = !DILocation(line: 211, column: 9, scope: !311)
+!355 = !DILocation(line: 211, column: 45, scope: !311)
+!356 = !DILocation(line: 212, column: 9, scope: !311)
+!357 = !DILocation(line: 70, column: 37, scope: !47, inlinedAt: !358)
+!358 = distinct !DILocation(line: 212, column: 9, scope: !311)
+!359 = !DILocation(line: 70, column: 23, scope: !47, inlinedAt: !358)
+!360 = !DILocation(line: 72, column: 5, scope: !47, inlinedAt: !358)
+!361 = !DILocation(line: 72, column: 17, scope: !47, inlinedAt: !358)
+!362 = !DILocation(line: 73, column: 5, scope: !47, inlinedAt: !358)
+!363 = !DILocation(line: 73, column: 17, scope: !47, inlinedAt: !358)
+!364 = !DILocation(line: 74, column: 5, scope: !47, inlinedAt: !358)
+!365 = !DILocation(line: 74, column: 17, scope: !47, inlinedAt: !358)
+!366 = !DILocation(line: 75, column: 5, scope: !47, inlinedAt: !358)
+!367 = !DILocation(line: 75, column: 17, scope: !47, inlinedAt: !358)
+!368 = !DILocation(line: 76, column: 1, scope: !47, inlinedAt: !358)
+!369 = !DILocation(line: 213, column: 5, scope: !311)
+!370 = !DILocation(line: 215, column: 10, scope: !371)
+!371 = distinct !DILexicalBlock(scope: !24, file: !1, line: 215, column: 10)
+!372 = !DILocation(line: 215, column: 23, scope: !371)
+!373 = !DILocation(line: 215, column: 10, scope: !24)
+!374 = !DILocation(line: 216, column: 9, scope: !371)
+!375 = !DILocation(line: 218, column: 5, scope: !24)
+!376 = !DILocation(line: 222, column: 24, scope: !377)
+!377 = distinct !DILexicalBlock(scope: !24, file: !1, line: 222, column: 10)
+!378 = !DILocation(line: 222, column: 10, scope: !24)
+!379 = !DILocation(line: 224, column: 48, scope: !380)
+!380 = distinct !DILexicalBlock(scope: !377, file: !1, line: 223, column: 5)
+!381 = !DILocation(line: 224, column: 23, scope: !380)
+!382 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !383)
+!383 = distinct !DILocation(line: 224, column: 23, scope: !380)
+!384 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !383)
+!385 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !383)
+!386 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !383)
+!387 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !383)
+!388 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !383)
+!389 = !DILocation(line: 224, column: 16, scope: !380)
+!390 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src2", scope: !380, file: !1, line: 224, type: !4)
+!391 = !DILocation(line: 225, column: 48, scope: !380)
+!392 = !DILocation(line: 225, column: 23, scope: !380)
+!393 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !394)
+!394 = distinct !DILocation(line: 225, column: 23, scope: !380)
+!395 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !394)
+!396 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !394)
+!397 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !394)
+!398 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !394)
+!399 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !394)
+!400 = !DILocation(line: 225, column: 16, scope: !380)
+!401 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src3", scope: !380, file: !1, line: 225, type: !4)
+!402 = !DILocation(line: 226, column: 48, scope: !380)
+!403 = !DILocation(line: 226, column: 23, scope: !380)
+!404 = !DILocation(line: 78, column: 24, scope: !50, inlinedAt: !405)
+!405 = distinct !DILocation(line: 226, column: 23, scope: !380)
+!406 = !DILocation(line: 80, column: 20, scope: !50, inlinedAt: !405)
+!407 = !DILocation(line: 80, column: 33, scope: !50, inlinedAt: !405)
+!408 = !DILocation(line: 80, column: 46, scope: !50, inlinedAt: !405)
+!409 = !DILocation(line: 80, column: 59, scope: !50, inlinedAt: !405)
+!410 = !DILocation(line: 80, column: 5, scope: !50, inlinedAt: !405)
+!411 = !DILocation(line: 226, column: 16, scope: !380)
+!412 = !DILocalVariable(tag: DW_TAG_auto_variable, name: "Src4", scope: !380, file: !1, line: 226, type: !4)
+!413 = !DILocation(line: 227, column: 30, scope: !380)
+!414 = !DILocation(line: 227, column: 37, scope: !380)
+!415 = !DILocation(line: 227, column: 44, scope: !380)
+!416 = !DILocation(line: 227, column: 21, scope: !380)
+!417 = !DILocation(line: 227, column: 14, scope: !380)
+!418 = !DILocation(line: 229, column: 47, scope: !380)
+!419 = !DILocation(line: 92, column: 26, scope: !44, inlinedAt: !420)
+!420 = distinct !DILocation(line: 229, column: 47, scope: !380)
+!421 = !DILocation(line: 97, column: 5, scope: !44, inlinedAt: !420)
+!422 = !DILocation(line: 229, column: 40, scope: !380)
+!423 = !DILocation(line: 229, column: 9, scope: !380)
+!424 = !DILocation(line: 229, column: 45, scope: !380)
+!425 = !DILocation(line: 230, column: 5, scope: !380)
+!426 = !DILocation(line: 231, column: 1, scope: !24)
 
 #endif
 
 const unsigned char g_GenerateMips_CS[] = {
-  0x44, 0x58, 0x42, 0x43, 0x4f, 0x87, 0x5f, 0x21, 0xee, 0xc7, 0x22, 0x94,
-  0x2d, 0xcf, 0xe4, 0x72, 0x0d, 0xed, 0x5f, 0x4f, 0x01, 0x00, 0x00, 0x00,
-  0xcc, 0x86, 0x00, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x48, 0x00, 0x00, 0x00,
+  0x44, 0x58, 0x42, 0x43, 0x98, 0xc0, 0xf5, 0xd3, 0x95, 0xac, 0x04, 0x92,
+  0xd6, 0x74, 0x79, 0xfd, 0x08, 0x8d, 0x5f, 0x3d, 0x01, 0x00, 0x00, 0x00,
+  0xf0, 0x86, 0x00, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x48, 0x00, 0x00, 0x00,
   0x58, 0x00, 0x00, 0x00, 0x68, 0x00, 0x00, 0x00, 0x78, 0x00, 0x00, 0x00,
-  0x70, 0x01, 0x00, 0x00, 0x34, 0x02, 0x00, 0x00, 0x14, 0x6a, 0x00, 0x00,
-  0x9c, 0x73, 0x00, 0x00, 0xd0, 0x73, 0x00, 0x00, 0xec, 0x73, 0x00, 0x00,
+  0x70, 0x01, 0x00, 0x00, 0x34, 0x02, 0x00, 0x00, 0x38, 0x6a, 0x00, 0x00,
+  0xc0, 0x73, 0x00, 0x00, 0xf4, 0x73, 0x00, 0x00, 0x10, 0x74, 0x00, 0x00,
   0x53, 0x46, 0x49, 0x30, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x49, 0x53, 0x47, 0x31, 0x08, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x4f, 0x53, 0x47, 0x31,
@@ -1316,10 +1316,10 @@ const unsigned char g_GenerateMips_CS[] = {
   0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00,
   0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0x7f, 0x7f,
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-  0x49, 0x4c, 0x44, 0x42, 0xd8, 0x67, 0x00, 0x00, 0x66, 0x00, 0x05, 0x00,
-  0xf6, 0x19, 0x00, 0x00, 0x44, 0x58, 0x49, 0x4c, 0x06, 0x01, 0x00, 0x00,
-  0x10, 0x00, 0x00, 0x00, 0xc0, 0x67, 0x00, 0x00, 0x42, 0x43, 0xc0, 0xde,
-  0x21, 0x0c, 0x00, 0x00, 0xed, 0x19, 0x00, 0x00, 0x0b, 0x82, 0x20, 0x00,
+  0x49, 0x4c, 0x44, 0x42, 0xfc, 0x67, 0x00, 0x00, 0x66, 0x00, 0x05, 0x00,
+  0xff, 0x19, 0x00, 0x00, 0x44, 0x58, 0x49, 0x4c, 0x06, 0x01, 0x00, 0x00,
+  0x10, 0x00, 0x00, 0x00, 0xe4, 0x67, 0x00, 0x00, 0x42, 0x43, 0xc0, 0xde,
+  0x21, 0x0c, 0x00, 0x00, 0xf6, 0x19, 0x00, 0x00, 0x0b, 0x82, 0x20, 0x00,
   0x02, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x07, 0x81, 0x23, 0x91,
   0x41, 0xc8, 0x04, 0x49, 0x06, 0x10, 0x32, 0x39, 0x92, 0x01, 0x84, 0x0c,
   0x25, 0x05, 0x08, 0x19, 0x1e, 0x04, 0x8b, 0x62, 0x80, 0x18, 0x45, 0x02,
@@ -1408,7 +1408,7 @@ const unsigned char g_GenerateMips_CS[] = {
   0x79, 0x06, 0x80, 0xde, 0x19, 0x00, 0x1a, 0xca, 0xa1, 0x14, 0xa8, 0xac,
   0x01, 0x1a, 0x0a, 0xa2, 0x30, 0x0a, 0x84, 0x94, 0x12, 0x20, 0x74, 0x04,
   0x80, 0x80, 0x11, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79, 0x18, 0x00, 0x00,
-  0x3c, 0x0c, 0x00, 0x00, 0x1a, 0x03, 0x4c, 0x90, 0xcc, 0x03, 0x09, 0x64,
+  0x45, 0x0c, 0x00, 0x00, 0x1a, 0x03, 0x4c, 0x90, 0xcc, 0x03, 0x09, 0x64,
   0x08, 0x91, 0x21, 0xa3, 0x91, 0xc0, 0x04, 0xf1, 0x73, 0x71, 0xe1, 0x9a,
   0x43, 0x0b, 0x23, 0x2b, 0x93, 0x9b, 0xe3, 0x3a, 0x2a, 0x73, 0x2b, 0x93,
   0x0b, 0xa3, 0x2b, 0x6b, 0x4a, 0x83, 0x9b, 0xfb, 0x1a, 0x9a, 0x72, 0x41,
@@ -1420,18 +1420,18 @@ const unsigned char g_GenerateMips_CS[] = {
   0x21, 0x64, 0x57, 0x36, 0x46, 0xf7, 0x26, 0xc7, 0x63, 0xc6, 0xf6, 0x16,
   0x46, 0xc7, 0x02, 0x42, 0xe3, 0xc3, 0x00, 0x8f, 0x85, 0x19, 0xdb, 0x5b,
   0x18, 0xdd, 0x1e, 0x03, 0x20, 0x03, 0x04, 0x0c, 0xc0, 0x80, 0x58, 0xc4,
-  0x00, 0xcd, 0x21, 0xa0, 0x83, 0x96, 0x80, 0x01, 0x18, 0x00, 0x03, 0xc0,
-  0x20, 0x6f, 0x11, 0x03, 0x34, 0x8b, 0x80, 0x0e, 0x5a, 0x02, 0x06, 0x60,
-  0x00, 0x06, 0x03, 0xc0, 0x40, 0x6f, 0x11, 0x03, 0x34, 0x8d, 0x80, 0x0e,
+  0x00, 0xcd, 0x21, 0xa4, 0x83, 0x96, 0x80, 0x01, 0x18, 0x00, 0x03, 0xc0,
+  0x20, 0x6f, 0x11, 0x03, 0x34, 0x8b, 0x90, 0x0e, 0x5a, 0x02, 0x06, 0x60,
+  0x00, 0x06, 0x03, 0xc0, 0x40, 0x6f, 0x11, 0x03, 0x34, 0x8d, 0x90, 0x0e,
   0x5a, 0x02, 0x06, 0x60, 0x00, 0x0a, 0x03, 0xc0, 0xe0, 0x6e, 0x11, 0x03,
-  0x34, 0x8f, 0x80, 0x0e, 0x5a, 0x02, 0x06, 0x60, 0x00, 0x0e, 0x03, 0xb0,
+  0x34, 0x8f, 0x90, 0x0e, 0x5a, 0x02, 0x06, 0x60, 0x00, 0x0e, 0x03, 0xb0,
   0x81, 0x50, 0x18, 0x07, 0xe2, 0x51, 0xc6, 0x56, 0xd6, 0x56, 0xe6, 0x46,
   0xb7, 0x6c, 0x00, 0xa4, 0x84, 0x4d, 0x19, 0x5b, 0x59, 0x5b, 0x99, 0x1b,
   0xdd, 0xd7, 0xd8, 0x5b, 0x9d, 0x1b, 0x1d, 0x87, 0x34, 0x37, 0xba, 0x3d,
   0x06, 0x40, 0x06, 0x15, 0x18, 0x80, 0x41, 0x31, 0x41, 0x18, 0xa2, 0x69,
   0x05, 0x00, 0x07, 0x94, 0x75, 0x6d, 0x10, 0x26, 0x6c, 0x12, 0x04, 0x08,
-  0x86, 0x80, 0x0e, 0x00, 0x00, 0x12, 0x60, 0x00, 0x00, 0x11, 0x00, 0x64,
-  0xc0, 0x22, 0x06, 0xb0, 0x0a, 0x01, 0x1d, 0x00, 0x0d, 0x00, 0x00, 0x00,
+  0x86, 0x90, 0x0e, 0x00, 0x00, 0x12, 0x60, 0x00, 0x00, 0x11, 0x00, 0x64,
+  0xc0, 0x22, 0x06, 0xb0, 0x0a, 0x21, 0x1d, 0x00, 0x0d, 0x00, 0x00, 0x00,
   0xa0, 0x61, 0xc6, 0xf6, 0x16, 0x46, 0x27, 0x43, 0xc8, 0xae, 0x6c, 0x8c,
   0xee, 0x4d, 0x8e, 0xc7, 0x8c, 0xed, 0x2d, 0x8c, 0x8e, 0x05, 0x44, 0xc6,
   0x67, 0x11, 0x03, 0x34, 0x87, 0x30, 0x06, 0x64, 0x90, 0x80, 0x01, 0x18,
@@ -1448,14 +1448,14 @@ const unsigned char g_GenerateMips_CS[] = {
   0x33, 0xb7, 0x32, 0x32, 0x90, 0x34, 0x37, 0x3a, 0x16, 0x90, 0x19, 0x1f,
   0x32, 0x75, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x20, 0x69, 0x6e,
   0x74, 0x7b, 0x0c, 0x80, 0x0c, 0xd8, 0x00, 0x0c, 0xc0, 0xe0, 0x58, 0xc4,
-  0x00, 0xcd, 0x21, 0x8c, 0x82, 0x1d, 0xb4, 0x01, 0x18, 0x80, 0x01, 0x30,
-  0x00, 0x8b, 0x18, 0xa0, 0x59, 0x84, 0x51, 0xb0, 0x83, 0x36, 0x00, 0x03,
-  0x30, 0x00, 0x83, 0x01, 0x58, 0xc4, 0x00, 0x4d, 0x23, 0x8c, 0x82, 0x1d,
+  0x00, 0xcd, 0x21, 0x90, 0x82, 0x1d, 0xb4, 0x01, 0x18, 0x80, 0x01, 0x30,
+  0x00, 0x8b, 0x18, 0xa0, 0x59, 0x04, 0x52, 0xb0, 0x83, 0x36, 0x00, 0x03,
+  0x30, 0x00, 0x83, 0x01, 0x58, 0xc4, 0x00, 0x4d, 0x23, 0x90, 0x82, 0x1d,
   0xb4, 0x01, 0x18, 0x80, 0x01, 0x28, 0x0c, 0xc0, 0x86, 0xc1, 0x0d, 0xde,
   0x00, 0x0e, 0x96, 0x0d, 0x80, 0xd4, 0x06, 0x13, 0x84, 0x61, 0x9a, 0x56,
   0x00, 0x70, 0x40, 0x59, 0x73, 0xb0, 0x41, 0x90, 0x03, 0x3a, 0x98, 0x04,
-  0x01, 0xc2, 0x1a, 0x08, 0xa3, 0x00, 0x00, 0xe0, 0x00, 0x06, 0x00, 0x10,
-  0x07, 0x00, 0x50, 0x07, 0xc0, 0x22, 0x06, 0xb0, 0xd4, 0x40, 0x18, 0x05,
+  0x01, 0xc2, 0x1a, 0x08, 0xa4, 0x00, 0x00, 0xe0, 0x00, 0x06, 0x00, 0x10,
+  0x07, 0x00, 0x50, 0x07, 0xc0, 0x22, 0x06, 0xb0, 0xd4, 0x40, 0x20, 0x05,
   0xc0, 0x0e, 0x00, 0x00, 0x00, 0x80, 0x45, 0x0c, 0xd0, 0xa4, 0x81, 0x70,
   0x89, 0xc2, 0x1d, 0x80, 0x03, 0x18, 0x00, 0x00, 0xc0, 0xe6, 0x48, 0xee,
   0xad, 0x0e, 0x8e, 0x0a, 0x4d, 0xae, 0x2c, 0x8c, 0x2c, 0x89, 0x68, 0x11,
@@ -1470,27 +1470,27 @@ const unsigned char g_GenerateMips_CS[] = {
   0x03, 0x50, 0x98, 0x04, 0x01, 0x13, 0x1a, 0x08, 0x15, 0x00, 0x80, 0x0a,
   0x18, 0x00, 0x40, 0x28, 0x00, 0x00, 0x00, 0x6c, 0x10, 0x00, 0x51, 0xd8,
   0x34, 0x00, 0xc0, 0x28, 0x4c, 0x10, 0x90, 0x62, 0xd5, 0x04, 0x08, 0x67,
-  0x00, 0x08, 0xe6, 0x40, 0x0a, 0x40, 0x70, 0x0e, 0x00, 0x00, 0x80, 0x08,
+  0x00, 0x08, 0xe7, 0x40, 0x0a, 0x40, 0x80, 0x0e, 0x00, 0x00, 0x80, 0x08,
   0x50, 0x0a, 0x00, 0x00, 0x30, 0x81, 0x0a, 0x1b, 0x5b, 0x1b, 0x7a, 0x63,
   0x7b, 0x93, 0xa3, 0x19, 0x04, 0xfc, 0x40, 0x85, 0x8d, 0xad, 0x0d, 0xbd,
   0xb1, 0xbd, 0xc9, 0x01, 0x01, 0x65, 0x05, 0xfd, 0x04, 0x59, 0xfd, 0x90,
   0xd8, 0x95, 0x8d, 0xd1, 0xbd, 0xc9, 0x01, 0x35, 0x91, 0xc0, 0xcc, 0x00,
   0x01, 0x59, 0xc5, 0x00, 0x01, 0x69, 0x6d, 0x10, 0xb6, 0x6d, 0xd3, 0x00,
-  0x00, 0xa9, 0xb0, 0x6a, 0x02, 0x84, 0x53, 0x40, 0x05, 0x61, 0x17, 0x54,
-  0x01, 0x08, 0x78, 0x01, 0x00, 0x00, 0x10, 0x01, 0x00, 0x00, 0x00, 0xa8,
+  0x00, 0xa9, 0xb0, 0x6a, 0x02, 0x84, 0x53, 0x40, 0x05, 0x81, 0x17, 0x54,
+  0x01, 0x08, 0x7a, 0x01, 0x00, 0x00, 0x10, 0x01, 0x00, 0x00, 0x00, 0xa8,
   0x4c, 0xd1, 0xbd, 0xc9, 0x95, 0x0d, 0xbd, 0xb1, 0xbd, 0xc9, 0x91, 0x0c,
   0x02, 0x7e, 0xa6, 0xe8, 0xde, 0xe4, 0xca, 0x86, 0xde, 0xd8, 0xde, 0xe4,
   0x80, 0x80, 0xb2, 0x82, 0xb0, 0x92, 0xac, 0x7e, 0x48, 0xec, 0xca, 0xc6,
   0xe8, 0xde, 0xe4, 0x80, 0x9a, 0x48, 0x60, 0x66, 0x80, 0x80, 0x80, 0xb4,
   0x36, 0x0c, 0xc0, 0x1f, 0x6c, 0x9b, 0x06, 0x00, 0x70, 0x85, 0x55, 0x13,
-  0x20, 0xb0, 0x42, 0x2b, 0x08, 0xa5, 0xf0, 0x0a, 0x40, 0x60, 0x0a, 0x00,
+  0x20, 0xb0, 0x42, 0x2b, 0x08, 0xa6, 0xf0, 0x0a, 0x40, 0x70, 0x0a, 0x00,
   0x00, 0x80, 0x08, 0x00, 0x00, 0x00, 0xc0, 0x84, 0xe9, 0x2d, 0x8c, 0x6c,
   0xe8, 0x8d, 0xed, 0x4d, 0x8e, 0x64, 0x10, 0xf0, 0xc3, 0xf4, 0x16, 0x46,
   0x36, 0xf4, 0xc6, 0xf6, 0x26, 0x07, 0x04, 0x94, 0x15, 0xf4, 0x13, 0x64,
   0xf5, 0x43, 0x62, 0x57, 0x36, 0x46, 0xf7, 0x26, 0x07, 0xd4, 0x44, 0x02,
   0x33, 0x03, 0x04, 0x94, 0x04, 0xa4, 0xb5, 0x41, 0xd8, 0xfe, 0x60, 0xd3,
-  0x00, 0x00, 0xb3, 0xb0, 0x6a, 0x02, 0x84, 0x58, 0x90, 0x05, 0xa1, 0x15,
-  0x68, 0x01, 0x08, 0x5c, 0x01, 0x00, 0x00, 0x10, 0x01, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0xb3, 0xb0, 0x6a, 0x02, 0x84, 0x58, 0x90, 0x05, 0xc1, 0x15,
+  0x68, 0x01, 0x08, 0x5e, 0x01, 0x00, 0x00, 0x10, 0x01, 0x00, 0x00, 0x00,
   0x36, 0x10, 0xa6, 0xb0, 0x0a, 0xb0, 0x50, 0x0b, 0x5c, 0xa6, 0xe4, 0xc6,
   0x9a, 0xd2, 0xe0, 0x98, 0xca, 0xec, 0xca, 0xd8, 0x16, 0x31, 0x80, 0x19,
   0x00, 0x00, 0x00, 0xfc, 0x01, 0x00, 0x00, 0x00, 0xc0, 0x30, 0x08, 0xf8,
@@ -1524,16 +1524,16 @@ const unsigned char g_GenerateMips_CS[] = {
   0x00, 0x00, 0x48, 0x40, 0x50, 0x00, 0x03, 0x00, 0x50, 0x07, 0x00, 0x00,
   0x00, 0x36, 0x01, 0x3f, 0x67, 0x73, 0x5f, 0x52, 0x40, 0x40, 0x33, 0x50,
   0x41, 0x4d, 0x41, 0x13, 0x04, 0x01, 0xd8, 0xb6, 0x00, 0x36, 0x81, 0x0e,
-  0xec, 0x20, 0x80, 0xc2, 0x3a, 0x00, 0x41, 0x3b, 0x00, 0x24, 0xce, 0xe6,
+  0xec, 0x20, 0x84, 0xc2, 0x3a, 0x00, 0x41, 0x3b, 0x00, 0x24, 0xce, 0xe6,
   0xbe, 0x8e, 0xd8, 0x04, 0xfc, 0x9c, 0xcd, 0x7d, 0x1d, 0x01, 0x01, 0xcd,
   0x40, 0x05, 0x35, 0x05, 0x4d, 0x10, 0x84, 0x60, 0xdb, 0x02, 0xd8, 0xc4,
-  0x3b, 0xc0, 0x83, 0x10, 0x0a, 0xeb, 0x00, 0x04, 0xf1, 0x00, 0x90, 0x38,
+  0x3b, 0xc0, 0x83, 0x20, 0x0a, 0xeb, 0x00, 0x04, 0xf1, 0x00, 0x90, 0x38,
   0x9b, 0xfb, 0x12, 0x62, 0x13, 0xf0, 0x73, 0x36, 0xf7, 0x25, 0x04, 0x04,
   0x34, 0x03, 0x15, 0xd4, 0x14, 0x34, 0x41, 0x10, 0x84, 0x6d, 0x0b, 0x60,
-  0x13, 0xf3, 0x40, 0x0f, 0x82, 0x28, 0xac, 0x03, 0x10, 0xd4, 0x03, 0x40,
+  0x13, 0xf3, 0x40, 0x0f, 0xc2, 0x28, 0xac, 0x03, 0x10, 0xd4, 0x03, 0x40,
   0xe2, 0x6c, 0xee, 0x2b, 0x88, 0x4d, 0xc0, 0xcf, 0xd9, 0xdc, 0x57, 0x10,
   0x10, 0xd0, 0x0c, 0x54, 0x50, 0x53, 0xd0, 0x04, 0x41, 0x18, 0xb6, 0x2d,
-  0x80, 0x4d, 0xdc, 0x03, 0x3e, 0x08, 0xa3, 0xb0, 0x0e, 0x40, 0x90, 0x0f,
+  0x80, 0x4d, 0xdc, 0x03, 0x3e, 0x08, 0xa4, 0xb0, 0x0e, 0x40, 0x90, 0x0f,
   0x00, 0x8d, 0x29, 0xb9, 0xb1, 0xa6, 0x34, 0x38, 0x72, 0x54, 0x65, 0x78,
   0x74, 0x75, 0x72, 0x65, 0x32, 0x44, 0x3c, 0x76, 0x65, 0x63, 0x74, 0x6f,
   0x72, 0x3c, 0x66, 0x6c, 0x6f, 0x61, 0x74, 0x2c, 0x20, 0x34, 0x3e, 0x20,
@@ -1587,7 +1587,7 @@ const unsigned char g_GenerateMips_CS[] = {
   0xab, 0x32, 0xb9, 0xb9, 0xb4, 0x37, 0xb7, 0x0d, 0x43, 0x18, 0xdc, 0xc4,
   0x45, 0x89, 0xa8, 0x4c, 0xac, 0xee, 0x0c, 0x24, 0xc9, 0xcd, 0xec, 0x0d,
   0xc4, 0xaa, 0x4c, 0x6e, 0x2e, 0xed, 0xcd, 0x6d, 0xc3, 0x10, 0x06, 0x39,
-  0x31, 0x07, 0x1b, 0x82, 0x81, 0x78, 0x8f, 0xbc, 0xa8, 0xa8, 0x34, 0x28,
+  0x31, 0x07, 0x1b, 0x82, 0x81, 0xbc, 0x8f, 0xbc, 0xa8, 0xa8, 0x34, 0x28,
   0x80, 0xa8, 0x80, 0x0c, 0xbd, 0xb5, 0xc1, 0xd5, 0xd1, 0x95, 0x81, 0xcc,
   0xa1, 0x85, 0x91, 0x95, 0xc9, 0x81, 0xd0, 0xbd, 0x81, 0x9c, 0x95, 0xb9,
   0x95, 0xc9, 0x85, 0xd1, 0x95, 0x81, 0xb4, 0xa5, 0xc1, 0xb5, 0x85, 0xc1,
@@ -1780,6 +1780,9 @@ const unsigned char g_GenerateMips_CS[] = {
   0x95, 0x85, 0xc9, 0x0d, 0xb1, 0x85, 0xb5, 0xc1, 0x4d, 0x85, 0xb5, 0xc1,
   0xb1, 0x95, 0xc9, 0x81, 0xe8, 0x80, 0xc8, 0x95, 0x9d, 0xa5, 0xcd, 0xd1,
   0x95, 0xc9, 0xa1, 0x80, 0xcc, 0xc1, 0x80, 0xa4, 0xec, 0x34, 0x28, 0x34,
+  0x28, 0xbc, 0xbc, 0x80, 0x10, 0xa5, 0xc9, 0x95, 0x8d, 0xd1, 0xb1, 0xe5,
+  0x81, 0xcc, 0x95, 0xd1, 0x81, 0xd0, 0xa1, 0x95, 0x81, 0x48, 0xbd, 0xbd,
+  0xd1, 0x81, 0x4c, 0xa5, 0x9d, 0xb9, 0x85, 0xd1, 0xd5, 0xc9, 0x95, 0x35,
   0x28, 0x8c, 0x90, 0x95, 0x99, 0xa5, 0xb9, 0x95, 0x81, 0x1c, 0x95, 0xb9,
   0x95, 0xc9, 0x85, 0xd1, 0x95, 0x35, 0xa5, 0xc1, 0xcd, 0x7d, 0x49, 0xbd,
   0xbd, 0xd1, 0x4d, 0xa5, 0x9d, 0xb9, 0x85, 0xd1, 0xd5, 0xc9, 0x95, 0x81,
@@ -2385,53 +2388,53 @@ const unsigned char g_GenerateMips_CS[] = {
   0x06, 0xb3, 0x28, 0x05, 0xd8, 0x98, 0x20, 0x28, 0x65, 0xb0, 0x61, 0x38,
   0x8d, 0xd3, 0x30, 0x8b, 0x0d, 0xc4, 0x5a, 0xc8, 0xc6, 0x35, 0x1b, 0x1b,
   0x8a, 0x52, 0x38, 0x03, 0x00, 0x34, 0x68, 0x63, 0x56, 0x11, 0x98, 0x82,
-  0x80, 0x0f, 0xc5, 0xac, 0x22, 0xb0, 0x0d, 0x41, 0x1f, 0x12, 0x0a, 0x49,
-  0x4e, 0xe3, 0x12, 0x20, 0x44, 0x4c, 0x01, 0x37, 0x04, 0x73, 0x10, 0x85,
+  0x90, 0x0f, 0xc5, 0xac, 0x22, 0xb0, 0x0d, 0x61, 0x1f, 0x12, 0x0a, 0x49,
+  0x4e, 0xe3, 0x12, 0x20, 0x44, 0x4c, 0x01, 0x37, 0x84, 0x73, 0x10, 0x85,
   0x00, 0x58, 0x47, 0x00, 0x3d, 0x01, 0x26, 0x60, 0xb0, 0x8e, 0x00, 0x7a,
   0x02, 0x34, 0xc0, 0x60, 0x1d, 0x01, 0xf4, 0x04, 0x78, 0x80, 0xc1, 0x04,
   0x01, 0x0d, 0xcc, 0x80, 0xc4, 0x94, 0xdc, 0x58, 0xcc, 0xb8, 0x04, 0x00,
-  0x11, 0x53, 0xf0, 0x0d, 0x01, 0x1d, 0x36, 0x00, 0x58, 0x17, 0x00, 0x14,
-  0xaa, 0xac, 0xc6, 0x25, 0x00, 0x88, 0xdc, 0x46, 0x78, 0x08, 0xfb, 0x50,
+  0x11, 0x53, 0xf0, 0x0d, 0x21, 0x1d, 0x36, 0x00, 0x58, 0x17, 0x00, 0x14,
+  0xaa, 0xac, 0xc6, 0x25, 0x00, 0x88, 0xdc, 0x46, 0x78, 0x08, 0xfc, 0x50,
   0x06, 0x00, 0xb0, 0x8e, 0x00, 0x7a, 0x02, 0x00, 0x83, 0x75, 0x04, 0xd0,
-  0x13, 0x60, 0x00, 0x06, 0xb3, 0x8a, 0xc0, 0x36, 0x84, 0x90, 0x48, 0x38,
-  0x54, 0x59, 0xc5, 0x8c, 0x4b, 0x00, 0x10, 0x29, 0x0f, 0xf3, 0x10, 0x4a,
+  0x13, 0x60, 0x00, 0x06, 0xb3, 0x8a, 0xc0, 0x36, 0x04, 0x91, 0x48, 0x38,
+  0x54, 0x59, 0xc5, 0x8c, 0x4b, 0x00, 0x10, 0x29, 0x0f, 0xf3, 0x10, 0x4c,
   0xa2, 0x0c, 0x00, 0x80, 0xc3, 0x93, 0x99, 0xd9, 0xb8, 0x04, 0x00, 0x91,
-  0xf2, 0x40, 0x0f, 0xc1, 0x24, 0xca, 0x00, 0x00, 0x26, 0x08, 0xc0, 0x19,
+  0xf2, 0x40, 0x0f, 0xe1, 0x24, 0xca, 0x00, 0x00, 0x26, 0x08, 0xc0, 0x19,
   0xac, 0x23, 0x80, 0x9e, 0x00, 0x05, 0x30, 0x58, 0x47, 0x00, 0x3d, 0x01,
-  0x0e, 0x60, 0x30, 0xab, 0x08, 0x6c, 0x43, 0x68, 0x89, 0x64, 0x5c, 0x02,
-  0x80, 0x48, 0x7b, 0x98, 0x87, 0x10, 0x13, 0x65, 0x00, 0x00, 0xe3, 0x12,
-  0x00, 0x44, 0xda, 0x03, 0x3d, 0x04, 0x99, 0x28, 0x03, 0x00, 0x98, 0x55,
-  0x04, 0xb6, 0x21, 0xe4, 0x44, 0x32, 0x2e, 0x01, 0x40, 0x04, 0x3e, 0xcc,
-  0x43, 0xe8, 0x89, 0x32, 0x00, 0x80, 0x71, 0x09, 0x00, 0x22, 0xf0, 0x81,
-  0x1e, 0x82, 0x4f, 0x94, 0x01, 0x00, 0xd0, 0x60, 0x4a, 0x73, 0x2b, 0x0b,
-  0x93, 0x1b, 0x97, 0x00, 0x21, 0xb2, 0x0a, 0xf3, 0x21, 0xec, 0xc2, 0x16,
-  0x00, 0x9d, 0x16, 0x27, 0xa5, 0x00, 0xcc, 0x2a, 0x02, 0x53, 0x10, 0xd8,
+  0x0e, 0x60, 0x30, 0xab, 0x08, 0x6c, 0x43, 0x70, 0x89, 0x64, 0x5c, 0x02,
+  0x80, 0x48, 0x7b, 0x98, 0x87, 0x20, 0x13, 0x65, 0x00, 0x00, 0xe3, 0x12,
+  0x00, 0x44, 0xda, 0x03, 0x3d, 0x84, 0x99, 0x28, 0x03, 0x00, 0x98, 0x55,
+  0x04, 0xb6, 0x21, 0xe8, 0x44, 0x32, 0x2e, 0x01, 0x40, 0x04, 0x3e, 0xcc,
+  0x43, 0xf0, 0x89, 0x32, 0x00, 0x80, 0x71, 0x09, 0x00, 0x22, 0xf0, 0x81,
+  0x1e, 0xc2, 0x4f, 0x94, 0x01, 0x00, 0xd0, 0x60, 0x4a, 0x73, 0x2b, 0x0b,
+  0x93, 0x1b, 0x97, 0x00, 0x21, 0xb2, 0x0a, 0xf3, 0x21, 0xf0, 0xc2, 0x16,
+  0x00, 0xad, 0x16, 0x27, 0xa5, 0x00, 0xcc, 0x2a, 0x02, 0x53, 0x10, 0xda,
   0x42, 0x61, 0x31, 0xf4, 0xc6, 0xf6, 0x26, 0x37, 0x2e, 0x01, 0x42, 0x04,
-  0x16, 0xee, 0x43, 0x28, 0x85, 0x4d, 0x00, 0x3a, 0x2e, 0x0a, 0x4a, 0x01,
+  0x16, 0xee, 0x43, 0x30, 0x85, 0x4d, 0x00, 0x5a, 0x2e, 0x0a, 0x4a, 0x01,
   0x60, 0x91, 0xe4, 0x46, 0x56, 0x86, 0x37, 0x2e, 0x01, 0x42, 0x04, 0x16,
-  0xf4, 0x43, 0x28, 0x85, 0x3f, 0x08, 0x80, 0x59, 0x45, 0x60, 0x0a, 0x82,
-  0x5e, 0x28, 0xb3, 0x8a, 0x80, 0x3f, 0x84, 0xbd, 0x28, 0xc6, 0x25, 0x40,
-  0x88, 0xd4, 0x82, 0x7e, 0x08, 0xad, 0xf0, 0x07, 0x01, 0xd0, 0x7c, 0x71,
+  0xf4, 0x43, 0x30, 0x85, 0x3f, 0x08, 0x80, 0x59, 0x45, 0x60, 0x0a, 0xc2,
+  0x5e, 0x28, 0xb3, 0x8a, 0x80, 0x3f, 0x04, 0xbe, 0x28, 0xc6, 0x25, 0x40,
+  0x88, 0xd4, 0x82, 0x7e, 0x08, 0xae, 0xf0, 0x07, 0x01, 0xd0, 0x7d, 0x71,
   0xc1, 0x1f, 0x00, 0x89, 0x29, 0xb9, 0x31, 0x99, 0x71, 0x09, 0x00, 0x22,
-  0xfd, 0x01, 0x22, 0x02, 0x5f, 0x6c, 0x00, 0xd0, 0x7d, 0x71, 0xc1, 0x1f,
+  0xfd, 0x01, 0x22, 0x42, 0x5f, 0x6c, 0x00, 0xd0, 0x7e, 0x71, 0xc1, 0x1f,
   0x00, 0x89, 0x29, 0xb9, 0xb1, 0x99, 0x71, 0x09, 0x00, 0x22, 0xfd, 0x31,
-  0x22, 0x42, 0x5f, 0x6c, 0x00, 0xd0, 0x7e, 0x71, 0xc1, 0x1f, 0x00, 0x89,
-  0x29, 0xb9, 0x31, 0x9a, 0x71, 0x09, 0x00, 0x22, 0xfd, 0x61, 0x22, 0x82,
-  0x5f, 0x6c, 0x00, 0xd0, 0xa1, 0xf1, 0xc2, 0x1f, 0x40, 0x8b, 0x46, 0x02,
-  0x7f, 0x00, 0xb3, 0x8a, 0xc0, 0x14, 0x84, 0xd2, 0x50, 0x66, 0x15, 0x81,
-  0x29, 0x08, 0xab, 0xa1, 0xcc, 0x2a, 0x82, 0x15, 0x11, 0x58, 0xa3, 0xe8,
-  0xd6, 0xb8, 0x58, 0x11, 0x60, 0x5c, 0x02, 0x80, 0x08, 0x8b, 0x80, 0x88,
-  0xd0, 0x1a, 0x1b, 0x00, 0xb4, 0x6b, 0x5c, 0xac, 0x08, 0x30, 0x2e, 0x01,
-  0x40, 0x84, 0x45, 0x46, 0x44, 0x70, 0x8d, 0x0d, 0x00, 0xfa, 0x35, 0x2e,
-  0x56, 0x04, 0x18, 0x97, 0x00, 0x20, 0xc2, 0x22, 0x26, 0x22, 0xbc, 0xc6,
-  0x06, 0x00, 0x2d, 0x1b, 0x2f, 0x2b, 0x02, 0xf4, 0x6c, 0x24, 0xac, 0x08,
-  0x30, 0xab, 0x08, 0x4c, 0x41, 0xb0, 0x0d, 0x65, 0x56, 0x11, 0x98, 0x82,
-  0xd0, 0x1b, 0xca, 0xac, 0x22, 0xb0, 0x11, 0xc1, 0x37, 0x8a, 0xfe, 0x8d,
-  0x0b, 0x1b, 0x01, 0xc6, 0x25, 0x00, 0x88, 0xdc, 0x08, 0x88, 0x08, 0xbf,
-  0xb1, 0x01, 0x40, 0x83, 0xc7, 0x85, 0x8d, 0x00, 0xe3, 0x12, 0x00, 0x44,
-  0x6e, 0x64, 0x44, 0x04, 0xf0, 0xd8, 0x00, 0xa0, 0xc3, 0xe3, 0xc2, 0x46,
-  0x80, 0x71, 0x09, 0x00, 0x22, 0x37, 0x62, 0x22, 0x42, 0x78, 0x6c, 0x00,
-  0xd0, 0xe4, 0xf1, 0x62, 0x23, 0x80, 0x17, 0x36, 0x36, 0xbb, 0x36, 0x17,
+  0x22, 0x82, 0x5f, 0x6c, 0x00, 0xd0, 0x7f, 0x71, 0xc1, 0x1f, 0x00, 0x89,
+  0x29, 0xb9, 0x31, 0x9a, 0x71, 0x09, 0x00, 0x22, 0xfd, 0x61, 0x22, 0xc2,
+  0x5f, 0x6c, 0x00, 0xd0, 0xa2, 0xf1, 0xc2, 0x1f, 0x40, 0x8f, 0x46, 0x02,
+  0x7f, 0x00, 0xb3, 0x8a, 0xc0, 0x14, 0x04, 0xd3, 0x50, 0x66, 0x15, 0x81,
+  0x29, 0x08, 0xac, 0xa1, 0xcc, 0x2a, 0x82, 0x15, 0x11, 0x5a, 0xa3, 0x68,
+  0xd7, 0xb8, 0x58, 0x11, 0x60, 0x5c, 0x02, 0x80, 0x08, 0x8b, 0x80, 0x88,
+  0xe0, 0x1a, 0x1b, 0x00, 0xf4, 0x6b, 0x5c, 0xac, 0x08, 0x30, 0x2e, 0x01,
+  0x40, 0x84, 0x45, 0x46, 0x44, 0x78, 0x8d, 0x0d, 0x00, 0x1a, 0x36, 0x2e,
+  0x56, 0x04, 0x18, 0x97, 0x00, 0x20, 0xc2, 0x22, 0x26, 0x22, 0xc0, 0xc6,
+  0x06, 0x00, 0x3d, 0x1b, 0x2f, 0x2b, 0x02, 0x34, 0x6d, 0x24, 0xac, 0x08,
+  0x30, 0xab, 0x08, 0x4c, 0x41, 0xb8, 0x0d, 0x65, 0x56, 0x11, 0x98, 0x82,
+  0xe0, 0x1b, 0xca, 0xac, 0x22, 0xb0, 0x11, 0xe1, 0x37, 0x8a, 0x06, 0x8f,
+  0x0b, 0x1b, 0x01, 0xc6, 0x25, 0x00, 0x88, 0xdc, 0x08, 0x88, 0x08, 0xe0,
+  0xb1, 0x01, 0x40, 0x87, 0xc7, 0x85, 0x8d, 0x00, 0xe3, 0x12, 0x00, 0x44,
+  0x6e, 0x64, 0x44, 0x84, 0xf0, 0xd8, 0x00, 0xa0, 0xc5, 0xe3, 0xc2, 0x46,
+  0x80, 0x71, 0x09, 0x00, 0x22, 0x37, 0x62, 0x22, 0x82, 0x78, 0x6c, 0x00,
+  0xd0, 0xe5, 0xf1, 0x62, 0x23, 0x80, 0x17, 0x36, 0x36, 0xbb, 0x36, 0x17,
   0x32, 0xb1, 0x33, 0x97, 0xb1, 0xba, 0x29, 0x41, 0x4d, 0x38, 0x62, 0x63,
   0xb3, 0x6b, 0x73, 0x69, 0x7b, 0x23, 0xab, 0x63, 0x2b, 0x73, 0x31, 0x63,
   0x0b, 0x3b, 0x9b, 0x9b, 0x22, 0xdc, 0x44, 0x4e, 0x58, 0x61, 0x63, 0xb3,
@@ -2557,7 +2560,7 @@ const unsigned char g_GenerateMips_CS[] = {
   0x7d, 0x26, 0x08, 0x40, 0xfb, 0x4c, 0x10, 0x00, 0xfe, 0x99, 0x20, 0x00,
   0xfd, 0x33, 0x41, 0x00, 0xfc, 0x67, 0x82, 0x00, 0xfc, 0x0f, 0x00, 0x00,
   0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0x60, 0x06, 0x7e, 0x50, 0x06, 0x63,
-  0xa0, 0x07, 0x73, 0x30, 0x63, 0x40, 0xf4, 0x03, 0x75, 0x1b, 0xc0, 0x88,
+  0xa0, 0x07, 0x73, 0x30, 0x63, 0x40, 0xf8, 0x03, 0x75, 0x1b, 0xc0, 0x88,
   0x01, 0x02, 0x80, 0x20, 0x18, 0x98, 0xc1, 0x1f, 0x98, 0xc1, 0x18, 0xf0,
   0x01, 0x1d, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0x60,
   0x06, 0xa0, 0x70, 0x06, 0x63, 0xb0, 0x07, 0x75, 0x30, 0x61, 0x00, 0x8c,
@@ -2568,7 +2571,7 @@ const unsigned char g_GenerateMips_CS[] = {
   0xf0, 0x01, 0x1e, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60,
   0x60, 0x06, 0xa4, 0xb0, 0x06, 0x61, 0xd0, 0x07, 0x79, 0x30, 0x61, 0x00,
   0x8c, 0x18, 0x1c, 0x00, 0x08, 0x82, 0x81, 0x18, 0x98, 0x42, 0x18, 0x04,
-  0xdf, 0x8c, 0x01, 0x61, 0x0e, 0x9f, 0x29, 0x00, 0x23, 0x06, 0x06, 0x00,
+  0xdf, 0x8c, 0x01, 0x71, 0x0e, 0x9f, 0x29, 0x00, 0x23, 0x06, 0x06, 0x00,
   0x82, 0x60, 0xd0, 0xb8, 0xc2, 0xf7, 0x07, 0x13, 0x06, 0xc0, 0x88, 0x81,
   0x01, 0x80, 0x20, 0x18, 0x34, 0xaf, 0x00, 0x06, 0xa2, 0x30, 0x61, 0x00,
   0x8c, 0x18, 0x14, 0x00, 0x08, 0x82, 0xc1, 0xf3, 0x0a, 0x60, 0x30, 0x61,
@@ -2579,21 +2582,21 @@ const unsigned char g_GenerateMips_CS[] = {
   0xff, 0xff, 0x83, 0xbf, 0xff, 0xff, 0xff, 0x0f, 0x13, 0x06, 0xc0, 0x88,
   0x01, 0x02, 0x80, 0x20, 0x18, 0x2c, 0xb2, 0x80, 0xe7, 0xff, 0xff, 0xff,
   0x03, 0x18, 0x80, 0xfc, 0xff, 0xff, 0xff, 0xd0, 0xef, 0xff, 0xff, 0xff,
-  0xc3, 0x84, 0x01, 0x40, 0xdf, 0x00, 0x66, 0x0c, 0x08, 0x74, 0x60, 0x4c,
+  0xc3, 0x84, 0x01, 0x40, 0xdf, 0x00, 0x66, 0x0c, 0x88, 0x74, 0x60, 0x4c,
   0x01, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x65, 0x16, 0xfa, 0xfd,
   0xff, 0xff, 0x7f, 0x08, 0x83, 0x7d, 0xff, 0xff, 0xff, 0x1f, 0xf4, 0xfd,
   0xff, 0xff, 0x7f, 0x98, 0x30, 0x00, 0x46, 0x0c, 0x0e, 0x00, 0x04, 0xc1,
-  0xe0, 0x63, 0x85, 0xaf, 0x18, 0x85, 0x19, 0x03, 0xe2, 0x1e, 0x1c, 0x53,
+  0xe0, 0x63, 0x85, 0xaf, 0x18, 0x85, 0x19, 0x03, 0x02, 0x1f, 0x1c, 0x53,
   0x00, 0x46, 0x13, 0x02, 0x61, 0xc2, 0x00, 0x18, 0x66, 0x19, 0x82, 0xc2,
-  0x0a, 0x28, 0x41, 0x1a, 0x26, 0x62, 0xc6, 0x80, 0xb8, 0x87, 0xc2, 0x14,
+  0x0a, 0x28, 0x41, 0x1a, 0x26, 0x62, 0xc6, 0x80, 0xc0, 0x87, 0xc2, 0x14,
   0x80, 0x11, 0x83, 0x03, 0x00, 0x41, 0x30, 0xe0, 0x5e, 0x21, 0x0c, 0x8e,
-  0x53, 0x98, 0x31, 0x20, 0xf6, 0x21, 0xbb, 0x0d, 0x60, 0x34, 0x21, 0x00,
+  0x53, 0x98, 0x31, 0x20, 0xf8, 0x21, 0xbb, 0x0d, 0x60, 0x34, 0x21, 0x00,
   0x26, 0x0c, 0x80, 0xd1, 0x04, 0x21, 0x98, 0x30, 0x00, 0x2e, 0x01, 0x6a,
-  0xc6, 0x80, 0xd8, 0x87, 0x33, 0xb8, 0x0d, 0xe0, 0x12, 0xa0, 0x26, 0x0c,
-  0x00, 0x13, 0xca, 0x00, 0x3e, 0x33, 0x06, 0xc4, 0x3e, 0xf8, 0xc1, 0x6d,
+  0xc6, 0x80, 0xe0, 0x87, 0x33, 0xb8, 0x0d, 0xe0, 0x12, 0xa0, 0x26, 0x0c,
+  0x00, 0x13, 0xca, 0x00, 0x3e, 0x33, 0x06, 0x04, 0x3f, 0xf8, 0xc1, 0x6d,
   0x00, 0x26, 0x98, 0x01, 0x7c, 0x26, 0x0c, 0x00, 0x33, 0x04, 0xf9, 0xcc,
-  0x18, 0x10, 0xfb, 0x30, 0x06, 0xb7, 0x01, 0x98, 0x21, 0xc8, 0x67, 0xc2,
-  0x00, 0xa0, 0x35, 0x18, 0xc0, 0x8c, 0x01, 0xb1, 0x0f, 0xd4, 0x6d, 0x00,
+  0x18, 0x10, 0xfc, 0x30, 0x06, 0xb7, 0x01, 0x98, 0x21, 0xc8, 0x67, 0xc2,
+  0x00, 0xa0, 0x35, 0x18, 0xc0, 0x8c, 0x01, 0xc1, 0x0f, 0xd4, 0x6d, 0x00,
   0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0xfc, 0x02, 0xa9, 0xff, 0xff,
   0xff, 0x0f, 0x6d, 0x40, 0xf2, 0xff, 0xff, 0xff, 0xc3, 0xc8, 0xff, 0xff,
   0xff, 0x0f, 0x13, 0x06, 0xc0, 0x88, 0x01, 0x02, 0x80, 0x20, 0x18, 0x2c,
@@ -2604,28 +2607,28 @@ const unsigned char g_GenerateMips_CS[] = {
   0x61, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0xf2, 0x0b, 0xa3,
   0xfe, 0xff, 0xff, 0x3f, 0xb4, 0x01, 0xc9, 0xff, 0xff, 0xff, 0x0f, 0x22,
   0xff, 0xff, 0xff, 0x3f, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x07, 0x00, 0x82,
-  0x60, 0xf0, 0xe1, 0xc2, 0x1a, 0x44, 0xaf, 0x30, 0x63, 0x40, 0xf4, 0x03,
+  0x60, 0xf0, 0xe1, 0xc2, 0x1a, 0x44, 0xaf, 0x30, 0x63, 0x40, 0xf8, 0x03,
   0x28, 0xdc, 0x06, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06, 0xc0, 0x05, 0x40,
   0x4d, 0x18, 0x00, 0x23, 0x06, 0x07, 0x00, 0x82, 0x60, 0x20, 0x06, 0xba,
-  0x50, 0x07, 0xd7, 0x1a, 0xcc, 0x18, 0x10, 0xfd, 0x40, 0xdd, 0x06, 0x30,
+  0x50, 0x07, 0xd7, 0x1a, 0xcc, 0x18, 0x10, 0xfe, 0x40, 0xdd, 0x06, 0x30,
   0x62, 0x70, 0x00, 0x20, 0x08, 0x06, 0x62, 0xb0, 0x0b, 0x76, 0x70, 0xa9,
   0xc1, 0x84, 0x01, 0x30, 0x62, 0xf0, 0x00, 0x20, 0x08, 0x06, 0x55, 0x38,
   0xa8, 0x81, 0x10, 0x20, 0x47, 0x1a, 0xa4, 0x01, 0x2d, 0xd0, 0x02, 0x1a,
   0x0c, 0x13, 0x06, 0xc0, 0x88, 0x01, 0x02, 0x80, 0x20, 0x18, 0x2c, 0xe5,
   0x80, 0xea, 0xff, 0xff, 0xff, 0xc3, 0x1c, 0xb4, 0xfc, 0xff, 0xff, 0xff,
-  0xc0, 0xf2, 0xff, 0xff, 0xff, 0xc3, 0x8c, 0x01, 0x81, 0x0e, 0x8c, 0x29,
-  0x00, 0xa3, 0x09, 0x01, 0x30, 0x63, 0x40, 0xf4, 0x03, 0x75, 0x1b, 0xc0,
+  0xc0, 0xf2, 0xff, 0xff, 0xff, 0xc3, 0x8c, 0x01, 0x91, 0x0e, 0x8c, 0x29,
+  0x00, 0xa3, 0x09, 0x01, 0x30, 0x63, 0x40, 0xf8, 0x03, 0x75, 0x1b, 0xc0,
   0x68, 0x82, 0x10, 0x4c, 0x18, 0x00, 0xa3, 0x09, 0x83, 0x30, 0x61, 0x00,
   0x8c, 0x26, 0x10, 0xc3, 0x84, 0x01, 0x40, 0x76, 0x30, 0x80, 0x19, 0x03,
-  0xa2, 0x1f, 0xa4, 0xdb, 0x00, 0x66, 0x09, 0x8a, 0x19, 0x03, 0xe2, 0x1f,
+  0xc2, 0x1f, 0xa4, 0xdb, 0x00, 0x66, 0x09, 0x8a, 0x19, 0x03, 0x02, 0x24,
   0x12, 0xdb, 0x00, 0x46, 0x0c, 0x0e, 0x00, 0x04, 0xc1, 0x80, 0x23, 0x07,
-  0x3b, 0xe0, 0x78, 0x61, 0xc6, 0x80, 0x28, 0x09, 0xad, 0x3c, 0x80, 0xd1,
+  0x3b, 0xe0, 0x78, 0x61, 0xc6, 0x80, 0x30, 0x09, 0xad, 0x3c, 0x80, 0xd1,
   0x84, 0x00, 0x98, 0x30, 0x00, 0x46, 0x13, 0x84, 0x60, 0xc2, 0x00, 0x38,
-  0x0f, 0xa8, 0x19, 0x03, 0xa2, 0x24, 0xd0, 0xa0, 0x3c, 0x80, 0xf3, 0x80,
-  0x9a, 0x30, 0x00, 0x4c, 0x90, 0x03, 0xf8, 0xcc, 0x18, 0x10, 0x25, 0xf1,
+  0x0f, 0xa8, 0x19, 0x03, 0xc2, 0x24, 0xd0, 0xa0, 0x3c, 0x80, 0xf3, 0x80,
+  0x9a, 0x30, 0x00, 0x4c, 0x90, 0x03, 0xf8, 0xcc, 0x18, 0x10, 0x26, 0xf1,
   0x07, 0xe5, 0x01, 0x98, 0xb0, 0x07, 0xf0, 0x99, 0x30, 0x00, 0xcc, 0x10,
-  0xe4, 0x33, 0x63, 0x40, 0x94, 0x04, 0x19, 0x94, 0x07, 0x60, 0x86, 0x20,
-  0x9f, 0x09, 0x03, 0x80, 0x40, 0x61, 0x00, 0x33, 0x06, 0x44, 0x49, 0x50,
+  0xe4, 0x33, 0x63, 0x40, 0x98, 0x04, 0x19, 0x94, 0x07, 0x60, 0x86, 0x20,
+  0x9f, 0x09, 0x03, 0x80, 0x40, 0x61, 0x00, 0x33, 0x06, 0x84, 0x49, 0x50,
   0xe5, 0x01, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0x42, 0x0f, 0xb6,
   0xfe, 0xff, 0xff, 0x3f, 0x88, 0x02, 0xcd, 0xff, 0xff, 0xff, 0x0f, 0x38,
   0xff, 0xff, 0xff, 0x3f, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82,
@@ -2637,18 +2640,18 @@ const unsigned char g_GenerateMips_CS[] = {
   0x3d, 0xd4, 0xfa, 0xff, 0xff, 0xff, 0x20, 0x0a, 0x34, 0xff, 0xff, 0xff,
   0x3f, 0xdc, 0xfc, 0xff, 0xff, 0xff, 0x30, 0x61, 0x00, 0x8c, 0x18, 0x1c,
   0x00, 0x08, 0x82, 0x01, 0xe7, 0x0e, 0xa0, 0x60, 0x06, 0xe6, 0x30, 0x63,
-  0x40, 0x98, 0x84, 0x56, 0x1e, 0xc0, 0x68, 0x42, 0x00, 0x4c, 0x18, 0x00,
-  0x16, 0x84, 0x82, 0x7c, 0x66, 0x0c, 0x08, 0x93, 0x20, 0x83, 0xf2, 0x00,
-  0x88, 0x14, 0x06, 0x30, 0x63, 0x40, 0x98, 0x04, 0x55, 0x1e, 0xc0, 0x88,
+  0x40, 0x9c, 0x84, 0x56, 0x1e, 0xc0, 0x68, 0x42, 0x00, 0x4c, 0x18, 0x00,
+  0x16, 0x84, 0x82, 0x7c, 0x66, 0x0c, 0x88, 0x93, 0x20, 0x83, 0xf2, 0x00,
+  0x88, 0x14, 0x06, 0x30, 0x63, 0x40, 0x9c, 0x04, 0x55, 0x1e, 0xc0, 0x88,
   0x01, 0x02, 0x80, 0x20, 0x18, 0x2c, 0xf8, 0x80, 0xeb, 0xff, 0xff, 0xff,
   0x83, 0x29, 0xd8, 0xfc, 0xff, 0xff, 0xff, 0xc0, 0xf3, 0xff, 0xff, 0xff,
   0xc3, 0x84, 0x01, 0x30, 0x62, 0x80, 0x00, 0x20, 0x08, 0x06, 0x0b, 0x3e,
   0xd4, 0xfc, 0xff, 0xff, 0xff, 0x60, 0x0a, 0x36, 0xff, 0xff, 0xff, 0x3f,
   0xec, 0xfc, 0xff, 0xff, 0xff, 0x30, 0x61, 0x00, 0x8c, 0x18, 0x1c, 0x00,
   0x08, 0x82, 0xc1, 0x17, 0x0f, 0xa4, 0xa0, 0x06, 0xe8, 0x30, 0x63, 0x40,
-  0xa0, 0x44, 0x2a, 0x94, 0x07, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06, 0xc0,
+  0xa4, 0x44, 0x2a, 0x94, 0x07, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06, 0xc0,
   0x05, 0x40, 0x4d, 0x18, 0x00, 0x23, 0x06, 0x07, 0x00, 0x82, 0x60, 0x20,
-  0x06, 0xf3, 0xe0, 0x0a, 0x70, 0x40, 0x0a, 0x33, 0x06, 0x04, 0x4a, 0x70,
+  0x06, 0xf3, 0xe0, 0x0a, 0x70, 0x40, 0x0a, 0x33, 0x06, 0x44, 0x4a, 0x70,
   0xe5, 0x01, 0x8c, 0x18, 0x1c, 0x00, 0x08, 0x82, 0x81, 0x18, 0xd0, 0xc3,
   0x2b, 0xc0, 0xc1, 0x28, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x0f, 0x00, 0x82,
   0x60, 0x50, 0xe9, 0xc3, 0x28, 0x08, 0x01, 0xb3, 0x88, 0x82, 0x28, 0xb4,
@@ -2656,25 +2659,25 @@ const unsigned char g_GenerateMips_CS[] = {
   0x01, 0x30, 0x9a, 0x20, 0x04, 0x13, 0x06, 0xc0, 0x68, 0xc2, 0x20, 0x4c,
   0x18, 0x00, 0xa3, 0x09, 0xc4, 0x30, 0x61, 0x00, 0x8c, 0x18, 0x1c, 0x00,
   0x08, 0x82, 0xc1, 0xb7, 0x0f, 0xae, 0x40, 0x07, 0xf2, 0x30, 0x63, 0x40,
-  0xa4, 0xc4, 0x2b, 0x94, 0x07, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06, 0xc0,
-  0x05, 0x40, 0x4d, 0x18, 0x00, 0x46, 0x3d, 0xf0, 0x99, 0x31, 0x20, 0x52,
+  0xa8, 0xc4, 0x2b, 0x94, 0x07, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06, 0xc0,
+  0x05, 0x40, 0x4d, 0x18, 0x00, 0x46, 0x3d, 0xf0, 0x99, 0x31, 0x20, 0x54,
   0x02, 0x15, 0xca, 0x03, 0x30, 0xaa, 0x1c, 0xe0, 0x33, 0x61, 0x00, 0x8c,
   0x18, 0x1c, 0x00, 0x08, 0x82, 0x81, 0x18, 0xfc, 0x83, 0x2e, 0xf0, 0x01,
-  0x2c, 0xcc, 0x18, 0x10, 0x29, 0xc1, 0x95, 0x07, 0x30, 0x62, 0x70, 0x00,
+  0x2c, 0xcc, 0x18, 0x10, 0x2a, 0xc1, 0x95, 0x07, 0x30, 0x62, 0x70, 0x00,
   0x20, 0x08, 0x06, 0x62, 0x00, 0x12, 0xbb, 0xc0, 0x07, 0xaf, 0x30, 0x61,
   0x00, 0x8c, 0x18, 0x3c, 0x00, 0x08, 0x82, 0x41, 0x65, 0x12, 0xaf, 0x20,
   0x04, 0xc4, 0xe0, 0x0a, 0xae, 0x90, 0x0f, 0xf9, 0xd0, 0x0a, 0xc5, 0x84,
   0x01, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06, 0xc0, 0x68, 0x82, 0x10, 0x4c,
   0x18, 0x00, 0xa3, 0x09, 0x83, 0x30, 0x61, 0x00, 0x8c, 0x26, 0x10, 0xc3,
-  0x84, 0x01, 0x60, 0x10, 0x01, 0x9f, 0x19, 0x03, 0x02, 0x25, 0x6e, 0xa1,
+  0x84, 0x01, 0x60, 0x10, 0x01, 0x9f, 0x19, 0x03, 0x22, 0x25, 0x6e, 0xa1,
   0x3c, 0x00, 0x83, 0x08, 0xf8, 0x4c, 0x18, 0x00, 0x06, 0x11, 0xf0, 0x99,
   0x30, 0x00, 0x0c, 0x22, 0xe0, 0x33, 0x61, 0x00, 0x58, 0x2f, 0x10, 0xf2,
-  0x99, 0x31, 0x20, 0x50, 0x02, 0x2b, 0x0f, 0xc0, 0x7c, 0x81, 0x90, 0xcf,
+  0x99, 0x31, 0x20, 0x52, 0x02, 0x2b, 0x0f, 0xc0, 0x7c, 0x81, 0x90, 0xcf,
   0x84, 0x01, 0x60, 0xbf, 0x40, 0xc8, 0x67, 0xc2, 0x00, 0x30, 0x70, 0x20,
-  0xe4, 0x33, 0x61, 0x00, 0xd0, 0x38, 0x0c, 0x60, 0xc6, 0x80, 0x40, 0x09,
+  0xe4, 0x33, 0x61, 0x00, 0xd0, 0x38, 0x0c, 0x60, 0xc6, 0x80, 0x48, 0x09,
   0xa9, 0x3c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0x6e, 0xc2,
   0xde, 0xff, 0xff, 0xff, 0x87, 0x72, 0xf8, 0xfb, 0xff, 0xff, 0xff, 0x61,
-  0xef, 0xff, 0xff, 0xff, 0x87, 0x19, 0x03, 0x02, 0x1d, 0x18, 0x53, 0x00,
+  0xef, 0xff, 0xff, 0xff, 0x87, 0x19, 0x03, 0x22, 0x1d, 0x18, 0x53, 0x00,
   0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0xb9, 0x89, 0x7a, 0xff, 0xff,
   0xff, 0x1f, 0xca, 0xe1, 0xef, 0xff, 0xff, 0xff, 0x07, 0xbd, 0xff, 0xff,
   0xff, 0x1f, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58,
@@ -2682,15 +2685,15 @@ const unsigned char g_GenerateMips_CS[] = {
   0xff, 0x61, 0xee, 0xff, 0xff, 0xff, 0x87, 0x09, 0x03, 0x60, 0xc4, 0x00,
   0x01, 0x40, 0x10, 0x0c, 0x96, 0x9b, 0x98, 0xf7, 0xff, 0xff, 0xff, 0xa1,
   0x1c, 0xfe, 0xfe, 0xff, 0xff, 0x7f, 0x90, 0xfb, 0xff, 0xff, 0xff, 0x61,
-  0xc2, 0x00, 0x98, 0x25, 0x28, 0x66, 0x0c, 0x88, 0x95, 0x48, 0x6c, 0x03,
+  0xc2, 0x00, 0x98, 0x25, 0x28, 0x66, 0x0c, 0x08, 0x96, 0x48, 0x6c, 0x03,
   0x18, 0x31, 0x38, 0x00, 0x10, 0x04, 0x03, 0x2e, 0x26, 0xc6, 0x21, 0x15,
-  0x52, 0x62, 0xc6, 0x80, 0x88, 0x09, 0xad, 0x3d, 0x80, 0xd1, 0x84, 0x00,
+  0x52, 0x62, 0xc6, 0x80, 0x90, 0x09, 0xad, 0x3d, 0x80, 0xd1, 0x84, 0x00,
   0x98, 0x30, 0x00, 0x46, 0x13, 0x84, 0x60, 0xc2, 0x00, 0xb8, 0x55, 0x00,
-  0x6a, 0xc6, 0x80, 0x88, 0x09, 0x34, 0x68, 0x0f, 0xe0, 0x56, 0x01, 0xa8,
-  0x09, 0x03, 0xc0, 0x84, 0x73, 0x80, 0xcf, 0x8c, 0x01, 0x11, 0x13, 0x7f,
+  0x6a, 0xc6, 0x80, 0x90, 0x09, 0x34, 0x68, 0x0f, 0xe0, 0x56, 0x01, 0xa8,
+  0x09, 0x03, 0xc0, 0x84, 0x73, 0x80, 0xcf, 0x8c, 0x01, 0x21, 0x13, 0x7f,
   0xd0, 0x1e, 0x80, 0x09, 0xe0, 0x00, 0x9f, 0x09, 0x03, 0xc0, 0x0c, 0x41,
-  0x3e, 0x33, 0x06, 0x44, 0x4c, 0x90, 0x41, 0x7b, 0x00, 0x66, 0x08, 0xf2,
-  0x99, 0x30, 0x00, 0xa8, 0x1d, 0x06, 0x30, 0x63, 0x40, 0xc4, 0x04, 0xd5,
+  0x3e, 0x33, 0x06, 0x84, 0x4c, 0x90, 0x41, 0x7b, 0x00, 0x66, 0x08, 0xf2,
+  0x99, 0x30, 0x00, 0xa8, 0x1d, 0x06, 0x30, 0x63, 0x40, 0xc8, 0x04, 0xd5,
   0x1e, 0xc0, 0x88, 0x01, 0x02, 0x80, 0x20, 0x18, 0x2c, 0x61, 0xc1, 0xef,
   0xff, 0xff, 0xff, 0xc3, 0x3b, 0xe8, 0xfd, 0xff, 0xff, 0xff, 0x50, 0xfa,
   0xff, 0xff, 0xff, 0xc3, 0x84, 0x01, 0x30, 0x62, 0x80, 0x00, 0x20, 0x08,
@@ -2702,44 +2705,44 @@ const unsigned char g_GenerateMips_CS[] = {
   0xc5, 0xbe, 0xff, 0xff, 0xff, 0x0f, 0xef, 0xa0, 0xf7, 0xff, 0xff, 0xff,
   0x03, 0xe9, 0xff, 0xff, 0xff, 0x0f, 0x13, 0x06, 0xc0, 0x88, 0xc1, 0x01,
   0x80, 0x20, 0x18, 0x70, 0x3b, 0xd1, 0x0e, 0xb3, 0x30, 0x13, 0x33, 0x06,
-  0x84, 0x4c, 0x68, 0xed, 0x01, 0x8c, 0x26, 0x04, 0xc1, 0x84, 0x01, 0x60,
-  0x81, 0x3b, 0xc8, 0x67, 0xc6, 0x80, 0x90, 0x09, 0x32, 0x68, 0x0f, 0x80,
-  0xe2, 0x61, 0x00, 0x33, 0x06, 0x84, 0x4c, 0x50, 0xed, 0x01, 0x8c, 0x18,
+  0xc4, 0x4c, 0x68, 0xed, 0x01, 0x8c, 0x26, 0x04, 0xc1, 0x84, 0x01, 0x60,
+  0x81, 0x3b, 0xc8, 0x67, 0xc6, 0x80, 0x98, 0x09, 0x32, 0x68, 0x0f, 0x80,
+  0xe2, 0x61, 0x00, 0x33, 0x06, 0xc4, 0x4c, 0x50, 0xed, 0x01, 0x8c, 0x18,
   0x20, 0x00, 0x08, 0x82, 0xc1, 0x52, 0x16, 0xa2, 0xff, 0xff, 0xff, 0x3f,
   0xcc, 0x43, 0xdf, 0xff, 0xff, 0xff, 0x0f, 0xa9, 0xff, 0xff, 0xff, 0x3f,
   0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0x94, 0x85,
   0xbf, 0xff, 0xff, 0xff, 0x0f, 0xf3, 0xd0, 0xf7, 0xff, 0xff, 0xff, 0x03,
   0xea, 0xff, 0xff, 0xff, 0x0f, 0x13, 0x06, 0xc0, 0x88, 0xc1, 0x01, 0x80,
-  0x20, 0x18, 0x7c, 0x3e, 0x11, 0x0f, 0xb7, 0x50, 0x13, 0x33, 0x06, 0x04,
+  0x20, 0x18, 0x7c, 0x3e, 0x11, 0x0f, 0xb7, 0x50, 0x13, 0x33, 0x06, 0x44,
   0x4d, 0xa4, 0x42, 0x7b, 0x00, 0xa3, 0x09, 0x01, 0x30, 0x61, 0x00, 0x5c,
   0x00, 0xd4, 0x84, 0x01, 0x30, 0x62, 0x70, 0x00, 0x20, 0x08, 0x06, 0x62,
-  0x00, 0x16, 0xfb, 0xd0, 0x0b, 0xf1, 0x30, 0x63, 0x40, 0xd0, 0x04, 0xd7,
+  0x00, 0x16, 0xfb, 0xd0, 0x0b, 0xf1, 0x30, 0x63, 0x40, 0xd4, 0x04, 0xd7,
   0x1e, 0xc0, 0x88, 0xc1, 0x01, 0x80, 0x20, 0x18, 0x88, 0x41, 0x58, 0xf0,
   0x43, 0x2f, 0xc0, 0xc3, 0x84, 0x01, 0x30, 0x62, 0xf0, 0x00, 0x20, 0x08,
   0x06, 0xd5, 0x59, 0xc0, 0x83, 0x10, 0x30, 0xcb, 0x3b, 0xbc, 0x83, 0x4e,
   0xe8, 0x84, 0x3b, 0x0c, 0x13, 0x06, 0xc0, 0x68, 0x42, 0x00, 0x4c, 0x18,
   0x00, 0xa3, 0x09, 0x42, 0x30, 0x61, 0x00, 0x8c, 0x26, 0x0c, 0xc2, 0x84,
   0x01, 0x30, 0x9a, 0x40, 0x0c, 0x13, 0x06, 0xc0, 0x88, 0xc1, 0x01, 0x80,
-  0x20, 0x18, 0x7c, 0x68, 0xb1, 0x0f, 0xe1, 0xf0, 0x13, 0x33, 0x06, 0x44,
+  0x20, 0x18, 0x7c, 0x68, 0xb1, 0x0f, 0xe1, 0xf0, 0x13, 0x33, 0x06, 0x84,
   0x4d, 0xbc, 0x42, 0x7b, 0x00, 0xa3, 0x09, 0x01, 0x30, 0x61, 0x00, 0x5c,
-  0x00, 0xd4, 0x84, 0x01, 0x60, 0x54, 0x4c, 0xc0, 0x67, 0xc6, 0x80, 0xa8,
+  0x00, 0xd4, 0x84, 0x01, 0x60, 0x54, 0x4c, 0xc0, 0x67, 0xc6, 0x80, 0xb0,
   0x09, 0x54, 0x68, 0x0f, 0xc0, 0x28, 0x08, 0x3e, 0x13, 0x06, 0xc0, 0x88,
   0xc1, 0x01, 0x80, 0x20, 0x18, 0x88, 0x01, 0x5b, 0x9c, 0x44, 0x3a, 0xf4,
-  0xc3, 0x8c, 0x01, 0x51, 0x13, 0x5c, 0x7b, 0x00, 0x23, 0x06, 0x07, 0x00,
+  0xc3, 0x8c, 0x01, 0x61, 0x13, 0x5c, 0x7b, 0x00, 0x23, 0x06, 0x07, 0x00,
   0x82, 0x60, 0x20, 0x06, 0x6d, 0x81, 0x12, 0xe9, 0xc0, 0x0f, 0x13, 0x06,
   0xc0, 0x88, 0xc1, 0x03, 0x80, 0x20, 0x18, 0x54, 0x73, 0xc1, 0x0f, 0x42,
   0x40, 0x0c, 0xfb, 0xb0, 0x0f, 0x66, 0x61, 0x16, 0xfa, 0x50, 0x4c, 0x18,
   0x00, 0xa3, 0x09, 0x01, 0x30, 0x61, 0x00, 0x8c, 0x26, 0x08, 0xc1, 0x84,
   0x01, 0x30, 0x9a, 0x30, 0x08, 0x13, 0x06, 0xc0, 0x68, 0x02, 0x31, 0x4c,
-  0x18, 0x00, 0x06, 0x11, 0xf0, 0x99, 0x31, 0x20, 0x68, 0xe2, 0x16, 0xda,
+  0x18, 0x00, 0x06, 0x11, 0xf0, 0x99, 0x31, 0x20, 0x6a, 0xe2, 0x16, 0xda,
   0x03, 0x30, 0x88, 0x80, 0xcf, 0x84, 0x01, 0x60, 0x10, 0x01, 0x9f, 0x09,
   0x03, 0xc0, 0x20, 0x02, 0x3e, 0x13, 0x06, 0x80, 0xa9, 0x04, 0x21, 0x9f,
-  0x19, 0x03, 0x82, 0x26, 0xb0, 0xf6, 0x00, 0x6c, 0x25, 0x08, 0xf9, 0x4c,
+  0x19, 0x03, 0xa2, 0x26, 0xb0, 0xf6, 0x00, 0x6c, 0x25, 0x08, 0xf9, 0x4c,
   0x18, 0x00, 0xc6, 0x12, 0x84, 0x7c, 0x26, 0x0c, 0x00, 0x6b, 0x09, 0x42,
-  0x3e, 0x13, 0x06, 0x00, 0xc1, 0xc4, 0x00, 0x66, 0x0c, 0x08, 0x9a, 0x90,
+  0x3e, 0x13, 0x06, 0x00, 0xc1, 0xc4, 0x00, 0x66, 0x0c, 0x88, 0x9a, 0x90,
   0xda, 0x03, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x85, 0x34, 0x78,
   0xfe, 0xff, 0xff, 0x7f, 0x90, 0x09, 0xf6, 0xff, 0xff, 0xff, 0x1f, 0xd0,
-  0xff, 0xff, 0xff, 0x7f, 0x98, 0x31, 0x20, 0xd0, 0x81, 0x31, 0x05, 0x60,
+  0xff, 0xff, 0xff, 0x7f, 0x98, 0x31, 0x20, 0xd2, 0x81, 0x31, 0x05, 0x60,
   0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x16, 0xd2, 0xd8, 0xf9, 0xff, 0xff,
   0xff, 0x41, 0x26, 0xd8, 0xff, 0xff, 0xff, 0x7f, 0x38, 0xff, 0xff, 0xff,
   0xff, 0x61, 0xc2, 0x00, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x85,
@@ -2747,15 +2750,15 @@ const unsigned char g_GenerateMips_CS[] = {
   0x1f, 0xc0, 0xff, 0xff, 0xff, 0x7f, 0x98, 0x30, 0x00, 0x46, 0x0c, 0x10,
   0x00, 0x04, 0xc1, 0x60, 0x21, 0x8d, 0x9c, 0xff, 0xff, 0xff, 0x1f, 0x64,
   0x82, 0xfd, 0xff, 0xff, 0xff, 0x87, 0xdf, 0xff, 0xff, 0xff, 0x1f, 0x26,
-  0x0c, 0x80, 0x59, 0x82, 0x62, 0xc6, 0x80, 0xb8, 0x89, 0xc4, 0x36, 0x80,
+  0x0c, 0x80, 0x59, 0x82, 0x62, 0xc6, 0x80, 0xc0, 0x89, 0xc4, 0x36, 0x80,
   0x11, 0x83, 0x03, 0x00, 0x41, 0x30, 0xe0, 0xfc, 0x02, 0x26, 0xec, 0xc1,
-  0x2e, 0x66, 0x0c, 0x88, 0x9e, 0xd0, 0xe0, 0x03, 0x18, 0x4d, 0x08, 0x80,
+  0x2e, 0x66, 0x0c, 0x08, 0x9f, 0xd0, 0xe0, 0x03, 0x18, 0x4d, 0x08, 0x80,
   0x09, 0x03, 0x60, 0x34, 0x41, 0x08, 0x26, 0x0c, 0x80, 0xc3, 0x07, 0xa0,
-  0x66, 0x0c, 0x88, 0x9e, 0x40, 0x03, 0xf8, 0x00, 0x0e, 0x1f, 0x80, 0x9a,
-  0x30, 0x00, 0x4c, 0x60, 0x09, 0xf8, 0xcc, 0x18, 0x10, 0x3d, 0xf1, 0x07,
+  0x66, 0x0c, 0x08, 0x9f, 0x40, 0x03, 0xf8, 0x00, 0x0e, 0x1f, 0x80, 0x9a,
+  0x30, 0x00, 0x4c, 0x60, 0x09, 0xf8, 0xcc, 0x18, 0x10, 0x3e, 0xf1, 0x07,
   0xf0, 0x01, 0x98, 0xd0, 0x12, 0xf0, 0x99, 0x30, 0x00, 0xcc, 0x10, 0xe4,
-  0x33, 0x63, 0x40, 0xf4, 0x04, 0x19, 0xc0, 0x07, 0x60, 0x86, 0x20, 0x9f,
-  0x09, 0x03, 0x80, 0x74, 0x62, 0x00, 0x33, 0x06, 0x44, 0x4f, 0x50, 0xf0,
+  0x33, 0x63, 0x40, 0xf8, 0x04, 0x19, 0xc0, 0x07, 0x60, 0x86, 0x20, 0x9f,
+  0x09, 0x03, 0x80, 0x74, 0x62, 0x00, 0x33, 0x06, 0x84, 0x4f, 0x50, 0xf0,
   0x01, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0xe2, 0x1a, 0x62, 0xff,
   0xff, 0xff, 0x3f, 0xf0, 0x04, 0xf9, 0xff, 0xff, 0xff, 0x0f, 0xf2, 0xff,
   0xff, 0xff, 0x3f, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60,
@@ -2767,10 +2770,10 @@ const unsigned char g_GenerateMips_CS[] = {
   0x84, 0xfd, 0xff, 0xff, 0xff, 0xc0, 0x13, 0xe4, 0xff, 0xff, 0xff, 0x3f,
   0xc4, 0xff, 0xff, 0xff, 0xff, 0x30, 0x61, 0x00, 0x8c, 0x18, 0x1c, 0x00,
   0x08, 0x82, 0x01, 0x87, 0x1a, 0x3a, 0x01, 0x12, 0xa0, 0x31, 0x63, 0x40,
-  0xf8, 0x84, 0x06, 0x1f, 0xc0, 0x68, 0x42, 0x00, 0x4c, 0x18, 0x00, 0xa3,
+  0xfc, 0x84, 0x06, 0x1f, 0xc0, 0x68, 0x42, 0x00, 0x4c, 0x18, 0x00, 0xa3,
   0x09, 0x42, 0x30, 0x61, 0x00, 0x98, 0xc0, 0x13, 0xf2, 0x99, 0x31, 0x20,
-  0x7c, 0x82, 0x0c, 0xe0, 0x03, 0x30, 0xa1, 0x27, 0xe4, 0x33, 0x61, 0x00,
-  0x10, 0x58, 0x0c, 0x60, 0xc6, 0x80, 0xf0, 0x09, 0x0a, 0x3e, 0x80, 0x11,
+  0x7e, 0x82, 0x0c, 0xe0, 0x03, 0x30, 0xa1, 0x27, 0xe4, 0x33, 0x61, 0x00,
+  0x10, 0x58, 0x0c, 0x60, 0xc6, 0x80, 0xf8, 0x09, 0x0a, 0x3e, 0x80, 0x11,
   0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0x68, 0xc3, 0xec, 0xff, 0xff, 0xff,
   0x07, 0xb1, 0x48, 0xff, 0xff, 0xff, 0xff, 0x01, 0xff, 0xff, 0xff, 0xff,
   0x87, 0x09, 0x03, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x16, 0xda,
@@ -2781,102 +2784,102 @@ const unsigned char g_GenerateMips_CS[] = {
   0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0xa1, 0x8d, 0xb2, 0xff,
   0xff, 0xff, 0x1f, 0xc4, 0x22, 0xfd, 0xff, 0xff, 0xff, 0x87, 0xfb, 0xff,
   0xff, 0xff, 0x1f, 0x26, 0x0c, 0x80, 0x11, 0x83, 0x03, 0x00, 0x41, 0x30,
-  0xf8, 0x5a, 0x03, 0x2c, 0x4c, 0x82, 0x34, 0x66, 0x0c, 0x08, 0xb0, 0x08,
+  0xf8, 0x5a, 0x03, 0x2c, 0x4c, 0x82, 0x34, 0x66, 0x0c, 0x88, 0xb0, 0x08,
   0x05, 0xf8, 0x00, 0x46, 0x13, 0x02, 0x60, 0xc2, 0x00, 0xb8, 0x00, 0xa8,
   0x09, 0x03, 0x60, 0xc4, 0xe0, 0x00, 0x40, 0x10, 0x0c, 0xc4, 0xe0, 0x35,
-  0xd4, 0x82, 0x25, 0xc0, 0x62, 0xc6, 0x80, 0x00, 0x0b, 0x0a, 0x3e, 0x80,
+  0xd4, 0x82, 0x25, 0xc0, 0x62, 0xc6, 0x80, 0x08, 0x0b, 0x0a, 0x3e, 0x80,
   0x11, 0x83, 0x03, 0x00, 0x41, 0x30, 0x10, 0x03, 0xd8, 0x58, 0x0b, 0x96,
   0xf8, 0x89, 0x09, 0x03, 0x60, 0xc4, 0xe0, 0x01, 0x40, 0x10, 0x0c, 0x2a,
   0xdb, 0xf8, 0x09, 0x21, 0x70, 0x1a, 0x9f, 0xf0, 0x89, 0xd4, 0x48, 0x8d,
   0x9e, 0x18, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58,
   0x74, 0x43, 0xed, 0xff, 0xff, 0xff, 0x07, 0xb4, 0x10, 0x82, 0x19, 0x03,
-  0x02, 0x1d, 0x18, 0x53, 0x00, 0x46, 0x13, 0x02, 0x60, 0xc6, 0x80, 0x00,
+  0x22, 0x1d, 0x18, 0x53, 0x00, 0x46, 0x13, 0x02, 0x60, 0xc6, 0x80, 0x08,
   0x0b, 0x0a, 0x3e, 0x80, 0xd1, 0x04, 0x21, 0x98, 0x30, 0x00, 0x46, 0x13,
   0x06, 0x61, 0xc2, 0x00, 0x18, 0x4d, 0x20, 0x86, 0x09, 0x03, 0x80, 0xd6,
-  0x62, 0x00, 0x33, 0x06, 0x04, 0x58, 0x48, 0xf0, 0x01, 0x8c, 0x18, 0x1c,
+  0x62, 0x00, 0x33, 0x06, 0x44, 0x58, 0x48, 0xf0, 0x01, 0x8c, 0x18, 0x1c,
   0x00, 0x08, 0x82, 0xc1, 0x87, 0x1b, 0x6b, 0x11, 0x13, 0xaf, 0x31, 0x63,
-  0x40, 0x84, 0xc5, 0x2e, 0xc0, 0x07, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06,
+  0x40, 0x88, 0xc5, 0x2e, 0xc0, 0x07, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06,
   0xc0, 0x05, 0x40, 0x4d, 0x18, 0x00, 0x76, 0x45, 0xf0, 0x99, 0x31, 0x20,
-  0xc2, 0x22, 0x14, 0xe0, 0x03, 0xb0, 0x4b, 0x34, 0xe0, 0x33, 0x61, 0x00,
+  0xc4, 0x22, 0x14, 0xe0, 0x03, 0xb0, 0x4b, 0x34, 0xe0, 0x33, 0x61, 0x00,
   0x8c, 0x18, 0x1c, 0x00, 0x08, 0x82, 0x81, 0x18, 0xf0, 0xc6, 0x5d, 0xe4,
-  0x44, 0x5b, 0xcc, 0x18, 0x10, 0x61, 0x51, 0xc1, 0x07, 0x30, 0x62, 0x70,
+  0x44, 0x5b, 0xcc, 0x18, 0x10, 0x62, 0x51, 0xc1, 0x07, 0x30, 0x62, 0x70,
   0x00, 0x20, 0x08, 0x06, 0x62, 0xd0, 0x1b, 0x78, 0x91, 0x13, 0x6c, 0x31,
   0x61, 0x00, 0x8c, 0x18, 0x3c, 0x00, 0x08, 0x82, 0x41, 0x35, 0x1e, 0x6c,
   0x21, 0x04, 0xc4, 0xb0, 0x16, 0x6b, 0x61, 0x1b, 0xb6, 0xa1, 0x16, 0xc5,
   0x84, 0x01, 0x30, 0x9a, 0x10, 0x00, 0x13, 0x06, 0xc0, 0x68, 0x82, 0x10,
   0x4c, 0x18, 0x00, 0xa3, 0x09, 0x83, 0x30, 0x61, 0x00, 0x8c, 0x26, 0x10,
-  0xc3, 0x84, 0x01, 0x60, 0x11, 0x01, 0x9f, 0x19, 0x03, 0x22, 0x2c, 0x24,
+  0xc3, 0x84, 0x01, 0x60, 0x11, 0x01, 0x9f, 0x19, 0x03, 0x42, 0x2c, 0x24,
   0xf8, 0x00, 0x2c, 0x22, 0xe0, 0x33, 0x61, 0x00, 0x58, 0x44, 0xc0, 0x67,
   0xc2, 0x00, 0xb0, 0x88, 0x80, 0xcf, 0x84, 0x01, 0x40, 0x7c, 0x31, 0x80,
   0x09, 0x03, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x16, 0xf8, 0xf8,
-  0xfb, 0xff, 0xff, 0xff, 0xc1, 0x2f, 0x30, 0x6a, 0xc6, 0x80, 0x40, 0x07,
+  0xfb, 0xff, 0xff, 0xff, 0xc1, 0x2f, 0x30, 0x6a, 0xc6, 0x80, 0x48, 0x07,
   0xc6, 0x14, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0xe0, 0xc3,
   0xef, 0xff, 0xff, 0xff, 0x07, 0xbf, 0xc0, 0xa6, 0x09, 0x03, 0x60, 0xc4,
   0x00, 0x01, 0x40, 0x10, 0x0c, 0x16, 0xf8, 0xe8, 0xfb, 0xff, 0xff, 0xff,
   0xc1, 0x2f, 0x30, 0x66, 0xc2, 0x00, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04,
   0x83, 0x05, 0x3e, 0xf8, 0xfe, 0xff, 0xff, 0x7f, 0xf0, 0x0b, 0x6c, 0x99,
   0x30, 0x00, 0x46, 0x0c, 0x0e, 0x00, 0x04, 0xc1, 0xe0, 0x4b, 0x0f, 0xbe,
-  0x10, 0x0b, 0xf0, 0x98, 0x31, 0x20, 0xc4, 0x62, 0x17, 0xe0, 0x03, 0x18,
+  0x10, 0x0b, 0xf0, 0x98, 0x31, 0x20, 0xc6, 0x62, 0x17, 0xe0, 0x03, 0x18,
   0x4d, 0x08, 0x80, 0x09, 0x03, 0xe0, 0x02, 0xa0, 0x26, 0x0c, 0x00, 0x43,
-  0x03, 0xd9, 0x80, 0xcf, 0x8c, 0x01, 0x21, 0x16, 0xa1, 0x00, 0x1f, 0x80,
+  0x03, 0xd9, 0x80, 0xcf, 0x8c, 0x01, 0x31, 0x16, 0xa1, 0x00, 0x1f, 0x80,
   0xa1, 0x81, 0x18, 0xc0, 0x67, 0xc2, 0x00, 0x18, 0x31, 0x38, 0x00, 0x10,
   0x04, 0x03, 0x31, 0x68, 0x0f, 0xd4, 0x50, 0x0b, 0xbf, 0x98, 0x31, 0x20,
-  0xc4, 0xa2, 0x82, 0x0f, 0x60, 0xc4, 0xe0, 0x00, 0x40, 0x10, 0x0c, 0xc4,
+  0xc6, 0xa2, 0x82, 0x0f, 0x60, 0xc4, 0xe0, 0x00, 0x40, 0x10, 0x0c, 0xc4,
   0xc0, 0x3d, 0x52, 0x43, 0x2d, 0xfa, 0x62, 0xc2, 0x00, 0x18, 0x31, 0x78,
   0x00, 0x10, 0x04, 0x83, 0x8a, 0x3e, 0xfa, 0x42, 0x08, 0x88, 0x81, 0x2f,
   0xf8, 0xe2, 0x3c, 0xce, 0x63, 0x2f, 0x8a, 0x09, 0x03, 0x60, 0x34, 0x21,
   0x00, 0x26, 0x0c, 0x80, 0xd1, 0x04, 0x21, 0x98, 0x30, 0x00, 0x46, 0x13,
   0x06, 0x61, 0xc2, 0x00, 0x18, 0x4d, 0x20, 0x86, 0x09, 0x03, 0xc0, 0x22,
-  0x02, 0x3e, 0x33, 0x06, 0x84, 0x58, 0x48, 0xf0, 0x01, 0x58, 0x44, 0xc0,
+  0x02, 0x3e, 0x33, 0x06, 0xc4, 0x58, 0x48, 0xf0, 0x01, 0x58, 0x44, 0xc0,
   0x67, 0xc2, 0x00, 0xb0, 0x88, 0x80, 0xcf, 0x84, 0x01, 0x60, 0x11, 0x01,
   0x9f, 0x09, 0x03, 0x80, 0x5a, 0x63, 0x00, 0x13, 0x06, 0xc0, 0x88, 0x01,
   0x02, 0x80, 0x20, 0x18, 0x2c, 0x21, 0xc2, 0xfa, 0xff, 0xff, 0xff, 0xc3,
-  0x6b, 0xa4, 0x41, 0x19, 0xcc, 0x18, 0x10, 0xe8, 0xc0, 0x98, 0x02, 0x30,
+  0x6b, 0xa4, 0x41, 0x19, 0xcc, 0x18, 0x10, 0xe9, 0xc0, 0x98, 0x02, 0x30,
   0x62, 0x80, 0x00, 0x20, 0x08, 0x06, 0x4b, 0x88, 0xac, 0xfe, 0xff, 0xff,
   0xff, 0xf0, 0x1a, 0x69, 0x40, 0x06, 0x13, 0x06, 0xc0, 0x88, 0x01, 0x02,
   0x80, 0x20, 0x18, 0x2c, 0x21, 0xa2, 0xfa, 0xff, 0xff, 0xff, 0xc3, 0x6b,
   0xa4, 0x41, 0x37, 0x61, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1,
   0x12, 0x22, 0xa9, 0xff, 0xff, 0xff, 0x3f, 0xbc, 0x46, 0x1a, 0x70, 0x13,
   0x06, 0xc0, 0x88, 0xc1, 0x01, 0x80, 0x20, 0x18, 0x7c, 0xfa, 0xd1, 0x1a,
-  0x73, 0x11, 0x1f, 0x33, 0x06, 0xc4, 0x58, 0xec, 0x02, 0x7c, 0x00, 0xa3,
+  0x73, 0x11, 0x1f, 0x33, 0x06, 0x04, 0x59, 0xec, 0x02, 0x7c, 0x00, 0xa3,
   0x09, 0x01, 0x30, 0x61, 0x00, 0x5c, 0x00, 0xd4, 0x84, 0x01, 0x60, 0x79,
-  0x30, 0x07, 0xf0, 0x99, 0x31, 0x20, 0xc6, 0x22, 0x14, 0xe0, 0x03, 0xb0,
+  0x30, 0x07, 0xf0, 0x99, 0x31, 0x20, 0xc8, 0x22, 0x14, 0xe0, 0x03, 0xb0,
   0x3c, 0x98, 0x03, 0xf8, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x07, 0x00, 0x82,
-  0x60, 0x20, 0x06, 0xfe, 0x91, 0x1b, 0x7b, 0xf1, 0x1a, 0x33, 0x06, 0xc4,
-  0x58, 0x54, 0xf0, 0x01, 0x8c, 0x18, 0x1c, 0x00, 0x08, 0x82, 0x81, 0x18,
+  0x60, 0x20, 0x06, 0xfe, 0x91, 0x1b, 0x7b, 0xf1, 0x1a, 0x33, 0x06, 0x04,
+  0x59, 0x54, 0xf0, 0x01, 0x8c, 0x18, 0x1c, 0x00, 0x08, 0x82, 0x81, 0x18,
   0xfc, 0x87, 0x6e, 0xec, 0x85, 0x6b, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x0f,
   0x00, 0x82, 0x60, 0x50, 0x95, 0x88, 0x6b, 0x08, 0x01, 0x31, 0xb4, 0x46,
   0x6b, 0xe0, 0x07, 0x7e, 0xb0, 0x46, 0x31, 0x61, 0x00, 0x8c, 0x26, 0x04,
   0xc0, 0x84, 0x01, 0x30, 0x9a, 0x20, 0x04, 0x13, 0x06, 0xc0, 0x68, 0xc2,
   0x20, 0x4c, 0x18, 0x00, 0xa3, 0x09, 0xc4, 0x30, 0x61, 0x00, 0x58, 0x44,
-  0xc0, 0x67, 0xc6, 0x80, 0x18, 0x0b, 0x09, 0x3e, 0x00, 0x8b, 0x08, 0xf8,
+  0xc0, 0x67, 0xc6, 0x80, 0x20, 0x0b, 0x09, 0x3e, 0x00, 0x8b, 0x08, 0xf8,
   0x4c, 0x18, 0x00, 0x16, 0x11, 0xf0, 0x99, 0x30, 0x00, 0x2c, 0x22, 0xe0,
   0x33, 0x61, 0x00, 0x90, 0x6f, 0x0c, 0x60, 0xc2, 0x00, 0x18, 0x31, 0x40,
   0x00, 0x10, 0x04, 0x83, 0x45, 0x46, 0x72, 0xff, 0xff, 0xff, 0x7f, 0x00,
-  0x0f, 0x3d, 0xb0, 0x83, 0x19, 0x03, 0x02, 0x1d, 0x18, 0x53, 0x00, 0x46,
+  0x0f, 0x3d, 0xb0, 0x83, 0x19, 0x03, 0x22, 0x1d, 0x18, 0x53, 0x00, 0x46,
   0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0x91, 0x11, 0xdc, 0xff, 0xff, 0xff,
   0x1f, 0xc0, 0x43, 0x0f, 0xea, 0x60, 0xc2, 0x00, 0x18, 0x31, 0x40, 0x00,
   0x10, 0x04, 0x83, 0x45, 0x46, 0x6e, 0xff, 0xff, 0xff, 0x7f, 0x00, 0x0f,
   0x3d, 0x70, 0x83, 0x09, 0x03, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c,
   0x16, 0x19, 0xb1, 0xfd, 0xff, 0xff, 0xff, 0x01, 0x3c, 0xf4, 0xa0, 0x0d,
-  0x26, 0x0c, 0x00, 0x2b, 0x6a, 0x43, 0x3e, 0x33, 0x06, 0x04, 0x59, 0x48,
+  0x26, 0x0c, 0x00, 0x2b, 0x6a, 0x43, 0x3e, 0x33, 0x06, 0x44, 0x59, 0x48,
   0xf0, 0x01, 0x58, 0x61, 0x1b, 0xf2, 0x99, 0x30, 0x00, 0xac, 0xb8, 0x0d,
   0xf9, 0x4c, 0x18, 0x00, 0x56, 0xe0, 0x86, 0x7c, 0x26, 0x0c, 0x00, 0x1a,
   0x8f, 0x01, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0,
   0xdc, 0x88, 0xee, 0xff, 0xff, 0xff, 0x0f, 0xe5, 0xf1, 0x07, 0x7b, 0x30,
-  0x63, 0x40, 0xa0, 0x03, 0x63, 0x0a, 0xc0, 0x88, 0x01, 0x02, 0x80, 0x20,
+  0x63, 0x40, 0xa4, 0x03, 0x63, 0x0a, 0xc0, 0x88, 0x01, 0x02, 0x80, 0x20,
   0x18, 0x2c, 0x37, 0x92, 0xfb, 0xff, 0xff, 0xff, 0x43, 0x79, 0xfc, 0x81,
   0x1e, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0xdc,
   0x08, 0xee, 0xff, 0xff, 0xff, 0x0f, 0xe5, 0xf1, 0x07, 0x73, 0x30, 0x61,
   0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0x72, 0x23, 0xb7, 0xff,
   0xff, 0xff, 0x3f, 0x94, 0xc7, 0x1f, 0xc8, 0xc1, 0x84, 0x01, 0x30, 0x4b,
-  0x50, 0xcc, 0x18, 0x10, 0x66, 0x91, 0xd8, 0x06, 0x30, 0xd0, 0x02, 0xb0,
+  0x50, 0xcc, 0x18, 0x10, 0x67, 0x91, 0xd8, 0x06, 0x30, 0xd0, 0x02, 0xb0,
   0x0f, 0xa0, 0x10, 0x70, 0x31, 0xa8, 0x88, 0x40, 0x2e, 0xc1, 0x40, 0x0b,
   0xe0, 0x3e, 0x80, 0x42, 0xc0, 0xc5, 0xa0, 0x22, 0x02, 0xb9, 0x04, 0x03,
   0x2d, 0x00, 0xfc, 0x00, 0x0a, 0x01, 0x17, 0x83, 0x8a, 0x08, 0xe4, 0x12,
   0x0c, 0xb4, 0x00, 0xf2, 0x03, 0x28, 0x04, 0x5c, 0x0c, 0x2a, 0x22, 0x90,
   0x4b, 0x30, 0x62, 0x80, 0x00, 0x20, 0x08, 0x06, 0xcb, 0x8e, 0xe8, 0xfe,
-  0xff, 0xff, 0xff, 0x90, 0x1e, 0xa3, 0xf0, 0x07, 0x33, 0x06, 0x04, 0x3a,
+  0xff, 0xff, 0xff, 0x90, 0x1e, 0xa3, 0xf0, 0x07, 0x33, 0x06, 0x44, 0x3a,
   0x30, 0xa6, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0xb2, 0x23,
   0xb9, 0xff, 0xff, 0xff, 0x3f, 0xa4, 0xc7, 0x28, 0xf8, 0xc1, 0x84, 0x01,
   0x30, 0x62, 0x80, 0x00, 0x20, 0x08, 0x06, 0xcb, 0x8e, 0xe0, 0xfe, 0xff,
@@ -2890,9 +2893,9 @@ const unsigned char g_GenerateMips_CS[] = {
   0xff, 0xff, 0xff, 0x90, 0x1e, 0xa3, 0x70, 0x07, 0x13, 0x06, 0xc0, 0x88,
   0x01, 0x02, 0x80, 0x20, 0x18, 0x2c, 0x3b, 0x72, 0xfb, 0xff, 0xff, 0xff,
   0x43, 0x7a, 0x8c, 0x82, 0x1d, 0x4c, 0x18, 0x00, 0x84, 0x1e, 0x03, 0x98,
-  0x31, 0x20, 0xd2, 0xe2, 0x0c, 0x4c, 0x01, 0x18, 0x31, 0x40, 0x00, 0x10,
+  0x31, 0x20, 0xd4, 0xe2, 0x0c, 0x4c, 0x01, 0x18, 0x31, 0x40, 0x00, 0x10,
   0x04, 0x83, 0x85, 0x47, 0x76, 0xff, 0xff, 0xff, 0x7f, 0x50, 0x8f, 0x37,
-  0x00, 0x85, 0x19, 0x03, 0x62, 0x17, 0xb4, 0x55, 0xa8, 0x8f, 0x11, 0x03,
+  0x00, 0x85, 0x19, 0x03, 0x82, 0x17, 0xb4, 0x55, 0xa8, 0x8f, 0x11, 0x03,
   0x04, 0x00, 0x41, 0x30, 0x58, 0x78, 0x44, 0xf7, 0xff, 0xff, 0xff, 0x07,
   0xf5, 0x78, 0x83, 0x3f, 0x98, 0x30, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04,
   0xc1, 0x60, 0xe1, 0x91, 0xdc, 0xff, 0xff, 0xff, 0x1f, 0xd4, 0xe3, 0x0d,
@@ -2905,21 +2908,21 @@ const unsigned char g_GenerateMips_CS[] = {
   0x04, 0xc1, 0x60, 0xe1, 0x91, 0xdc, 0xff, 0xff, 0xff, 0x1f, 0xd4, 0xe3,
   0x0d, 0xf0, 0x60, 0xc2, 0x00, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83,
   0x85, 0x47, 0x70, 0xff, 0xff, 0xff, 0x7f, 0x50, 0x8f, 0x37, 0xb8, 0x83,
-  0x09, 0x03, 0x80, 0xd2, 0x63, 0x00, 0x33, 0x06, 0x04, 0x38, 0x14, 0xab,
+  0x09, 0x03, 0x80, 0xd2, 0x63, 0x00, 0x33, 0x06, 0x44, 0x38, 0x14, 0xab,
   0x50, 0x1f, 0x23, 0x06, 0x07, 0x00, 0x82, 0x60, 0x20, 0x06, 0x35, 0x02,
-  0x1f, 0xb3, 0xe1, 0x1b, 0x33, 0x06, 0x44, 0x5a, 0x14, 0xa6, 0x00, 0x8c,
+  0x1f, 0xb3, 0xe1, 0x1b, 0x33, 0x06, 0x84, 0x5a, 0x14, 0xa6, 0x00, 0x8c,
   0x18, 0x38, 0x00, 0x08, 0x82, 0xc1, 0xa5, 0x23, 0xbe, 0x11, 0xbc, 0x86,
-  0x6b, 0x88, 0xc7, 0x61, 0x14, 0x44, 0x6f, 0xcc, 0x18, 0x10, 0x69, 0x51,
+  0x6b, 0x88, 0xc7, 0x61, 0x14, 0x44, 0x6f, 0xcc, 0x18, 0x10, 0x6a, 0x51,
   0x06, 0xa6, 0x00, 0x8c, 0x18, 0x1c, 0x00, 0x08, 0x82, 0xc1, 0x77, 0x23,
-  0xea, 0x01, 0x1b, 0x2e, 0x32, 0x63, 0x40, 0xb0, 0x85, 0x62, 0x1f, 0xc0,
+  0xea, 0x01, 0x1b, 0x2e, 0x32, 0x63, 0x40, 0xb4, 0x85, 0x62, 0x1f, 0xc0,
   0x68, 0x42, 0x10, 0x4c, 0x18, 0x00, 0xc3, 0x0d, 0x81, 0x8c, 0x80, 0xc1,
-  0x8c, 0x01, 0xc1, 0x16, 0x97, 0x7d, 0x00, 0xc3, 0x0d, 0x41, 0x8b, 0x84,
+  0x8c, 0x01, 0xd1, 0x16, 0x97, 0x7d, 0x00, 0xc3, 0x0d, 0x41, 0x8b, 0x84,
   0xc1, 0x84, 0x01, 0x30, 0xdc, 0x10, 0xb8, 0x48, 0x18, 0x4c, 0x18, 0x00,
-  0xb3, 0x0c, 0xc6, 0x11, 0xcc, 0x18, 0x10, 0x6c, 0xa1, 0x98, 0x02, 0x30,
-  0x4b, 0x10, 0xcd, 0x18, 0x10, 0x6d, 0x91, 0xd8, 0x07, 0x40, 0xf0, 0x31,
-  0x80, 0x19, 0x03, 0x22, 0x2e, 0x0a, 0x53, 0x00, 0x46, 0x0c, 0x10, 0x00,
+  0xb3, 0x0c, 0xc6, 0x11, 0xcc, 0x18, 0x10, 0x6d, 0xa1, 0x98, 0x02, 0x30,
+  0x4b, 0x10, 0xcd, 0x18, 0x10, 0x6e, 0x91, 0xd8, 0x07, 0x40, 0xf0, 0x31,
+  0x80, 0x19, 0x03, 0x42, 0x2e, 0x0a, 0x53, 0x00, 0x46, 0x0c, 0x10, 0x00,
   0x04, 0xc1, 0x60, 0x21, 0x93, 0xf1, 0xff, 0xff, 0xff, 0x1f, 0xe4, 0x63,
-  0x0e, 0x50, 0x61, 0xc6, 0x80, 0x28, 0x85, 0x32, 0x80, 0x85, 0xfc, 0x18,
+  0x0e, 0x50, 0x61, 0xc6, 0x80, 0x30, 0x85, 0x32, 0x80, 0x85, 0xfc, 0x18,
   0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x85, 0x4c, 0xc4, 0xff, 0xff, 0xff,
   0x7f, 0x90, 0x8f, 0x39, 0x38, 0x85, 0x09, 0x03, 0x60, 0xc4, 0x00, 0x01,
   0x40, 0x10, 0x0c, 0x16, 0x32, 0x09, 0xff, 0xff, 0xff, 0xff, 0x41, 0x3e,
@@ -2933,36 +2936,36 @@ const unsigned char g_GenerateMips_CS[] = {
   0x3e, 0xe6, 0x00, 0x14, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41,
   0x30, 0x58, 0xc8, 0x04, 0xfc, 0xff, 0xff, 0xff, 0x07, 0xf9, 0x98, 0x83,
   0x3f, 0x98, 0x30, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0x21,
-  0x13, 0x46, 0x3e, 0xe0, 0x60, 0x15, 0x66, 0x0c, 0x88, 0x52, 0xb8, 0x60,
-  0x21, 0x3f, 0x56, 0x30, 0xa8, 0x09, 0x8d, 0xcc, 0xc6, 0x8c, 0x01, 0x71,
+  0x13, 0x46, 0x3e, 0xe0, 0x60, 0x15, 0x66, 0x0c, 0x08, 0x53, 0xb8, 0x60,
+  0x21, 0x3f, 0x56, 0x30, 0xa8, 0x09, 0x8d, 0xcc, 0xc6, 0x8c, 0x01, 0x81,
   0x0a, 0x05, 0x2c, 0xe4, 0xc7, 0xb0, 0x01, 0x11, 0x38, 0x03, 0x30, 0x63,
-  0x40, 0x9c, 0x42, 0x04, 0x0b, 0xf9, 0xb1, 0x82, 0x41, 0x4d, 0x6a, 0x84,
-  0x36, 0x66, 0x0c, 0x08, 0x54, 0x28, 0x60, 0x21, 0x3f, 0x86, 0x0d, 0x88,
-  0xc0, 0x19, 0x80, 0x19, 0x03, 0x02, 0x15, 0x22, 0x58, 0xc8, 0x8f, 0x15,
-  0x0c, 0x6a, 0x62, 0x23, 0xb5, 0x31, 0x63, 0x40, 0xa4, 0x42, 0x01, 0x0b,
-  0xf9, 0x31, 0x6c, 0x40, 0x04, 0xce, 0x00, 0xcc, 0x18, 0x10, 0xa9, 0x10,
+  0x40, 0xa0, 0x42, 0x04, 0x0b, 0xf9, 0xb1, 0x82, 0x41, 0x4d, 0x6a, 0x84,
+  0x36, 0x66, 0x0c, 0x88, 0x54, 0x28, 0x60, 0x21, 0x3f, 0x86, 0x0d, 0x88,
+  0xc0, 0x19, 0x80, 0x19, 0x03, 0x22, 0x15, 0x22, 0x58, 0xc8, 0x8f, 0x15,
+  0x0c, 0x6a, 0x62, 0x23, 0xb5, 0x31, 0x63, 0x40, 0xa8, 0x42, 0x01, 0x0b,
+  0xf9, 0x31, 0x6c, 0x40, 0x04, 0xce, 0x00, 0xcc, 0x18, 0x10, 0xaa, 0x10,
   0xc1, 0x42, 0x7e, 0xac, 0x60, 0x50, 0x93, 0x1b, 0xb1, 0x8d, 0x19, 0x03,
-  0x42, 0x15, 0x0a, 0x58, 0xc8, 0x8f, 0x61, 0x03, 0x22, 0x70, 0x06, 0x60,
-  0xc6, 0x80, 0x50, 0x85, 0x08, 0x16, 0xf2, 0x83, 0xea, 0x63, 0x00, 0x33,
-  0x06, 0xc4, 0x2a, 0x04, 0xb0, 0x90, 0x1f, 0x23, 0x06, 0x06, 0x00, 0x82,
-  0x60, 0x90, 0x91, 0xc9, 0x79, 0xdc, 0xc8, 0x8c, 0x01, 0x61, 0x17, 0x85,
-  0x29, 0x00, 0x85, 0x1b, 0x37, 0xa2, 0x33, 0x06, 0x84, 0x5e, 0x68, 0xfc,
-  0x01, 0x0c, 0x37, 0x04, 0x3a, 0x02, 0x06, 0x33, 0x06, 0x84, 0x5e, 0x88,
+  0x62, 0x15, 0x0a, 0x58, 0xc8, 0x8f, 0x61, 0x03, 0x22, 0x70, 0x06, 0x60,
+  0xc6, 0x80, 0x58, 0x85, 0x08, 0x16, 0xf2, 0x83, 0xea, 0x63, 0x00, 0x33,
+  0x06, 0x04, 0x2b, 0x04, 0xb0, 0x90, 0x1f, 0x23, 0x06, 0x06, 0x00, 0x82,
+  0x60, 0x90, 0x91, 0xc9, 0x79, 0xdc, 0xc8, 0x8c, 0x01, 0x71, 0x17, 0x85,
+  0x29, 0x00, 0x85, 0x1b, 0x37, 0xa2, 0x33, 0x06, 0xc4, 0x5e, 0x68, 0xfc,
+  0x01, 0x0c, 0x37, 0x04, 0x3a, 0x02, 0x06, 0x33, 0x06, 0xc4, 0x5e, 0x88,
   0x01, 0x7f, 0x00, 0xc3, 0x0d, 0xc1, 0x8d, 0x84, 0xc1, 0x84, 0x01, 0x30,
   0xdc, 0x10, 0xe0, 0x48, 0x18, 0x4c, 0x18, 0x00, 0xb3, 0x0c, 0x48, 0x12,
-  0xcc, 0x18, 0x10, 0x7a, 0xa1, 0x98, 0x02, 0x50, 0xbc, 0xf1, 0x23, 0x30,
-  0x63, 0x40, 0xf0, 0x05, 0x1c, 0xf4, 0x07, 0x40, 0xfb, 0x31, 0x80, 0x19,
-  0x03, 0x82, 0x2f, 0xae, 0xfe, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1,
+  0xcc, 0x18, 0x10, 0x7b, 0xa1, 0x98, 0x02, 0x50, 0xbc, 0xf1, 0x23, 0x30,
+  0x63, 0x40, 0xf4, 0x05, 0x1c, 0xf4, 0x07, 0x40, 0xfb, 0x31, 0x80, 0x19,
+  0x03, 0xa2, 0x2f, 0xae, 0xfe, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1,
   0x60, 0x79, 0x13, 0xf5, 0xff, 0xff, 0xff, 0x1f, 0xfa, 0x03, 0x0f, 0x6c,
-  0x61, 0xc6, 0x80, 0x68, 0x05, 0xac, 0x16, 0xfe, 0x63, 0x05, 0x43, 0x9d,
-  0xfc, 0x88, 0x30, 0x63, 0x40, 0xbc, 0x02, 0x55, 0x0b, 0xff, 0x41, 0x01,
+  0x61, 0xc6, 0x80, 0x70, 0x05, 0xac, 0x16, 0xfe, 0x63, 0x05, 0x43, 0x9d,
+  0xfc, 0x88, 0x30, 0x63, 0x40, 0xc0, 0x02, 0x55, 0x0b, 0xff, 0x41, 0x01,
   0x30, 0x26, 0x0c, 0x80, 0x15, 0x0c, 0x76, 0x12, 0x26, 0xc4, 0x8c, 0x01,
-  0xf1, 0x0a, 0x61, 0x50, 0x0b, 0xff, 0x41, 0x01, 0x30, 0x26, 0x0c, 0x80,
-  0x15, 0x0c, 0x77, 0x32, 0x26, 0xc6, 0x8c, 0x01, 0xf1, 0x0a, 0x6e, 0x50,
+  0x01, 0x0b, 0x61, 0x50, 0x0b, 0xff, 0x41, 0x01, 0x30, 0x26, 0x0c, 0x80,
+  0x15, 0x0c, 0x77, 0x32, 0x26, 0xc6, 0x8c, 0x01, 0x01, 0x0b, 0x6e, 0x50,
   0x0b, 0xff, 0x41, 0x01, 0x30, 0x26, 0x0c, 0x80, 0x15, 0x0c, 0x78, 0x52,
-  0x26, 0xc8, 0x8c, 0x01, 0xf1, 0x0a, 0x7b, 0x50, 0x0b, 0xff, 0x41, 0x01,
-  0x30, 0x26, 0x0c, 0x00, 0x22, 0x91, 0x01, 0xcc, 0x18, 0x10, 0xaf, 0x50,
-  0xd4, 0xc2, 0x7f, 0x50, 0x89, 0x0c, 0x60, 0xc6, 0x80, 0xe0, 0x0b, 0xa8,
+  0x26, 0xc8, 0x8c, 0x01, 0x01, 0x0b, 0x7b, 0x50, 0x0b, 0xff, 0x41, 0x01,
+  0x30, 0x26, 0x0c, 0x00, 0x22, 0x91, 0x01, 0xcc, 0x18, 0x10, 0xb0, 0x50,
+  0xd4, 0xc2, 0x7f, 0x50, 0x89, 0x0c, 0x60, 0xc6, 0x80, 0xe8, 0x0b, 0xa8,
   0x3f, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0xf2, 0x64, 0xfe,
   0xff, 0xff, 0xff, 0x87, 0x13, 0xf9, 0x83, 0x5e, 0x98, 0x30, 0x00, 0x46,
   0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0xc9, 0x13, 0xf9, 0xff, 0xff, 0xff,
@@ -2970,19 +2973,19 @@ const unsigned char g_GenerateMips_CS[] = {
   0x10, 0x04, 0x83, 0x25, 0x4f, 0xe2, 0xff, 0xff, 0xff, 0x7f, 0x38, 0x91,
   0x3f, 0xa8, 0x85, 0x09, 0x03, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c,
   0x96, 0x3c, 0x81, 0xff, 0xff, 0xff, 0xff, 0xe1, 0x44, 0xfe, 0x80, 0x16,
-  0x26, 0x0c, 0x80, 0x42, 0x8f, 0x1e, 0x81, 0x19, 0x03, 0xa2, 0x2f, 0xe0,
-  0xa0, 0x3f, 0x00, 0x3a, 0x91, 0x01, 0xcc, 0x18, 0x10, 0x7d, 0x71, 0xf5,
+  0x26, 0x0c, 0x80, 0x42, 0x8f, 0x1e, 0x81, 0x19, 0x03, 0xc2, 0x2f, 0xe0,
+  0xa0, 0x3f, 0x00, 0x3a, 0x91, 0x01, 0xcc, 0x18, 0x10, 0x7e, 0x71, 0xf5,
   0x07, 0x30, 0x62, 0x80, 0x00, 0x20, 0x08, 0x06, 0xcb, 0x9e, 0xc4, 0xff,
-  0xff, 0xff, 0xff, 0x90, 0x22, 0xa4, 0x20, 0x0e, 0x33, 0x06, 0x44, 0x2b,
+  0xff, 0xff, 0xff, 0x90, 0x22, 0xa4, 0x20, 0x0e, 0x33, 0x06, 0x84, 0x2b,
   0x60, 0xb5, 0x20, 0x22, 0x2b, 0x18, 0x42, 0x65, 0x4d, 0x84, 0x19, 0x03,
-  0xe2, 0x15, 0xa8, 0x5a, 0x10, 0x11, 0x0a, 0x80, 0x31, 0x61, 0x00, 0xac,
-  0x60, 0x10, 0x95, 0x36, 0x21, 0x66, 0x0c, 0x88, 0x57, 0x08, 0x83, 0x5a,
+  0x02, 0x16, 0xa8, 0x5a, 0x10, 0x11, 0x0a, 0x80, 0x31, 0x61, 0x00, 0xac,
+  0x60, 0x10, 0x95, 0x36, 0x21, 0x66, 0x0c, 0x08, 0x58, 0x08, 0x83, 0x5a,
   0x10, 0x11, 0x0a, 0x80, 0x31, 0x61, 0x00, 0xac, 0x60, 0x18, 0x95, 0x37,
-  0x31, 0x66, 0x0c, 0x88, 0x57, 0x70, 0x83, 0x5a, 0x10, 0x11, 0x0a, 0x80,
-  0x31, 0x61, 0x00, 0xac, 0x60, 0x20, 0x95, 0x38, 0x41, 0x66, 0x0c, 0x88,
-  0x57, 0xd8, 0x83, 0x5a, 0x10, 0x11, 0x0a, 0x80, 0x31, 0x61, 0x00, 0x10,
-  0x8c, 0x0c, 0x60, 0xc6, 0x80, 0x78, 0x85, 0xa2, 0x16, 0x44, 0x84, 0x62,
-  0x64, 0x00, 0x33, 0x06, 0x44, 0x5f, 0x40, 0xfd, 0x01, 0x8c, 0x18, 0x20,
+  0x31, 0x66, 0x0c, 0x08, 0x58, 0x70, 0x83, 0x5a, 0x10, 0x11, 0x0a, 0x80,
+  0x31, 0x61, 0x00, 0xac, 0x60, 0x20, 0x95, 0x38, 0x41, 0x66, 0x0c, 0x08,
+  0x58, 0xd8, 0x83, 0x5a, 0x10, 0x11, 0x0a, 0x80, 0x31, 0x61, 0x00, 0x10,
+  0x8c, 0x0c, 0x60, 0xc6, 0x80, 0x80, 0x85, 0xa2, 0x16, 0x44, 0x84, 0x62,
+  0x64, 0x00, 0x33, 0x06, 0x84, 0x5f, 0x40, 0xfd, 0x01, 0x8c, 0x18, 0x20,
   0x00, 0x08, 0x82, 0xc1, 0x52, 0x2a, 0xfa, 0xff, 0xff, 0xff, 0x3f, 0xcc,
   0x08, 0x2a, 0xa4, 0xc3, 0x84, 0x01, 0x30, 0x62, 0x80, 0x00, 0x20, 0x08,
   0x06, 0x4b, 0xa9, 0xe4, 0xff, 0xff, 0xff, 0xff, 0x30, 0x23, 0xa8, 0x80,
@@ -2990,38 +2993,38 @@ const unsigned char g_GenerateMips_CS[] = {
   0x82, 0xff, 0xff, 0xff, 0xff, 0xc3, 0x8c, 0xa0, 0x42, 0x38, 0x4c, 0x18,
   0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0x94, 0xca, 0xfd, 0xff,
   0xff, 0xff, 0x0f, 0x33, 0x82, 0x0a, 0xe0, 0x30, 0x61, 0x00, 0x14, 0x7d,
-  0xcc, 0x09, 0xcc, 0x18, 0x10, 0x7e, 0x01, 0x07, 0xfd, 0x01, 0xd0, 0x8c,
-  0x0c, 0x60, 0xc6, 0x80, 0xf0, 0x8b, 0xab, 0x3f, 0x80, 0x11, 0x03, 0x04,
+  0xcc, 0x09, 0xcc, 0x18, 0x10, 0x7f, 0x01, 0x07, 0xfd, 0x01, 0xd0, 0x8c,
+  0x0c, 0x60, 0xc6, 0x80, 0xf8, 0x8b, 0xab, 0x3f, 0x80, 0x11, 0x03, 0x04,
   0x00, 0x41, 0x30, 0x58, 0x4e, 0x05, 0xff, 0xff, 0xff, 0xff, 0x87, 0x1a,
-  0x81, 0x05, 0x77, 0x98, 0x31, 0x20, 0x5a, 0x01, 0xab, 0x85, 0x12, 0x59,
-  0xc1, 0xd0, 0x2a, 0x77, 0x22, 0xcc, 0x18, 0x10, 0xaf, 0x40, 0xd5, 0x42,
+  0x81, 0x05, 0x77, 0x98, 0x31, 0x20, 0x5c, 0x01, 0xab, 0x85, 0x12, 0x59,
+  0xc1, 0xd0, 0x2a, 0x77, 0x22, 0xcc, 0x18, 0x10, 0xb0, 0x40, 0xd5, 0x42,
   0x89, 0x50, 0x00, 0x8c, 0x09, 0x03, 0x60, 0x05, 0x83, 0xab, 0xe4, 0x09,
-  0x31, 0x63, 0x40, 0xbc, 0x42, 0x18, 0xd4, 0x42, 0x89, 0x50, 0x00, 0x8c,
-  0x09, 0x03, 0x60, 0x05, 0xc3, 0xab, 0xec, 0x89, 0x31, 0x63, 0x40, 0xbc,
+  0x31, 0x63, 0x40, 0xc0, 0x42, 0x18, 0xd4, 0x42, 0x89, 0x50, 0x00, 0x8c,
+  0x09, 0x03, 0x60, 0x05, 0xc3, 0xab, 0xec, 0x89, 0x31, 0x63, 0x40, 0xc0,
   0x82, 0x1b, 0xd4, 0x42, 0x89, 0x50, 0x00, 0x8c, 0x09, 0x03, 0x60, 0x05,
-  0x03, 0xac, 0xf4, 0x09, 0x32, 0x63, 0x40, 0xbc, 0xc2, 0x1e, 0xd4, 0x42,
+  0x03, 0xac, 0xf4, 0x09, 0x32, 0x63, 0x40, 0xc0, 0xc2, 0x1e, 0xd4, 0x42,
   0x89, 0x50, 0x00, 0x8c, 0x09, 0x03, 0x80, 0x78, 0x64, 0x00, 0x33, 0x06,
-  0xc4, 0x2b, 0x14, 0xb5, 0x50, 0x22, 0xd4, 0x23, 0x03, 0x98, 0x31, 0x20,
-  0xfc, 0x02, 0xea, 0x0f, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x96,
+  0x04, 0x2c, 0x14, 0xb5, 0x50, 0x22, 0xd4, 0x23, 0x03, 0x98, 0x31, 0x20,
+  0xfe, 0x02, 0xea, 0x0f, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x96,
   0x58, 0x09, 0x7e, 0x24, 0x16, 0xea, 0x61, 0xc2, 0x00, 0x18, 0x31, 0x40,
   0x00, 0x10, 0x04, 0x83, 0x25, 0x56, 0x80, 0x1f, 0x89, 0x05, 0x7a, 0x98,
   0x30, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0x89, 0x95, 0xff,
   0xff, 0xff, 0xff, 0x1f, 0x7e, 0x24, 0x16, 0xda, 0x61, 0xc2, 0x00, 0x18,
   0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x25, 0x56, 0xfc, 0xff, 0xff, 0xff,
   0x7f, 0xf8, 0x91, 0x58, 0x60, 0x87, 0x09, 0x03, 0xc0, 0xf4, 0x20, 0x0c,
-  0xe0, 0x33, 0x63, 0x40, 0xfc, 0x85, 0xd7, 0x1f, 0x80, 0xe9, 0x01, 0x18,
+  0xe0, 0x33, 0x63, 0x40, 0x80, 0x86, 0xd7, 0x1f, 0x80, 0xe9, 0x01, 0x18,
   0xc0, 0x67, 0xc2, 0x00, 0x30, 0x3d, 0xf8, 0xe0, 0x33, 0x61, 0x00, 0x98,
   0x1e, 0x78, 0xf0, 0x99, 0x30, 0x00, 0x8c, 0xc8, 0xe0, 0x33, 0x63, 0x40,
-  0xfc, 0x45, 0x19, 0xf4, 0x07, 0x60, 0x04, 0x06, 0x9f, 0x09, 0x03, 0xc0,
+  0x80, 0x46, 0x19, 0xf4, 0x07, 0x60, 0x04, 0x06, 0x9f, 0x09, 0x03, 0xc0,
   0x88, 0x0b, 0x3e, 0x13, 0x06, 0x80, 0x11, 0x16, 0x7c, 0x26, 0x0c, 0x00,
-  0x23, 0x22, 0xf8, 0xcc, 0x18, 0x10, 0x7f, 0xc1, 0x06, 0xfd, 0x01, 0x18,
+  0x23, 0x22, 0xf8, 0xcc, 0x18, 0x10, 0xa0, 0xc1, 0x06, 0xfd, 0x01, 0x18,
   0x01, 0xc1, 0x67, 0xc2, 0x00, 0x30, 0xe2, 0x81, 0xcf, 0x84, 0x01, 0x60,
   0x84, 0x03, 0x9f, 0x09, 0x03, 0xc0, 0xc0, 0x84, 0x90, 0xcf, 0x8c, 0x01,
-  0xf1, 0x17, 0x55, 0x7f, 0x00, 0x16, 0x26, 0x84, 0x7c, 0x26, 0x0c, 0x00,
+  0x01, 0x1a, 0x55, 0x7f, 0x00, 0x16, 0x26, 0x84, 0x7c, 0x26, 0x0c, 0x00,
   0x13, 0x13, 0x42, 0x3e, 0x13, 0x06, 0x80, 0x8d, 0x09, 0x21, 0x9f, 0x09,
-  0x03, 0x80, 0xdc, 0x64, 0x00, 0x33, 0x06, 0xc4, 0x5f, 0x38, 0xfd, 0x01,
+  0x03, 0x80, 0xdc, 0x64, 0x00, 0x33, 0x06, 0x04, 0x68, 0x38, 0xfd, 0x01,
   0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0x22, 0x2e, 0x0e, 0x9c, 0xa8,
-  0x84, 0x49, 0xcc, 0x18, 0x10, 0xe8, 0xc0, 0x98, 0x02, 0x30, 0x62, 0x80,
+  0x84, 0x49, 0xcc, 0x18, 0x10, 0xe9, 0xc0, 0x98, 0x02, 0x30, 0x62, 0x80,
   0x00, 0x20, 0x08, 0x06, 0x8b, 0xb8, 0x34, 0x70, 0xa2, 0x12, 0x25, 0x31,
   0x61, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0x22, 0x2e, 0x0c,
   0x9c, 0xa8, 0x84, 0x3f, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82,
@@ -3032,8 +3035,8 @@ const unsigned char g_GenerateMips_CS[] = {
   0x00, 0x08, 0x82, 0xc1, 0x22, 0x2e, 0x0c, 0x9c, 0xa8, 0x84, 0x3f, 0x4c,
   0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0x88, 0xcb, 0x02,
   0x27, 0x2a, 0xd1, 0x0f, 0x13, 0x06, 0x00, 0xbd, 0xc9, 0x00, 0x66, 0x0c,
-  0x88, 0xd0, 0x78, 0x83, 0xfe, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1,
-  0x60, 0x19, 0x97, 0x27, 0x4e, 0xec, 0xe1, 0x24, 0x66, 0x0c, 0x88, 0x5d,
+  0x08, 0xd1, 0x78, 0x83, 0xfe, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1,
+  0x60, 0x19, 0x97, 0x27, 0x4e, 0xec, 0xe1, 0x24, 0x66, 0x0c, 0x08, 0x5e,
   0xd0, 0x56, 0x01, 0x45, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0x19,
   0x17, 0x27, 0x4e, 0xec, 0xc1, 0x24, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04,
   0x00, 0x41, 0x30, 0x58, 0xc6, 0xa5, 0x89, 0x13, 0x7b, 0xf8, 0x87, 0x09,
@@ -3044,15 +3047,15 @@ const unsigned char g_GenerateMips_CS[] = {
   0x24, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0xc6,
   0xa5, 0x89, 0x13, 0x7b, 0xf8, 0x87, 0x09, 0x03, 0x60, 0xc4, 0x00, 0x01,
   0x40, 0x10, 0x0c, 0x96, 0x71, 0x61, 0xe2, 0xc4, 0x1e, 0xfc, 0x61, 0xc2,
-  0x00, 0x20, 0x38, 0x19, 0xc0, 0x8c, 0x01, 0x01, 0x0e, 0xc5, 0x2a, 0xa0,
-  0x48, 0xd5, 0x08, 0xae, 0xcc, 0x8c, 0x01, 0x11, 0x1a, 0x68, 0xd0, 0x1f,
+  0x00, 0x20, 0x38, 0x19, 0xc0, 0x8c, 0x01, 0x11, 0x0e, 0xc5, 0x2a, 0xa0,
+  0x48, 0xd5, 0x08, 0xae, 0xcc, 0x8c, 0x01, 0x21, 0x1a, 0x68, 0xd0, 0x1f,
   0x40, 0xd5, 0x48, 0xae, 0xcc, 0x84, 0x01, 0x30, 0x62, 0x70, 0x00, 0x20,
   0x08, 0x06, 0x62, 0xe0, 0x2b, 0x79, 0xd2, 0x23, 0x67, 0x32, 0x63, 0x40,
-  0x84, 0x46, 0xd2, 0x1f, 0xc0, 0x88, 0x81, 0x03, 0x80, 0x20, 0x18, 0x5c,
+  0x88, 0x46, 0xd2, 0x1f, 0xc0, 0x88, 0x81, 0x03, 0x80, 0x20, 0x18, 0x5c,
   0xe3, 0x72, 0x26, 0xc1, 0x20, 0xac, 0x89, 0x92, 0x20, 0x87, 0x99, 0xcc,
-  0x18, 0x10, 0xa1, 0xd1, 0x06, 0xfd, 0x01, 0x10, 0x9d, 0x0c, 0x60, 0xc6,
-  0x80, 0x10, 0x8d, 0xa4, 0x3f, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30,
-  0x58, 0xd0, 0x85, 0xb2, 0x93, 0x7b, 0x60, 0x89, 0x19, 0x03, 0xa2, 0x14,
+  0x18, 0x10, 0xa2, 0xd1, 0x06, 0xfd, 0x01, 0x10, 0x9d, 0x0c, 0x60, 0xc6,
+  0x80, 0x18, 0x8d, 0xa4, 0x3f, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30,
+  0x58, 0xd0, 0x85, 0xb2, 0x93, 0x7b, 0x60, 0x89, 0x19, 0x03, 0xc2, 0x14,
   0xca, 0x00, 0x16, 0x52, 0x64, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x16,
   0x74, 0x99, 0xec, 0xe4, 0x1e, 0x56, 0x62, 0xc2, 0x00, 0x18, 0x31, 0x40,
   0x00, 0x10, 0x04, 0x83, 0x05, 0x5d, 0x24, 0x3b, 0xb9, 0x07, 0x92, 0x98,
@@ -3064,107 +3067,107 @@ const unsigned char g_GenerateMips_CS[] = {
   0x5d, 0x24, 0x3b, 0xb9, 0x07, 0x92, 0x98, 0x30, 0x00, 0x46, 0x0c, 0x10,
   0x00, 0x04, 0xc1, 0x60, 0x41, 0x97, 0xc8, 0x4e, 0xee, 0x61, 0x24, 0x26,
   0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0xd0, 0x05, 0x16,
-  0xec, 0x84, 0x1e, 0x5e, 0x62, 0xc6, 0x80, 0x28, 0x85, 0x0b, 0x16, 0x52,
-  0x64, 0x05, 0x83, 0xbb, 0xe0, 0xca, 0x8d, 0xcc, 0x18, 0x10, 0xa7, 0x50,
-  0xc0, 0x42, 0x8a, 0x0c, 0x1b, 0x10, 0x01, 0x33, 0x00, 0x33, 0x06, 0xc4,
-  0x29, 0x44, 0xb0, 0x90, 0x22, 0x2b, 0x18, 0xdc, 0x25, 0x57, 0x70, 0x64,
-  0xc6, 0x80, 0x40, 0x85, 0x02, 0x16, 0x52, 0x64, 0xd8, 0x80, 0x08, 0x98,
-  0x01, 0x98, 0x31, 0x20, 0x50, 0x21, 0x82, 0x85, 0x14, 0x59, 0xc1, 0xe0,
-  0x2e, 0xba, 0x92, 0x23, 0x33, 0x06, 0x44, 0x2a, 0x14, 0xb0, 0x90, 0x22,
-  0xc3, 0x06, 0x44, 0xc0, 0x0c, 0xc0, 0x8c, 0x01, 0x91, 0x0a, 0x11, 0x2c,
-  0xa4, 0xc8, 0x0a, 0x06, 0x77, 0xd9, 0x15, 0x1d, 0x99, 0x31, 0x20, 0x54,
+  0xec, 0x84, 0x1e, 0x5e, 0x62, 0xc6, 0x80, 0x30, 0x85, 0x0b, 0x16, 0x52,
+  0x64, 0x05, 0x83, 0xbb, 0xe0, 0xca, 0x8d, 0xcc, 0x18, 0x10, 0xa8, 0x50,
+  0xc0, 0x42, 0x8a, 0x0c, 0x1b, 0x10, 0x01, 0x33, 0x00, 0x33, 0x06, 0x04,
+  0x2a, 0x44, 0xb0, 0x90, 0x22, 0x2b, 0x18, 0xdc, 0x25, 0x57, 0x70, 0x64,
+  0xc6, 0x80, 0x48, 0x85, 0x02, 0x16, 0x52, 0x64, 0xd8, 0x80, 0x08, 0x98,
+  0x01, 0x98, 0x31, 0x20, 0x52, 0x21, 0x82, 0x85, 0x14, 0x59, 0xc1, 0xe0,
+  0x2e, 0xba, 0x92, 0x23, 0x33, 0x06, 0x84, 0x2a, 0x14, 0xb0, 0x90, 0x22,
+  0xc3, 0x06, 0x44, 0xc0, 0x0c, 0xc0, 0x8c, 0x01, 0xa1, 0x0a, 0x11, 0x2c,
+  0xa4, 0xc8, 0x0a, 0x06, 0x77, 0xd9, 0x15, 0x1d, 0x99, 0x31, 0x20, 0x56,
   0xa1, 0x80, 0x85, 0x14, 0x19, 0x36, 0x20, 0x02, 0x66, 0x00, 0x66, 0x0c,
-  0x08, 0x55, 0x88, 0x60, 0x21, 0x45, 0x28, 0x4f, 0x06, 0x30, 0x63, 0x40,
-  0xac, 0x42, 0x00, 0x0b, 0x29, 0x32, 0x4b, 0x90, 0xcc, 0x18, 0x10, 0xa3,
+  0x88, 0x55, 0x88, 0x60, 0x21, 0x45, 0x28, 0x4f, 0x06, 0x30, 0x63, 0x40,
+  0xb0, 0x42, 0x00, 0x0b, 0x29, 0x32, 0x4b, 0x90, 0xcc, 0x18, 0x10, 0xa4,
   0x51, 0xf4, 0x07, 0x30, 0x50, 0x01, 0x80, 0x01, 0xc2, 0x16, 0xc7, 0x40,
   0x05, 0x00, 0x06, 0x08, 0x5b, 0x1c, 0x03, 0x15, 0x00, 0x18, 0x20, 0x6c,
   0x71, 0x0c, 0x54, 0x00, 0x60, 0x80, 0xb0, 0xc5, 0x31, 0x62, 0x80, 0x00,
   0x20, 0x08, 0x06, 0x4b, 0xbc, 0x64, 0x7f, 0x92, 0x13, 0x35, 0x31, 0x63,
-  0x40, 0xa0, 0x03, 0x63, 0x0a, 0xc0, 0x88, 0x01, 0x02, 0x80, 0x20, 0x18,
+  0x40, 0xa4, 0x03, 0x63, 0x0a, 0xc0, 0x88, 0x01, 0x02, 0x80, 0x20, 0x18,
   0x2c, 0xf1, 0x82, 0xfd, 0x49, 0x4e, 0xd0, 0xc4, 0x84, 0x01, 0x30, 0x62,
   0x80, 0x00, 0x20, 0x08, 0x06, 0x4b, 0xbc, 0x5c, 0x7f, 0x92, 0x13, 0x2d,
   0x31, 0x61, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0x12, 0x2f,
   0xd6, 0x9f, 0xe4, 0x04, 0x4b, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x07, 0x00,
   0x82, 0x60, 0xf0, 0xa9, 0x4b, 0x9f, 0x8c, 0x49, 0xb8, 0xcc, 0x18, 0x10,
-  0xa5, 0xa1, 0xa8, 0x08, 0x30, 0x9a, 0x10, 0x04, 0x13, 0x06, 0xc0, 0x70,
-  0x43, 0x70, 0x2e, 0x60, 0x30, 0x63, 0x40, 0x94, 0xc6, 0xa5, 0x22, 0xc0,
+  0xa6, 0xa1, 0xa8, 0x08, 0x30, 0x9a, 0x10, 0x04, 0x13, 0x06, 0xc0, 0x70,
+  0x43, 0x70, 0x2e, 0x60, 0x30, 0x63, 0x40, 0x98, 0xc6, 0xa5, 0x22, 0xc0,
   0x70, 0x43, 0x00, 0x2e, 0x61, 0x30, 0x61, 0x00, 0x0c, 0x37, 0x04, 0xe1,
-  0x12, 0x06, 0x13, 0x06, 0xc0, 0x2c, 0x83, 0xb2, 0x04, 0x33, 0x06, 0x44,
-  0x69, 0x28, 0xa6, 0x00, 0xcc, 0x12, 0x44, 0x33, 0x06, 0x84, 0x69, 0x24,
+  0x12, 0x06, 0x13, 0x06, 0xc0, 0x2c, 0x83, 0xb2, 0x04, 0x33, 0x06, 0x84,
+  0x69, 0x28, 0xa6, 0x00, 0xcc, 0x12, 0x44, 0x33, 0x06, 0xc4, 0x69, 0x24,
   0x2a, 0x02, 0x8c, 0x18, 0x18, 0x00, 0x08, 0x82, 0x41, 0x16, 0x2f, 0x74,
-  0x42, 0x2e, 0x33, 0x06, 0x04, 0x6a, 0x14, 0xa6, 0x00, 0x54, 0x99, 0xcc,
-  0x89, 0xce, 0x18, 0x10, 0xab, 0xa1, 0xad, 0x08, 0x30, 0xdc, 0x10, 0x9c,
-  0x0b, 0x18, 0xcc, 0x18, 0x10, 0xab, 0x31, 0x06, 0x2b, 0x02, 0x0c, 0x37,
+  0x42, 0x2e, 0x33, 0x06, 0x44, 0x6a, 0x14, 0xa6, 0x00, 0x54, 0x99, 0xcc,
+  0x89, 0xce, 0x18, 0x10, 0xac, 0xa1, 0xad, 0x08, 0x30, 0xdc, 0x10, 0x9c,
+  0x0b, 0x18, 0xcc, 0x18, 0x10, 0xac, 0x31, 0x06, 0x2b, 0x02, 0x0c, 0x37,
   0x04, 0xe4, 0x12, 0x06, 0x13, 0x06, 0xc0, 0x70, 0x43, 0x50, 0x2e, 0x61,
-  0x30, 0x61, 0x00, 0xcc, 0x32, 0x30, 0x4d, 0x30, 0x63, 0x40, 0xac, 0x86,
-  0x62, 0x0a, 0x40, 0xa5, 0x89, 0xbb, 0xc0, 0x8c, 0x01, 0xd1, 0x1a, 0x70,
-  0xc0, 0x22, 0x00, 0xa1, 0xca, 0x00, 0x66, 0x0c, 0x88, 0xd6, 0xb8, 0x58,
+  0x30, 0x61, 0x00, 0xcc, 0x32, 0x30, 0x4d, 0x30, 0x63, 0x40, 0xb0, 0x86,
+  0x62, 0x0a, 0x40, 0xa5, 0x89, 0xbb, 0xc0, 0x8c, 0x01, 0xe1, 0x1a, 0x70,
+  0xc0, 0x22, 0x00, 0xa1, 0xca, 0x00, 0x66, 0x0c, 0x08, 0xd7, 0xb8, 0x58,
   0x04, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x85, 0x5f, 0xc0, 0x40,
-  0x55, 0x4a, 0x62, 0x2c, 0x66, 0x0c, 0x88, 0x56, 0xc0, 0x6a, 0xa1, 0x45,
-  0x56, 0x30, 0x88, 0x0c, 0xbb, 0x08, 0x33, 0x06, 0xc4, 0x2b, 0x50, 0xb5,
+  0x55, 0x4a, 0x62, 0x2c, 0x66, 0x0c, 0x08, 0x57, 0xc0, 0x6a, 0xa1, 0x45,
+  0x56, 0x30, 0x88, 0x0c, 0xbb, 0x08, 0x33, 0x06, 0x04, 0x2c, 0x50, 0xb5,
   0xd0, 0x22, 0x14, 0x00, 0x63, 0xc2, 0x00, 0x58, 0xc1, 0x30, 0x32, 0xee,
-  0x42, 0xcc, 0x18, 0x10, 0xaf, 0x10, 0x06, 0xb5, 0xd0, 0x22, 0x14, 0x00,
+  0x42, 0xcc, 0x18, 0x10, 0xb0, 0x10, 0x06, 0xb5, 0xd0, 0x22, 0x14, 0x00,
   0x63, 0xc2, 0x00, 0x58, 0xc1, 0x40, 0x32, 0xf0, 0x62, 0xcc, 0x18, 0x10,
-  0xaf, 0xe0, 0x06, 0xb5, 0xd0, 0x22, 0x14, 0x00, 0x63, 0xc2, 0x00, 0x58,
-  0xc1, 0x50, 0x32, 0xf2, 0x82, 0xcc, 0x18, 0x10, 0xaf, 0xb0, 0x07, 0xb5,
+  0xb0, 0xe0, 0x06, 0xb5, 0xd0, 0x22, 0x14, 0x00, 0x63, 0xc2, 0x00, 0x58,
+  0xc1, 0x50, 0x32, 0xf2, 0x82, 0xcc, 0x18, 0x10, 0xb0, 0xb0, 0x07, 0xb5,
   0xd0, 0x22, 0x14, 0x00, 0x63, 0xc2, 0x00, 0xa0, 0x58, 0x19, 0xc0, 0x8c,
-  0x01, 0xf1, 0x0a, 0x45, 0x2d, 0xb4, 0x08, 0xc9, 0xca, 0x00, 0x66, 0x0c,
-  0x88, 0xd6, 0x80, 0x58, 0x04, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83,
+  0x01, 0x01, 0x0b, 0x45, 0x2d, 0xb4, 0x08, 0xc9, 0xca, 0x00, 0x66, 0x0c,
+  0x08, 0xd7, 0x80, 0x58, 0x04, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83,
   0xc5, 0x64, 0xd2, 0x80, 0x56, 0xfe, 0x41, 0x2d, 0x26, 0x0c, 0x80, 0x11,
   0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0x4c, 0x06, 0x0d, 0x68, 0xe5, 0x1f,
   0xd2, 0x62, 0xc2, 0x00, 0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0xc5,
   0x64, 0xce, 0x80, 0x56, 0xfe, 0x41, 0x2c, 0x26, 0x0c, 0x80, 0x11, 0x03,
   0x04, 0x00, 0x41, 0x30, 0x58, 0x4c, 0xc6, 0x0c, 0x68, 0xe5, 0x1f, 0xc2,
-  0x62, 0xc2, 0x00, 0xa8, 0x3a, 0x41, 0x17, 0x98, 0x31, 0x20, 0x5c, 0x03,
-  0x0e, 0x58, 0x04, 0x20, 0x5a, 0x19, 0xc0, 0x8c, 0x01, 0xe1, 0x1a, 0x17,
+  0x62, 0xc2, 0x00, 0xa8, 0x3a, 0x41, 0x17, 0x98, 0x31, 0x20, 0x5e, 0x03,
+  0x0e, 0x58, 0x04, 0x20, 0x5a, 0x19, 0xc0, 0x8c, 0x01, 0xf1, 0x1a, 0x17,
   0x8b, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0xa0, 0xcc, 0x19,
-  0xd8, 0x4a, 0x4c, 0xbc, 0xc5, 0x8c, 0x01, 0xd1, 0x0a, 0x58, 0x2d, 0xbc,
-  0xc8, 0x0a, 0x06, 0x97, 0xc1, 0x17, 0x61, 0xc6, 0x80, 0x78, 0x05, 0xaa,
+  0xd8, 0x4a, 0x4c, 0xbc, 0xc5, 0x8c, 0x01, 0xe1, 0x0a, 0x58, 0x2d, 0xbc,
+  0xc8, 0x0a, 0x06, 0x97, 0xc1, 0x17, 0x61, 0xc6, 0x80, 0x80, 0x05, 0xaa,
   0x16, 0x5e, 0x84, 0x02, 0x60, 0x4c, 0x18, 0x00, 0x2b, 0x18, 0x5e, 0x46,
-  0x5f, 0x88, 0x19, 0x03, 0xe2, 0x15, 0xc2, 0xa0, 0x16, 0x5e, 0x84, 0x02,
+  0x5f, 0x88, 0x19, 0x03, 0x02, 0x16, 0xc2, 0xa0, 0x16, 0x5e, 0x84, 0x02,
   0x60, 0x4c, 0x18, 0x00, 0x2b, 0x18, 0x60, 0x86, 0x5f, 0x8c, 0x19, 0x03,
-  0xe2, 0x15, 0xdc, 0xa0, 0x16, 0x5e, 0x84, 0x02, 0x60, 0x4c, 0x18, 0x00,
-  0x2b, 0x18, 0x62, 0xc6, 0x5f, 0x90, 0x19, 0x03, 0xe2, 0x15, 0xf6, 0xa0,
+  0x02, 0x16, 0xdc, 0xa0, 0x16, 0x5e, 0x84, 0x02, 0x60, 0x4c, 0x18, 0x00,
+  0x2b, 0x18, 0x62, 0xc6, 0x5f, 0x90, 0x19, 0x03, 0x02, 0x16, 0xf6, 0xa0,
   0x16, 0x5e, 0x84, 0x02, 0x60, 0x4c, 0x18, 0x00, 0xd4, 0x2b, 0x03, 0x98,
-  0x31, 0x20, 0x5e, 0xa1, 0xa8, 0x85, 0x17, 0x21, 0x5f, 0x19, 0xc0, 0x8c,
-  0x01, 0xe1, 0x1a, 0x10, 0x8b, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60,
+  0x31, 0x20, 0x60, 0xa1, 0xa8, 0x85, 0x17, 0x21, 0x5f, 0x19, 0xc0, 0x8c,
+  0x01, 0xf1, 0x1a, 0x10, 0x8b, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60,
   0xb0, 0xc8, 0x0c, 0x1c, 0x80, 0x4b, 0x4a, 0xd8, 0xc5, 0x84, 0x01, 0x30,
   0x62, 0x80, 0x00, 0x20, 0x08, 0x06, 0x8b, 0xcc, 0xbc, 0x01, 0xb8, 0xa4,
   0x44, 0x5d, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0,
   0xc8, 0x8c, 0x1b, 0x80, 0x4b, 0x4a, 0xb8, 0xc5, 0x84, 0x01, 0x30, 0x62,
   0x80, 0x00, 0x20, 0x08, 0x06, 0x8b, 0xcc, 0xb4, 0x01, 0xb8, 0xa4, 0x44,
-  0x5b, 0x4c, 0x18, 0x00, 0x15, 0x2a, 0xae, 0x02, 0x33, 0x06, 0xc4, 0x6b,
-  0xc0, 0x01, 0x8b, 0x00, 0x04, 0x2e, 0x03, 0x98, 0x31, 0x20, 0x5e, 0xe3,
+  0x5b, 0x4c, 0x18, 0x00, 0x15, 0x2a, 0xae, 0x02, 0x33, 0x06, 0x04, 0x6c,
+  0xc0, 0x01, 0x8b, 0x00, 0x04, 0x2e, 0x03, 0x98, 0x31, 0x20, 0x60, 0xe3,
   0x62, 0x11, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x16, 0x9a, 0x71,
-  0x03, 0x71, 0xe9, 0x89, 0xbd, 0x98, 0x31, 0x20, 0x5a, 0x01, 0xab, 0x85,
-  0x18, 0x59, 0xc1, 0xa0, 0x33, 0x24, 0x23, 0xcc, 0x18, 0x10, 0xaf, 0x40,
+  0x03, 0x71, 0xe9, 0x89, 0xbd, 0x98, 0x31, 0x20, 0x5c, 0x01, 0xab, 0x85,
+  0x18, 0x59, 0xc1, 0xa0, 0x33, 0x24, 0x23, 0xcc, 0x18, 0x10, 0xb0, 0x40,
   0xd5, 0x42, 0x8c, 0x50, 0x00, 0x8c, 0x09, 0x03, 0x60, 0x05, 0xc3, 0xce,
-  0x98, 0x0c, 0x31, 0x63, 0x40, 0xbc, 0x42, 0x18, 0xd4, 0x42, 0x8c, 0x50,
+  0x98, 0x0c, 0x31, 0x63, 0x40, 0xc0, 0x42, 0x18, 0xd4, 0x42, 0x8c, 0x50,
   0x00, 0x8c, 0x09, 0x03, 0x60, 0x05, 0x03, 0xcf, 0xa0, 0x8c, 0x31, 0x63,
-  0x40, 0xbc, 0x82, 0x1b, 0xd4, 0x42, 0x8c, 0x50, 0x00, 0x8c, 0x09, 0x03,
-  0x60, 0x05, 0x43, 0xcf, 0xa8, 0x0c, 0x32, 0x63, 0x40, 0xbc, 0xc2, 0x1e,
+  0x40, 0xc0, 0x82, 0x1b, 0xd4, 0x42, 0x8c, 0x50, 0x00, 0x8c, 0x09, 0x03,
+  0x60, 0x05, 0x43, 0xcf, 0xa8, 0x0c, 0x32, 0x63, 0x40, 0xc0, 0xc2, 0x1e,
   0xd4, 0x42, 0x8c, 0x50, 0x00, 0x8c, 0x09, 0x03, 0x80, 0xd2, 0x65, 0x00,
-  0x33, 0x06, 0xc4, 0x2b, 0x14, 0xb5, 0x10, 0x23, 0xa4, 0x2e, 0x03, 0x98,
-  0x31, 0x20, 0x5e, 0x03, 0x62, 0x11, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10,
+  0x33, 0x06, 0x04, 0x2c, 0x14, 0xb5, 0x10, 0x23, 0xa4, 0x2e, 0x03, 0x98,
+  0x31, 0x20, 0x60, 0x03, 0x62, 0x11, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10,
   0x0c, 0x16, 0x9f, 0xb9, 0x03, 0x76, 0x99, 0x09, 0xd1, 0x98, 0x30, 0x00,
   0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0xf1, 0x19, 0x3b, 0x60, 0x97,
   0x99, 0x08, 0x8d, 0x09, 0x03, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c,
   0x16, 0x9f, 0xa9, 0x03, 0x76, 0x99, 0x09, 0xbd, 0x98, 0x30, 0x00, 0x46,
   0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0xf1, 0x19, 0x3a, 0x60, 0x97, 0x99,
   0xc8, 0x8b, 0x09, 0x03, 0xc0, 0xe2, 0x20, 0x0c, 0xe0, 0x33, 0x63, 0x40,
-  0xc0, 0x86, 0xc7, 0x22, 0x80, 0xc5, 0x01, 0x18, 0xc0, 0x67, 0xc2, 0x00,
+  0xc4, 0x86, 0xc7, 0x22, 0x80, 0xc5, 0x01, 0x18, 0xc0, 0x67, 0xc2, 0x00,
   0xb0, 0x38, 0xf8, 0xe0, 0x33, 0x61, 0x00, 0x58, 0x1c, 0x78, 0xf0, 0x99,
-  0x30, 0x00, 0x8c, 0xc8, 0xe0, 0x33, 0x63, 0x40, 0xc0, 0x46, 0x19, 0xb0,
+  0x30, 0x00, 0x8c, 0xc8, 0xe0, 0x33, 0x63, 0x40, 0xc4, 0x46, 0x19, 0xb0,
   0x08, 0x60, 0x04, 0x06, 0x9f, 0x09, 0x03, 0xc0, 0x88, 0x0b, 0x3e, 0x13,
   0x06, 0x80, 0x11, 0x16, 0x7c, 0x26, 0x0c, 0x00, 0x23, 0x22, 0xf8, 0xcc,
-  0x18, 0x10, 0xb0, 0xc1, 0x06, 0x2c, 0x02, 0x18, 0x01, 0xc1, 0x67, 0xc2,
+  0x18, 0x10, 0xb1, 0xc1, 0x06, 0x2c, 0x02, 0x18, 0x01, 0xc1, 0x67, 0xc2,
   0x00, 0x30, 0xe2, 0x81, 0xcf, 0x84, 0x01, 0x60, 0x84, 0x03, 0x9f, 0x09,
-  0x03, 0xc0, 0xda, 0x85, 0x90, 0xcf, 0x8c, 0x01, 0x01, 0x1b, 0x15, 0x8b,
+  0x03, 0xc0, 0xda, 0x85, 0x90, 0xcf, 0x8c, 0x01, 0x11, 0x1b, 0x15, 0x8b,
   0x00, 0xe6, 0x2e, 0x84, 0x7c, 0x26, 0x0c, 0x00, 0x7b, 0x17, 0x42, 0x3e,
   0x13, 0x06, 0x80, 0xc1, 0x0b, 0x21, 0x9f, 0x09, 0x03, 0x80, 0xf6, 0x65,
-  0x00, 0x33, 0x06, 0x04, 0x6c, 0x38, 0x2c, 0x02, 0x8c, 0x18, 0x20, 0x00,
+  0x00, 0x33, 0x06, 0x44, 0x6c, 0x38, 0x2c, 0x02, 0x8c, 0x18, 0x20, 0x00,
   0x08, 0x82, 0xc1, 0xf2, 0x36, 0xa4, 0xd0, 0x2f, 0xb7, 0x31, 0x1b, 0x33,
-  0x06, 0x04, 0x3a, 0x30, 0xa6, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82,
+  0x06, 0x44, 0x3a, 0x30, 0xa6, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82,
   0xc1, 0xf2, 0x36, 0xa3, 0xd0, 0x2f, 0xb7, 0x21, 0x1b, 0x13, 0x06, 0xc0,
   0x88, 0x01, 0x02, 0x80, 0x20, 0x18, 0x2c, 0x6f, 0x23, 0x0a, 0xfd, 0x72,
   0x1b, 0xab, 0x31, 0x61, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1,
@@ -3175,9 +3178,9 @@ const unsigned char g_GenerateMips_CS[] = {
   0x02, 0x80, 0x20, 0x18, 0x2c, 0x6f, 0x23, 0x0a, 0xfd, 0x72, 0x1b, 0xab,
   0x31, 0x61, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0xf2, 0x36,
   0xa1, 0xd0, 0x2f, 0xb7, 0xa1, 0x1a, 0x13, 0x06, 0x00, 0xf1, 0xcb, 0x00,
-  0x66, 0x0c, 0x08, 0xd9, 0x78, 0x03, 0x16, 0x01, 0x46, 0x0c, 0x10, 0x00,
+  0x66, 0x0c, 0x88, 0xd9, 0x78, 0x03, 0x16, 0x01, 0x46, 0x0c, 0x10, 0x00,
   0x04, 0xc1, 0x60, 0x81, 0x9b, 0x52, 0xf0, 0x97, 0xd1, 0xa0, 0x8d, 0x19,
-  0x03, 0x62, 0x17, 0xb4, 0x55, 0x98, 0x91, 0x11, 0x03, 0x04, 0x00, 0x41,
+  0x03, 0x82, 0x17, 0xb4, 0x55, 0x98, 0x91, 0x11, 0x03, 0x04, 0x00, 0x41,
   0x30, 0x58, 0xe0, 0x86, 0x14, 0xfc, 0x65, 0x34, 0x66, 0x63, 0xc2, 0x00,
   0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x05, 0x6e, 0x46, 0xc1, 0x5f,
   0x46, 0x83, 0x35, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30,
@@ -3188,15 +3191,15 @@ const unsigned char g_GenerateMips_CS[] = {
   0x40, 0x00, 0x10, 0x04, 0x83, 0x05, 0x6e, 0x46, 0xc1, 0x5f, 0x46, 0x83,
   0x35, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0xe0,
   0x46, 0x14, 0xfc, 0x65, 0x34, 0x56, 0x63, 0xc2, 0x00, 0xa0, 0x7e, 0x19,
-  0xc0, 0x8c, 0x01, 0x01, 0x0e, 0xc5, 0x2a, 0xcc, 0x48, 0x89, 0x8b, 0xd9,
-  0xcc, 0x8c, 0x01, 0x21, 0x1b, 0x68, 0xc0, 0x22, 0x40, 0x89, 0xcb, 0xd9,
+  0xc0, 0x8c, 0x01, 0x11, 0x0e, 0xc5, 0x2a, 0xcc, 0x48, 0x89, 0x8b, 0xd9,
+  0xcc, 0x8c, 0x01, 0x31, 0x1b, 0x68, 0xc0, 0x22, 0x40, 0x89, 0xcb, 0xd9,
   0xcc, 0x84, 0x01, 0x30, 0x62, 0x70, 0x00, 0x20, 0x08, 0x06, 0x62, 0xb0,
-  0x36, 0x26, 0xb3, 0x2e, 0xf4, 0x32, 0x63, 0x40, 0xc8, 0x46, 0xc2, 0x22,
+  0x36, 0x26, 0xb3, 0x2e, 0xf4, 0x32, 0x63, 0x40, 0xcc, 0x46, 0xc2, 0x22,
   0xc0, 0x88, 0x81, 0x03, 0x80, 0x20, 0x18, 0x5c, 0x70, 0x43, 0x2f, 0xc1,
-  0x20, 0xe0, 0x8b, 0x92, 0x20, 0xc7, 0xbc, 0xcc, 0x18, 0x10, 0xb2, 0xd1,
-  0x06, 0x2c, 0x02, 0x50, 0xc8, 0x0c, 0x60, 0xc6, 0x80, 0x98, 0x8d, 0x84,
+  0x20, 0xe0, 0x8b, 0x92, 0x20, 0xc7, 0xbc, 0xcc, 0x18, 0x10, 0xb3, 0xd1,
+  0x06, 0x2c, 0x02, 0x50, 0xc8, 0x0c, 0x60, 0xc6, 0x80, 0xa0, 0x8d, 0x84,
   0x45, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0xea, 0x46, 0x15,
-  0x46, 0x86, 0x34, 0x72, 0x63, 0xc6, 0x80, 0x28, 0x85, 0x32, 0x80, 0x05,
+  0x46, 0x86, 0x34, 0x72, 0x63, 0xc6, 0x80, 0x30, 0x85, 0x32, 0x80, 0x05,
   0x1a, 0x19, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0xa5, 0x6e, 0x52, 0x61,
   0x64, 0x48, 0x03, 0x37, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41,
   0x30, 0x58, 0xea, 0x06, 0x15, 0x46, 0x86, 0x34, 0x62, 0x63, 0xc2, 0x00,
@@ -3208,106 +3211,106 @@ const unsigned char g_GenerateMips_CS[] = {
   0xea, 0x06, 0x15, 0x46, 0x86, 0x34, 0x62, 0x63, 0xc2, 0x00, 0x18, 0x31,
   0x40, 0x00, 0x10, 0x04, 0x83, 0xa5, 0x6e, 0x4e, 0x61, 0x64, 0x48, 0x03,
   0x36, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0xea,
-  0xa6, 0x27, 0x46, 0x26, 0x34, 0x78, 0x63, 0xc6, 0x80, 0x28, 0x85, 0x0b,
+  0xa6, 0x27, 0x46, 0x26, 0x34, 0x78, 0x63, 0xc6, 0x80, 0x30, 0x85, 0x0b,
   0x16, 0x68, 0x64, 0x05, 0xc3, 0xde, 0x94, 0x0d, 0xb9, 0xcc, 0x18, 0x10,
-  0xa7, 0x50, 0xc0, 0x02, 0x8d, 0x0c, 0x1b, 0x10, 0x01, 0x33, 0x00, 0x33,
-  0x06, 0xc4, 0x29, 0x44, 0xb0, 0x40, 0x23, 0x2b, 0x18, 0xf6, 0xc6, 0x6c,
-  0xca, 0x65, 0xc6, 0x80, 0x40, 0x85, 0x02, 0x16, 0x68, 0x64, 0xd8, 0x80,
-  0x08, 0x98, 0x01, 0x98, 0x31, 0x20, 0x50, 0x21, 0x82, 0x05, 0x1a, 0x59,
-  0xc1, 0xb0, 0x37, 0x67, 0x63, 0x2e, 0x33, 0x06, 0x44, 0x2a, 0x14, 0xb0,
-  0x40, 0x23, 0xc3, 0x06, 0x44, 0xc0, 0x0c, 0xc0, 0x8c, 0x01, 0x91, 0x0a,
+  0xa8, 0x50, 0xc0, 0x02, 0x8d, 0x0c, 0x1b, 0x10, 0x01, 0x33, 0x00, 0x33,
+  0x06, 0x04, 0x2a, 0x44, 0xb0, 0x40, 0x23, 0x2b, 0x18, 0xf6, 0xc6, 0x6c,
+  0xca, 0x65, 0xc6, 0x80, 0x48, 0x85, 0x02, 0x16, 0x68, 0x64, 0xd8, 0x80,
+  0x08, 0x98, 0x01, 0x98, 0x31, 0x20, 0x52, 0x21, 0x82, 0x05, 0x1a, 0x59,
+  0xc1, 0xb0, 0x37, 0x67, 0x63, 0x2e, 0x33, 0x06, 0x84, 0x2a, 0x14, 0xb0,
+  0x40, 0x23, 0xc3, 0x06, 0x44, 0xc0, 0x0c, 0xc0, 0x8c, 0x01, 0xa1, 0x0a,
   0x11, 0x2c, 0xd0, 0xc8, 0x0a, 0x86, 0xbd, 0x41, 0x9b, 0x73, 0x99, 0x31,
-  0x20, 0x54, 0xa1, 0x80, 0x05, 0x1a, 0x19, 0x36, 0x20, 0x02, 0x66, 0x00,
-  0x66, 0x0c, 0x08, 0x55, 0x88, 0x60, 0x81, 0x46, 0xc8, 0x64, 0x06, 0x30,
-  0x63, 0x40, 0xac, 0x42, 0x00, 0x0b, 0x34, 0x32, 0x4b, 0xd0, 0xcc, 0x18,
-  0x10, 0xb4, 0x51, 0xb0, 0x08, 0x30, 0x50, 0x01, 0x80, 0x01, 0xa3, 0x13,
+  0x20, 0x56, 0xa1, 0x80, 0x05, 0x1a, 0x19, 0x36, 0x20, 0x02, 0x66, 0x00,
+  0x66, 0x0c, 0x88, 0x55, 0x88, 0x60, 0x81, 0x46, 0xc8, 0x64, 0x06, 0x30,
+  0x63, 0x40, 0xb0, 0x42, 0x00, 0x0b, 0x34, 0x32, 0x4b, 0xd0, 0xcc, 0x18,
+  0x10, 0xb5, 0x51, 0xb0, 0x08, 0x30, 0x50, 0x01, 0x80, 0x01, 0xa3, 0x13,
   0xcb, 0x40, 0x05, 0x00, 0x06, 0x8c, 0x4e, 0x2c, 0x03, 0x15, 0x00, 0x18,
   0x30, 0x3a, 0xb1, 0x0c, 0x54, 0x00, 0x60, 0xc0, 0xe8, 0xc4, 0x32, 0x62,
   0x80, 0x00, 0x20, 0x08, 0x06, 0x8b, 0xdf, 0xbc, 0x02, 0xcb, 0x98, 0x87,
-  0x78, 0xcc, 0x18, 0x10, 0xe8, 0xc0, 0x98, 0x02, 0x30, 0x62, 0x80, 0x00,
+  0x78, 0xcc, 0x18, 0x10, 0xe9, 0xc0, 0x98, 0x02, 0x30, 0x62, 0x80, 0x00,
   0x20, 0x08, 0x06, 0x8b, 0xdf, 0xb8, 0x02, 0xcb, 0x98, 0x47, 0x78, 0x4c,
   0x18, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0xf8, 0x4d, 0x2b,
   0xb0, 0x8c, 0x79, 0xe8, 0xc6, 0x84, 0x01, 0x30, 0x62, 0x80, 0x00, 0x20,
   0x08, 0x06, 0x8b, 0xdf, 0xb0, 0x02, 0xcb, 0x98, 0x47, 0x6e, 0x4c, 0x18,
   0x00, 0x23, 0x06, 0x07, 0x00, 0x82, 0x60, 0xf0, 0xdd, 0x8d, 0xca, 0xc0,
-  0x8b, 0xdb, 0xcc, 0x18, 0x10, 0xb6, 0xa1, 0xd4, 0x08, 0x30, 0x9a, 0x10,
+  0x8b, 0xdb, 0xcc, 0x18, 0x10, 0xb7, 0xa1, 0xd4, 0x08, 0x30, 0x9a, 0x10,
   0x04, 0x13, 0x06, 0xc0, 0x70, 0x43, 0x30, 0x37, 0x60, 0x30, 0x63, 0x40,
-  0xd8, 0xc6, 0x55, 0x23, 0xc0, 0x70, 0x43, 0xd0, 0x36, 0x61, 0x30, 0x61,
+  0xdc, 0xc6, 0x55, 0x23, 0xc0, 0x70, 0x43, 0xd0, 0x36, 0x61, 0x30, 0x61,
   0x00, 0x0c, 0x37, 0x04, 0x6e, 0x13, 0x06, 0x13, 0x06, 0xc0, 0x2c, 0x83,
-  0xf3, 0x04, 0x33, 0x06, 0x84, 0x6d, 0x28, 0xa6, 0x00, 0xcc, 0x12, 0x44,
-  0x33, 0x06, 0xc4, 0x6d, 0x24, 0x35, 0x02, 0x8c, 0x18, 0x18, 0x00, 0x08,
-  0x82, 0x41, 0xe6, 0x37, 0x21, 0x13, 0x37, 0x33, 0x06, 0x44, 0x6e, 0x14,
-  0xa6, 0x00, 0x0c, 0x37, 0xc8, 0xcb, 0xdc, 0x80, 0xc1, 0x8c, 0x01, 0xd1,
+  0xf3, 0x04, 0x33, 0x06, 0xc4, 0x6d, 0x28, 0xa6, 0x00, 0xcc, 0x12, 0x44,
+  0x33, 0x06, 0x04, 0x6e, 0x24, 0x35, 0x02, 0x8c, 0x18, 0x18, 0x00, 0x08,
+  0x82, 0x41, 0xe6, 0x37, 0x21, 0x13, 0x37, 0x33, 0x06, 0x84, 0x6e, 0x14,
+  0xa6, 0x00, 0x0c, 0x37, 0xc8, 0xcb, 0xdc, 0x80, 0xc1, 0x8c, 0x01, 0xe1,
   0x1b, 0x98, 0x8d, 0x00, 0xc3, 0x0d, 0x01, 0xdc, 0x84, 0xc1, 0x84, 0x01,
   0x30, 0xdc, 0x10, 0xc4, 0x4d, 0x18, 0x4c, 0x18, 0x00, 0xb3, 0x0c, 0x50,
-  0x14, 0xcc, 0x18, 0x10, 0xbd, 0xa1, 0x98, 0x02, 0x50, 0xf5, 0xb2, 0x37,
-  0x30, 0x63, 0x40, 0xfc, 0x06, 0x1c, 0xdc, 0x08, 0x40, 0x34, 0x33, 0x80,
-  0x19, 0x03, 0xe2, 0x37, 0xae, 0x1b, 0x01, 0x46, 0x0c, 0x10, 0x00, 0x04,
+  0x14, 0xcc, 0x18, 0x10, 0xbe, 0xa1, 0x98, 0x02, 0x50, 0xf5, 0xb2, 0x37,
+  0x30, 0x63, 0x40, 0x80, 0x07, 0x1c, 0xdc, 0x08, 0x40, 0x34, 0x33, 0x80,
+  0x19, 0x03, 0x02, 0x3c, 0xae, 0x1b, 0x01, 0x46, 0x0c, 0x10, 0x00, 0x04,
   0xc1, 0x60, 0x41, 0x9d, 0x5a, 0xb0, 0x99, 0xd8, 0x78, 0x8f, 0x19, 0x03,
-  0xa2, 0x15, 0xb0, 0x5a, 0xc0, 0x91, 0x15, 0x0c, 0xae, 0x83, 0x37, 0xc2,
-  0x8c, 0x01, 0xf1, 0x0a, 0x54, 0x2d, 0xe0, 0x08, 0x05, 0xc0, 0x98, 0x30,
-  0x00, 0x56, 0x30, 0xbc, 0x8e, 0xde, 0x10, 0x33, 0x06, 0xc4, 0x2b, 0x84,
+  0xc2, 0x15, 0xb0, 0x5a, 0xc0, 0x91, 0x15, 0x0c, 0xae, 0x83, 0x37, 0xc2,
+  0x8c, 0x01, 0x01, 0x0b, 0x54, 0x2d, 0xe0, 0x08, 0x05, 0xc0, 0x98, 0x30,
+  0x00, 0x56, 0x30, 0xbc, 0x8e, 0xde, 0x10, 0x33, 0x06, 0x04, 0x2c, 0x84,
   0x41, 0x2d, 0xe0, 0x08, 0x05, 0xc0, 0x98, 0x30, 0x00, 0x56, 0x30, 0xc0,
-  0x0e, 0xdf, 0x18, 0x33, 0x06, 0xc4, 0x2b, 0xb8, 0x41, 0x2d, 0xe0, 0x08,
+  0x0e, 0xdf, 0x18, 0x33, 0x06, 0x04, 0x2c, 0xb8, 0x41, 0x2d, 0xe0, 0x08,
   0x05, 0xc0, 0x98, 0x30, 0x00, 0x56, 0x30, 0xc4, 0x8e, 0xdf, 0x20, 0x33,
-  0x06, 0xc4, 0x2b, 0xec, 0x41, 0x2d, 0xe0, 0x08, 0x05, 0xc0, 0x98, 0x30,
-  0x00, 0xa8, 0x67, 0x06, 0x30, 0x63, 0x40, 0xbc, 0x42, 0x51, 0x0b, 0x38,
-  0x42, 0x3e, 0x33, 0x80, 0x19, 0x03, 0xe2, 0x37, 0xa0, 0x1b, 0x01, 0x46,
+  0x06, 0x04, 0x2c, 0xec, 0x41, 0x2d, 0xe0, 0x08, 0x05, 0xc0, 0x98, 0x30,
+  0x00, 0xa8, 0x67, 0x06, 0x30, 0x63, 0x40, 0xc0, 0x42, 0x51, 0x0b, 0x38,
+  0x42, 0x3e, 0x33, 0x80, 0x19, 0x03, 0x02, 0x3c, 0xa0, 0x1b, 0x01, 0x46,
   0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0x91, 0x1d, 0x5f, 0x00, 0x1b, 0xd0,
   0xb0, 0x8f, 0x09, 0x03, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x16,
   0xd9, 0xe9, 0x05, 0xb0, 0x01, 0x8d, 0xfa, 0x98, 0x30, 0x00, 0x46, 0x0c,
   0x10, 0x00, 0x04, 0xc1, 0x60, 0x91, 0x1d, 0x5e, 0x00, 0x1b, 0xd0, 0x70,
   0x8f, 0x09, 0x03, 0x60, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x16, 0xd9,
   0xd9, 0x05, 0xb0, 0x01, 0x8d, 0xf6, 0x98, 0x30, 0x00, 0x2a, 0x64, 0x5a,
-  0x06, 0x66, 0x0c, 0x08, 0xf0, 0x80, 0x83, 0x1b, 0x01, 0x08, 0x6c, 0x06,
-  0x30, 0x63, 0x40, 0x80, 0xc7, 0x75, 0x23, 0xc0, 0x88, 0x01, 0x02, 0x80,
+  0x06, 0x66, 0x0c, 0x88, 0xf0, 0x80, 0x83, 0x1b, 0x01, 0x08, 0x6c, 0x06,
+  0x30, 0x63, 0x40, 0x84, 0xc7, 0x75, 0x23, 0xc0, 0x88, 0x01, 0x02, 0x80,
   0x20, 0x18, 0x2c, 0xb4, 0xc3, 0x0b, 0x62, 0xd3, 0x1b, 0xfb, 0x31, 0x63,
-  0x40, 0xb4, 0x02, 0x56, 0x0b, 0x3a, 0xb2, 0x82, 0x41, 0x77, 0x48, 0x47,
-  0x98, 0x31, 0x20, 0x5e, 0x81, 0xaa, 0x05, 0x1d, 0xa1, 0x00, 0x18, 0x13,
-  0x06, 0xc0, 0x0a, 0x86, 0xdd, 0x31, 0x1d, 0x62, 0xc6, 0x80, 0x78, 0x85,
+  0x40, 0xb8, 0x02, 0x56, 0x0b, 0x3a, 0xb2, 0x82, 0x41, 0x77, 0x48, 0x47,
+  0x98, 0x31, 0x20, 0x60, 0x81, 0xaa, 0x05, 0x1d, 0xa1, 0x00, 0x18, 0x13,
+  0x06, 0xc0, 0x0a, 0x86, 0xdd, 0x31, 0x1d, 0x62, 0xc6, 0x80, 0x80, 0x85,
   0x30, 0xa8, 0x05, 0x1d, 0xa1, 0x00, 0x18, 0x13, 0x06, 0xc0, 0x0a, 0x06,
-  0xde, 0x41, 0x1d, 0x63, 0xc6, 0x80, 0x78, 0x05, 0x37, 0xa8, 0x05, 0x1d,
+  0xde, 0x41, 0x1d, 0x63, 0xc6, 0x80, 0x80, 0x05, 0x37, 0xa8, 0x05, 0x1d,
   0xa1, 0x00, 0x18, 0x13, 0x06, 0xc0, 0x0a, 0x86, 0xde, 0x51, 0x1d, 0x64,
-  0xc6, 0x80, 0x78, 0x85, 0x3d, 0xa8, 0x05, 0x1d, 0xa1, 0x00, 0x18, 0x13,
-  0x06, 0x00, 0xa5, 0xcd, 0x00, 0x66, 0x0c, 0x88, 0x57, 0x28, 0x6a, 0x41,
-  0x47, 0x48, 0x6d, 0x06, 0x30, 0x63, 0x40, 0x80, 0x07, 0x74, 0x23, 0xc0,
+  0xc6, 0x80, 0x80, 0x85, 0x3d, 0xa8, 0x05, 0x1d, 0xa1, 0x00, 0x18, 0x13,
+  0x06, 0x00, 0xa5, 0xcd, 0x00, 0x66, 0x0c, 0x08, 0x58, 0x28, 0x6a, 0x41,
+  0x47, 0x48, 0x6d, 0x06, 0x30, 0x63, 0x40, 0x84, 0x07, 0x74, 0x23, 0xc0,
   0x88, 0x01, 0x02, 0x80, 0x20, 0x18, 0x2c, 0xbe, 0x53, 0x0e, 0x6c, 0xa3,
   0x1a, 0x22, 0x32, 0x61, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1,
   0xe2, 0x3b, 0xe4, 0xc0, 0x36, 0xaa, 0x11, 0x22, 0x13, 0x06, 0xc0, 0x88,
   0x01, 0x02, 0x80, 0x20, 0x18, 0x2c, 0xbe, 0x33, 0x0e, 0x6c, 0xa3, 0x1a,
   0xfa, 0x31, 0x61, 0x00, 0x8c, 0x18, 0x20, 0x00, 0x08, 0x82, 0xc1, 0xe2,
   0x3b, 0xe2, 0xc0, 0x36, 0xaa, 0x91, 0x1f, 0x13, 0x06, 0x40, 0xb5, 0x0c,
-  0xce, 0xc0, 0x8c, 0x01, 0x11, 0x1e, 0x70, 0x70, 0x23, 0x00, 0xb1, 0xcd,
-  0x00, 0x66, 0x0c, 0x88, 0xf0, 0xb8, 0x6e, 0x04, 0x18, 0x31, 0x40, 0x00,
+  0xce, 0xc0, 0x8c, 0x01, 0x21, 0x1e, 0x70, 0x70, 0x23, 0x00, 0xb1, 0xcd,
+  0x00, 0x66, 0x0c, 0x08, 0xf1, 0xb8, 0x6e, 0x04, 0x18, 0x31, 0x40, 0x00,
   0x10, 0x04, 0x83, 0x05, 0x7c, 0xc6, 0xc1, 0x6d, 0xd2, 0xe3, 0x44, 0x66,
-  0x0c, 0x88, 0x56, 0xc0, 0x6a, 0x81, 0x47, 0x56, 0x30, 0x98, 0x0f, 0xec,
-  0x08, 0x33, 0x06, 0xc4, 0x2b, 0x50, 0xb5, 0xc0, 0x23, 0x14, 0x00, 0x63,
-  0xc2, 0x00, 0x58, 0xc1, 0x70, 0x3e, 0xb2, 0x43, 0xcc, 0x18, 0x10, 0xaf,
+  0x0c, 0x08, 0x57, 0xc0, 0x6a, 0x81, 0x47, 0x56, 0x30, 0x98, 0x0f, 0xec,
+  0x08, 0x33, 0x06, 0x04, 0x2c, 0x50, 0xb5, 0xc0, 0x23, 0x14, 0x00, 0x63,
+  0xc2, 0x00, 0x58, 0xc1, 0x70, 0x3e, 0xb2, 0x43, 0xcc, 0x18, 0x10, 0xb0,
   0x10, 0x06, 0xb5, 0xc0, 0x23, 0x14, 0x00, 0x63, 0xc2, 0x00, 0x58, 0xc1,
-  0x80, 0x3e, 0xb4, 0x63, 0xcc, 0x18, 0x10, 0xaf, 0xe0, 0x06, 0xb5, 0xc0,
+  0x80, 0x3e, 0xb4, 0x63, 0xcc, 0x18, 0x10, 0xb0, 0xe0, 0x06, 0xb5, 0xc0,
   0x23, 0x14, 0x00, 0x63, 0xc2, 0x00, 0x58, 0xc1, 0x90, 0x3e, 0xb6, 0x83,
-  0xcc, 0x18, 0x10, 0xaf, 0xb0, 0x07, 0xb5, 0xc0, 0x23, 0x14, 0x00, 0x63,
-  0xc2, 0x00, 0xa0, 0xba, 0x19, 0xc0, 0x8c, 0x01, 0xf1, 0x0a, 0x45, 0x2d,
-  0xf0, 0x08, 0xd9, 0xcd, 0x00, 0x66, 0x0c, 0x88, 0xf0, 0x80, 0x6e, 0x04,
+  0xcc, 0x18, 0x10, 0xb0, 0xb0, 0x07, 0xb5, 0xc0, 0x23, 0x14, 0x00, 0x63,
+  0xc2, 0x00, 0xa0, 0xba, 0x19, 0xc0, 0x8c, 0x01, 0x01, 0x0b, 0x45, 0x2d,
+  0xf0, 0x08, 0xd9, 0xcd, 0x00, 0x66, 0x0c, 0x08, 0xf1, 0x80, 0x6e, 0x04,
   0x18, 0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x45, 0x7d, 0xd8, 0x01, 0x6f,
   0x68, 0xc3, 0x45, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30,
   0x58, 0xd4, 0x67, 0x1d, 0xf0, 0x86, 0x36, 0x5a, 0x64, 0xc2, 0x00, 0x18,
   0x31, 0x40, 0x00, 0x10, 0x04, 0x83, 0x45, 0x7d, 0xd4, 0x01, 0x6f, 0x68,
   0xc3, 0x44, 0x26, 0x0c, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58,
   0xd4, 0x27, 0x1d, 0xf0, 0x86, 0x36, 0x4a, 0x64, 0xc2, 0x00, 0x30, 0x38,
-  0x08, 0x03, 0xf8, 0xcc, 0x18, 0x10, 0xe2, 0xe1, 0xdd, 0x08, 0x60, 0x70,
+  0x08, 0x03, 0xf8, 0xcc, 0x18, 0x10, 0xe3, 0xe1, 0xdd, 0x08, 0x60, 0x70,
   0x00, 0x06, 0xf0, 0x99, 0x30, 0x00, 0x0c, 0x0e, 0x3e, 0xf8, 0x4c, 0x18,
   0x00, 0x06, 0x07, 0x1e, 0x7c, 0x26, 0x0c, 0x00, 0x23, 0x32, 0xf8, 0xcc,
-  0x18, 0x10, 0xe2, 0x51, 0x06, 0x37, 0x02, 0x18, 0x81, 0xc1, 0x67, 0xc2,
+  0x18, 0x10, 0xe3, 0x51, 0x06, 0x37, 0x02, 0x18, 0x81, 0xc1, 0x67, 0xc2,
   0x00, 0x30, 0xe2, 0x82, 0xcf, 0x84, 0x01, 0x60, 0x84, 0x05, 0x9f, 0x09,
-  0x03, 0xc0, 0x88, 0x08, 0x3e, 0x33, 0x06, 0x84, 0x78, 0xb0, 0xc1, 0x8d,
+  0x03, 0xc0, 0x88, 0x08, 0x3e, 0x33, 0x06, 0xc4, 0x78, 0xb0, 0xc1, 0x8d,
   0x00, 0x46, 0x40, 0xf0, 0x99, 0x30, 0x00, 0x8c, 0x78, 0xe0, 0x33, 0x61,
   0x00, 0x18, 0xe1, 0xc0, 0x67, 0xc2, 0x00, 0xb0, 0xbc, 0x21, 0xe4, 0x33,
-  0x63, 0x40, 0x88, 0x47, 0x75, 0x23, 0x80, 0xe9, 0x0d, 0x21, 0x9f, 0x09,
+  0x63, 0x40, 0x8c, 0x47, 0x75, 0x23, 0x80, 0xe9, 0x0d, 0x21, 0x9f, 0x09,
   0x03, 0xc0, 0xf6, 0x86, 0x90, 0xcf, 0x84, 0x01, 0x60, 0x7c, 0x43, 0xc8,
-  0x67, 0xc2, 0x00, 0xa0, 0xd3, 0x19, 0xc0, 0x8c, 0x01, 0x21, 0x1e, 0xce,
+  0x67, 0xc2, 0x00, 0xa0, 0xd3, 0x19, 0xc0, 0x8c, 0x01, 0x31, 0x1e, 0xce,
   0x8d, 0x00, 0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0xec, 0x4f, 0x3e,
-  0xa4, 0xce, 0x98, 0xfc, 0xc8, 0x8c, 0x01, 0x81, 0x0e, 0x8c, 0x29, 0x00,
+  0xa4, 0xce, 0x98, 0xfc, 0xc8, 0x8c, 0x01, 0x91, 0x0e, 0x8c, 0x29, 0x00,
   0x23, 0x06, 0x08, 0x00, 0x82, 0x60, 0xb0, 0xec, 0x0f, 0x3e, 0xa4, 0xce,
   0x98, 0xf8, 0xc8, 0x84, 0x01, 0x30, 0x62, 0x80, 0x00, 0x20, 0x08, 0x06,
   0xcb, 0xfe, 0xdc, 0x43, 0xea, 0x8c, 0xc9, 0x8d, 0x4c, 0x18, 0x00, 0x23,
@@ -3318,9 +3321,9 @@ const unsigned char g_GenerateMips_CS[] = {
   0xc8, 0x84, 0x01, 0x30, 0x62, 0x80, 0x00, 0x20, 0x08, 0x06, 0xcb, 0xfe,
   0xdc, 0x43, 0xea, 0x8c, 0xc9, 0x8d, 0x4c, 0x18, 0x00, 0x23, 0x06, 0x08,
   0x00, 0x82, 0x60, 0xb0, 0xec, 0x8f, 0x3d, 0xa4, 0xce, 0x98, 0xd8, 0xc8,
-  0x84, 0x01, 0x40, 0xa8, 0x33, 0x80, 0x19, 0x03, 0x82, 0x3c, 0xde, 0xe0,
+  0x84, 0x01, 0x40, 0xa8, 0x33, 0x80, 0x19, 0x03, 0xa2, 0x3c, 0xde, 0xe0,
   0x46, 0x80, 0x11, 0x03, 0x04, 0x00, 0x41, 0x30, 0x58, 0xf8, 0x47, 0x1f,
-  0x54, 0xe7, 0x45, 0xc0, 0x64, 0xc6, 0x80, 0xd8, 0x05, 0x6d, 0x15, 0x7c,
+  0x54, 0xe7, 0x45, 0xc0, 0x64, 0xc6, 0x80, 0xe0, 0x05, 0x6d, 0x15, 0x7c,
   0x64, 0xc4, 0x00, 0x01, 0x40, 0x10, 0x0c, 0x16, 0xfe, 0xc9, 0x07, 0xd5,
   0x79, 0x91, 0x1f, 0x99, 0x30, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1,
   0x60, 0xe1, 0x1f, 0x7c, 0x50, 0x9d, 0x17, 0xc1, 0x91, 0x09, 0x03, 0x60,
@@ -3331,15 +3334,15 @@ const unsigned char g_GenerateMips_CS[] = {
   0x1f, 0x99, 0x30, 0x00, 0x46, 0x0c, 0x10, 0x00, 0x04, 0xc1, 0x60, 0xe1,
   0x1f, 0x7c, 0x50, 0x9d, 0x17, 0xc1, 0x91, 0x09, 0x03, 0x60, 0xc4, 0x00,
   0x01, 0x40, 0x10, 0x0c, 0x16, 0xfe, 0xb9, 0x07, 0xd5, 0x79, 0x91, 0x1b,
-  0x99, 0x30, 0x00, 0x28, 0x75, 0x06, 0x30, 0x63, 0x40, 0x80, 0x43, 0xb1,
-  0x0a, 0x3e, 0x52, 0x6e, 0x13, 0x3e, 0x33, 0x63, 0x40, 0x90, 0x07, 0x1a,
+  0x99, 0x30, 0x00, 0x28, 0x75, 0x06, 0x30, 0x63, 0x40, 0x84, 0x43, 0xb1,
+  0x0a, 0x3e, 0x52, 0x6e, 0x13, 0x3e, 0x33, 0x63, 0x40, 0x94, 0x07, 0x1a,
   0xdc, 0x08, 0x50, 0x6e, 0x23, 0x3e, 0x33, 0x61, 0x00, 0x8c, 0x18, 0x1c,
   0x00, 0x08, 0x82, 0x81, 0x18, 0xdc, 0x8f, 0xec, 0xe0, 0x0d, 0xe8, 0xcc,
-  0x18, 0x10, 0xe4, 0x91, 0xdc, 0x08, 0x30, 0x62, 0xe0, 0x00, 0x20, 0x08,
+  0x18, 0x10, 0xe5, 0x91, 0xdc, 0x08, 0x30, 0x62, 0xe0, 0x00, 0x20, 0x08,
   0x06, 0x17, 0xff, 0x80, 0x4e, 0x30, 0x08, 0xa4, 0xa3, 0x24, 0xc8, 0xf1,
-  0x37, 0x33, 0x06, 0x04, 0x79, 0xb4, 0xc1, 0x8d, 0x00, 0xb3, 0x04, 0xd1,
-  0x8c, 0x01, 0x51, 0x1e, 0xc5, 0x8d, 0x00, 0xd4, 0x3a, 0x03, 0x98, 0x31,
-  0x20, 0xcc, 0x23, 0x30, 0x05, 0x00, 0x27, 0x0c, 0x80, 0x70, 0x20, 0x00,
+  0x37, 0x33, 0x06, 0x44, 0x79, 0xb4, 0xc1, 0x8d, 0x00, 0xb3, 0x04, 0xd1,
+  0x8c, 0x01, 0x61, 0x1e, 0xc5, 0x8d, 0x00, 0xd4, 0x3a, 0x03, 0x98, 0x31,
+  0x20, 0xce, 0x23, 0x30, 0x05, 0x00, 0x27, 0x0c, 0x80, 0x70, 0x20, 0x00,
   0x16, 0x01, 0x00, 0x00, 0xe6, 0x35, 0xf8, 0x08, 0x6d, 0x75, 0x85, 0x8f,
   0xd0, 0x35, 0x6d, 0xdb, 0x02, 0x86, 0x8f, 0xd0, 0x35, 0x4d, 0xdb, 0xb7,
   0x80, 0xe1, 0x23, 0x74, 0x4d, 0xe3, 0x36, 0x2e, 0x60, 0xf8, 0x08, 0x5d,

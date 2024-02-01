@@ -84,9 +84,6 @@
     <ClCompile Include="Descriptor\DynamicDescriptorHeap.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Demo1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="PSO\GenerateMipsPSO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -105,7 +102,13 @@
     <ClCompile Include="Scene\Material.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Demo2.cpp">
+    <ClCompile Include="Scene\PBRMaterial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Demo3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PSO\IrradianceConvolutionPSO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -221,16 +224,17 @@
     <ClInclude Include="..\inc\PanoToCubemapPSO.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Demo1.h">
+    <ClInclude Include="Demo3.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Demo2.h">
+    <ClInclude Include="Scene\PBRMaterial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\IrradianceConvolutionPSO.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\shaders\VertexShader.hlsl" />
-    <FxCompile Include="..\shaders\PixelShader.hlsl" />
     <FxCompile Include="..\shaders\GenerateMips_CS.hlsl" />
     <FxCompile Include="..\shaders\PanoToCubemap_CS.hlsl" />
     <FxCompile Include="..\shaders\HDR_PS.hlsl" />
@@ -239,5 +243,6 @@
     <FxCompile Include="..\shaders\HDRtoSDR_VS.hlsl" />
     <FxCompile Include="..\shaders\Skybox_PS.hlsl" />
     <FxCompile Include="..\shaders\Skybox_VS.hlsl" />
+    <FxCompile Include="..\shaders\IrrarianceConvolution_CS.hlsl" />
   </ItemGroup>
 </Project>

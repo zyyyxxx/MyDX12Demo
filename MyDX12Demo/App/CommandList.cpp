@@ -10,6 +10,7 @@
 #include <DynamicDescriptorHeap.h>
 #include <GenerateMipsPSO.h>
 #include <PanoToCubemapPSO.h>
+#include <IrradianceConvolutionPSO.h>
 #include <RenderTarget.h>
 #include <Resource.h>
 #include <ResourceStateTracker.h>
@@ -18,6 +19,7 @@
 #include <Texture.h>
 #include <UploadBuffer.h>
 #include <VertexBuffer.h>
+
 
 // static
 std::map<std::wstring, ID3D12Resource* > CommandList::ms_TextureCache;
@@ -696,7 +698,7 @@ void CommandList::PanoToCubemap(Texture& cubemapTexture, const Texture& panoText
         stagingTexture.SetName(L"Pano to Cubemap Staging Texture");
 
         CopyResource(stagingTexture, cubemapTexture );
-    }
+    }                                                                 
 
     TransitionBarrier(stagingTexture, D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
 
@@ -711,7 +713,7 @@ void CommandList::PanoToCubemap(Texture& cubemapTexture, const Texture& panoText
     uavDesc.Texture2DArray.FirstArraySlice = 0;
     uavDesc.Texture2DArray.ArraySize = 6;
 
-    for (uint32_t mipSlice = 0; mipSlice < cubemapDesc.MipLevels; )
+    for (uint32_t mipSlice = 0; mipSlice < cubemapDesc.MipLevels; ) // 1024 图片 一共11层
     {
         // 每个pass生成的最大 mips 数为 5。
         uint32_t numMips = std::min<uint32_t>(5, cubemapDesc.MipLevels - mipSlice);
@@ -727,7 +729,8 @@ void CommandList::PanoToCubemap(Texture& cubemapTexture, const Texture& panoText
         for ( uint32_t mip = 0; mip < numMips; ++mip )
         {
             uavDesc.Texture2DArray.MipSlice = mipSlice + mip;
-            SetUnorderedAccessView(PanoToCubemapRS::DstMips, mip, stagingTexture, D3D12_RESOURCE_STATE_UNORDERED_ACCESS, 0, 0, &uavDesc);
+            SetUnorderedAccessView(PanoToCubemapRS::DstMips, mip, stagingTexture,
+                D3D12_RESOURCE_STATE_UNORDERED_ACCESS, 0, 0, &uavDesc);
         }
 
         if (numMips < 5)
@@ -744,6 +747,102 @@ void CommandList::PanoToCubemap(Texture& cubemapTexture, const Texture& panoText
     if (stagingResource != cubemapResource)
     {
         CopyResource(cubemapTexture, stagingTexture);
+    }
+}
+
+void CommandList::CubemapToIrradianceConvolution(Texture& irradianceTexture, const Texture& cubemap)
+{
+    if (m_d3d12CommandListType == D3D12_COMMAND_LIST_TYPE_COPY)
+    {
+        if (!m_ComputeCommandList)
+        {
+            m_ComputeCommandList = Application::Get().GetCommandQueue(D3D12_COMMAND_LIST_TYPE_COMPUTE)->GetCommandList();
+        }
+        m_ComputeCommandList->CubemapToIrradianceConvolution(irradianceTexture, cubemap);
+        return;
+    }
+
+    if (!m_IrradianceCubemapPSO)
+    {
+        m_IrradianceCubemapPSO = std::make_unique<IrradianceConvolutionPSO>();
+    }
+
+    auto device = Application::Get().GetDevice();
+
+    auto irradianceCubemapResource = irradianceTexture.GetD3D12Resource();
+    if (!irradianceCubemapResource) return;
+
+    CD3DX12_RESOURCE_DESC irradianceDesc(irradianceCubemapResource->GetDesc());
+
+    auto stagingResource = irradianceCubemapResource;
+    Texture stagingTexture(stagingResource);
+    // 如果传入的资源不允许 UAV 访问，则创建用于生成立方体贴图的暂存资源
+    if ((irradianceDesc.Flags & D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS) == 0)
+    {
+        auto stagingDesc = irradianceDesc;
+        stagingDesc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+
+        const auto heapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
+        ThrowIfFailed(device->CreateCommittedResource(
+            &heapProperties,
+            D3D12_HEAP_FLAG_NONE,
+            &stagingDesc,
+            D3D12_RESOURCE_STATE_COPY_DEST,
+            nullptr,
+            IID_PPV_ARGS(&stagingResource)
+
+        ));
+
+        ResourceStateTracker::AddGlobalResourceState(stagingResource.Get(), D3D12_RESOURCE_STATE_COPY_DEST);
+
+        stagingTexture.SetD3D12Resource(stagingResource);
+        stagingTexture.CreateViews();
+        stagingTexture.SetName(L"Cubemap to Irradiance Convolution Staging Texture");
+
+        CopyResource(stagingTexture, irradianceTexture );
+    }
+
+    TransitionBarrier(stagingTexture, D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
+
+    m_d3d12CommandList->SetPipelineState(m_IrradianceCubemapPSO->GetPipelineState().Get());
+    SetComputeRootSignature(m_IrradianceCubemapPSO->GetRootSignature());
+
+    IrradianceConvolutionCB irradianceConvolutionCB;
+
+    D3D12_UNORDERED_ACCESS_VIEW_DESC uavDesc = {};
+    uavDesc.Format = irradianceDesc.Format;
+    uavDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2DARRAY;
+    uavDesc.Texture2DArray.ArraySize = 6; // Assuming it's a cubemap with 6 faces
+    uavDesc.Texture2DArray.MipSlice = 0;  // Mip level
+    uavDesc.Texture2DArray.FirstArraySlice = 0; // Starting array slice
+    uavDesc.Texture2DArray.PlaneSlice = 0;  // For 3D textures
+
+    
+    irradianceConvolutionCB.CubemapSize = std::max<uint32_t>( static_cast<uint32_t>( irradianceDesc.Width ), irradianceDesc.Height);
+
+    SetCompute32BitConstants(IrradianceConvolutionRS::IrradianceConvolutionCB, irradianceConvolutionCB);
+
+    D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+    srvDesc.Format = cubemap.GetD3D12ResourceDesc().Format;
+    srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+    srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURECUBE;
+    srvDesc.TextureCube.MipLevels = 1; // Use all mips.
+    
+    SetShaderResourceView(IrradianceConvolutionRS::SrcTexture, 0, cubemap, D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE ,
+         0, D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES, &srvDesc);
+
+    uavDesc.Texture2DArray.MipSlice = 0;
+    SetUnorderedAccessView(IrradianceConvolutionRS::DstTexture, 0,
+                           stagingTexture, D3D12_RESOURCE_STATE_UNORDERED_ACCESS, 0, 0, &uavDesc);
+    
+
+    Dispatch(Math::DivideByMultiple(irradianceConvolutionCB.CubemapSize, 16),
+             Math::DivideByMultiple(irradianceConvolutionCB.CubemapSize, 16), 6);
+        
+
+    if (stagingResource != irradianceCubemapResource)
+    {
+        CopyResource(irradianceTexture, stagingTexture);
     }
 }
 
@@ -973,7 +1072,8 @@ void CommandList::SetShaderResourceView( uint32_t rootParameterIndex,
         TransitionBarrier(resource, stateAfter);
     }
 
-    m_DynamicDescriptorHeap[D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV]->StageDescriptors( rootParameterIndex, descriptorOffset, 1, resource.GetShaderResourceView( srv ) );
+    m_DynamicDescriptorHeap[D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV]->StageDescriptors( rootParameterIndex, descriptorOffset, 1,
+        resource.GetShaderResourceView( srv ) );
 
     TrackResource(resource);
 }

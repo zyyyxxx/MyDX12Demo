@@ -17,6 +17,7 @@ class DynamicDescriptorHeap;
 class GenerateMipsPSO;
 class IndexBuffer;
 class PanoToCubemapPSO;
+class IrradianceConvolutionPSO;
 class RenderTarget;
 class Resource;
 class ResourceStateTracker;
@@ -168,6 +169,12 @@ public:
      */
     void PanoToCubemap(Texture& cubemap, const Texture& pano);
 
+    /**
+     * 从 cubemap 纹理生成 irradiance卷积 纹理
+     */
+    void CubemapToIrradianceConvolution(Texture& irradianceTexture, const Texture& cubemap);
+
+    
     /**
       * 将子资源数据复制到纹理
       */
@@ -398,16 +405,18 @@ private:
     // 命令列表使用资源状态跟踪器来跟踪（每个命令列表）资源的当前状态。资源状态跟踪器还跟踪资源的全局状态，以最大程度地减少资源状态转换。
     std::unique_ptr<ResourceStateTracker> m_ResourceStateTracker;
 
-    //DynamicDescriptorHeap将描述符提交到命令列表之前暂存。DynamicDescriptorHeap需要在绘制或调度之前提交。   
+    // DynamicDescriptorHeap 将描述符提交到命令列表之前暂存。DynamicDescriptorHeap 需要在绘制或调度之前提交。   
     std::unique_ptr<DynamicDescriptorHeap> m_DynamicDescriptorHeap[D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES];
 
     // 跟踪当前绑定的描述符堆。仅当描述符堆与当前绑定的描述符堆不同时，才更改这些描述符堆。
     ID3D12DescriptorHeap* m_DescriptorHeaps[D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES];
 
-    // PSO for Mip map generation.
+    // PSO for Mip map 生成
     std::unique_ptr<GenerateMipsPSO> m_GenerateMipsPSO;
     // PSO for 全景图（等距柱状投影）转换为立方体贴图
     std::unique_ptr<PanoToCubemapPSO> m_PanoToCubemapPSO;
+    // PSO for cubemap 转换为 irradiance convolution
+    std::unique_ptr<IrradianceConvolutionPSO> m_IrradianceCubemapPSO;
 
     // 命令队列上“正在进行”且无法删除的命令列表 跟踪对象
     // 为确保在命令列表执行完毕之前不会删除对象，将存储对对象的引用。
