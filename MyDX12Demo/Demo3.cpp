@@ -103,7 +103,7 @@ enum RootParameters
     CameraDataCB,        // ConstantBuffer<CameraData> CameraDataCB : register(b2);
     PointLights,        // StructuredBuffer<PointLight> PointLights : register( t0 );
     SpotLights,         // StructuredBuffer<SpotLight> SpotLights : register( t1 );
-    Textures,           // Texture2D DiffuseTexture : register( t2 );
+    IrradianceConvolution, // TextureCube IrradianceConvolution : register(t2);
     NumRootParameters
 };
 
@@ -198,13 +198,18 @@ bool Demo3::LoadContent()
     m_GraceCathedralCubemap = Texture(cubemapDesc, nullptr, TextureUsage::Albedo, L"Grace Cathedral Cubemap");
     commandList->PanoToCubemap(m_GraceCathedralCubemap, m_GraceCathedralTexture);
 
-    // TODO: 将 3D cubeMap 转换为 irradiance convolution cubeMap
+    // 将 3D cubeMap 转换为 irradiance convolution cubeMap
     auto irradianceDesc = m_GraceCathedralCubemap.GetD3D12ResourceDesc();
     irradianceDesc.Width = irradianceDesc.Height = 1024;
     irradianceDesc.DepthOrArraySize = 6;
     irradianceDesc.MipLevels = 0;
     m_IrradianceCubemap = Texture(irradianceDesc, nullptr, TextureUsage::Albedo, L"Irradiance Convolution Texture");
     commandList->CubemapToIrradianceConvolution(m_IrradianceCubemap, m_GraceCathedralCubemap);
+
+    // TODO: 预过滤HDR环境贴图
+    
+
+    // TODO: BRDF LUT
 
     // 创建 HDR 中间RT
     DXGI_FORMAT HDRFormat = DXGI_FORMAT_R16G16B16A16_FLOAT;
@@ -339,7 +344,7 @@ bool Demo3::LoadContent()
         rootParameters[RootParameters::CameraDataCB].InitAsConstantBufferView(2, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_PIXEL);
         rootParameters[RootParameters::PointLights].InitAsShaderResourceView(0, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_PIXEL);
         rootParameters[RootParameters::SpotLights].InitAsShaderResourceView(1, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_PIXEL);
-        rootParameters[RootParameters::Textures].InitAsDescriptorTable(1, &descriptorRange, D3D12_SHADER_VISIBILITY_PIXEL);
+        rootParameters[RootParameters::IrradianceConvolution].InitAsDescriptorTable(1, &descriptorRange, D3D12_SHADER_VISIBILITY_PIXEL);
 
         CD3DX12_STATIC_SAMPLER_DESC linearRepeatSampler(0, D3D12_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR);
         CD3DX12_STATIC_SAMPLER_DESC anisotropicSampler(0, D3D12_FILTER_ANISOTROPIC);
@@ -488,11 +493,10 @@ void Demo3::OnUpdate(UpdateEventArgs& e)
     XMMATRIX viewMatrix = m_Camera.get_ViewMatrix();
 
     const int numPointLights = 4;
-    const int numSpotLights = 4;
 
     static const XMVECTORF32 LightColors[] =
     {
-        Colors::White, Colors::Orange, Colors::Yellow, Colors::Green, Colors::Blue, Colors::Indigo, Colors::Violet, Colors::White
+        Colors::White, Colors::White, Colors::White, Colors::White
     };
 
     static float lightAnimTime = 0.0f;
@@ -503,7 +507,6 @@ void Demo3::OnUpdate(UpdateEventArgs& e)
 
     const float radius = 8.0f;
     const float offset = 2.0f * XM_PI / numPointLights;
-    const float offset2 = offset + (offset / 2.0f);
 
     // Setup the light buffers.
     m_PointLights.resize(numPointLights);
@@ -526,31 +529,6 @@ void Demo3::OnUpdate(UpdateEventArgs& e)
         l.Attenuation = 0.0f;
     }
 
-    m_SpotLights.resize(numSpotLights);
-    for (int i = 0; i < numSpotLights; ++i)
-    {
-        SpotLight& l = m_SpotLights[i];
-
-        l.PositionWS = {
-            static_cast<float>(std::sin(lightAnimTime + offset * i + offset2)) * radius,
-            9.0f,
-            static_cast<float>(std::cos(lightAnimTime + offset * i + offset2)) * radius,
-            1.0f
-        };
-        XMVECTOR positionWS = XMLoadFloat4(&l.PositionWS);
-        XMVECTOR positionVS = XMVector3TransformCoord(positionWS, viewMatrix);
-        XMStoreFloat4(&l.PositionVS, positionVS);
-
-        XMVECTOR directionWS = XMVector3Normalize(XMVectorSetW(XMVectorNegate(positionWS), 0));
-        XMVECTOR directionVS = XMVector3Normalize(XMVector3TransformNormal(directionWS, viewMatrix));
-        XMStoreFloat4(&l.DirectionWS, directionWS);
-        XMStoreFloat4(&l.DirectionVS, directionVS);
-
-        l.Color = XMFLOAT4(LightColors[numPointLights + i]);
-        l.Intensity = 1.0f;
-        l.SpotAngle = XMConvertToRadians(45.0f);
-        l.Attenuation = 0.0f;
-    }
     #pragma endregion
 }
 
@@ -606,7 +584,7 @@ void XM_CALLCONV ComputeMatrices(FXMMATRIX model, CXMMATRIX view, CXMMATRIX view
 {
     mat.ModelMatrix = model;
     mat.ModelViewMatrix = model * view;
-    mat.InverseTransposeModelViewMatrix = XMMatrixTranspose(XMMatrixInverse(nullptr, mat.ModelViewMatrix));
+    mat.InverseTransposeModelViewMatrix = XMMatrixTranspose(XMMatrixInverse(nullptr, mat.ModelMatrix));
     mat.ModelViewProjectionMatrix = model * viewProjection;
 }
 #pragma endregion  
@@ -682,9 +660,35 @@ void Demo3::OnRender(RenderEventArgs& e)
     commandList->SetGraphicsDynamicConstantBuffer(RootParameters::MatricesCB, matrices);
     commandList->SetGraphicsDynamicConstantBuffer(RootParameters::MaterialCB, PBRMaterial::Test);
     commandList->SetGraphicsDynamicConstantBuffer(RootParameters::CameraDataCB, m_Camera.get_Translation());
-    commandList->SetShaderResourceView(RootParameters::Textures, 0, m_DefaultTexture, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
-    m_SphereMesh->Draw(*commandList);
+
+    D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+    srvDesc.Format = m_IrradianceCubemap.GetD3D12ResourceDesc().Format;
+    srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+    srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURECUBE;
+    srvDesc.TextureCube.MipLevels = 1; // Use all mips.
     
+    commandList->SetShaderResourceView(RootParameters::IrradianceConvolution, 0, m_IrradianceCubemap,
+        D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE , 0, D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES, &srvDesc);
+    
+    m_SphereMesh->Draw(*commandList);
+
+
+    // 可视化场景中灯光的位置。
+    Material lightMaterial;
+    // No specular
+    lightMaterial.Specular = { 0, 0, 0, 1 };
+    for (const auto& l : m_PointLights)
+    {
+        lightMaterial.Emissive = l.Color;
+        XMVECTOR lightPos = XMLoadFloat4(&l.PositionWS);
+        worldMatrix = XMMatrixTranslationFromVector(lightPos);
+        ComputeMatrices(worldMatrix, viewMatrix, viewProjectionMatrix, matrices);
+
+        commandList->SetGraphicsDynamicConstantBuffer(RootParameters::MatricesCB, matrices);
+
+        m_SphereMesh->Draw(*commandList);
+    }
+
 
 #pragma endregion
 

@@ -483,6 +483,8 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM l
         {
         case WM_PAINT:
         {
+            ++Application::ms_FrameCount;
+                
             // Delta time will be filled in by the Window.
             UpdateEventArgs updateEventArgs(0.0f, 0.0f, Application::ms_FrameCount);
             pWindow->OnUpdate(updateEventArgs);
