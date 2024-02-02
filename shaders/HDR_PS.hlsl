@@ -67,8 +67,9 @@ ConstantBuffer<CameraData> CameraDataCB : register(b2);
 
 StructuredBuffer<PointLight> PointLights : register( t0 );
 StructuredBuffer<SpotLight> SpotLights : register( t1 );
-Texture2D DiffuseTexture            : register( t2 );
-TextureCube IrradianceConvolution : register(t3);
+TextureCube IrradianceConvolution : register(t2);
+TextureCube PreFilter : register(t3);
+Texture2D BRDFLUT : register(t4);
 
 SamplerState LinearRepeatSampler    : register(s0);
 
@@ -91,10 +92,8 @@ float Distribution_GGX( float3 N, float3 H, float fRoughness )
     return num / denom;
 }
 
-float Geometry_Schlick_GGX( float NdotV, float fRoughness )
+float Geometry_Schlick_GGX_DirectLight( float NdotV, float fRoughness )
 {
-    // Dircet Light: k = (fRoughness + 1)^2 / 8;
-    // IBL: k = （fRoughness^2)/2;
     float r = ( fRoughness + 1.0 );
     float k = ( r * r ) / 8.0;
 
@@ -104,15 +103,38 @@ float Geometry_Schlick_GGX( float NdotV, float fRoughness )
     return num / denom;
 }
 
-float Geometry_Smith( float3 N, float3 V, float3 L, float fRoughness )
+float Geometry_Schlick_GGX_IBL(float NdotV, float roughness)
+{// IBL Versions
+    float a = roughness;
+    float k = (a * a) / 2.0f;
+
+    float nom = NdotV;
+    float denom = NdotV * (1.0f - k) + k;
+
+    return nom / denom;
+}
+
+float Geometry_Smith_DirectLight( float3 N, float3 V, float3 L, float fRoughness )
 {
     float NdotV = max( dot( N, V ), 0.0 );
     float NdotL = max( dot( N, L ), 0.0 );
-    float ggx2 = Geometry_Schlick_GGX( NdotV, fRoughness );
-    float ggx1 = Geometry_Schlick_GGX( NdotL, fRoughness );
+    float ggx2 = Geometry_Schlick_GGX_DirectLight( NdotV, fRoughness );
+    float ggx1 = Geometry_Schlick_GGX_DirectLight( NdotL, fRoughness );
 
     return ggx1 * ggx2;
 }
+
+float GeometrySmith_IBL(float3 N, float3 V, float3 L, float roughness)
+{
+    float NdotV = max(dot(N, V), 0.0f);
+    float NdotL = max(dot(N, L), 0.0f);
+
+    float ggx2 = Geometry_Schlick_GGX_IBL(NdotV, roughness);
+    float ggx1 = Geometry_Schlick_GGX_IBL(NdotL, roughness);
+
+    return ggx1 * ggx2;
+}
+
 
 
 float4 main( PixelShaderInput IN ) : SV_Target
@@ -123,8 +145,7 @@ float4 main( PixelShaderInput IN ) : SV_Target
 
     float3 F0 = float3( 0.04f, 0.04f, 0.04f );
     
-    // Gamma Correction
-    float3 Albedo = pow( MaterialCB.Albedo, 2.2f );
+    float3 Albedo = MaterialCB.Albedo;
     
     F0 = lerp( F0, Albedo, MaterialCB.Metallic );
     
@@ -134,26 +155,24 @@ float4 main( PixelShaderInput IN ) : SV_Target
     // Roughness
     float Roughness = MaterialCB.Roughness;
     
+    // Each Light
     for ( int i = 0; i < LightPropertiesCB.NumPointLights; ++i )
-    {// Each Light
+    {
         // Point Light
         PointLight Light = PointLights[i];
         
-        // In
+        // In Light Direction
         float3 L = normalize( Light.PositionWS.xyz - IN.PositionWorld.xyz );
-        // Intermediate vector (bisector of the angle of incident light to normal)
+        // Intermediate vector
         float3 H = normalize( V + L );
-        float distance = length( Light.PositionWS.xyz - IN.PositionWorld.xyz );
-
-        //float attenuation = 1.0 / ( distance * distance );
-        // If Gamma has been corrected, there is no need for a second inverse attenuation, and a single attenuation is fine
-        float attenuation = 1.0 / distance ;
         
-        float3 radiance = Light.Color.xyz * attenuation;
+        float distance = length( Light.PositionWS.xyz - IN.PositionWorld.xyz );
+        float attenuation = 1.0 / ( distance * distance );
+        float3 radiance = Light.Color.rgb * attenuation;
 
         // Cook-Torrance BRDF
         float NDF = Distribution_GGX( N, H, Roughness );
-        float G = Geometry_Smith( N, V, L, Roughness );
+        float G = Geometry_Smith_DirectLight( N, V, L, Roughness );
         float3 F = Fresnel_Schlick( max( dot( H, V ), 0.0 ), F0 );
 
         float3 kS = F;
@@ -169,14 +188,26 @@ float4 main( PixelShaderInput IN ) : SV_Target
         Lo += ( kD * Albedo / PI + specular ) * radiance * NdotL;
     }
 
-    float fAO = MaterialCB.AO;
+    float ao = MaterialCB.AO;
+
+    // IBL ambient
+    float3 kS = Fresnel_Schlick(max(dot(N, V), 0.0), F0);
+    float3 kD = float3( 1.0f,1.0f,1.0f ) - kS;
+    kD *= float3( 1.0f,1.0f,1.0f ) - MaterialCB.Metallic;
+    float3 irradiance = IrradianceConvolution.Sample(LinearRepeatSampler , N).rgb;
+    float3 diffuse    = irradiance * Albedo;
+    
     // Ambient Light
-    float3 ambient = float3( 0.03f, 0.03f, 0.03f ) * Albedo * fAO;
+    float3 ambient = (kD * diffuse) * ao;
+    
+    //float3 ambient = float3( 0.03f, 0.03f, 0.03f ) * Albedo * ao;
+    
     float3 color = ambient + Lo;
+    
     // HDR tonemapping
     color = color / ( color + float3( 1.0f,1.0f,1.0f ) );
     // Gamma 
-    color = pow( color, 1.0f / 2.2f );
-    return float4( color, 1.0 );
+    color = pow( color, float3(1.0f / 2.2f , 1.0f / 2.2f , 1.0f / 2.2f) );
     
+    return float4( color, 1.0 );
 }
