@@ -1,4 +1,4 @@
-﻿#include "Demo2.h"
+﻿#include "Demo4.h"
 
 #include <Application.h>
 #include <CommandQueue.h>
@@ -131,7 +131,7 @@ XMMATRIX XM_CALLCONV LookAtMatrix(FXMVECTOR Position, FXMVECTOR Direction, FXMVE
 }
 
 
-Demo2::Demo2(const std::wstring& name, int width, int height, bool vSync)
+Demo4::Demo4(const std::wstring& name, int width, int height, bool vSync)
     : super(name, width, height, vSync)
     , m_ScissorRect(CD3DX12_RECT(0, 0, LONG_MAX, LONG_MAX))
     , m_Viewport(CD3DX12_VIEWPORT(0.0f, 0.0f, static_cast<float>(width), static_cast<float>(height)))
@@ -161,12 +161,12 @@ Demo2::Demo2(const std::wstring& name, int width, int height, bool vSync)
     m_pAlignedCameraData->m_InitialCamRot = m_Camera.get_Rotation();
 }
 
-Demo2::~Demo2()
+Demo4::~Demo4()
 {
     _aligned_free(m_pAlignedCameraData);
 }
 
-bool Demo2::LoadContent()
+bool Demo4::LoadContent()
 {
     auto device = Application::Get().GetDevice();
     auto commandQueue = Application::Get().GetCommandQueue(D3D12_COMMAND_LIST_TYPE_COPY);
@@ -418,7 +418,7 @@ bool Demo2::LoadContent()
     return true;
 }
 
-void Demo2::OnResize(ResizeEventArgs& e)
+void Demo4::OnResize(ResizeEventArgs& e)
 {
     super::OnResize(e);
 
@@ -437,11 +437,11 @@ void Demo2::OnResize(ResizeEventArgs& e)
     }
 }
 
-void Demo2::UnloadContent()
+void Demo4::UnloadContent()
 {
 }
 
-void Demo2::OnUpdate(UpdateEventArgs& e)
+void Demo4::OnUpdate(UpdateEventArgs& e)
 {
     static uint64_t frameCount = 0;
     static double totalTime = 0.0;
@@ -602,7 +602,7 @@ void XM_CALLCONV ComputeMatrices(FXMMATRIX model, CXMMATRIX view, CXMMATRIX view
 }
 #pragma endregion  
 
-void Demo2::OnRender(RenderEventArgs& e)
+void Demo4::OnRender(RenderEventArgs& e)
 {
     super::OnRender(e);
 
@@ -835,7 +835,7 @@ void Demo2::OnRender(RenderEventArgs& e)
 
 static bool g_AllowFullscreenToggle = true;
 
-void Demo2::OnKeyPressed(KeyEventArgs& e)
+void Demo4::OnKeyPressed(KeyEventArgs& e)
 {
     super::OnKeyPressed(e);
 
@@ -897,7 +897,7 @@ void Demo2::OnKeyPressed(KeyEventArgs& e)
     }
 }
 
-void Demo2::OnKeyReleased(KeyEventArgs& e)
+void Demo4::OnKeyReleased(KeyEventArgs& e)
 {
     super::OnKeyReleased(e);
 
@@ -939,7 +939,7 @@ void Demo2::OnKeyReleased(KeyEventArgs& e)
     }
 }
 
-void Demo2::OnMouseMoved(MouseMotionEventArgs& e)
+void Demo4::OnMouseMoved(MouseMotionEventArgs& e)
 {
     super::OnMouseMoved(e);
 
@@ -956,7 +956,7 @@ void Demo2::OnMouseMoved(MouseMotionEventArgs& e)
 }
 
 
-void Demo2::OnMouseWheel(MouseWheelEventArgs& e)
+void Demo4::OnMouseWheel(MouseWheelEventArgs& e)
 {
     auto fov = m_Camera.get_FoV();
 

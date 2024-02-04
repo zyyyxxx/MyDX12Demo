@@ -4,7 +4,7 @@
 #pragma comment(lib , "Shlwapi.lib")
 
 #include <Application.h>
-#include "Demo2.h"
+#include "Demo4.h"
 
 #include <dxgidebug.h>
 #pragma comment(lib , "dxguid.lib")
@@ -42,7 +42,7 @@ int CALLBACK wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR lpCmdL
 
     Application::Create(hInstance);
     {
-        std::shared_ptr<Demo2> demo = std::make_shared<Demo2>(L"Demo2", 1280, 720);
+        std::shared_ptr<Demo4> demo = std::make_shared<Demo4>(L"Demo2", 1280, 720);
         retCode = Application::Get().Run(demo);
     }
     Application::Destroy();

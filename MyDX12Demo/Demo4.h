@@ -13,13 +13,13 @@
 
 #include <DirectXMath.h>
 
-class Demo2 : public Game
+class Demo4 : public Game
 {
 public:
     using super = Game;
 
-    Demo2(const std::wstring& name, int width, int height, bool vSync = false);
-    virtual ~Demo2() override;
+    Demo4(const std::wstring& name, int width, int height, bool vSync = false);
+    virtual ~Demo4() override;
     
     virtual bool LoadContent() override;
 
