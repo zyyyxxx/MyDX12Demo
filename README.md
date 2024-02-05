@@ -13,3 +13,7 @@
 
 # Demo3 PBR-IBL
 ![image](https://github.com/zyyyxxx/MyDX12Demo/assets/97384254/012027a7-a9aa-4bc9-b4b6-d89c0bf4486d)
+![image](https://github.com/zyyyxxx/MyDX12Demo/assets/97384254/8c6bfb95-498d-4075-826b-dbb5c4fe977d)
+
+
+# Demo4 DXR
