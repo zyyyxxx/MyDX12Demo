@@ -20,6 +20,8 @@
 #include <UploadBuffer.h>
 #include <VertexBuffer.h>
 
+#include "PreFilterPSO.h"
+
 
 // static
 std::map<std::wstring, ID3D12Resource* > CommandList::ms_TextureCache;
@@ -713,7 +715,7 @@ void CommandList::PanoToCubemap(Texture& cubemapTexture, const Texture& panoText
     uavDesc.Texture2DArray.FirstArraySlice = 0;
     uavDesc.Texture2DArray.ArraySize = 6;
 
-    for (uint32_t mipSlice = 0; mipSlice < cubemapDesc.MipLevels; ) // 1024 图片 一共11层
+    for (uint32_t mipSlice = 0; mipSlice < cubemapDesc.MipLevels; ) // 1024 图片 一共11层 5 5 1
     {
         // 每个pass生成的最大 mips 数为 5。
         uint32_t numMips = std::min<uint32_t>(5, cubemapDesc.MipLevels - mipSlice);
@@ -728,6 +730,7 @@ void CommandList::PanoToCubemap(Texture& cubemapTexture, const Texture& panoText
 
         for ( uint32_t mip = 0; mip < numMips; ++mip )
         {
+            // 每个pass生成的mipmap
             uavDesc.Texture2DArray.MipSlice = mipSlice + mip;
             SetUnorderedAccessView(PanoToCubemapRS::DstMips, mip, stagingTexture,
                 D3D12_RESOURCE_STATE_UNORDERED_ACCESS, 0, 0, &uavDesc);
@@ -843,6 +846,105 @@ void CommandList::CubemapToIrradianceConvolution(Texture& irradianceTexture, con
     if (stagingResource != irradianceCubemapResource)
     {
         CopyResource(irradianceTexture, stagingTexture);
+    }
+}
+
+void CommandList::CubemapToPrefilter(Texture& prefilterTexture, const Texture& cubemap)
+{
+    if (m_d3d12CommandListType == D3D12_COMMAND_LIST_TYPE_COPY)
+    {
+        if (!m_ComputeCommandList)
+        {
+            m_ComputeCommandList = Application::Get().GetCommandQueue(D3D12_COMMAND_LIST_TYPE_COMPUTE)->GetCommandList();
+        }
+        m_ComputeCommandList->CubemapToPrefilter(prefilterTexture, cubemap);
+        return;
+    }
+
+    if (!m_PreFilterPSO)
+    {
+        m_PreFilterPSO = std::make_unique<PreFilterPSO>();
+    }
+
+    auto device = Application::Get().GetDevice();
+
+    auto prefilterResource = prefilterTexture.GetD3D12Resource();
+    if (!prefilterResource) return;
+
+    CD3DX12_RESOURCE_DESC prefilterDesc(prefilterResource->GetDesc());
+
+    auto stagingResource = prefilterResource;
+    Texture stagingTexture(stagingResource);
+    // 如果传入的资源不允许 UAV 访问，则创建用于生成立方体贴图的暂存资源
+    if ((prefilterDesc.Flags & D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS) == 0)
+    {
+        auto stagingDesc = prefilterDesc;
+        stagingDesc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+
+        const auto heapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
+        ThrowIfFailed(device->CreateCommittedResource(
+            &heapProperties,
+            D3D12_HEAP_FLAG_NONE,
+            &stagingDesc,
+            D3D12_RESOURCE_STATE_COPY_DEST,
+            nullptr,
+            IID_PPV_ARGS(&stagingResource)
+
+        ));
+
+        ResourceStateTracker::AddGlobalResourceState(stagingResource.Get(), D3D12_RESOURCE_STATE_COPY_DEST);
+
+        stagingTexture.SetD3D12Resource(stagingResource);
+        stagingTexture.CreateViews();
+        stagingTexture.SetName(L"Prefilter Staging Texture");
+
+        CopyResource(stagingTexture, prefilterTexture );
+    }                                                                 
+
+    TransitionBarrier(stagingTexture, D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
+
+    m_d3d12CommandList->SetPipelineState(m_PreFilterPSO->GetPipelineState().Get());
+    SetComputeRootSignature(m_PreFilterPSO->GetRootSignature());
+
+    PreFilterCB preFilterCB;
+
+    // 每个pass生成的最大 mips 数为 5。
+    
+    preFilterCB.CubemapSize = std::max<uint32_t>(static_cast<uint32_t>(prefilterDesc.Width), prefilterDesc.Height);
+
+    SetCompute32BitConstants(PreFilterRS::PreFilterCB, preFilterCB);
+
+    D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+    srvDesc.Format = cubemap.GetD3D12ResourceDesc().Format;
+    srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+    srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURECUBE;
+    srvDesc.TextureCube.MipLevels = (UINT)-1; // Use all mips.
+    SetShaderResourceView(PreFilterRS::SrcTexture, 0, cubemap, D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE,
+        0, D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES, &srvDesc);
+
+    
+    D3D12_UNORDERED_ACCESS_VIEW_DESC uavDesc = {};
+    uavDesc.Format = prefilterDesc.Format;
+    uavDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2DARRAY;
+    uavDesc.Texture2DArray.FirstArraySlice = 0;
+    uavDesc.Texture2DArray.ArraySize = 6;
+    
+    for (uint32_t mip = 0; mip < 5; ++mip)
+    {
+        // pass生成的mipmap
+        uavDesc.Texture2DArray.MipSlice = 0 + mip;
+        SetUnorderedAccessView(PreFilterRS::DstMips, mip, stagingTexture,
+                               D3D12_RESOURCE_STATE_UNORDERED_ACCESS, 0, 0, &uavDesc);
+    }
+
+    Dispatch(Math::DivideByMultiple(preFilterCB.CubemapSize, 16),
+             Math::DivideByMultiple(preFilterCB.CubemapSize, 16), 6);
+    
+    
+
+    if (stagingResource != prefilterResource)
+    {
+        CopyResource(prefilterTexture, stagingTexture);
     }
 }
 

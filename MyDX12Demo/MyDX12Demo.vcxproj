@@ -302,6 +302,28 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">6.6</ShaderModel>
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)inc\%(Filename).h</HeaderFileOutput>
     </FxCompile>
+    <FxCompile Include="..\shaders\PreFilter_CS.hlsl">
+      <ObjectFileOutput>
+      </ObjectFileOutput>
+      <TrackerLogDirectory>x64\Debug\MyDX12Demo.tlog\</TrackerLogDirectory>
+      <EntryPointName>main</EntryPointName>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ShaderModel>6.6</ShaderModel>
+      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+      <DisableOptimizations>true</DisableOptimizations>
+      <EnableDebuggingInformation>true</EnableDebuggingInformation>
+      <ShaderType>Compute</ShaderType>
+      <VariableName>g_GenerateMips_CS</VariableName>
+      <HeaderFileOutput>GenerateMips_CS.h</HeaderFileOutput>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">g_%(Filename)</VariableName>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">g_%(Filename)</VariableName>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">g_%(Filename)</VariableName>
+      <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">g_%(Filename)</VariableName>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)inc\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)inc\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)inc\%(Filename).h</HeaderFileOutput>
+      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)inc\%(Filename).h</HeaderFileOutput>
+    </FxCompile>
     <FxCompile Include="..\shaders\Skybox_PS.hlsl">
       <FileType>Document</FileType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
@@ -1503,6 +1525,7 @@
     <ClInclude Include="..\inc\Material.h" />
     <ClInclude Include="..\inc\PanoToCubemapPSO.h" />
     <ClInclude Include="..\inc\PreFilterPSO.h" />
+    <ClInclude Include="..\inc\PreFilter_CS.h" />
     <ClInclude Include="..\inc\RenderTarget.h" />
     <ClInclude Include="..\inc\Resource.h" />
     <ClInclude Include="..\inc\ResourceStateTracker.h" />

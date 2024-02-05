@@ -142,7 +142,8 @@ float4 main( PixelShaderInput IN ) : SV_Target
     float3 N = normalize( IN.Normal.xyz );
     // View Vector
     float3 V = normalize( CameraDataCB.Position.xyz - IN.PositionWorld.xyz );
-
+    float3 R = reflect(-V, N);
+    
     float3 F0 = float3( 0.04f, 0.04f, 0.04f );
     
     float3 Albedo = MaterialCB.Albedo;
@@ -196,11 +197,15 @@ float4 main( PixelShaderInput IN ) : SV_Target
     kD *= float3( 1.0f,1.0f,1.0f ) - MaterialCB.Metallic;
     float3 irradiance = IrradianceConvolution.Sample(LinearRepeatSampler , N).rgb;
     float3 diffuse    = irradiance * Albedo;
+
+    // sample both the pre-filter map and the BRDF lut and combine them together as per the Split-Sum approximation to get the IBL specular part.
+    const float MAX_REFLECTION_LOD = 4.0;
+    float3 prefilteredColor =  PreFilter.SampleLevel(LinearRepeatSampler, R, Roughness * MAX_REFLECTION_LOD).rgb;
+    //float2 brdf  = texture(brdfLUT, vec2(max(dot(N, V), 0.0), roughness)).rg;
+    float3 specular = prefilteredColor; //* (F * brdf.x + brdf.y);
     
     // Ambient Light
-    float3 ambient = (kD * diffuse) * ao;
-    
-    //float3 ambient = float3( 0.03f, 0.03f, 0.03f ) * Albedo * ao;
+    float3 ambient = (kD * diffuse + specular) * ao;
     
     float3 color = ambient + Lo;
     

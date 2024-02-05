@@ -10,6 +10,8 @@
 #include <mutex> // for std::mutex
 #include <vector> // for std::vector
 
+#include "PreFilterPSO.h"
+
 class Buffer;
 class ByteAddressBuffer;
 class ConstantBuffer;
@@ -173,6 +175,11 @@ public:
      * 从 cubemap 纹理生成 irradiance卷积 纹理
      */
     void CubemapToIrradianceConvolution(Texture& irradianceTexture, const Texture& cubemap);
+
+    /**
+      * 从 cubemap 纹理生成 irradiance卷积 纹理
+      */
+    void CubemapToPrefilter(Texture& prefilterTexture, const Texture& cubemap);
 
     
     /**
@@ -417,6 +424,8 @@ private:
     std::unique_ptr<PanoToCubemapPSO> m_PanoToCubemapPSO;
     // PSO for cubemap 转换为 irradiance convolution
     std::unique_ptr<IrradianceConvolutionPSO> m_IrradianceCubemapPSO;
+    // PSO for PreFilter
+    std::unique_ptr<PreFilterPSO> m_PreFilterPSO;
 
     // 命令队列上“正在进行”且无法删除的命令列表 跟踪对象
     // 为确保在命令列表执行完毕之前不会删除对象，将存储对对象的引用。

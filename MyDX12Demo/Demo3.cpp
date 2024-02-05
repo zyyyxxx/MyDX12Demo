@@ -97,13 +97,15 @@ TonemapParameters g_TonemapParameters;
 // 根签名参数枚举
 enum RootParameters
 {
-    MatricesCB,         // ConstantBuffer<Mat> MatCB : register(b0);
-    MaterialCB,         // ConstantBuffer<Material> MaterialCB : register( b0, space1 );
-    LightPropertiesCB,  // ConstantBuffer<LightProperties> LightPropertiesCB : register( b1 );
-    CameraDataCB,        // ConstantBuffer<CameraData> CameraDataCB : register(b2);
-    PointLights,        // StructuredBuffer<PointLight> PointLights : register( t0 );
-    SpotLights,         // StructuredBuffer<SpotLight> SpotLights : register( t1 );
-    IrradianceConvolution, // TextureCube IrradianceConvolution : register(t2);
+    MatricesCB,             // ConstantBuffer<Mat> MatCB : register(b0);
+    MaterialCB,             // ConstantBuffer<Material> MaterialCB : register( b0, space1 );
+    LightPropertiesCB,      // ConstantBuffer<LightProperties> LightPropertiesCB : register( b1 );
+    CameraDataCB,           // ConstantBuffer<CameraData> CameraDataCB : register(b2);
+    PointLights,            // StructuredBuffer<PointLight> PointLights : register( t0 );
+    SpotLights,             // StructuredBuffer<SpotLight> SpotLights : register( t1 );
+    IrradianceConvolution,  // TextureCube IrradianceConvolution : register(t2);
+    Prefilter,              // TextureCube PreFilter : register(t3);
+    BRDFLUT,                // Texture2D BRDFLUT : register(t4);
     NumRootParameters
 };
 
@@ -194,7 +196,7 @@ bool Demo3::LoadContent()
     auto cubemapDesc = m_GraceCathedralTexture.GetD3D12ResourceDesc();
     cubemapDesc.Width = cubemapDesc.Height = 1024;
     cubemapDesc.DepthOrArraySize = 6;
-    cubemapDesc.MipLevels = 0;
+    cubemapDesc.MipLevels = 0;// 0-自动计算
     m_GraceCathedralCubemap = Texture(cubemapDesc, nullptr, TextureUsage::Albedo, L"Grace Cathedral Cubemap");
     commandList->PanoToCubemap(m_GraceCathedralCubemap, m_GraceCathedralTexture);
 
@@ -202,12 +204,17 @@ bool Demo3::LoadContent()
     auto irradianceDesc = m_GraceCathedralCubemap.GetD3D12ResourceDesc();
     irradianceDesc.Width = irradianceDesc.Height = 1024;
     irradianceDesc.DepthOrArraySize = 6;
-    irradianceDesc.MipLevels = 0;
+    irradianceDesc.MipLevels = 0;// 0-自动计算
     m_IrradianceCubemap = Texture(irradianceDesc, nullptr, TextureUsage::Albedo, L"Irradiance Convolution Texture");
     commandList->CubemapToIrradianceConvolution(m_IrradianceCubemap, m_GraceCathedralCubemap);
 
     // TODO: 预过滤HDR环境贴图
-    
+    auto prefilterDesc = m_GraceCathedralCubemap.GetD3D12ResourceDesc();
+    prefilterDesc.Width = prefilterDesc.Height = 1024;
+    prefilterDesc.DepthOrArraySize = 6;
+    prefilterDesc.MipLevels = 0;// 0-自动计算
+    m_PrefilterCubemap = Texture(prefilterDesc, nullptr, TextureUsage::Albedo, L"Prefilter Cubemap Texture");
+    commandList->CubemapToPrefilter(m_PrefilterCubemap, m_GraceCathedralCubemap);
 
     // TODO: BRDF LUT
 
@@ -335,7 +342,9 @@ bool Demo3::LoadContent()
             D3D12_ROOT_SIGNATURE_FLAG_DENY_DOMAIN_SHADER_ROOT_ACCESS |
             D3D12_ROOT_SIGNATURE_FLAG_DENY_GEOMETRY_SHADER_ROOT_ACCESS;
 
-        CD3DX12_DESCRIPTOR_RANGE1 descriptorRange(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2);
+        CD3DX12_DESCRIPTOR_RANGE1 descriptorRange1(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2);
+        CD3DX12_DESCRIPTOR_RANGE1 descriptorRange2(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 3);
+        CD3DX12_DESCRIPTOR_RANGE1 descriptorRange3(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 4);
 
         CD3DX12_ROOT_PARAMETER1 rootParameters[RootParameters::NumRootParameters];
         rootParameters[RootParameters::MatricesCB].InitAsConstantBufferView(0, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_VERTEX);
@@ -344,7 +353,9 @@ bool Demo3::LoadContent()
         rootParameters[RootParameters::CameraDataCB].InitAsConstantBufferView(2, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_PIXEL);
         rootParameters[RootParameters::PointLights].InitAsShaderResourceView(0, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_PIXEL);
         rootParameters[RootParameters::SpotLights].InitAsShaderResourceView(1, 0, D3D12_ROOT_DESCRIPTOR_FLAG_NONE, D3D12_SHADER_VISIBILITY_PIXEL);
-        rootParameters[RootParameters::IrradianceConvolution].InitAsDescriptorTable(1, &descriptorRange, D3D12_SHADER_VISIBILITY_PIXEL);
+        rootParameters[RootParameters::IrradianceConvolution].InitAsDescriptorTable(1, &descriptorRange1, D3D12_SHADER_VISIBILITY_PIXEL);
+        rootParameters[RootParameters::Prefilter].InitAsDescriptorTable(1, &descriptorRange2, D3D12_SHADER_VISIBILITY_PIXEL);
+        rootParameters[RootParameters::BRDFLUT].InitAsDescriptorTable(1, &descriptorRange3, D3D12_SHADER_VISIBILITY_PIXEL);
 
         CD3DX12_STATIC_SAMPLER_DESC linearRepeatSampler(0, D3D12_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR);
         CD3DX12_STATIC_SAMPLER_DESC anisotropicSampler(0, D3D12_FILTER_ANISOTROPIC);
@@ -665,10 +676,18 @@ void Demo3::OnRender(RenderEventArgs& e)
     srvDesc.Format = m_IrradianceCubemap.GetD3D12ResourceDesc().Format;
     srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
     srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURECUBE;
-    srvDesc.TextureCube.MipLevels = 1; // Use all mips.
-    
+    srvDesc.TextureCube.MipLevels = 1;
     commandList->SetShaderResourceView(RootParameters::IrradianceConvolution, 0, m_IrradianceCubemap,
         D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE , 0, D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES, &srvDesc);
+
+
+    D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc1 = {};
+    srvDesc1.Format = m_PrefilterCubemap.GetD3D12ResourceDesc().Format;
+    srvDesc1.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+    srvDesc1.ViewDimension = D3D12_SRV_DIMENSION_TEXTURECUBE;
+    srvDesc1.TextureCube.MipLevels = (UINT)-1; // Use all mips.
+    commandList->SetShaderResourceView(RootParameters::Prefilter,  0, m_PrefilterCubemap,
+        D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE , 0, D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES, &srvDesc1);
     
     m_SphereMesh->Draw(*commandList);
 

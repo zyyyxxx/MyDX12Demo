@@ -111,6 +111,12 @@
     <ClCompile Include="PSO\IrradianceConvolutionPSO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="PSO\BRDFLUTPSO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PSO\PreFilterPSO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\Application.h">
@@ -233,6 +239,12 @@
     <ClInclude Include="..\inc\IrradianceConvolutionPSO.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\BRDFLUTPSO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\PreFilterPSO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\shaders\GenerateMips_CS.hlsl" />
@@ -243,6 +255,7 @@
     <FxCompile Include="..\shaders\HDRtoSDR_VS.hlsl" />
     <FxCompile Include="..\shaders\Skybox_PS.hlsl" />
     <FxCompile Include="..\shaders\Skybox_VS.hlsl" />
-    <FxCompile Include="..\shaders\IrrarianceConvolution_CS.hlsl" />
+    <FxCompile Include="..\shaders\IrradianceConvolution_CS.hlsl" />
+    <FxCompile Include="..\shaders\PreFilter_CS.hlsl" />
   </ItemGroup>
 </Project>

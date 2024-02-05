@@ -5,26 +5,26 @@
 
 #include <cstdint>
 
-struct IrradianceConvolutionCB
+struct PreFilterCB
 {
     //当前 mipmap 级别的立方体贴图面的大小（以像素为单位）
     uint32_t CubemapSize;
 };
 
-namespace IrradianceConvolutionRS
+namespace PreFilterRS
 {
     enum
     {
-        IrradianceConvolutionCB,
+        PreFilterCB,
         SrcTexture,
-        DstTexture,
+        DstMips,
         NumRootParameters
     };
 }
-class IrradianceConvolutionPSO
+class PreFilterPSO
 {
 public:
-    IrradianceConvolutionPSO();
+    PreFilterPSO();
 
     const RootSignature& GetRootSignature() const
     {

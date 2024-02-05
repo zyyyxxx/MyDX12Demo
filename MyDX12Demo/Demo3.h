@@ -59,6 +59,8 @@ private:
     Texture m_GraceCathedralTexture;
     Texture m_GraceCathedralCubemap;
     Texture m_IrradianceCubemap;
+    Texture m_PrefilterCubemap;
+    Texture m_BRDFLUT;
 
     // HDR RT
     RenderTarget m_HDRRenderTarget;
