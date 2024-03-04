@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 .idea/
+ClassDiagram.png
+MyDX12Demo/ClassDiagram.cd
